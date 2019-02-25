@@ -33,15 +33,15 @@ Week# | Date | Lecture | Lab | Notes
  :-: | :-: | :-- | :-- | :--
  1 | 4 Mar | Course overview: `R` for spatial | &nbsp; |
 2 | 11 Mar | Why &lsquo;spatial is special&rsquo; | First steps in *R* |
-3 | 18 Mar | Measuring spatial autocorrelation | **Moran's *I* in *R* ** (12.5%) | Due 1 Apr
+3 | 18 Mar | Measuring spatial autocorrelation | **Moran's *I* in *R* ** (10%) | Due 1 Apr
 4 | 25 Mar | Spatial processes | Learning `spatstat` |
-5 | 1 Apr | Point pattern analysis | **PPA in `spatstat`** (12.5%) | Due 29 Apr
+5 | 1 Apr | Point pattern analysis | **Point pattern analysis in *R* ** (10%) | Due 29 Apr
 6 | 8 Apr | Cluster detection | Survey of other tools |
 &nbsp; | Break | &nbsp; | &nbsp; | &nbsp;
-7 | 29 Apr | Spatial interpolation | **Interpolation in *R* ** (12.5%) | Due 13 May
-8 | 6 May | Geostatistics | `ArcGIS` geostatistical analyst |
+7 | 29 Apr | Spatial interpolation | **Interpolation in *R* ** (10%) | Due 13 May
+8 | 6 May | Geostatistics | *ArcGIS* geostatistical analyst |
 9 | 13 May | Overlay and regression | Regression in *R* |
-10 | 20 May | Multivariate methods | **Geodemographics in `R`** (12.5%) | Due 4 Jun
+10 | 20 May | Multivariate methods | **Geodemographics in *R* ** (12.5%) | Due 4 Jun
 11 | 27 May | Network analysis | Tools for network analysis |
 12 | 3 Jun | **No class** Queen's Birthday | **Final assignment** (50%) | Due 14 Jun
 
@@ -71,7 +71,7 @@ There are also many useful online resources that cover topics that are the subje
 For the final assignment you will need to do your own research and assemble materials concerning how spatial analysis has been applied in specific areas of study.
 
 ## Labs
-Lab sessions follow the lecture sessions and will cover related practical topics. Only four sessions have an associated assessed assignment, but you should attend all labs and particpate fully to broaden your knowledge of GIScience methods and tools as any of the approaches covered may prove useful for you in other parts of the program.
+Lab sessions follow the lecture sessions and will cover related practical topics. Only four sessions have an associated assessed assignment, but you should attend all labs and particpate fully to broaden your knowledge of GIScience methods and tools as any of the approaches covered may prove useful for you in other parts of the program. (Note also that a portion of the course credit is for participation in all aspects of the course.)
 
 ### Software
 Most of the lab work will be completed in the [*R*](https://www.r-project.org/) programming language for statistical computing, using various packages tailored to spatial analysis work. *R*
@@ -91,11 +91,12 @@ This course is 100% internally assessed.  Assessment is based on four lab assign
 
 Assessment item | Credit | Due date | CLOs
 :- | :-: | :-: | :-:
-Spatial autocorrelation | 12.5% | 1 April | 2 3 4
-Point pattern analysis | 12.5% | 29 April | 2 3 4
-Spatial interpolation | 12.5% | 13 May | 2 3 4
-Geodemographic analysis | 12.5% | 4 June | 2 3 4
+Spatial autocorrelation | 10% | 1 April | 2 3 4
+Point pattern analysis | 10% | 29 April | 2 3 4
+Spatial interpolation | 10% | 13 May | 2 3 4
+Geodemographic analysis | 10% | 4 June | 2 3 4
 Written report on application of spatial analysis in a particular topic area | 50% | 14 June | 1
+Participation (including non-assessed labs) | 10% | NA | 1 2 3 4
 
 Assessments are submitted electronically via dropbox on [Blackboard](https://blackboard.vuw.ac.nz/). I will aim to return coursework within 3 weeks. Extensions should be requested from the SGEES administration office. If you anticipate problems come and talk to me.
 
