@@ -10,17 +10,17 @@ Mid-trimester break | 15 April to 29 April 2019
 Last assessment item due | 14 June 2019
 Study period | NA
 Examination period | NA
-Withdrawal dates | See [Course additions and withdrawals](www.victoria.ac.nz/home/admisenrol/payments/withdrawalsrefunds)
+Withdrawal dates | See + [Course additions and withdrawals](www.victoria.ac.nz/home/admisenrol/payments/withdrawalsrefunds)
 
-If you cannot complete an assignment or sit a test or examination, refer to [Aegrotats](www.victoria.ac.nz/home/study/exams-and-assessments/aegrotat)
+If you cannot complete an assignment or sit a test or examination, refer to + [Aegrotats](www.victoria.ac.nz/home/study/exams-and-assessments/aegrotat)
 
 ## Lecture and lab schedule
 Lectures are in Cotton 110 at 10AM on Mondays and will be followed immediately by related lab sessions in the same location.
 
 ## Key names and contact details
 ### Lecturer/coordinator
-**Prof. [David O'Sullivan](mailto:david.osullivan@vuw.ac.nz)**
-**Office** CO227 **Extn.** 6492 **Office hours by appointment** [here](http://calendly.com/dosullivan)
+**Prof. + [David O'Sullivan](mailto:david.osullivan@vuw.ac.nz)**
+**Office** CO227 **Extn.** 6492 **Office hours by appointment** + [here](http://calendly.com/dosullivan)
 
 ###GIS Technician
 **Andrew Rae**
@@ -49,24 +49,24 @@ Week# | Date | Lecture | Lab | Notes
 Lectures will generally consist of around an hour of presented material, and around 30 minutes of more open-ended discussion and Q&A based on the materials and on reading which students will have been expected to do ahead of class.
 
 ### Readings
-Details of any required readings will be provided ahead of class and where possible either publicly available, or linked from [Blackboard](https://blackboard.vuw.ac.nz/). Most readings will be from one or the other of
+Details of any required readings will be provided ahead of class and where possible either publicly available, or linked from + [Blackboard](https://blackboard.vuw.ac.nz/). Most readings will be from one or the other of
 
-+ Bivand R, Pebesma E and Gómez-Rubilio V. 2013. [*Applied Spatial Data Analysis with R*](https://link-springer-com.helicon.vuw.ac.nz/book/10.1007%2F978-1-4614-7618-4) 2nd edn. Springer, New York.
-+ O'Sullivan D and D Unwin. 2010. [*Geographic Information Analysis*](http://www.wiley.com/WileyCDA/WileyTitle/productCd-0470288574.html) 2nd edn. Wiley, Hoboken, NJ.
++ Bivand R, Pebesma E and Gómez-Rubilio V. 2013. + [*Applied Spatial Data Analysis with R*](https://link-springer-com.helicon.vuw.ac.nz/book/10.1007%2F978-1-4614-7618-4) 2nd edn. Springer, New York.
++ O'Sullivan D and D Unwin. 2010. + [*Geographic Information Analysis*](http://www.wiley.com/WileyCDA/WileyTitle/productCd-0470288574.html) 2nd edn. Wiley, Hoboken, NJ.
 
 The first of these is freely available as a full PDF download from the library, so where possible I will emphasise materials in that book. I wrote the second book and will provide pre-publication manuscript chapters where needed.
 
 A third book:
 
-+ Brunsdon C and L Comber. 2018. [*An Introduction to R for Spatial Analysis and Mapping*](https://au.sagepub.com/en-gb/oce/an-introduction-to-r-for-spatial-analysis-and-mapping/book241031) 2nd edn. Sage, London.
++ Brunsdon C and L Comber. 2018. + [*An Introduction to R for Spatial Analysis and Mapping*](https://au.sagepub.com/en-gb/oce/an-introduction-to-r-for-spatial-analysis-and-mapping/book241031) 2nd edn. Sage, London.
 
 is more recent and is reasonably affordable, so you might consider purchasing it as a general reference and reminder of topics covered in the class.
 
 There are also many useful online resources that cover topics that are the subject of this class. For example:
 
-+ [*Spatial Data Science*](https://keen-swartz-3146c4.netlify.com/intro.html) a book in preparation from Bivand and Pebesma
-+ [Course materials for Geographic Data Science](http://darribas.org/gds15/) by Daniel Arribas-Bel at University of Liverpool
-+ [*Geospatial Analysis*](https://www.spatialanalysisonline.com/HTML/index.html) by deSmith, Longley and Goodchild
++ + [*Spatial Data Science*](https://keen-swartz-3146c4.netlify.com/intro.html) a book in preparation from Bivand and Pebesma
++ + [Course materials for Geographic Data Science](http://darribas.org/gds15/) by Daniel Arribas-Bel at University of Liverpool
++ + [*Geospatial Analysis*](https://www.spatialanalysisonline.com/HTML/index.html) by deSmith, Longley and Goodchild
 
 For the final assignment you will need to do your own research and assemble materials concerning how spatial analysis has been applied in specific areas of study.
 
@@ -85,18 +85,18 @@ The primary mode of communication for the course will be via Blackboard, so plea
 Since this is a relatively small graduate class, I expect that it will not be a problem to raise any issues or concerns directly with me, or with the GIS technician.
 
 ### Other useful resources
-[Academic Integrity and Plagiarism](http://www.victoria.ac.nz/home/study/plagiarism)
-[Aegrotats] (http:\\www.victoria.ac.nz/home/study/exams-and-assessments/aegrotat)
-[Academic Progress] (http:\\www.victoria.ac.nz/home/study/academic-progress) (including restrictions and non-engagement)
-[Dates and deadlines] (http:\\www.victoria.ac.nz/home/study/dates)
-[Grades] (http:\\www.victoria.ac.nz/home/study/exams-and-assessments/grades)
-[Resolving academic issues]: (http:\\www.victoria.ac.nz/home/about/avcacademic/publications2#grievances)
-[Special passes] (http:\\www.victoria.ac.nz/home/about/avcacademic/publications2#specialpass)
-[Statutes and policies including the Student Conduct Statute] (http:\\www.victoria.ac.nz/home/about/policy)
-[Student support]: (http:\\www.victoria.ac.nz/home/viclife/studentservice)
-[Students with disabilities]: (http:\\www.victoria.ac.nz/st_services/disability)
-[Student Charter] (http:\\www.victoria.ac.nz/home/viclife/student-charter)
-[Student Contract] (http:\\www.victoria.ac.nz/home/admisenrol/enrol/studentcontract)
-[Turnitin] (http:\\www.cad.vuw.ac.nz/wiki/index.php/Turnitin)
-[University structure]: (http:\\www.victoria.ac.nz/home/about)
-[VUWSA] (http:\\www.vuwsa.org.nz)
++ [Academic Integrity and Plagiarism](http://www.victoria.ac.nz/home/study/plagiarism)
++ [Aegrotats] (http:\\www.victoria.ac.nz/home/study/exams-and-assessments/aegrotat)
++ [Academic Progress] (http:\\www.victoria.ac.nz/home/study/academic-progress) (including restrictions and non-engagement)
++ [Dates and deadlines] (http:\\www.victoria.ac.nz/home/study/dates)
++ [Grades] (http:\\www.victoria.ac.nz/home/study/exams-and-assessments/grades)
++ [Resolving academic issues]: (http:\\www.victoria.ac.nz/home/about/avcacademic/publications2#grievances)
++ [Special passes] (http:\\www.victoria.ac.nz/home/about/avcacademic/publications2#specialpass)
++ [Statutes and policies including the Student Conduct Statute] (http:\\www.victoria.ac.nz/home/about/policy)
++ [Student support]: (http:\\www.victoria.ac.nz/home/viclife/studentservice)
++ [Students with disabilities]: (http:\\www.victoria.ac.nz/st_services/disability)
++ [Student Charter] (http:\\www.victoria.ac.nz/home/viclife/student-charter)
++ [Student Contract] (http:\\www.victoria.ac.nz/home/admisenrol/enrol/studentcontract)
++ [Turnitin] (http:\\www.cad.vuw.ac.nz/wiki/index.php/Turnitin)
++ [University structure]: (http:\\www.victoria.ac.nz/home/about)
++ [VUWSA] (http:\\www.vuwsa.org.nz)
