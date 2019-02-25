@@ -22,7 +22,7 @@ Lectures are in Cotton 110 at 10AM on Mondays and will be followed immediately b
 **Prof. [David O'Sullivan](mailto:david.osullivan@vuw.ac.nz)**
 **Office** CO227 **Extn.** 6492 **Office hours by appointment** [click here](http://calendly.com/dosullivan)
 
-###GIS Technician
+### GIS Technician
 **Andrew Rae**
 **Office** CO502 **Office hours** TBD
 
@@ -32,15 +32,15 @@ Here's the trimester schedule we will aim to follow. **Bolded labs** have an ass
 Week# | Date | Lecture | Lab | Notes
  :-: | :-: | :-- | :-- | :--
  1 | 4 Mar | Course overview: `R` for spatial | &nbsp; |
-2 | 11 Mar | Why &lsquo;spatial is special&rsquo; | First steps in `R` |
-3 | 18 Mar | Measuring spatial autocorrelation | **Moran's *I* in `R`** (12.5%) | Due 1 Apr
+2 | 11 Mar | Why &lsquo;spatial is special&rsquo; | First steps in *R* |
+3 | 18 Mar | Measuring spatial autocorrelation | **Moran's *I* in *R* ** (12.5%) | Due 1 Apr
 4 | 25 Mar | Spatial processes | Learning `spatstat` |
 5 | 1 Apr | Point pattern analysis | **PPA in `spatstat`** (12.5%) | Due 29 Apr
 6 | 8 Apr | Cluster detection | Survey of other tools |
 &nbsp; | Break | &nbsp; | &nbsp; | &nbsp;
-7 | 29 Apr | Spatial interpolation | **Interpolation in `R`** (12.5%) | Due 13 May
+7 | 29 Apr | Spatial interpolation | **Interpolation in *R* ** (12.5%) | Due 13 May
 8 | 6 May | Geostatistics | `ArcGIS` geostatistical analyst |
-9 | 13 May | Overlay and regression | Regression in `R` |
+9 | 13 May | Overlay and regression | Regression in *R* |
 10 | 20 May | Multivariate methods | **Geodemographics in `R`** (12.5%) | Due 4 Jun
 11 | 27 May | Network analysis | Tools for network analysis |
 12 | 3 Jun | **No class** Queen's Birthday | **Final assignment** (50%) | Due 14 Jun
@@ -73,6 +73,13 @@ For the final assignment you will need to do your own research and assemble mate
 ## Labs
 Lab sessions follow the lecture sessions and will cover related practical topics. Only four sessions have an associated assessed assignment, but you should attend all labs and particpate fully to broaden your knowledge of GIScience methods and tools as any of the approaches covered may prove useful for you in other parts of the program.
 
+### Software
+Most of the lab work will be completed in the [*R*](https://www.r-project.org/) programming language for statistical computing, using various packages tailored to spatial analysis work. *R*
+
+We will use *R* from the [*RStudio*](https://www.rstudio.com/) environment which makes managing work more straightforward.
+
+Both *R* and *RStudio* are available on the lab computers. Both are freely downloadable for use on your own computer (they work on all three major platforms). We can take a look if you are having issues with your installation, but are likely to suggest that you uninstall and reinstall. In some cases problems might arise from different versions of key packages, in which case you will have to work with the lab machine versions as we can't support multiple versions across different platforms.
+
 ## Course learning objectives (CLOs)
 1. Articulate the theoretical and practical considerations in the application of spatial analysis methods and spatial modelling
 2. Prepare, manipulate, analyse, and display spatial data
@@ -83,7 +90,7 @@ Lab sessions follow the lecture sessions and will cover related practical topics
 This course is 100% internally assessed.  Assessment is based on four lab assignments worth 12.5% of overall course credit each, and a final assignment worth 50% of course credit due in the exam period.
 
 Assessment item | Credit | Due date | CLOs
-:- | :-: | :-: | :-
+:- | :-: | :-: | :-:
 Spatial autocorrelation | 12.5% | 1 April | 2 3 4
 Point pattern analysis | 12.5% | 29 April | 2 3 4
 Spatial interpolation | 12.5% | 13 May | 2 3 4
