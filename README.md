@@ -31,19 +31,19 @@ Here's the trimester schedule we will aim to follow. **Bolded labs** have an ass
 
 Week# | Date | Lecture | Lab | Notes
  :-: | :-: | :-- | :-- | :--
- 1 | 4 Mar | Course overview: *R* for spatial | &nbsp; |
-2 | 11 Mar | Why &lsquo;spatial is special&rsquo; | First steps in *R* |
-3 | 18 Mar | Measuring spatial autocorrelation | **Moran's *I* in *R* ** (10%) | Due 1 Apr
-4 | 25 Mar | Spatial processes | Learning `spatstat` |
-5 | 1 Apr | Point pattern analysis | **Point pattern analysis in *R* ** (10%) | Due 29 Apr
+ 1 | 4 Mar | Course overview: *R* for spatial | *R* and *RStudio* computing environment |
+2 | 11 Mar | Why &lsquo;spatial is special&rsquo; | Making maps in *R* |
+3 | 18 Mar | Measuring spatial autocorrelation | **Moran's *I* in *R* ** | Due 1 Apr
+4 | 25 Mar | Spatial processes | Introducing `spatstat` |
+5 | 1 Apr | Point pattern analysis | **Point pattern analysis in *R* ** | Due 29 Apr
 6 | 8 Apr | Cluster detection | Survey of other tools |
 &nbsp; | Break | &nbsp; | &nbsp; | &nbsp;
-7 | 29 Apr | Spatial interpolation | **Interpolation in *R* ** (10%) | Due 13 May
+7 | 29 Apr | Spatial interpolation | **Interpolation in *R* ** | Due 13 May
 8 | 6 May | Geostatistics | *ArcGIS* geostatistical analyst |
 9 | 13 May | Overlay and regression | Regression in *R* |
-10 | 20 May | Multivariate methods | **Geodemographics in *R* ** (12.5%) | Due 4 Jun
+10 | 20 May | Multivariate methods | **Geodemographics in *R* ** | Due 4 Jun
 11 | 27 May | Network analysis | Tools for network analysis |
-12 | 3 Jun | **No class** Queen's Birthday | **Final assignment** (50%) | Due 14 Jun
+12 | 3 Jun | **No class** Queen's Birthday | &nbsp; |
 
 ## Lectures
 Lectures will generally consist of around an hour of presented material, and around 30 minutes of more open-ended discussion and Q&A based on the materials and on reading which students will have been expected to do ahead of class.
