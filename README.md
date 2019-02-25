@@ -10,9 +10,9 @@ Mid-trimester break | 15 April to 29 April 2019
 Last assessment item due | 14 June 2019
 Study period | NA
 Examination period | NA
-Withdrawal dates | See + [Course additions and withdrawals](www.victoria.ac.nz/home/admisenrol/payments/withdrawalsrefunds)
+Withdrawal dates | See [Course additions and withdrawals](www.victoria.ac.nz/home/admisenrol/payments/withdrawalsrefunds)
 
-If you cannot complete an assignment or sit a test or examination, refer to + [Aegrotats](www.victoria.ac.nz/home/study/exams-and-assessments/aegrotat)
+If you cannot complete an assignment or sit a test or examination, refer to [Aegrotats](www.victoria.ac.nz/home/study/exams-and-assessments/aegrotat)
 
 ## Lecture and lab schedule
 Lectures are in Cotton 110 at 10AM on Mondays and will be followed immediately by related lab sessions in the same location. The combined session will last two hours, finishing up before noon.
