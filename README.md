@@ -31,7 +31,7 @@ Here's the trimester schedule we will aim to follow. **Bolded labs** have an ass
 
 Week# | Date | Lecture | Lab | Notes
  :-: | :-: | :-- | :-- | :--
- 1 | 4 Mar | Course overview: `R` for spatial | &nbsp; |
+ 1 | 4 Mar | Course overview: *R* for spatial | &nbsp; |
 2 | 11 Mar | Why &lsquo;spatial is special&rsquo; | First steps in *R* |
 3 | 18 Mar | Measuring spatial autocorrelation | **Moran's *I* in *R* ** (10%) | Due 1 Apr
 4 | 25 Mar | Spatial processes | Learning `spatstat` |
@@ -97,6 +97,8 @@ Spatial interpolation | 10% | 13 May | 2 3 4
 Geodemographic analysis | 10% | 4 June | 2 3 4
 Written report on application of spatial analysis in a particular topic area | 50% | 14 June | 1
 Participation (including non-assessed labs) | 10% | NA | 1 2 3 4
+
+Once trimester is properly underway I will provide more details on the written report assignment format, expectations, etc.
 
 Assessments are submitted electronically via dropbox on [Blackboard](https://blackboard.vuw.ac.nz/). I will aim to return coursework within 3 weeks. Extensions should be requested from the SGEES administration office. If you anticipate problems come and talk to me.
 
