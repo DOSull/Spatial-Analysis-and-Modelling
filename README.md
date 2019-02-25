@@ -2,8 +2,8 @@
 This class introduces key concepts and methods of spatial analysis. Practical deployment in the `R` statistical analysis software package is emphasised, although other tools will be surveyed.
 
 ## Important dates
-
--: | :-
+&nbsp; | Dates
+ -: | :-
 Trimester | 4 March to 29 June 2019
 Teaching period | 4 March to 7 June 2019
 Mid-trimester break | 15 April to 29 April 2019
