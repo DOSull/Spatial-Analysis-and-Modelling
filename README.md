@@ -17,7 +17,7 @@ If you cannot complete an assignment or sit a test or examination, refer to [Aeg
 ## Lecture and lab schedule
 Lectures are in Cotton 110 at 10AM on Mondays and will be followed immediately by related lab sessions in the same location. The combined session will last two hours, finishing up before noon.
 
-## Key names and contact details
+## Contact details
 ### Lecturer/coordinator
 **Prof. [David O'Sullivan](mailto:david.osullivan@vuw.ac.nz)**
 **Office** CO227 **Extn.** 6492 **Office hours by appointment** [click here](http://calendly.com/dosullivan)
@@ -33,15 +33,15 @@ Week# | Date | Lecture | Lab | Notes
  :-: | :-: | :-- | :-- | :--
  1 | 4 Mar | Course overview: *R* for spatial | *R* and *RStudio* computing environment |
 2 | 11 Mar | Why &lsquo;spatial is special&rsquo; | Making maps in *R* |
-3 | 18 Mar | Measuring spatial autocorrelation | **Moran's *I* in *R* ** | Due 1 Apr
+3 | 18 Mar | Measuring spatial autocorrelation | **Moran's *I* in *R* ** (10%) | Due 1 Apr
 4 | 25 Mar | Spatial processes | Introducing `spatstat` |
-5 | 1 Apr | Point pattern analysis | **Point pattern analysis in *R* ** | Due 29 Apr
+5 | 1 Apr | Point pattern analysis | **Point pattern analysis in *R* ** (10%) | Due 29 Apr
 6 | 8 Apr | Cluster detection | Survey of other tools |
 &nbsp; | Break | &nbsp; | &nbsp; | &nbsp;
-7 | 29 Apr | Spatial interpolation | **Interpolation in *R* ** | Due 13 May
+7 | 29 Apr | Spatial interpolation | **Interpolation in *R* ** (10%)| Due 13 May
 8 | 6 May | Geostatistics | *ArcGIS* geostatistical analyst |
 9 | 13 May | Overlay and regression | Regression in *R* |
-10 | 20 May | Multivariate methods | **Geodemographics in *R* ** | Due 4 Jun
+10 | 20 May | Multivariate methods | **Geodemographics in *R* ** (10%)| Due 4 Jun
 11 | 27 May | Network analysis | Tools for network analysis |
 12 | 3 Jun | **No class** Queen's Birthday | &nbsp; |
 
