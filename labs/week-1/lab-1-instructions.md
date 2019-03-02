@@ -53,30 +53,50 @@ When you click Import you will see lines appear in the console, something like
 
 [There will be more than this snippet.]
 
-You should see also see a data table appear in the upper left panel. The data appear very similar to a spreadsheet. In R, data tables are known as dataframes and each column is an attribute or variable. The various variables that appear in the table are
-CUSP_ID a unique identifier for each earthquake or aftershock event
-NZMGE and NZMGN are New Zealand Map Grid Easting and Northing coordinates
-ELAPSED_DAYS is the number of days after September 3, 2010, when the big earthquake was recorded
-MAG is the earthquake or aftershock magnitude
-DEPTH is the estimate depth at which the earthquake or aftershock occurred
-YEAR, MONTH, DAY, HOUR, MINUTE, SECOND provide detailed time information
-Now, if we want to use R to do some statistics, these data are stored in a variable named quakes (in my example, you may have called it something different). I can refer to columns in the dataframe by calling them quakes$MAG (note the $ sign). So for example, if I want to know the mean magnitude of the aftershocks in this dataset I type
-> mean(quakes$MAG)
+You should see also see a data table appear in the upper left panel. The data appear very similar to a spreadsheet. In *R*, data tables are known as *dataframes* and each column is an attribute or variable. The various variables that appear in the table are
+
++ `CUSP_ID` a unique identifier for each earthquake or aftershock event
++ `NZMGE` and `NZMGN` are New Zealand Map Grid Easting and Northing coordinates
++ `ELAPSED_DAYS` is the number of days after September 3, 2010, when the big earthquake was recorded
++ `MAG` is the earthquake or aftershock magnitude
++ `DEPTH` is the estimate depth at which the earthquake or aftershock occurred
++ `YEAR`, `MONTH`, `DAY`, `HOUR`, `MINUTE`, `SECOND` provide detailed time information
+
+Now, if we want to use *R* to do some statistics, these data are stored in a variable named `quakes` (in my example, you may have called it something different). I can refer to columns in the dataframe by calling them `quakes$MAG` (note the $ sign). So for example, if I want to know the mean magnitude of the aftershocks in this dataset I type
+
+    > mean(quakes$MAG)
+
 or the mean northing coordinate
-> mean(quakes$NZMGN)
-and R will return the value in response. Probably more informative is a boxplot or histogram, try:
-> boxplot(quakes$MAG)
+
+    > mean(quakes$NZMGN)
+
+and *R* will return the value in response. Probably more informative is a boxplot or histogram, try:
+
+    > boxplot(quakes$MAG)
+
 or
-> hist(quakes$MAG)
-and you should see statistical plots as shown at right.
-It gets tedious typing quakes all the time, so you can attach the dataframe so that the variable names are directly accessible without the quakes$ prefix by typing
-> attach(quakes)
+
+    > hist(quakes$MAG)
+
+and you should see statistical plots shown below.
+
+<img src="quakes-MAG-boxplot.png"><img src="quakes-MAG-hist.png">
+
+It gets tedious typing `quakes` all the time, so you can `attach` the dataframe so that the variable names are directly accessible without the `quakes$` prefix by typing
+
+    > attach(quakes)
+
 and then
-> hist(MAG)
+
+    > hist(MAG)
+
 will plot the specified variable. Be careful using attach as it may lead to ambiguity about what you are plotting if you are working with different datasets that include variables with the same names.
+
 Try the above commands just to get a feel for things.
-You can make a simple map of all the data by plotting the NZMGE variable as the x (i.e. horizontal axis) and NZMGN as the y axis of a scatterplot:
-> plot(NZMGE, NZMGN)
+
+You can make a simple map of all the data by plotting the `NZMGE` variable as the *x* (i.e. horizontal axis) and `NZMGN` as the *y* axis of a scatterplot:
+
+    > plot(NZMGE, NZMGN)
 Because R is not a GIS it doesn’t automatically know about things like projections, so this is a very crude map. For example, if you resize the plot window it independently rescales the east-west and north-south directions, which is not helpful for a map. To prevent it doing this we can specify an option to the plot command requiring the aspect-ratio to be fixed at 1:
 > plot(NZMGE, NZMGN, asp=1)
 There are R packages to handle geographical data better than this (we will see more of those in the next lab) but for now don’t worry about it too much. To see if there is a relationship between earthquake depth and magnitude, try this:
