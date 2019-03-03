@@ -23,7 +23,7 @@ Lectures are in Cotton 110 at 10AM on Mondays and will be followed immediately b
 **Office** CO227 **Extn.** 6492 **Office hours by appointment** [click here](http://calendly.com/dosullivan)
 
 ### GIS Technician
-**Andrew Rae**
+**[Andrew Rae](mailto:andrew.rae@vuw.ac.nz)**
 **Office** CO502 **Office hours** TBD
 
 ## Lab and lecture timetable
