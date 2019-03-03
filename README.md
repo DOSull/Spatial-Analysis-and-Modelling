@@ -31,7 +31,7 @@ Here's the trimester schedule we will aim to follow. **Bolded labs** have an ass
 
 Week# | Date | Lecture | Lab | Notes
  :-: | :-: | :-- | :-- | :--
- 1 | 4 Mar | Course overview: *R* for spatial | *R* and *RStudio* computing environment |
+ 1 | 4 Mar | Course overview: *R* for spatial | [*R* and *RStudio* computing environment](labs/week-1/lab-1-instructions.md) |
 2 | 11 Mar | Why &lsquo;spatial is special&rsquo; | Making maps in *R* |
 3 | 18 Mar | Measuring spatial autocorrelation | **Moran's *I*** (10%) | Due 1 Apr
 4 | 25 Mar | Spatial processes | Introducing `spatstat` |
