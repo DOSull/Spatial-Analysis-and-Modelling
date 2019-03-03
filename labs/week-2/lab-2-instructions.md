@@ -1,6 +1,8 @@
 # Making maps in *R*
 The data for this lab are in [this file](tb_bycau006.zip).
 
+There are two versions of this file. The plain Markdown `.md` file can be viewed on github; the R Markdown `.Rmd` can be used in *RStudio*.
+
 ## Some quick map plotting
 Something we'll need to do a lot is read a shape file. For those who haven't run into shape files before they are a popular file format for storing geographical data. First, we need to import an *R* package that will help us do that.
 
