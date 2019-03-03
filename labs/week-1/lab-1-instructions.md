@@ -63,70 +63,70 @@ You should see also see a data table appear in the upper left panel. The data ap
 + `YEAR`, `MONTH`, `DAY`, `HOUR`, `MINUTE`, `SECOND` provide detailed time information
 
 Now, if we want to use *R* to do some statistics, these data are stored in a variable named `quakes` (in my example, you may have called it something different). I can refer to columns in the dataframe by calling them `quakes$MAG` (note the $ sign). So for example, if I want to know the mean magnitude of the aftershocks in this dataset I type
-
-    > mean(quakes$MAG)
-
+```{r}
+mean(quakes$MAG)
+```
 or the mean northing coordinate
-
-    > mean(quakes$NZMGN)
-
+```{r}
+mean(quakes$NZMGN)
+```
 and *R* will return the value in response. Probably more informative is a boxplot or histogram, try:
-
-    > boxplot(quakes$MAG)
-
+```{r}
+boxplot(quakes$MAG)
+```
 or
-
-    > hist(quakes$MAG)
-
+```{r}
+hist(quakes$MAG)
+```
 and you should see statistical plots similar to those shown below.
 
 <img src="quakes-MAG-boxplot.png"><img src="quakes-MAG-hist.png">
 
 It gets tedious typing `quakes` all the time, so you can `attach` the dataframe so that the variable names are directly accessible without the `quakes$` prefix by typing
-
-    > attach(quakes)
-
+```{r}
+attach(quakes)
+```
 and then
-
-    > hist(MAG)
-
+```{r}
+hist(MAG)
+```
 will plot the specified variable. Be careful using attach as it may lead to ambiguity about what you are plotting if you are working with different datasets that include variables with the same names.
 
 Try the above commands just to get a feel for things.
 
 You can make a simple map of all the data by plotting the `NZMGE` variable as the *x* (i.e. horizontal axis) and `NZMGN` as the *y* axis of a scatterplot:
-
-    > plot(NZMGE, NZMGN)
-
+```{r}
+plot(NZMGE, NZMGN)
+```
 <img src="quakes-NZMGE-NZMGN-plot.png">
 
 Because *R* is not a GIS it doesn't know about things like projections, so this is a very crude map. For example, if you resize the plot window it independently rescales the east-west and north-south directions, which is not helpful for a map. To prevent it doing this we can specify an option to the plot command requiring the aspect-ratio to be fixed at 1:
-
-    > plot(NZMGE, NZMGN, asp=1)
-
+```{r}
+plot(NZMGE, NZMGN, asp=1)
+```
 There are *R* packages to handle geographical data better than this (we will look at those in the next lab) but for now don't worry about it too much. To see if there is a relationship between earthquake depth and magnitude, try this
-
-    > plot(DEPTH, MAG)
-
+```{r}
+plot(DEPTH, MAG)
+```
 and because *R* is a statistics package, we can easily fit and plot a simple linear regression model to the data
-
-    > regmodel <- lm(MAG ~ DEPTH)
-    > abline(regmodel, col='red')
-
+```{r}
+regmodel <- lm(MAG ~ DEPTH)
+abline(regmodel, col='red')
+```
 Note here the use of `<-` to assign the model, made by the *linear model* `lm()` command to a new variable, called `regmodel`. You can get more details of this model by typing `regmodel` or `summary(regmodel)`. If you know anything about regression models, these may be of interest to you. Also note how, I've requested that the line be plotted in red `(col='red')`, so it can be seen more easily.
 
 We can make more complex displays. For example
-
-    > plot(ELAPSED_DAYS, MAG)
-
+```{r}
+plot(ELAPSED_DAYS, MAG)
+```
 Shows how the magnitude of the aftershocks changed in the days after the initial large earthquake, with the second large event happening around 6 months (180 days) later. A more complicated plot still would be
-
-    > boxplot(MAG ~ cut(ELAPSED_DAYS, seq(0,200,20)))
-
+```{r}
+boxplot(MAG ~ cut(ELAPSED_DAYS, seq(0,200,20)))
+```
 Give that a try and see what you get. To label the chart more informatively we need to add information for *x* and *y* axis labels
-
-    > boxplot(MAG ~ cut(ELAPSED_DAYS, seq(0,200,20)), xlab="Days after Sept 3, 2010", ylab="Magnitude")
-
+```{r}
+boxplot(MAG ~ cut(ELAPSED_DAYS, seq(0,200,20)), xlab="Days after Sept 3, 2010", ylab="Magnitude")
+```
 The aim here is just to get a feel for things. Don't panic if you don't completely understand what is happening. The important thing is to realize
 
 + You make things happen by typing commands in the console
