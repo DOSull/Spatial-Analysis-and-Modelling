@@ -34,7 +34,7 @@ Now you have cleaned house, we are ready to go.
 ### Meet the command line...
 The key thing to understand about *R* is that it is a command line driven tool. That means you issue typed commands to tell *R* to do things (this was a normal way to interact with a computer and get work done before the early 1990s, and is making a comeback, like vinyl, but even geekier). There are some menus and dialog boxes in *RStudio* to help you manage things, but mostly you interact with *R* by typing commands at the `>` prompt in the console window. To begin, we'll load up a dataset, just so you can see how things work and to help you get comfortable. As with most computer related stuff, you should experiment: you will learn a lot more that way.
 
-First, open up a data file. Go to the **Environment** tab (upper-right panel) and click on **Import Dataset**. Select the **From CSV...** option and navigate to the [earthquakes.csv](earthquakes.csv) file provided.
+First, open up a data file. Go to the **Environment** tab (upper-right panel) and click on **Import Dataset**. Select the **From Text (readr)** option and navigate to the [earthquakes.csv](earthquakes.csv) file provided.
 
 In the window that appears navigate to the file provided. You will get a preview of the data that is to be imported. You have some options at this point. One that is worth setting is the *Name* of the variable that these data will be imported to. Since you may be typing it a lot, you might want to set a shorter name than the default choice, such as 'quakes'. Then click **Import** to open it. A references to the dataset should appear in the **Environment** pane, and also a table view of it in the upper left pane.
 
@@ -42,7 +42,7 @@ These are data concerning earthquakes recorded in the months after the 7.1 earth
 
 When you click Import you will see lines appear in the console, something like
 
-    > View(earthquakes)
+    > View(quakes)
     > library(readr)
     > quakes <- read_csv("path_to/earthquakes.csv")
     Parsed with column specification:
