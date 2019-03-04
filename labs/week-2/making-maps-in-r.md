@@ -3,7 +3,7 @@ The data for this lab are available as follows:
 
 + the [Auckland census area units](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-tb.geojson).
 + [Auckland TB cases 2006](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-tb-cases.geojson) (jittered to anonymise locations)
-+ [Auckland roads](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-rds.zip.geojson)
++ [Auckland roads](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-rds.zip)
 
 There are two versions of this file. The plain Markdown `.md` file can be viewed on github; the R Markdown `.Rmd` can be used directly in *RStudio*. For now, I recommend following the instructions in the `.md` version.
 
