@@ -1,5 +1,9 @@
 # Making maps in *R*
-The data for this lab are in [this file](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-tb-06.geojson).
+The data for this lab are available as follows:
+
++ the [Auckland census area units](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-tb.geojson).
++ [Auckland TB cases 2006](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-tb-cases.geojson) (jittered to anonymise locations)
++ [Auckland roads](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-rds.zip.geojson)
 
 There are two versions of this file. The plain Markdown `.md` file can be viewed on github; the R Markdown `.Rmd` can be used directly in *RStudio*. For now, I recommend following the instructions in the `.md` version.
 
@@ -26,7 +30,7 @@ library(rgdal)
 Now we can use functionality provided by the `rgdal` library by the `readOGR` function to import spatial data file and store it in the variable `auckland`. Before doing this make sure you are in the correct working directory by using **Session - Set Working Directory - Choose Directory...** to point to the folder where you downloaded the data file.
 
 ```{r}
-auckland <- readOGR("ak-tb-06.geojson")
+auckland <- readOGR("ak-tb.geojson")
 ```
 The result tells us that we successfully read a file that contains 103 features (i.e. geographical things), and that each of those features has 19 'fields' of information associated with it. Note that to find out more about `readOGR()` and how it works you can type `?readOGR` at any time&mdash;the `?` immediately before a function name provides help information. For help on a package type `??` before the package name, i.e., `??rgdal`.
 
@@ -161,7 +165,57 @@ With the `choro` function defined it becomes easier to make a variety of differe
 mychoro(auckland, 'TB_RATE', pal='YlOrRd', nclasses=7, sty='quantile', ttl='Auckland, TB rates, per 100,000')
 ```
 
-## Using a web map for context
+## Adding other layers
+We can load other datasets such as [tuberculosis cases](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-tb-cases.geojson) and [roads](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-rds.zip).
+
+Read the cases file.
+
+```{r}
+cases <- readOGR("ak-tb-cases.geojson")
+```
+
+and add it to the map. Note the `add=TRUE` option. There are some other options set in the code below which you can look up in the help for `plot()`.
+
+```{r}
+plot(auckland, col='grey', lwd=0.25)
+plot(cases, add=TRUE, col='red', cex=0.5, pch=19)
+```
+
+
+```{r}
+rds <- readOGR("ak-rds.shp")
+```
+
+```{r}
+plot(auckland)
+plot(rds, add=T)
+```
+
+Why did this not work?
+
+The answer lies in that bugbear of spatial data, map projections. You can check the map projection of each data set.
+
+```{r}
+auckland@proj4string
+rds@proj4string
+```
+
+They are clearly different. To reproject the roads to match the polygon layer, we can use `spTransform` which is provided by `rgdal`.
+
+```{r}
+rds_wgs84 <- spTransform(rds, auckland@proj4string)
+```
+
+and then we can layer all three datasets.
+
+```{r}
+plot(auckland, col='grey', lwd=0.1)
+plot(rds_wgs84, col='black', lwd=0.25, add=TRUE)
+plot(cases, col='red', cex=0.5, pch=19, add=TRUE)
+```
+
+
+## Using a web basemap for context
 These days people like to use web mapping services to provide a background map and we can do that as well. This works OK for an area map like this one, but is even more useful for other data types such as points or lines (we'll get to that in a bit).
 
 For now, let's make the `mapcolors` we are working with transparent.
