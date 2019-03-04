@@ -15,6 +15,7 @@ Something we'll need to do a lot is read spatial data files. So first, we need t
 ```{r}
 library(rgdal)
 ```
+
 which will run OK if it is installed (in which case, skip the next step).
 
 If `rgdal` is not installed, then install it with the following:
@@ -22,16 +23,19 @@ If `rgdal` is not installed, then install it with the following:
 ```{r}
 install.packages("rgdal")
 ```
+
 and then load the package.
 
 ```{r}
 library(rgdal)
 ```
-Now we can use functionality provided by the `rgdal` library by the `readOGR` function to import spatial data file and store it in the variable `auckland`. Before doing this make sure you are in the correct working directory by using **Session - Set Working Directory - Choose Directory...** to point to the folder where you downloaded the data file.
+
+Now we can use functionality provided by the `rgdal` library by the `readOGR` function to import a spatial data file and store it in the variable `auckland`. Before doing this make sure you are in the correct working directory by using **Session - Set Working Directory - Choose Directory...** to point to the folder where you downloaded the data file.
 
 ```{r}
 auckland <- readOGR("ak-tb.geojson")
 ```
+
 The result tells us that we successfully read a file that contains 103 features (i.e. geographical things), and that each of those features has 19 'fields' of information associated with it. Note that to find out more about `readOGR()` and how it works you can type `?readOGR` at any time&mdash;the `?` immediately before a function name provides help information. For help on a package type `??` before the package name, i.e., `??rgdal`.
 
 Back to the data we just loaded. We can see a list of the field names using the `names` function.
@@ -39,23 +43,19 @@ Back to the data we just loaded. We can see a list of the field names using the 
 ```{r}
 names(auckland)
 ```
+
 We can see the first six rows of the data table with the `head` command.
 
 ```{r}
 head(auckland)
 ```
 
-Or, we can see the data nicely formatted by viewing it as a `data.frame`.
-
-```{r}
-ak <- data.frame(auckland)
-ak
-```
-We can also use the plot function to plot the data, and, since these data are geographical, we will get a map. It's important to realise that what is happening here is that because we read the data in with the `readOGR` function, *R* knows that the data are spatial and produces a map rather than a statistical plot.
+We can also use the plot function to plot the data, and, since these data are geographical, we will get a map. It's important to realise that what is happening here is that because we read the data in with the `readOGR` function, *R* knows that these data are spatial and produces a map rather than a statistical plot (so for example, the aspect ratio won't change when you resize the plot area).
 
 ```{r}
 plot(auckland, col='grey', lwd=0.25)
 ```
+
 Note how we specify a color for the regions (`col='grey'`) and a line width (`lwd=0.25`). You don't have to specify these, or you can change them. Try making a different looking map, by changing the colour (`col`) or the line width (`lwd`) settings.
 
 ## Chloropleth maps
@@ -71,7 +71,7 @@ summary(auckland$TB_RATE)
 - What's the lowest TB_RATE?
 - What's the highest TB_RATE?
 
-From this result, you can see that the date are skewed, with only a small number of higher values, since the median is 88, meaning that half the rates are that level or lower, while the average or mean value is higher at 106.8. More visually, we can make a histogram:
+Since the *median* is 88, meaning that half the rates are that level or lower, while the average or *mean* value is higher at 106.8, you can see that the date are skewed. More visually, we can make a histogram:
 
 ```{r}
 hist(auckland$TB_RATE, xlab='TB rate per 100,000 population', main='')
@@ -83,7 +83,7 @@ It gets tedious typing `auckland$TB_RATE`, so use the `attach` command to save u
 attach(auckland@data)
 ```
 
-Note that we `attach` a variable called `auckland@data` this is because the dataset is an *R* list object with a number of elements, one called `data` where the polygon attributes are stored.
+Note that we `attach` a variable called `auckland@data` this is because the dataset is an *R* list object with a number of elements, one called `data` where the polygon attributes are stored. The `@` marker 'unpacks' named items in the list.
 
 Inspecting the histogram above, think about how a map might look using different classification schemes. Say we used 9 $equal interval$ classes, how many would be in the lowest class? How many in the highest? Would any class have no members? Keep these questions in mind as we assemble the map in the next few steps.
 
@@ -96,13 +96,14 @@ library(classInt)
 ```
 
 #### Colors and classes
-We'll make a map with nine shades of green. To do this, first we need a color palette.
+We'll make a map with nine shades of green (it's close to St Patrick's Day, right?). To do this, first we need a color palette.
 
 ```{r}
 n <- 9
 pal <- brewer.pal(n, "Greens")
 pal
 ```
+
 If you have done any graphical work you might recognize those numbers as a series of RGB color codes. If not, don't worry about it. The important thing is that the `RColorBrewer` command `brewer.pal` allows us to make nice sets of colors according to specifications as described in the [detailed documentation](https://www.rdocumentation.org/packages/RColorBrewer/versions/1.1-2/topics/RColorBrewer). You can see the various colour palettes available with the following command:
 
 ```{r}
@@ -111,13 +112,16 @@ display.brewer.all()
 
 The palettes are shown with the maximum number of available colours in that scheme. Versions with smaller numbers of colours are available by specifying the number desired when we invoke the `brewer.pal()` function. Note how we put the number of colors in a variable `n` which will make it easier to change the code to make different maps later.
 
-To accompany these colors we need a way to assign data to different classes, which will be colored differently. This is what the `classIntervals` function (from the `classInt` package) provides.
+To accompany these colors we need a way to assign data to different classes, which will be colored differently. In other words, we need a *classification scheme*. This is what the `classIntervals` function (from the `classInt` package) provides.
 
 ```{r}
 classes <- classIntervals(TB_RATE, n, style="equal")
 classes
 ```
-The resulting table shows us that classes consists of 9 classes, with data ranges 0-50, 50-100 and so on up to 400-450. The list of numbers below is how many of the 103 areas will be assigned to each class when we make a map using these classes (compare with the histogram we made before).  It is no coincidence that each of these data ranges is the same size (50 units), because we specified `style="equal"` when we called `classIntervals`. Other **classification schemes** are possible, as described in the [documentation for `classInt`](https://www.rdocumentation.org/packages/classInt/versions/0.1-24). (Or type `??classInt`)
+
+Note how we reuse the variable `n` so our palette and our class intervals match.
+
+The resulting table shows us that classes consists of 9 classes, with data ranges 0-50, 50-100 and so on up to 400-450. The list of numbers  provided is how many of the 103 areas will be assigned to each class when we make a map using these classes (compare with the histogram we made before).  It is no coincidence that each of these data ranges is the same size (50 units), because we specified `style="equal"` when we called `classIntervals`. Other classification schemes are possible, as described in the [documentation for `classInt`](https://www.rdocumentation.org/packages/classInt/versions/0.1-24). (Or type `??classInt`)
 
 ### Putting it all together in a map
 To make a map, we will want to call the `plot` function on the `auckland` dataset, but this time specify a list of colors for the regions. We use another function from the `classInt` package to do this
@@ -181,7 +185,6 @@ plot(auckland, col='grey', lwd=0.25)
 plot(cases, add=TRUE, col='red', cex=0.5, pch=19)
 ```
 
-
 ```{r}
 rds <- readOGR("ak-rds.shp")
 ```
@@ -213,7 +216,6 @@ plot(auckland, col='grey', lwd=0.1)
 plot(rds_wgs84, col='black', lwd=0.25, add=TRUE)
 plot(cases, col='red', cex=0.5, pch=19, add=TRUE)
 ```
-
 
 ## Using a web basemap for context
 These days people like to use web mapping services to provide a background map and we can do that as well. This works OK for an area map like this one, but is even more useful for other data types such as points or lines (we'll get to that in a bit).
