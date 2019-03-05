@@ -5,6 +5,14 @@ The data for this lab are available as follows:
 + [Auckland TB cases 2006](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-tb-cases.geojson) (jittered to anonymise locations)
 + [Auckland roads](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-rds.zip)
 
+Also, before we start there are a couple of packages that we need to install. Run the following command
+
+```{r}
+install.packages(c("classInt", "mapview"), dependencies = TRUE)
+```
+
+This should install copies of the two packages listed locally. It might take a little time to complete. While it is running, read ahead so that you understand what you will be working on today.
+
 There are two versions of this file. The plain Markdown `.md` file can be viewed on github; the R Markdown `.Rmd` can be used directly in *RStudio*. For now, I recommend following the instructions in the `.md` version.
 
 ## Some quick map plotting
@@ -36,7 +44,7 @@ Now we can use functionality provided by the `rgdal` library by the `readOGR` fu
 auckland <- readOGR("ak-tb.geojson")
 ```
 
-The result tells us that we successfully read a file that contains 103 features (i.e. geographical things), and that each of those features has 19 'fields' of information associated with it. Note that to find out more about `readOGR()` and how it works you can type `?readOGR` at any time&mdash;the `?` immediately before a function name provides help information. For help on a package type `??` before the package name, i.e., `??rgdal`.
+The result tells us that we successfully read a file that contains 103 features (i.e. geographical things), and that each of those features has 9 'fields' of information associated with it. Note that to find out more about `readOGR()` and how it works you can type `?readOGR` at any time&mdash;the `?` immediately before a function name provides help information. For help on a package type `??` before the package name, i.e., `??rgdal`.
 
 Back to the data we just loaded. We can see a list of the field names using the `names` function.
 
@@ -47,7 +55,7 @@ names(auckland)
 We can see the first six rows of the data table with the `head` command.
 
 ```{r}
-head(auckland)
+head(auckland@data)
 ```
 
 We can also use the plot function to plot the data, and, since these data are geographical, we will get a map. It's important to realise that what is happening here is that because we read the data in with the `readOGR` function, *R* knows that these data are spatial and produces a map rather than a statistical plot (so for example, the aspect ratio won't change when you resize the plot area).
@@ -163,40 +171,46 @@ mychoro <- function(sf, varname, nclasses=5, pal='Reds', sty='equal', ttl='') {
 }
 ```
 
-With the `choro` function defined it becomes easier to make a variety of different maps. As usual, the best way to learn is to experiment.
+With the `mychoro` function defined it becomes easier to make a variety of different maps. As usual, the best way to learn is to experiment.
 
 ```{r}
 mychoro(auckland, 'TB_RATE', pal='YlOrRd', nclasses=7, sty='quantile', ttl='Auckland, TB rates, per 100,000')
 ```
 
-## Adding other layers
-We can load other datasets such as [tuberculosis cases](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-tb-cases.geojson) and [roads](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-rds.zip).
+You might also find it helpful to put the code that defines the function in a new .R script file, which makes it easier to make changes and rerun it to change the definition of the function.
 
-Read the cases file.
+## Adding other layers
+We can load other datasets such as [tuberculosis cases](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-tb-cases.geojson) and [roads](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-rds.zip). Note that the roads data are in a `.zip` file, for convenience because it is a shape file (which is actually a bundle of files). You will need to extract the contents of the `.zip` archive to the working directory.
+
+Now read in the TB cases file.
 
 ```{r}
 cases <- readOGR("ak-tb-cases.geojson")
 ```
 
-and add it to the map. Note the `add=TRUE` option. There are some other options set in the code below which you can look up in the help for `plot()`.
+and add it to the map:
 
 ```{r}
 plot(auckland, col='grey', lwd=0.25)
 plot(cases, add=TRUE, col='red', cex=0.5, pch=19)
 ```
 
+Note here the `add=TRUE` option, which tells the plot function not to make a new plot but to add the data to the current one. There are some other options set in the code, which you can look up in the help for `plot()` (and also experiment with).
+
+Now read the roads dataset
+
 ```{r}
 rds <- readOGR("ak-rds.shp")
 ```
+
+and add it to the map:
 
 ```{r}
 plot(auckland)
 plot(rds, add=T)
 ```
 
-Why did this not work?
-
-The answer lies in that bugbear of spatial data, map projections. You can check the map projection of each data set.
+Why did this not work? If you said because we put `add=T` that is a possible answer, but is not correct&mdash;*R* can interpret `T` as shorthand for `TRUE`. The answer lies in that bugbear of spatial data, map projections. You can check the map projection of each data set.
 
 ```{r}
 auckland@proj4string
@@ -218,56 +232,16 @@ plot(cases, col='red', cex=0.5, pch=19, add=TRUE)
 ```
 
 ## Using a web basemap for context
-These days people like to use web mapping services to provide a background map and we can do that as well. This works OK for an area map like this one, but is even more useful for other data types such as points or lines (we'll get to that in a bit).
-
-For now, let's make the `mapcolors` we are working with transparent.
+These days people like to use web mapping services to provide a background map and we can do that as well. It is cartographically a bit suspect, but who are we to stand in the way of progress. There are many ways to do this. We're going to use `mapview` which makes it easy. Load the package (we installed it back at the start of the lab):
 
 ```{r}
-# make a basic palette
-pal <- brewer.pal(9, "Reds")
-# make colours (using the classes we made way up above)
-mapcolors <- findColours(classes, pal)
-# make these transparent
-mapcolors <- rgb(t(col2rgb(mapcolors)), alpha=128, maxColorValue=255)
-plot(auckland, col=mapcolors)
+library(mapview)
 ```
 
-Next we need a package that lets us make web maps.  There are several options.  We'll use `OpenStreetMap`.
+What's nice about this package is that it pretty much handles all the complexities seamlessly. To make a web map of the polygon data run the following:
 
 ```{r}
-install.packages("OpenStreetMap")
+mapview(auckland, zcol="TB_RATE") + mapview(cases, cex=1, color='red') + mapview(rds, color='orange')
 ```
 
-and load it
-
-```{r}
-library(OpenStreetMap)
-```
-
-Next we define lower left and upper right bounds (in latitude-longitude) for the map area, and use these to get a map.
-
-```{r}
-ur <- c(-36.8, 175)
-ll <- c(-37, 174.6)
-basemap <- openmap(ll, ur, type='bing')
-plot(map)
-```
-
-Web maps are in a particular projection known as Web Mercator, the details of which we can get from the `osm()` funcion.
-
-```{r}
-osm()
-```
-
-We can use this to project the Auckland data using the `spTransform()` function that is a part of `rgdal`.
-
-```{r}
-auckland_osm <- spTransform(auckland, osm())
-```
-
-And finally add it to the web map.
-
-```{r}
-plot(basemap)
-plot(auckland_osm, col=mapcolors, add=T)
-```
+## Things to Try
