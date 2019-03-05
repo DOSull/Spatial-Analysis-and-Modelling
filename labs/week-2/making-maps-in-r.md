@@ -3,7 +3,7 @@ The data for this lab are available as follows:
 
 + the [Auckland census area units](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-tb.geojson).
 + [Auckland TB cases 2006](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-tb-cases.geojson) (jittered to anonymise locations)
-+ [Auckland roads](labs/week-2/ak-rds.zip?raw=true)
++ [Auckland roads](https://github.com/DOSull/GISC-422/blob/master/labs/week-2/ak-rds.zip?raw=true)
 
 Also, before we start there are a couple of packages that we need to install. Run the following command
 
@@ -166,7 +166,7 @@ mychoro(auckland, 'TB_RATE', pal='YlOrRd', nclasses=7, sty='quantile', ttl='Auck
 You might also find it helpful to put the code that defines the function in a new .R script file, which makes it easier to make changes and rerun it to change the definition of the function.
 
 ## Adding other layers
-We can load other datasets such as [tuberculosis cases](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-tb-cases.geojson) and [roads](ak-rds.zip?raw=true). Note that the roads data are in a `.zip` file, for convenience because it is a shape file (which is actually a bundle of files). You will need to extract the contents of the `.zip` archive to the working directory.
+We can load other datasets such as [tuberculosis cases](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-tb-cases.geojson) and [roads](https://github.com/DOSull/GISC-422/blob/master/labs/week-2/ak-rds.zip?raw=true). Note that the roads data are in a `.zip` file, for convenience because it is a shape file (which is actually a bundle of files). You will need to extract the contents of the `.zip` archive to the working directory.
 
 Now read in the TB cases file.
 
