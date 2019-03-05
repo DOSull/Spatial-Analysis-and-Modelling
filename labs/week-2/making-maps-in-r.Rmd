@@ -18,21 +18,7 @@ There are two versions of this file. The plain Markdown `.md` file can be viewed
 ## Some quick map plotting
 Something we'll need to do a lot is read spatial data files. So first, we need to import an *R* package that will help us do that.
 
-*R* packages are bundles of commands that enable us to do particular specialized things. They aren't part of the basic functionality of *R* because including commands for all the things that you might want to do in *R* would make it a very large and unwieldy platform. Here, we need `rgdal`. This should already be installed on the lab machines. To check, try loading it:
-
-```{r}
-library(rgdal)
-```
-
-which will run OK if it is installed (in which case, skip the next step).
-
-If `rgdal` is not installed, then install it with the following:
-
-```{r}
-install.packages("rgdal")
-```
-
-and then load the package.
+*R* packages are bundles of commands that enable us to do particular specialized things. They aren't part of the basic functionality of *R* because including commands for all the things that you might want to do in *R* would make it a very large and unwieldy platform. Here, we need `rgdal`. This should already be installed on the lab machines. 
 
 ```{r}
 library(rgdal)
