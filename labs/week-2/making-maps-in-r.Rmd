@@ -5,10 +5,10 @@ The data for this lab are available as follows:
 + [Auckland TB cases 2006](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-tb-cases.geojson) (jittered to anonymise locations)
 + [Auckland roads](https://github.com/DOSull/GISC-422/blob/master/labs/week-2/ak-rds.zip?raw=true)
 
-Also, before we start there are a couple of packages that we need to install. Run the following command
+Also, before we start there are some packages that we need to install. Run the following command
 
 ```{r}
-install.packages(c("classInt", "mapview"), dependencies = TRUE)
+install.packages(c("classInt", "mapview", "DBI"), dependencies = TRUE)
 ```
 
 This should install copies of the two packages listed locally. It might take a little time to complete. While it is running, read ahead so that you understand what you will be working on today.
@@ -50,7 +50,7 @@ We can also use the plot function to plot the data, and, since these data are ge
 plot(auckland, col='grey', lwd=0.25)
 ```
 
-Note how we specify a color for the regions (`col='grey'`) and a line width (`lwd=0.25`). You don't have to specify these, or you can change them. Try making a different looking map, by changing the colour (`col`) or the line width (`lwd`) settings.
+Note how we specify a color for the regions (`col='grey'`) and a line width (`lwd=0.25`). You don't have to specify these, or you can change them. Try making a different looking map, by changing the colour (`col`) or the line width (`lwd`) settings. You can also change the colour of the polygon borders with a `border='white'` (or other colour of your choice) setting. Try it!
 
 ## Chloropleth maps
 We can also make simple chloropleth maps using plot. There's a column in our data called `TB_RATE`, or tuberculosis rate, expressed in number of cases per 100,000 population, so let's make a simple chloropleth map of that. Choropleth maps are those where regions are colored according to underlying data values.
@@ -79,7 +79,7 @@ attach(auckland@data)
 
 Note that we `attach` a variable called `auckland@data` this is because the dataset is an *R* list object with a number of elements, one called `data` where the polygon attributes are stored. The `@` marker 'unpacks' named items in the list.
 
-Inspecting the histogram above, think about how a map might look using different classification schemes. Say we used 9 $equal interval$ classes, how many would be in the lowest class? How many in the highest? Would any class have no members? Keep these questions in mind as we assemble the map in the next few steps.
+Inspecting the histogram above, think about how a map might look using different classification schemes. Say we used 9 *equal interval* classes, how many would be in the lowest class? How many in the highest? Would any class have no members? Keep these questions in mind as we assemble the map in the next few steps.
 
 ### Mapping the data
 First, we will load a couple of libraries useful for this purpose. `RColorBrewer` gives us access to nice color schemes from [ColorBrewer](http://colorbrewer.org) and `classInt` helps with partitioning data into classes (or intervals or categories) using a number of popular methods.
@@ -231,3 +231,6 @@ mapview(auckland, zcol="TB_RATE") + mapview(cases, cex=1, color='red') + mapview
 ```
 
 ## Things to Try
+Nothing specific... but you should go back over the instructions and experiment with things like the colour palettes used, and the classification scheme specificed by the `classIntervals()` command. Make use of the *RStudio* help to assist in these explorations.
+
+Try moving the map legend around in the `mychoro` function by changing the option sent to the `legend` function call (check the help on this). Or specify a precise location for the legend using coordinates identified in the plot by running the `locator()` function.
