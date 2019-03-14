@@ -33,7 +33,7 @@ Week# | Date | Lecture | Lab | Notes
  :-: | :-: | :-- | :-- | :--
  1 | 4 Mar | Course overview | [*R* and *RStudio* computing environment](labs/week-1/introducing-r-and-rstudio.md) |
 2 | 11 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/) | [Making maps in *R*](labs/week-2/making-maps-in-r.md) |
-3 | 18 Mar | Spatial processes | Introducing `spatstat` |
+3 | 18 Mar | Spatial processes | [Introducing `spatstat`](labs/week-3/introducing-spatstat.md) |
 4 | 25 Mar | Point pattern analysis | **Point pattern analysis** (10%) | Due 1 Apr
 5 | 1 Apr | Measuring spatial autocorrelation | **Moran's *I*** (10%) | Due 29 Apr
 6 | 8 Apr | Cluster detection | Survey of other tools |
