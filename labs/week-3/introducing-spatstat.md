@@ -63,7 +63,7 @@ and to plot it we use
 plot(point_pattern)
 ```
 
-An important thing to notice here is that the `window` in which the pattern has been generated is a *unit square* with coordinates from $(0,0)$ to $(1,1)$. This indicates that `spatstat` is not concerned with real world geographical coordinates as such, and is an issued we have to deal with when we come to work with real world data. For now it doesn't matter because we are more interested in understanding point processes, not point pattern analysis *per se*.
+An important thing to notice here is that the `window` in which the pattern has been generated is a *unit square* with coordinates from (0, 0) to (1, 1). This indicates that `spatstat` is not concerned with real world geographical coordinates as such, and is an issued we have to deal with when we come to work with real world data. For now it doesn't matter because we are more interested in understanding point processes, not point pattern analysis *per se*.
 
 Anyway, we will be using the above basic sequence of commands a lot in this lab (and probably the next one also, so make sure you understand it. Try changing the number of events in the pattern. Or try using one of the other point processes. For any process more complicated than `rpoint()` or `rpoispp()` you will need to specify more than one parameter. Take a look at the documentation (using `?rpoispp()` or similar, to see if you can figure out what parameters to provide.
 

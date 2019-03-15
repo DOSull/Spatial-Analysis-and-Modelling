@@ -30,13 +30,13 @@ pardefaults <- par()
 The user guide for **`spatstat`** is [available here]( http://www.stats.uwo.ca/faculty/kulperger/S9934a/Papers/SpatStatIntro.pdf)
 
 For our purposes, what you really need to know is that `spatstat` is the most powerful tool around for doing point pattern analysis.
-    
+
 The user guide for **`spatstat`** is [available here]( http://www.stats.uwo.ca/faculty/kulperger/S9934a/Papers/SpatStatIntro.pdf)
 
 For our purposes, what you really need to know is that spatstat is the most powerful tool around for doing point pattern analysis.
-    
+
 Consequently you can use `spatstat` to generate a wide variety of point patterns using a range of point processes. Among these are the following *R* commands
-    
+
 + `rpoint()` generates a specified number of random uniform distributed points
 + `rpoispp()` generates random points distributed according to some specified intensity pattern (which can be uniform or not)
 + `rThomas()` generates clustered points via a 'parent-child'' process
@@ -63,7 +63,7 @@ and to plot it we use
 plot(point_pattern)
 ```
 
-An important thing to notice here is that the `window` in which the pattern has been generated is a *unit square* with coordinates from $(0,0)$ to $(1,1)$. This indicates that `spatstat` is not concerned with real world geographical coordinates as such, and is an issued we have to deal with when we come to work with real world data. For now it doesn't matter because we are more interested in understanding point processes, not point pattern analysis *per se*.
+An important thing to notice here is that the `window` in which the pattern has been generated is a *unit square* with coordinates from (0, 0) to (1, 1). This indicates that `spatstat` is not concerned with real world geographical coordinates as such, and is an issued we have to deal with when we come to work with real world data. For now it doesn't matter because we are more interested in understanding point processes, not point pattern analysis *per se*.
 
 Anyway, we will be using the above basic sequence of commands a lot in this lab (and probably the next one also, so make sure you understand it. Try changing the number of events in the pattern. Or try using one of the other point processes. For any process more complicated than `rpoint()` or `rpoispp()` you will need to specify more than one parameter. Take a look at the documentation (using `?rpoispp()` or similar, to see if you can figure out what parameters to provide.
 
@@ -170,7 +170,7 @@ plot(rw, add=T)
 Make sure you have a good idea of how all these options work before proceeding to the next section.
 
 ## The lab proper: exploring point processes
-The point (ahem) of this lab is to experiment with making point patterns using `spatstat` commands, to examine them, and to comment on them.  To support this aim, you might find it useful to plot densities, with the points superimposed on top, as in the previous section.  To make the point patterns use the commands mentioned above and further explained below. 
+The point (ahem) of this lab is to experiment with making point patterns using `spatstat` commands, to examine them, and to comment on them.  To support this aim, you might find it useful to plot densities, with the points superimposed on top, as in the previous section.  To make the point patterns use the commands mentioned above and further explained below.
 
 The next sections explain some of the point process commands available in a bit more detail.
 
@@ -241,13 +241,13 @@ plot(rThomas(25, 0.8, 4))
 ```
 
 ## Things to try
-Try making point patterns that exhibit 
+Try making point patterns that exhibit
 1. no first and second order effects
-2. clear first order effects, and 
+2. clear first order effects, and
 3. clear second order effects
 
 Try to get such patterns not just the obvious way (e.g., using `rpoispp` to make a pattern with no first or second order effects), but using a process that might not be expected to produce a pattern with those properties.
 
-What I mean is this: make plots of patterns that **you know** to have first or second order effects in operation, but where how those effects act produces patterns that don’t obviously exhibit those effects. 
+What I mean is this: make plots of patterns that **you know** to have first or second order effects in operation, but where how those effects act produces patterns that don’t obviously exhibit those effects.
 
 For example, see if you can make the Thomas process produce patterns that don`t *appear* clustered, or if you can get realizations of a simple random process that appear to include clusters, or a trend.  
