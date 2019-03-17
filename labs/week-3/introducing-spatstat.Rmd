@@ -196,7 +196,7 @@ plot(p2, main='NW-SE trend')
 plot(p3, main='Increasing from the center')
 ```
 
-In these patterns a fixed value for the process intensity is replaced with a function that converts an `x` and `y` value into a number according to some formula. For `p1` the function is defined by the code `function(x,y){200*x^2 + 200*y^2}` in other words, 200*x*<sup>2</sup>+200*y*<sup>2</sup>. Since the default coordinates that the pattern is generated in are the unit square from (0, 0) to (1, 1) the pattern intensity ranges from 0 to 400 events per unit area with increasing intensity from low coordinates at the lower left to higher coordinates at the upper right.
+In these patterns a fixed value for the process intensity is replaced with a function that converts an `x` and `y` value into a number according to some formula. For `p1` the function is defined by the code `function(x,y){200*x^2 + 200*y^2}` in other words, 200*x*<sup>2</sup>+200*y*<sup>2</sup>. Since the default coordinates that the pattern is generating in are the unit square from (0, 0) to (1, 1) the pattern intensity ranges from 0 to 400 events per unit area with increasing intensity from low coordinates at the lower left to higher coordinates at the upper right.
 
 #### Try this
 To convince yourself that the trends in the titles of those plots are real, try mapping the density of the point pattern in each case, i.e. for patterns `p1`, `p2` and `p3`.
