@@ -27,13 +27,9 @@ pardefaults <- par()
 ```
 
 ## What is `spatstat`
-The user guide for **`spatstat`** is [available here]( http://www.stats.uwo.ca/faculty/kulperger/S9934a/Papers/SpatStatIntro.pdf)
+A user guide for **`spatstat`** is [available here](http://spatstat.org/resources/spatstatJSSpaper.pdf)
 
 For our purposes, what you really need to know is that `spatstat` is the most powerful tool around for doing point pattern analysis.
-
-The user guide for **`spatstat`** is [available here]( http://www.stats.uwo.ca/faculty/kulperger/S9934a/Papers/SpatStatIntro.pdf)
-
-For our purposes, what you really need to know is that spatstat is the most powerful tool around for doing point pattern analysis.
 
 Consequently you can use `spatstat` to generate a wide variety of point patterns using a range of point processes. Among these are the following *R* commands
 
