@@ -38,8 +38,8 @@ Week# | Date | Lecture | Lab | Notes
 5 | 1 Apr | Cluster detection | Survey of other tools |
 6 | 8 Apr | Measuring spatial autocorrelation | **Moran's *I*** (10%) | Due 29 Apr
 &nbsp; | Break | &nbsp; | &nbsp; | &nbsp;
-7 | 29 Apr | Spatial interpolation | **Interpolation** (10%)| Due 13 May
-8 | 6 May | Geostatistics | *ArcGIS* geostatistical analyst |
+7 | 29 Apr | Spatial interpolation | Interpolation in R |
+8 | 6 May | Geostatistics | **Interpolation** (10%) | Due 20 May
 9 | 13 May | Overlay and regression | Regression in *R* |
 10 | 20 May | Multivariate methods | **Geodemographics** (10%)| Due 4 Jun
 11 | 27 May | Network analysis | Tools for network analysis |
