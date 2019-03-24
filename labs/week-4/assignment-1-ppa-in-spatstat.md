@@ -216,7 +216,7 @@ The plot confirms this: there is evidence for a lack of inter-event distances up
 **This is a fairly advanced concept, but it is worth trying to get your head around it, as it is the basis on which the most sophisticated point pattern analysis work in research settings is performed.**  See if you can run a similar analysis for the Redwood dataset (or indeed for the assignment dataset).
 
 # Point pattern analysis with real data
-Now we need to read two data files, one with the point events and one with the study area.
+Now we need to read two data files, one with the point events and one with the study area. These are [here](ak-tb-cases.geojson?raw=true) and [here](ak-tb-geojson?raw=true).
 
 ```{r}
 ak <- readOGR("ak-tb.geojson")
