@@ -98,7 +98,7 @@ Geodemographic analysis | 10% | 4 June | 2 3 4
 Written report on application of spatial analysis in a particular topic area | 50% | 14 June | 1
 Participation (including non-assessed labs) | 10% | NA | 1 2 3 4
 
-Once trimester is properly underway I will provide more details on the written report assignment format, expectations, etc.
+Some guidance on the written report assignment expectations is provided [here](report/README.md).
 
 Assessments are submitted electronically via dropbox on [Blackboard](https://blackboard.vuw.ac.nz/). I will aim to return coursework within 3 weeks. Extensions should be requested from the SGEES administration office. If you anticipate problems come and talk to me.
 
