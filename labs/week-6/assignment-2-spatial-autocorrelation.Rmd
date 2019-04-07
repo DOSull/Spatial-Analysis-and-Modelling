@@ -4,7 +4,7 @@ This assignment walks you through applying spatial autocorrelation measures, spe
 These instructions show how these analyses can be performed in R, although many of you may prefer to complete the assignment using *GeoDa* which is installed on the lab machines and also free to download and install from [this website](http://geodacenter.github.io/download.html). Operation of *GeoDa* is relatively self-explanatory whereas performing these analyses in *R* using the `spdep` package is not, so you are on your own in *GeoDa* but should find these instructions a useful overview of the methods helpful for either platform.
 
 ## Materials
-Materials for this assignment are in [this zip file](labs/week-6/week-6.zip?raw=true).
+Materials for this assignment are in [this zip file](week-6.zip?raw=true).
 
 ## New libraries
 I have found a new library that substantially improves map-making in *R*, and we first spend a little bit of time on that.  I recommend that you use it for making any maps required for the assignment.  It is called `tmap` and we need to install it along with some other new packages:
