@@ -36,7 +36,7 @@ Week# | Date | Lecture | Lab | Notes
 3 | 18 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/week-3/introducing-spatstat.md) |
 4 | 25 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/week-4/assignment-1-ppa-in-spatstat.md) (10%) | Due 8 Apr
 5 | 1 Apr | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | Survey of other tools |
-6 | 8 Apr | Measuring spatial autocorrelation | **Moran's *I*** (10%) | Due 29 Apr
+6 | 8 Apr | Measuring spatial autocorrelation | [**Moran's *I***](labs/week-6/assignment-2-spatial-autocorrelation.md) (10%) | Due 29 Apr
 &nbsp; | Break | &nbsp; | &nbsp; | &nbsp;
 7 | 29 Apr | Spatial interpolation | Interpolation in R |
 8 | 6 May | Geostatistics | **Interpolation** (10%) | Due 20 May
