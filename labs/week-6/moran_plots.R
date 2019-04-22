@@ -12,16 +12,17 @@
 # result is returned as vector in order of data supplied
 moran_quadrant <- function(layer, variable, w, sig=0.01) {
   var <- layer[[variable]]
-  v <- scale(var)
+  v <- as.vector(scale(var))
   
-  locm <- localmoran(var, w, zero.policy=T)
+  locm <- localmoran(v, w, alternative='two.sided', zero.policy=T)
   lv <- locm[,1]
   p <- locm[,5]
   quad <- rep(5, length(v))
-  quad[v >= 0 & lv >= 0 & p < sig] = 1
-  quad[v <= 0 & lv >= 0 & p < sig] = 2
-  quad[v >= 0 & lv <= 0 & p < sig] = 3
-  quad[v <= 0 & lv <= 0 & p < sig] = 4
+  significant <- p < sig | p > (1-sig)
+  quad[v > 0 & lv > 0 & significant] = 1
+  quad[v <= 0 & lv > 0 & significant] = 2
+  quad[v > 0 & lv <= 0 & significant] = 3
+  quad[v <= 0 & lv <= 0 & significant] = 4
   return (quad)
 }
 
@@ -45,11 +46,12 @@ moran_cluster_map <- function(layer, variable, w, sig=0.01) {
 
 # Produces a map showing signifcance levels of local Moran's index
 moran_significance_map <- function(layer, variable, w) {
-  localm <- localmoran(layer[[variable]], w, zero.policy=T)
+  localm <- localmoran(layer[[variable]], w, alternative='two.sided', zero.policy=T)
   layer['pr'] <- as.vector(localm[,5])
+  layer$pr <- pmin(layer$pr, 1-layer$pr)
   m <- tm_shape(layer) + 
     tm_layout(title="LISA Significance map", legend.position=c(.45,.72)) +
-    tm_fill(col='pr', breaks=c(0, 0.0001, 0.001, 0.01, 0.05, 1), palette="-Greens",
+    tm_fill(col='pr', breaks=c(0, 0.001, 0.01, 0.05, 1), palette="-Greens",
             title="Significance level") +
     tm_borders(col='gray', lwd=0.5)
   return (m)
