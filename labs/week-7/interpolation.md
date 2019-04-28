@@ -143,13 +143,45 @@ result <- as(heights, 'SpatialPixelsDataFrame')
 
 # Interpolate by IDW function from gstat, with power 2
 idw_h <- gstat::idw(height ~ 1, controls, newdata=result, idp=2.0)
+persp(as.matrix(idw_h), expand=0.5, theta=-30, phi=25)
 
-# Convert to raster object
+# For mapping make a raster object
 r <- raster(idw_h)
+crs(r) <- proj4string(heights)
 
-tmap_mode("view")
 # Plot
 tm_shape(r) +
-  tm_raster(n=10,palette = "-BrBG", title="IDW interpolated heights", alpha=0.5) +
+  tm_raster(n=10,palette = "-BrBG", title="IDW heights") +
   tm_legend(legend.outside=T)
+```
+
+### Splines
+One library we can use for splines is `MBA`. (You will need to install this.)
+
+```{r}
+library(MBA)
+```
+
+Below is an example of how the `interp` function can be used to perform spline interpolation. You should take a look at the help for this function to see if you can figure out what's going on.
+
+```{r}
+controls <- get_controls(heights, n=200)
+
+xyz <- data.frame(x=controls@coords[,1],
+                  y=controls@coords[,2],
+                  z=controls@data$height)
+
+spline_h <- mba.surf(xyz, no.X=61, no.Y=87, n=87/61, m=1,
+                     extend=T, sp=T, b.box=as.vector(t(controls@bbox)))$xyz.est
+
+r <- raster(spline_h)
+crs(r) <- proj4string(heights)
+
+p <- persp(r, theta=150, phi=35, expand=0.25)
+points(trans3d(controls@coords[,1], controls@coords[,2], controls@data[,1], p), col='red', pch=20, cex=0.6)
+
+tm_shape(r) +
+  tm_raster(n=10,palette = "-BrBG", title="mba.surf spline heights") +
+  tm_legend(legend.outside=T) +
+  tm_shape(controls) + tm_dots(size=0.1)
 ```

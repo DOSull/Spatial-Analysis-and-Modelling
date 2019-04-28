@@ -38,7 +38,7 @@ Week# | Date | Lecture | Lab | Notes
 5 | 1 Apr | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | Survey of other tools |
 6 | 8 Apr | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/week-6/assignment-2-spatial-autocorrelation.md) (10%) | Due 29 Apr
 &nbsp; | Break | &nbsp; | &nbsp; | &nbsp;
-7 | 29 Apr | Spatial interpolation | Interpolation in R |
+7 | 29 Apr | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/week-7/interpolation.md) |
 8 | 6 May | Geostatistics | **Interpolation** (10%) | Due 20 May
 9 | 13 May | Overlay and regression | Regression in *R* |
 10 | 20 May | Multivariate methods | **Geodemographics** (10%)| Due 4 Jun
