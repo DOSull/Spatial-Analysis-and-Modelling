@@ -1,6 +1,7 @@
 # Simple interpolation methods in *R*
+You'll need to [download the data](week-7.zip?raw=true) and unzip them.
 
-Load some libraries. Note that we need `rgdal` because it is the `Spatial*DataFrame` style of geospatial data in *R* that is more compatible with the libraries we need to use for these interpolations. It is likely that in a year or two these libraries will be easier to work with using the `sf` package.
+Load some libraries.
 
 ```{r}
 library(rgdal) # for reading files
@@ -9,6 +10,7 @@ library(spatstat) # for making proximity polygons and doing IDW
 library(tmap) # mapping library
 library(raster) # handling raster data
 ```
+Note that we need `rgdal` because it is the `Spatial*DataFrame` style of geospatial data in *R* that is more compatible with the libraries we need to use for these interpolations. It is likely that in a year or two these libraries will be easier to work with using the `sf` package.
 
 ## Some sample data
 Load a dataset that we will use to explore the methods.
@@ -156,13 +158,14 @@ tm_shape(r) +
 ```
 
 ### Splines
+#### Using `MBA::mba.surf`
 One library we can use for splines is `MBA`. (You will need to install this.)
 
 ```{r}
 library(MBA)
 ```
 
-Below is an example of how the `interp` function can be used to perform spline interpolation. You should take a look at the help for this function to see if you can figure out what's going on.
+Below is an example of how the `mba.surf` function can be used to perform spline interpolation. You should take a look at the help for this function to see if you can figure out what's going on.
 
 ```{r}
 controls <- get_controls(heights, n=200)
@@ -182,6 +185,35 @@ points(trans3d(controls@coords[,1], controls@coords[,2], controls@data[,1], p), 
 
 tm_shape(r) +
   tm_raster(n=10,palette = "-BrBG", title="mba.surf spline heights") +
+  tm_legend(legend.outside=T) +
+  tm_shape(controls) + tm_dots(size=0.1)
+```
+
+#### Using `akima::interp`
+Yet another tool that can perform spline interpolation is found in the `akima` package (again you may have to install this.)
+
+```{r}
+library(akima)
+```
+
+The function is called `interp`.  Again, it has a few settings.
+
+```{r}
+controls <- get_controls(heights, n=200)
+
+xyz <- data.frame(x=controls@coords[,1],
+                  y=controls@coords[,2],
+                  z=controls@data$height)
+
+spline_h <- interp(xyz$x, xyz$y, xyz$z, nx=61, ny=87, extrap=T, linear=F)
+
+persp(spline_h, col=rgb(0.5, 1, 0.5, 0.1), theta=120, phi=35, expand=0.25)
+
+r <- raster(spline_h)
+crs(r) <- proj4string(heights)
+
+tm_shape(r) +
+  tm_raster(n=10, palette='-BrBG', title='akima interp spline heights') +
   tm_legend(legend.outside=T) +
   tm_shape(controls) + tm_dots(size=0.1)
 ```
