@@ -1,7 +1,6 @@
 # Simple interpolation methods in *R*
-You'll need to [download the data](week-7.zip?raw=true) and unzip them.
 
-Load some libraries.
+Load some libraries. Note that we need `rgdal` because it is the `Spatial*DataFrame` style of geospatial data in *R* that is more compatible with the libraries we need to use for these interpolations. It is likely that in a year or two these libraries will be easier to work with using the `sf` package.
 
 ```{r}
 library(rgdal) # for reading files
@@ -10,8 +9,6 @@ library(spatstat) # for making proximity polygons and doing IDW
 library(tmap) # mapping library
 library(raster) # handling raster data
 ```
-
-Note that we need `rgdal` because it is the `Spatial*DataFrame` style of geospatial data in *R* that is more compatible with the libraries we need to use for these interpolations. It is likely that in a year or two these libraries will be easier to work with using the `sf` package.
 
 ## Some sample data
 Load a dataset that we will use to explore the methods.
@@ -33,8 +30,8 @@ Experiment with some of the parameters of this plot, to see how they affect the 
 But we won't be using that version of the data, we'll be working with the shapefile points we just read in. We can confirm these look the same, by making a map.
 
 ```{r}
-tm_shape(heights) +
-  tm_dots(col='height', size=0.1, pal='-BrBG') +
+tm_shape(heights) + 
+  tm_dots(col='height', size=0.1, pal='-BrBG') + 
   tm_legend(legend.outside=T)
 ```
 
@@ -60,13 +57,13 @@ cpp <- as(controls, 'ppp')
 plot(cpp)
 ```
 
-Note that every time you run the above cell, you will get a different random sample of the data. Also note that it would be very unusual, especially with elevation data for the control points to be a random sample. It is much more likely that surveyors will collect elevation data for key locations.
+Note that every time you run the above cell, you will get a different random sample of the data. Also note that it would be very unusual, especially with elevation data for the control points to be a random sample. It is much more likely that surveyors will collect elevation data for key locations. 
 
 ## Two simple deterministic interpolation methods
 To figure out what follows I drew heavily on the Bivand et al. book, and also on [this useful source](https://mgimond.github.io/Spatial/interpolation-in-r.html).
 
 ### Proximity polygons
-The idea behind proximity polygons is that we simply assign to every location the value associated with the nearest control point. We use the `dirichlet` function in `spatstat` to do this (Dirichlet was yet another reinventor of Thiessen/Voronoi/proximity polygons).
+The idea behind proximity polygons is that we simply assign to every location the value associated with the nearest control point. We use the `dirichlet` function in `spatstat` to do this (Dirichlet was yet another reinventor of Thiessen/Voronoi/proximity polygons). 
 
 ```{r}
 pph  <-  as(dirichlet(cpp), "SpatialPolygons")
@@ -137,10 +134,10 @@ library(gstat)
 You'll get a message warning you that the `idw()` function from `spatstat` has now been 'masked' by a similarly named function in `gstat`.
 
 ```{r}
-# Make a sample set of control points
+# Make a sample set of control points 
 controls <- get_controls(heights, n=200)
 
-# we make an empty spatial pixels dataset from
+# we make an empty spatial pixels dataset from 
 # the original dataset we read in
 result <- as(heights, 'SpatialPixelsDataFrame')
 
@@ -153,19 +150,20 @@ r <- raster(idw_h)
 crs(r) <- proj4string(heights)
 
 # Plot
-tm_shape(r) +
-  tm_raster(n=10,palette = "-BrBG", title="IDW heights") +
+tm_shape(r) + 
+  tm_raster(n=10,palette = "-BrBG", title="IDW heights") + 
   tm_legend(legend.outside=T)
 ```
 
 ### Splines
+#### Using `MBA::mba.surf`
 One library we can use for splines is `MBA`. (You will need to install this.)
 
 ```{r}
 library(MBA)
 ```
 
-Below is an example of how the `mba.surf` function can be used to perform spline interpolation. You should take a look at the help for this function to see if you can figure out what's going on.
+Below is an example of how the `interp` function can be used to perform spline interpolation. You should take a look at the help for this function to see if you can figure out what's going on.
 
 ```{r}
 controls <- get_controls(heights, n=200)
@@ -174,7 +172,7 @@ xyz <- data.frame(x=controls@coords[,1],
                   y=controls@coords[,2],
                   z=controls@data$height)
 
-spline_h <- mba.surf(xyz, no.X=61, no.Y=87, n=87/61, m=1,
+spline_h <- mba.surf(xyz, no.X=61, no.Y=87, n=87/61, m=1, 
                      extend=T, sp=T, b.box=as.vector(t(controls@bbox)))$xyz.est
 
 r <- raster(spline_h)
@@ -184,7 +182,40 @@ p <- persp(r, theta=150, phi=35, expand=0.25)
 points(trans3d(controls@coords[,1], controls@coords[,2], controls@data[,1], p), col='red', pch=20, cex=0.6)
 
 tm_shape(r) +
-  tm_raster(n=10,palette = "-BrBG", title="mba.surf spline heights") +
+  tm_raster(n=10,palette = "-BrBG", title="mba.surf spline heights") + 
   tm_legend(legend.outside=T) +
   tm_shape(controls) + tm_dots(size=0.1)
 ```
+
+#### Using `akima::interp`
+Yet another tool that can perform spline interpolation is found in the `akima` package (again you may have to install this.)
+
+```{r}
+library(akima)
+```
+
+The function is called `interp`.  Again, it has a few settings.
+
+```{r}
+controls <- get_controls(heights, n=200)
+
+xyz <- data.frame(x=controls@coords[,1],
+                  y=controls@coords[,2],
+                  z=controls@data$height)
+
+spline_h <- interp(xyz$x, xyz$y, xyz$z, nx=61, ny=87, extrap=T, linear=F)
+
+persp(spline_h, col=rgb(0.5, 1, 0.5, 0.1), theta=120, phi=35, expand=0.25)
+
+r <- raster(spline_h)
+crs(r) <- proj4string(heights)
+
+tm_shape(r) +
+  tm_raster(n=10, palette='-BrBG', title='akima interp spline heights') +
+  tm_legend(legend.outside=T) +
+  tm_shape(controls) + tm_dots(size=0.1)
+```
+
+
+
+

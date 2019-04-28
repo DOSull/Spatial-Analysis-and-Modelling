@@ -1,7 +1,6 @@
 # Simple interpolation methods in *R*
-You'll need to [download the data](week-7.zip?raw=true) and unzip them.
 
-Load some libraries.
+Load some libraries. Note that we need `rgdal` because it is the `Spatial*DataFrame` style of geospatial data in *R* that is more compatible with the libraries we need to use for these interpolations. It is likely that in a year or two these libraries will be easier to work with using the `sf` package.
 
 ```{r}
 library(rgdal) # for reading files
@@ -10,8 +9,6 @@ library(spatstat) # for making proximity polygons and doing IDW
 library(tmap) # mapping library
 library(raster) # handling raster data
 ```
-
-Note that we need `rgdal` because it is the `Spatial*DataFrame` style of geospatial data in *R* that is more compatible with the libraries we need to use for these interpolations. It is likely that in a year or two these libraries will be easier to work with using the `sf` package.
 
 ## Some sample data
 Load a dataset that we will use to explore the methods.
@@ -165,7 +162,7 @@ One library we can use for splines is `MBA`. (You will need to install this.)
 library(MBA)
 ```
 
-Below is an example of how the `mba.surf` function can be used to perform spline interpolation. You should take a look at the help for this function to see if you can figure out what's going on.
+Below is an example of how the `interp` function can be used to perform spline interpolation. You should take a look at the help for this function to see if you can figure out what's going on.
 
 ```{r}
 controls <- get_controls(heights, n=200)
