@@ -165,7 +165,7 @@ One library we can use for splines is `MBA`. (You will need to install this.)
 library(MBA)
 ```
 
-Below is an example of how the `interp` function can be used to perform spline interpolation. You should take a look at the help for this function to see if you can figure out what's going on.
+Below is an example of how the `mba.surf` function can be used to perform spline interpolation. You should take a look at the help for this function to see if you can figure out what's going on.
 
 ```{r}
 controls <- get_controls(heights, n=200)
