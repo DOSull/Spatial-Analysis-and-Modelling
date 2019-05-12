@@ -7,6 +7,8 @@ I have assembled a couple of datasets
 - **Party vote results from the 2017 New Zealand general election** and the **Index of Multiple Deprivation** developed by Dan Exeter and his team at University of Auckland
 - Some Los Angeles Airbnb data, as made available by the [Inside Airbnb website](http://insideairbnb.com)
 
+You will find all these in the [week-9.zip](week-9.zip?raw=True) file.
+
 I have no particular expectation that you will discover anything in either setting.
 
 ## R packages
