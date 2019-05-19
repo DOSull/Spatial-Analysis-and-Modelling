@@ -14,7 +14,7 @@ library(scatterplot3d) # you may need to install this
 ## Data
 As a vehicle for this exploration we use a demographic dataset for San Francisco, assembled by [Luc Guillemot](http://lucguillemot.com/) and nicely demonstrated on this [web page](http://lucguillemot.com/bayareageodemo/). These data have been tidied up quite nicely and thus provide a good exploration for this analysis.
 
-The materials for this week's session are in [this zip file](week-10.zip).
+The materials for this week's session are in [this zip file](week-10.zip?raw=true).
 
 ```{r}
 sfd <- st_read('sf_demo.geojson')
