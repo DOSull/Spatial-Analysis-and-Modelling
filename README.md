@@ -42,7 +42,7 @@ Week# | Date | Lecture | Lab | Notes
 8 | 6 May | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/week-8/geostatistics.md) (10%) | Due 20 May
 9 | 13 May | Recap | [Exploratory spatial data analysis (ESDA)](labs/week-9/esda.md) |
 10 | 20 May | Multivariate methods | [**Geodemographics**](labs/week-10/multivariate-analysis.md) (10%)| Due 4 Jun
-11 | 27 May | [Network analysis(https://southosullivan.com/gisc422/network-analysis/)] | [Tools for network analysis](labs/week-11/network-analysis.md) |
+11 | 27 May | [Network analysis](https://southosullivan.com/gisc422/network-analysis/) | [Tools for network analysis](labs/week-11/network-analysis.md) |
 12 | 3 Jun | **No class** Queen's Birthday | &nbsp; |
 
 ## Lectures
