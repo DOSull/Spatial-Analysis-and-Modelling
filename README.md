@@ -95,7 +95,7 @@ Spatial autocorrelation | 10% | 1 April | 2 3 4
 Point pattern analysis | 10% | 29 April | 2 3 4
 Spatial interpolation | 10% | 13 May | 2 3 4
 Geodemographic analysis | 10% | 4 June | 2 3 4
-Written report on application of spatial analysis in a particular topic area | 50% | 14 June | 1
+Written report on application of spatial analysis in a particular topic area | 50% | 18 June | 1
 Participation (including non-assessed labs) | 10% | NA | 1 2 3 4
 
 Some guidance on the written report assignment expectations is provided [here](report/README.md).
