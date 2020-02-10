@@ -7,10 +7,10 @@ Materials on this website will be updated as semester proceeds to be current for
 ## Important dates
 Item | Dates
  -: | :-
-Trimester | 2 March to 27 June 2019
-Teaching period | 2 March to 5 June 2019
-Mid-trimester break | 13 April to 27 April 2019
-Last assessment item due | 12 June 2019
+Trimester | 2 March to 27 June 2020
+Teaching period | 2 March to 5 June 2020
+Mid-trimester break | 13 April to 27 April 2020
+Last assessment item due | 12 June 2020
 Study period | NA
 Examination period | NA
 Withdrawal dates | See [Course additions and withdrawals](www.victoria.ac.nz/home/admisenrol/payments/withdrawalsrefunds)
