@@ -1,4 +1,4 @@
-# Assignment 3: Geostatistics in R
+# Assignment 3: Geostatistics in *R*
 <hr>
 
 ## THIS IS NOT THE 2020 EDITION OF THESE INSTRUCTIONS!
@@ -185,7 +185,7 @@ tm_shape(r) +
   tm_legend(legend.outside=T)
 ```
 
-## The assignment
+## Assignment 3
 Using methods eiher from this session (or in last week's) produce interpolated maps of rainfall and maximum and minimum temperatures from the provided data.
 
 Write up a report on the process, providing the R code used to produce your final maps, and also discussing reasons for the choices of methods and parameters you made.

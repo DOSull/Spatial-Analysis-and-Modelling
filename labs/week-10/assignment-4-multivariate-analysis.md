@@ -259,7 +259,7 @@ which describes a cluster analysis of the hundreds of thousands of census tracts
 
 Although geodemographics ia a very visible example of cluster-based classification, exactly the same methods are applicable to other kinds of data, such as physical, climate or other variables.
 
-# Assignment
+# Assignment 4
 I have assembled some [demographic data for Aotearoa New Zealand](nz-2193-cau-2013.zip) (you will need to unzip this file) from the 2013 census at the Area Unit level. Use these to conduct multivariate data exploration using any of the approaches discussed here. Based on your analysis put together a report on some aspect of the demographics of the country that you think may be of interest (you can reduce the area of interest to a smaller local area if this seems appropriate). You may feel that there is a need to reduce the number of data attributes in the analysis for various reasons (topic of interest, balancing the clustering analysis, etc).
 
 In any case, your report should show clear evidence of having explored the data closely using the many tools we have seen this semester so far (no need to use all of them, and it's fine to focus on only the ones from this week, if you wish).
