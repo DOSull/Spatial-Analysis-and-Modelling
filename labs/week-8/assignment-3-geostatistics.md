@@ -1,4 +1,11 @@
 # Assignment 3: Geostatistics in R
+<hr>
+
+## THIS IS NOT THE 2020 EDITION OF THESE INSTRUCTIONS!
+**Instructions need to be updated to use `sf` and `tmap` and friends.**
+
+<hr>
+
 In this document we will look at performing geostatistical interpolation (commonly known as kriging) using the `gstats` package in R.
 
 You'll need to [download the data](week-8.zip?raw=true) and unzip them.

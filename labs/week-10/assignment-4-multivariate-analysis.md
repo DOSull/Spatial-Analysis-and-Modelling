@@ -1,4 +1,11 @@
 # Multivariate data
+<hr>
+
+## THIS IS NOT THE 2020 EDITION OF THESE INSTRUCTIONS!
+**Instructions need to be updated to use `sf` and `tmap` and friends.**
+
+<hr>
+
 In this notebook, we look at the two broad categories of descriptive statistical approaches to dealing with highly multivariate data *dimension reduction* and *classification*.
 
 ## Libraries

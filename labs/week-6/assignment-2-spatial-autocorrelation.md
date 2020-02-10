@@ -1,4 +1,10 @@
 # **Assignment 2** Spatial autocorrelation in R and GeoDa
+<hr>
+
+## THIS IS NOT THE 2020 EDITION OF THESE INSTRUCTIONS!
+
+<hr>
+
 This assignment walks you through applying spatial autocorrelation measures, specifically Moran's index of spatial autocorrelation in both its local and global forms.
 
 These instructions show how these analyses can be performed in R, although many of you may prefer to complete the assignment using *GeoDa* which is installed on the lab machines and also free to download and install from [this website](http://geodacenter.github.io/download.html). Operation of *GeoDa* is relatively self-explanatory whereas performing these analyses in *R* using the `spdep` package is not, so you are on your own in *GeoDa* but should find these instructions a useful overview of the methods helpful for either platform.
