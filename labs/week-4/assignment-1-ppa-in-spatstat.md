@@ -1,4 +1,11 @@
 # **Assignment 1: Point pattern analysis in `spatstat`**
+<hr>
+
+## THIS IS NOT THE 2020 EDITION OF THESE INSTRUCTIONS!
+**Instructions need to be updated to use `sf` and `tmap` and friends.**
+
+<hr>
+
 As we've seen, there are many ways to describe, measure and analyze a point pattern. In this section, we will go through how these are performed in `spatstat`, before, in the lab assignment itself looking at the dataset you will analyze for this assignment.
 
 We will use three datasets provided in spatstat to illustrate the explanations in the first part of these instructions because they exhibit clear patterns, and because they are easier to work with. In the second half of these instructions you will see how to get real spatial data into `spatstat` for the assignment. To load up the three datasets, ensure spatstat is installed and run:

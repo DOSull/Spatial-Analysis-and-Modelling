@@ -1,13 +1,16 @@
 # GISC 422 Spatial Analysis and Modelling
 This class introduces key concepts and methods of spatial analysis. Practical deployment in the `R` statistical analysis software package is emphasised, although other tools will be surveyed.
 
+## WARNING!
+Materials on this website will be updated as semester proceeds to be current for 2020. You are welcome to browse ahead of where we are in class, but don't turn in any assignments based on these materials, unless you are sure you are working on 2020 versions of the materials!
+
 ## Important dates
 Item | Dates
  -: | :-
-Trimester | 4 March to 29 June 2019
-Teaching period | 4 March to 7 June 2019
-Mid-trimester break | 15 April to 29 April 2019
-Last assessment item due | 14 June 2019
+Trimester | 2 March to 27 June 2019
+Teaching period | 2 March to 5 June 2019
+Mid-trimester break | 13 April to 27 April 2019
+Last assessment item due | 12 June 2019
 Study period | NA
 Examination period | NA
 Withdrawal dates | See [Course additions and withdrawals](www.victoria.ac.nz/home/admisenrol/payments/withdrawalsrefunds)
@@ -15,7 +18,7 @@ Withdrawal dates | See [Course additions and withdrawals](www.victoria.ac.nz/hom
 If you cannot complete an assignment or sit a test or examination, refer to [Aegrotats](www.victoria.ac.nz/home/study/exams-and-assessments/aegrotat)
 
 ## Lecture and lab schedule
-Lectures are in Cotton 110 at 10AM on Mondays and will be followed immediately by related lab sessions in the same location. The combined session will last two hours, finishing up before noon.
+Lectures are in Cotton 110 at 9AM on Mondays and will be followed immediately by related lab sessions in the same location. The combined session will last up to three hours, finishing up before noon.
 
 ## Contact details
 ### Lecturer/coordinator
@@ -31,19 +34,19 @@ Here's the trimester schedule we will aim to follow. **Bolded labs** have an ass
 
 Week# | Date | Lecture | Lab | Notes
  :-: | :-: | :-- | :-- | :--
- 1 | 4 Mar | Course overview | [*R* and *RStudio* computing environment](labs/week-1/introducing-r-and-rstudio.md) |
-2 | 11 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/) | [Making maps in *R*](labs/week-2/making-maps-in-r.md) |
-3 | 18 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/week-3/introducing-spatstat.md) |
-4 | 25 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/week-4/assignment-1-ppa-in-spatstat.md) (10%) | Due 8 Apr
-5 | 1 Apr | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | Survey of other tools |
-6 | 8 Apr | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/week-6/assignment-2-spatial-autocorrelation.md) (10%) | Due 29 Apr
+ 1 | 2 Mar | Course overview | [*R* and *RStudio* computing environment](labs/week-1/introducing-r-and-rstudio.md) |
+2 | 9 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/) | [Making maps in *R*](labs/week-2/making-maps-in-r.md) |
+3 | 16 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/week-3/introducing-spatstat.md) |
+4 | 23 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/week-4/assignment-1-ppa-in-spatstat.md) (10%) | Due 6 Apr
+5 | 30 Mar | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | Survey of other tools |
+6 | 6 Apr | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/week-6/assignment-2-spatial-autocorrelation.md) (10%) | Due 27 Apr
 &nbsp; | Break | &nbsp; | &nbsp; | &nbsp;
-7 | 29 Apr | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/week-7/interpolation.md) |
-8 | 6 May | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/week-8/geostatistics.md) (10%) | Due 20 May
-9 | 13 May | Recap | [Exploratory spatial data analysis (ESDA)](labs/week-9/esda.md) |
-10 | 20 May | Multivariate methods | [**Geodemographics**](labs/week-10/multivariate-analysis.md) (10%)| Due 4 Jun
-11 | 27 May | [Network analysis](https://southosullivan.com/gisc422/network-analysis/) | [Tools for network analysis](labs/week-11/network-analysis.md) |
-12 | 3 Jun | **No class** Queen's Birthday | &nbsp; |
+7 | 27 Apr | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/week-7/interpolation.md) |
+8 | 4 May | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/week-8/geostatistics.md) (10%) | Due 18 May
+9 | 11 May | Recap | [Exploratory spatial data analysis (ESDA)](labs/week-9/esda.md) |
+10 | 18 May | Multivariate methods | [**Geodemographics**](labs/week-10/multivariate-analysis.md) (10%)| Due 2 Jun
+11 | 25 May | [Network analysis](https://southosullivan.com/gisc422/network-analysis/) | [Tools for network analysis](labs/week-11/network-analysis.md) |
+12 | 1 Jun | **No class** Queen's Birthday | &nbsp; |
 
 ## Lectures
 Lectures will generally consist of around an hour of presented material, and around 30 minutes of more open-ended discussion and Q&A based on the materials and on reading which students will have been expected to do ahead of class.
@@ -91,11 +94,11 @@ This course is 100% internally assessed.  Assessment is based on four lab assign
 
 Assessment item | Credit | Due date | CLOs
 :- | :-: | :-: | :-:
-Spatial autocorrelation | 10% | 1 April | 2 3 4
-Point pattern analysis | 10% | 29 April | 2 3 4
-Spatial interpolation | 10% | 13 May | 2 3 4
-Geodemographic analysis | 10% | 4 June | 2 3 4
-Written report on application of spatial analysis in a particular topic area | 50% | 18 June | 1
+Point pattern analysis | 10% | 6 April | 2 3 4
+Spatial autocorrelation | 10% | 27 April | 2 3 4
+Spatial interpolation | 10% | 18 May | 2 3 4
+Geodemographic analysis | 10% | 2 June | 2 3 4
+Written report on application of spatial analysis in a particular topic area | 50% | 16 June | 1
 Participation (including non-assessed labs) | 10% | NA | 1 2 3 4
 
 Some guidance on the written report assignment expectations is provided [here](report/README.md).

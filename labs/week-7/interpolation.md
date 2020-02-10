@@ -1,4 +1,11 @@
 # Simple interpolation methods in *R*
+<hr>
+
+## THIS IS NOT THE 2020 EDITION OF THESE INSTRUCTIONS!
+**Instructions need to be updated to use `sf` and `tmap` and friends.**
+
+<hr>
+
 You'll need to [download the data](week-7.zip?raw=true) and unzip them.
 
 Load some libraries.

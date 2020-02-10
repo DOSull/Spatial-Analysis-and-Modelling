@@ -1,4 +1,11 @@
 # Making maps in *R*
+<hr>
+
+## THIS IS NOT THE 2020 EDITION OF THESE INSTRUCTIONS!
+**Instructions need to be updated to use `sf` and `tmap` and friends.**
+
+<hr>
+
 The data for this lab are available as follows:
 
 + the [Auckland census area units](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-tb.geojson).
