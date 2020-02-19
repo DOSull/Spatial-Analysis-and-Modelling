@@ -1,3 +1,4 @@
+#### GISC 422 T1 2019
 # Exploring spatial data and building simple statistical models
 This week we are going to do something a bit different. I think it is useful to take stock of where you have got to and spend the session exploring a couple of datasets, without too much direction from me. This will mean making more use of the R help, and using tools you have already learned. You should focus particularly on interactively mapping the data, tidying it up as you go and understanding the overall patterns that may be present.
 

@@ -1,3 +1,4 @@
+#### GISC 422 T1 2019
 # Introducing *R* and *RStudio*
 The data for this lab are in [this file](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-1/earthquakes.csv).
 

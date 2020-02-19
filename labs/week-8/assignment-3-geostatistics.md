@@ -1,3 +1,4 @@
+#### GISC 422 T1 2019
 # Assignment 3: Geostatistics in *R*
 <hr>
 

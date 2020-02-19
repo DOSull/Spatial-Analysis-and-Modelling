@@ -1,3 +1,4 @@
+#### GISC 422 T1 2019
 # GISC 422 Spatial Analysis and Modelling
 This class introduces key concepts and methods of spatial analysis. Practical deployment in the `R` statistical analysis software package is emphasised, although other tools will be surveyed.
 

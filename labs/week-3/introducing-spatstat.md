@@ -1,3 +1,4 @@
+#### GISC 422 T1 2019
 # Introducing `spatstat` and experimenting with (spatial) point processes
 This lab introduces the `spatstat` library and its capabilities, and asks you to explore the variation we observe in spatial point processes. This is essential preparation for next week's assessed lab assignment on point pattern analysis, and also should develop your understanding of the concept of a 'process' in spatial analysis.
 
