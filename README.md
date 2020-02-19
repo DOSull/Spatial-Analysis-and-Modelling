@@ -1,9 +1,9 @@
-#### GISC 422 T1 2019
+#### GISC 422 T1 2020
 # GISC 422 Spatial Analysis and Modelling
 This class introduces key concepts and methods of spatial analysis. Practical deployment in the `R` statistical analysis software package is emphasised, although other tools will be surveyed.
 
 ## WARNING!
-Materials on this website will be updated as semester proceeds to be current for 2020. You are welcome to browse ahead of where we are in class, but don't turn in any assignments based on these materials, unless you are sure you are working on 2020 versions of the materials!
+Materials on this website will be updated as semester proceeds to be current for 2020. Files are tagged at the top with a label such as **GISC 422 T1 2020** (as above to show their currency. If a file still says **2019** then it is not yet 'official' for this year. You are welcome to browse ahead of where we are in class, but don't turn in any assignments based on these materials!
 
 ## Important dates
 Item | Dates
