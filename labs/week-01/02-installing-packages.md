@@ -20,5 +20,4 @@ If there are problems, ask for help. If everyone is having problems I got someth
 Now you know how to install packages, do it again, for the ones named in the heading. Note that you can install all of them at once, simply by specifying all of them in the **Packages** list in the dialogue.
 
 ## On to the next thing.
-Now all that's done we are ready to move on to [the actual content of this session](03-simple-visualization-and-mapping.md).
-
+Now all that's done we are ready to move on to [the actual content of this session](03-simple-data-exploration.md).

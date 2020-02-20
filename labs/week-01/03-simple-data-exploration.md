@@ -5,7 +5,7 @@ output:
 ---
 #### GISC 422 T1 2020
 # Simple visualization and mapping
-The data for this lab are in [this file](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-01/data.zip?raw=true) which you should download to a local folder.
+The data for this lab are in [this file](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-01/week-01-data.zip?raw=true) which you should download to a local folder.
 
 ## Preliminaries
 If you haven't worked through the other two sets of instructions for this week [go back there and do this now](00-week-01-overview.md).
@@ -87,8 +87,6 @@ and you should see statistical plots similar to those shown below.
 
 <img src="images/quakes-MAG-boxplot.png"><img src="images/quakes-MAG-hist.png">
 
-## **NOTE: from here on I am not going to show results of commands, just the commands!**
-
 It gets tedious typing `quakes` all the time, so you can `attach` the dataframe so that the variable names are directly accessible without the `quakes$` prefix by typing
 ```{r}
 attach(quakes)
@@ -110,7 +108,9 @@ plot(NZMGE, NZMGN)
 
 Because base *R* is not a GIS it doesn't know about things like projections, so this is a very crude map.
 
-There are *R* packages to handle geographical data better than this (we will look at those in [a little later](simple-maps.md)) but for now don't worry about it too much. To see if there is a relationship between earthquake depth and magnitude, try this
+## **NOTE: from here on I am not going to show results of commands, just the commands!**
+
+There are *R* packages to handle geographical data better than this (we will look at those in [a little later](04-simple-maps.md)) but for now don't worry about it too much. To see if there is a relationship between earthquake depth and magnitude, try this
 ```{r}
 plot(DEPTH, MAG)
 ```
@@ -134,3 +134,4 @@ Give that a try and see what you get. To label the chart more informatively we n
 ```{r}
 boxplot(MAG ~ cut(ELAPSED_DAYS, seq(0, 200, 20)), xlab="Days after Sept 3, 2010", ylab="Magnitude")
 ```
+Next up: [simple maps](05-simple-maps.md).
