@@ -1,8 +1,3 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 #### GISC 422 T1 2020
 # Week 1 Overview
 This week we have a couple of things to do, which are explained in detail in the documents linked below.

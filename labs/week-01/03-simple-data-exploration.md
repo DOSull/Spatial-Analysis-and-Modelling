@@ -1,8 +1,3 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 #### GISC 422 T1 2020
 # Simple visualization and mapping
 The data for this lab are in [this file](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-01/week-01-data.zip?raw=true) which you should download to a local folder.
