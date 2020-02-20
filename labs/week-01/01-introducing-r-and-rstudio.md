@@ -18,7 +18,7 @@ This lab introduces *R* by just asking you to get on with it, without stopping t
 ## Getting started with R
 We're using *R* inside a slightly friendlier 'front-end' called *RStudio*, so start that program up in whatever platform you are running on. You should see something like the display below (without all the text which is from an open session on my machine).
 
-<img src="rstudio.png">
+<img src="images/rstudio.png">
 
 I have labeled four major areas of the interface, these are
 + **Console** this is where you type commands and interact directly with the program

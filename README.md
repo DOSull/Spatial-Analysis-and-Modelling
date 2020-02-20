@@ -31,20 +31,20 @@ Lectures are in Cotton 110 at 9AM on Mondays and will be followed immediately by
 **Office** CO502 **Office hours** TBD
 
 ## Lab and lecture timetable
-Here's the trimester schedule we will aim to follow. **Bolded labs** have an associated assignment that must be submitted and contributes the indicated percentage of the course credit.  Relevant materials (lecture slides, lab scripts and datasets) are linked below, when available.
+Here's the trimester schedule we will aim to follow. **Bolded labs** have an associated assignment that must be submitted and contributes the indicated percentage of the course credit. General instructions for the labs are [here](labs/README.md).  Relevant materials (lecture slides, lab scripts and datasets) are linked below, when available.
 
 Week# | Date | Lecture | Lab | Notes
  :-: | :-: | :-- | :-- | :--
- 1 | 2 Mar | Course overview | [*R* and *RStudio* computing environment](labs/week-1/introducing-r-and-rstudio.md) |
-2 | 9 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/) | [Making maps in *R*](labs/week-2/making-maps-in-r.md) |
-3 | 16 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/week-3/introducing-spatstat.md) |
-4 | 23 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/week-4/assignment-1-ppa-in-spatstat.md) (10%) | Due 6 Apr
+ 1 | 2 Mar | Course overview | [*R* and *RStudio* computing environment](labs/week-01/00-week-01-overview.md) |
+2 | 9 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/) | [Making maps in *R*](labs/week-02/making-maps-in-r.md) |
+3 | 16 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/week-03/introducing-spatstat.md) |
+4 | 23 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/week-04/assignment-1-ppa-in-spatstat.md) (10%) | Due 6 Apr
 5 | 30 Mar | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | Survey of other tools |
-6 | 6 Apr | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/week-6/assignment-2-spatial-autocorrelation.md) (10%) | Due 27 Apr
+6 | 6 Apr | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/week-06/assignment-2-spatial-autocorrelation.md) (10%) | Due 27 Apr
 &nbsp; | Break | &nbsp; | &nbsp; | &nbsp;
-7 | 27 Apr | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/week-7/interpolation.md) |
-8 | 4 May | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/week-8/assignment-3-geostatistics.md) (10%) | Due 18 May
-9 | 11 May | Recap | [Exploratory spatial data analysis (ESDA)](labs/week-9/esda.md) |
+7 | 27 Apr | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/week-07/interpolation.md) |
+8 | 4 May | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/week-08/assignment-3-geostatistics.md) (10%) | Due 18 May
+9 | 11 May | Recap | [Exploratory spatial data analysis (ESDA)](labs/week-09/esda.md) |
 10 | 18 May | Multivariate methods | [**Geodemographics**](labs/week-10/assignment-4-multivariate-analysis.md) (10%)| Due 2 Jun
 11 | 25 May | [Network analysis](https://southosullivan.com/gisc422/network-analysis/) | [Tools for network analysis](labs/week-11/network-analysis.md) |
 12 | 1 Jun | **No class** Queen's Birthday | &nbsp; |
