@@ -36,7 +36,7 @@ Here's the trimester schedule we will aim to follow. **Bolded labs** have an ass
 Week# | Date | Lecture | Lab | Notes
  :-: | :-: | :-- | :-- | :--
  1 | 2 Mar | Course overview | [*R* and *RStudio* computing environment](labs/week-01/00-week-01-overview.md) |
-2 | 9 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/) | [Making maps in *R*](labs/week-02/making-maps-in-r.md) |
+2 | 9 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/) | [More making maps in *R*](labs/week-02/00-making-maps-in-r.md) |
 3 | 16 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/week-03/introducing-spatstat.md) |
 4 | 23 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/week-04/assignment-1-ppa-in-spatstat.md) (10%) | Due 6 Apr
 5 | 30 Mar | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | Survey of other tools |
