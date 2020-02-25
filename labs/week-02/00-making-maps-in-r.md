@@ -153,9 +153,9 @@ You can also try adding map decorations using the `tm_layout` function.
 Finally, it is worth knowing that there is a way to make maps like these with pure `ggplot2` commands. It goes something like this
 ```{r}
 ggplot(auckland) + 
-  geom_sf(aes(fill=TB_RATE), colour='white') +
-  scale_fill_distiller(palette='Greens') +
-  geom_sf(data=cases) +
-  geom_sf(data=rds, lwd=0.2)
+  geom_sf(aes(fill=TB_RATE), colour='white', lwd=0.0) +
+  scale_fill_distiller(palette='Reds', direction=1) +
+  geom_sf(data=cases, size=1) +
+  geom_sf(data=rds, lwd=0.2, colour='darkgrey')
 ```
 If you are an afficionado of the `ggplot` libraries this can be very helpful, although it is generally easier to work with `tmap` at least to begin with.
