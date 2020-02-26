@@ -40,11 +40,11 @@ Week# | Date | Lecture | Lab | Notes
 3 | 16 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/week-03/introducing-spatstat.md) |
 4 | 23 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/week-04/assignment-1-ppa-in-spatstat.md) (10%) | Due 6 Apr
 5 | 30 Mar | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | Survey of other tools |
-6 | 6 Apr | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/week-06/assignment-2-spatial-autocorrelation.md) (10%) | Due 27 Apr
+6 | 6 Apr | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/week-06/assignment-2-spatial-autocorrelation.md) (10%) | Due 28 Apr
 &nbsp; | Break | &nbsp; | &nbsp; | &nbsp;
-7 | 27 Apr | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/week-07/interpolation.md) |
-8 | 4 May | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/week-08/assignment-3-geostatistics.md) (10%) | Due 18 May
-9 | 11 May | Recap | [Exploratory spatial data analysis (ESDA)](labs/week-09/esda.md) |
+7 | 27 Apr | **No class** ANZAC Day holiday |
+8 | 4 May | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/week-08/interpolation.md) |
+9 | 11 May | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/week-09/assignment-3-geostatistics.md) (10%) | Due 18 May
 10 | 18 May | Multivariate methods | [**Geodemographics**](labs/week-10/assignment-4-multivariate-analysis.md) (10%)| Due 2 Jun
 11 | 25 May | [Network analysis](https://southosullivan.com/gisc422/network-analysis/) | [Tools for network analysis](labs/week-11/network-analysis.md) |
 12 | 1 Jun | **No class** Queen's Birthday | &nbsp; |
