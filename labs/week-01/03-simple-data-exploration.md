@@ -129,4 +129,4 @@ Give that a try and see what you get. To label the chart more informatively we n
 ```{r}
 boxplot(MAG ~ cut(ELAPSED_DAYS, seq(0, 200, 20)), xlab="Days after Sept 3, 2010", ylab="Magnitude")
 ```
-Next up: [simple maps](05-simple-maps.md).
+Next up: [simple maps](04-simple-maps.md).
