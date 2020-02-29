@@ -68,6 +68,7 @@ is more recent and is reasonably affordable, so you might consider purchasing it
 
 There are also many useful online resources that cover topics that are the subject of this class. For example:
 
++ [*Geocomputation with R*](https://geocompr.robinlovelace.net/) by Lovelace, Novosad and Muenchow, 2019
 + [*Spatial Data Science*](https://keen-swartz-3146c4.netlify.com/intro.html) a book in preparation from Bivand and Pebesma
 + [Course materials for Geographic Data Science](http://darribas.org/gds15/) by Daniel Arribas-Bel at University of Liverpool
 + [*Geospatial Analysis*](https://www.spatialanalysisonline.com/HTML/index.html) by deSmith, Longley and Goodchild
