@@ -40,7 +40,7 @@ Week# | Date | Lecture | Lab | Notes
 3 | 16 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/week-03/00-introducing-spatstat.md) |
 4 | 23 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/week-04/00-assignment-1-ppa-in-spatstat.md) (10%) | Due 6 Apr
 5 | 30 Mar | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | Survey of other tools |
-6 | 6 Apr | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/week-06/assignment-2-spatial-autocorrelation.md) (10%) | Due 28 Apr
+6 | 6 Apr | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/week-06/00-assignment-2-spatial-autocorrelation.md) (10%) | Due 28 Apr
 &nbsp; | Break | &nbsp; | &nbsp; | &nbsp;
 7 | 27 Apr | **No class** ANZAC Day holiday |
 8 | 4 May | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/week-08/interpolation.md) |
