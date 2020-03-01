@@ -170,7 +170,7 @@ plot(envelope(rw, pcf), ylim=c(0,4))
 
 I’ve shown this for PCF, but it can easily be changed for any of the other functions `Fest`, `Gest` or `Kest`. When this runs, *R* tells you that it is running 99 simulations of complete spatial randomness (CSR) for the data, and it is using these to construct the envelope of results shown in gray in the plot.
 
-The black line shows the function as calculated from the data, and the idea is to compare the two. 
+The black line shows the function as calculated from the data, and the idea is to compare the two.
 
 Anywhere that the data (the black line) is *inside the envelope* from the simulation results, we can say that it is consistent with what we would expect from the simulated process, but when it is *outside the envelope*, it indicates some kind of departure from the simulated process. Here, you will see when you run the envelope for PCF on the redwood dataset that at distances below about 0.06 the PCF is unexpectedly high, indicating clustering at these distances. There is a small departure below the envelope around 0.23, but this appears minor and may not be very important, although it may relate to the scale of the gaps in the redwood pattern.
 
@@ -217,9 +217,9 @@ Check that things line up OK by mapping them using `tmap`.
 ```{r}
 library(tmap)
 
-tm_shape(ak) + 
-  tm_polygons() + 
-  tm_shape(tb) + 
+tm_shape(ak) +
+  tm_polygons() +
+  tm_shape(tb) +
   tm_dots()
 ```
 
@@ -243,9 +243,9 @@ tb <- st_transform(tb, nztm)
 Now we should check that things still line up OK.
 
 ```{r}
-tm_shape(ak) + 
-  tm_polygons() + 
-  tm_shape(tb) + 
+tm_shape(ak) +
+  tm_polygons() +
+  tm_shape(tb) +
   tm_dots()
 ```
 
@@ -283,7 +283,7 @@ Now you have a point pattern dataset to work with (`tb.pp`), you can perform poi
 ## Assignment deliverables
 The submission deadline is **6 April at 8:30AM**. A dropbox will be provided on Blackboard. You should assemble materials in a word processor (export images from *RStudio* to PNG format) and produce a PDF report. Include your name in the filename for ease of identification. You should not read to write more than about 500 words, although your report should include a number of figures. Note that quality of cartography is not an important aspect of this assignment.
 
-You need to do two things:
+You need to do three things:
 
 ### First (25%)
 Present kernel density surfaces of the tuberculosis data.
