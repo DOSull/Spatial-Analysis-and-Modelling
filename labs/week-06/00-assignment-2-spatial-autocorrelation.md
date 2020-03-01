@@ -8,7 +8,7 @@ These instructions show how these analyses can be performed in *R*, although man
 Materials for this assignment are in [this zip file](week-6.zip?raw=true). Unpack these to a folder, and make sure to set it as the working directory for your R session.
 
 ## Required packages
-We need a bunch of these, so load them all now. 
+We need a bunch of these, so load them all now.
 ```{r}
 library(sf)
 library(tmap)
@@ -41,7 +41,7 @@ plot(select(ak, 6:9), lwd=0.35)
 
 Remember that we can also make maps of specific attributes as follows
 ```{r}
-map <- tm_shape(ak) + 
+map <- tm_shape(ak) +
   tm_fill(col="EUR_P_06", palette='Blues') + # add colour fill
   tm_borders(col='gray', lwd=0.5) # add borders to the polygons
 map
@@ -175,7 +175,7 @@ I've already said that *GeoDa* is easier and more friendly, so I suggest you go 
 
 Once you have a reasonable idea what you are up to, then complete the assignment as set out below.
 
-# Assignment 2 questions & Deliverables
+# Assignment 2 questions & deliverables
 You should first work through the instructional materials, also exploring the capabilities of *R*. You need to develop a reasonable understanding of what is going on.
 
 You don't need to understand all the intricacies of various bits of code, but you should assure yourself that you know how to make maps of any particular variable, how to build the neigbourhood object required for Moran's I analysis, how to find the Moran's statistic for a specified variable, and how to produce local Moran's cluster and significance maps (which may be easier in *GeoDa*).
