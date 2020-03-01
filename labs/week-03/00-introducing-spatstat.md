@@ -1,4 +1,4 @@
-#### GISC 422 T1 2019
+#### GISC 422 T1 2020
 # Introducing `spatstat` and experimenting with (spatial) point processes
 This lab introduces the `spatstat` library and its capabilities, and asks you to explore the variation we observe in spatial point processes. This is essential preparation for next week's assessed lab assignment on point pattern analysis, and also should develop your understanding of the concept of a 'process' in spatial analysis.
 
@@ -30,7 +30,7 @@ pardefaults <- par()
 ## What is `spatstat`
 A user guide for **`spatstat`** is [available here](http://spatstat.org/resources/spatstatJSSpaper.pdf)
 
-For our purposes, what you really need to know is that `spatstat` is the most powerful tool around for doing point pattern analysis.
+For our purposes, what you really need to know is that `spatstat` is the most powerful tool around for doing *point pattern analysis*.
 
 Consequently you can use `spatstat` to generate a wide variety of point patterns using a range of point processes. Among these are the following *R* commands
 
@@ -60,9 +60,9 @@ and to plot it we use
 plot(point_pattern)
 ```
 
-An important thing to notice here is that the `window` in which the pattern has been generated is a *unit square* with coordinates from (0, 0) to (1, 1). This indicates that `spatstat` is not concerned with real world geographical coordinates as such, and is an issued we have to deal with when we come to work with real world data. For now it doesn't matter because we are more interested in understanding point processes, not point pattern analysis *per se*.
+An important thing to notice here is that the `window` in which the pattern has been generated is a *unit square* with coordinates from (0, 0) to (1, 1). This indicates that `spatstat` is not concerned with real world geographical coordinates as such, and is an issue we have to deal with when we come to work with real world data. For now it doesn't matter because we are more interested in understanding point processes, not point pattern analysis *per se*.
 
-Anyway, we will be using the above basic sequence of commands a lot in this lab (and probably the next one also, so make sure you understand it. Try changing the number of events in the pattern. Or try using one of the other point processes. For any process more complicated than `rpoint()` or `rpoispp()` you will need to specify more than one parameter. Take a look at the documentation (using `?rpoispp()` or similar, to see if you can figure out what parameters to provide.
+Anyway, we will be using the above basic sequence of commands a lot in this lab (and probably the next one also, so make sure you understand it. Try changing the number of events in the pattern. Or try using one of the other point processes. For any process more complicated than `rpoint()` or `rpoispp()` you will need to specify more than one parameter. Take a look at the documentation (using `?rpoispp` or similar, to see if you can figure out what parameters to provide.
 
 ### Pre-cooked built in point patterns
 `spatstat` provides some simple point pattern datasets, which we'll use to explore ways to visualize point patterns (particularly density estimation). The built in datasets are `redwoodfull`, `japanesepines` and `cells`. We access them by using the `data` command
@@ -167,12 +167,12 @@ plot(rw, add=T)
 Make sure you have a good idea of how all these options work before proceeding to the next section.
 
 ## The lab proper: exploring point processes
-The point (ahem) of this lab is to experiment with making point patterns using `spatstat` commands, to examine them, and to comment on them.  To support this aim, you might find it useful to plot densities, with the points superimposed on top, as in the previous section.  To make the point patterns use the commands mentioned above and further explained below.
+The point (ahem) of this lab is to experiment with making point patterns using `spatstat` commands, to begin to get a handle on the nature of point processes.  To support this aim, you might find it useful to plot densities, with the points superimposed on top, as in the previous section.  To make the point patterns use the commands mentioned above and further explained below.
 
 The next sections explain some of the point process commands available in a bit more detail.
 
 ### The independent random process (or 'complete spatial randomness')
-The `rpoint()` or `rpoispp()` commands will generate patterns with no first or second order effects such that there is no bias in where events occur and no interaction between events. `rpoint()` is simpler and will produce exactly the number of events requested. `rpoispp` is a *Poisson process* and produces events at the requested *intensity* per unit area. Since the default region for a point pattern in `spatstat` is a 1 by 1 unit square, this will seem very similar to `rpoint()` except that the number of events produced in a particular realization of `rpoispp()` will vary each time you run it.
+The `rpoint` or `rpoispp` commands will generate patterns with no first or second order effects such that there is no bias in where events occur and no interaction between events. `rpoint` is simpler and will produce exactly the number of events requested. `rpoispp` is a *Poisson process* and produces events at the requested *intensity* per unit area. Since the default region for a point pattern in `spatstat` is a 1 by 1 unit square, this will seem very similar to `rpoint()` except that the number of events produced in a particular realization of `rpoispp()` will vary each time you run it.
 
 ```{R}
 par(mfrow=c(1,2))
@@ -185,7 +185,7 @@ plot(p2)
 You can confirm these patterns have different numbers of events using the `summary()` command.
 
 ### Patterns with first order effects: the inhomogeneous Poisson process
-If this was all you could do with `rpoispp()` it probably wouldn't justify it being a completely different point process than `rpoint()`. In fact, it can do a lot more. If instead of specifying a number, which produces a uniform intensity, you provide a function, then you can introduce spatial trends across the area occupied by the pattern.
+If this was all you could do with `rpoispp` it probably wouldn't justify it being a completely different point process than `rpoint`. In fact, it can do a lot more. If instead of specifying a number, which produces a uniform intensity, you provide a function, then you can introduce spatial trends across the area occupied by the pattern.
 
 ```{R}
 par(mfrow=c(1,3))
@@ -224,7 +224,7 @@ There are a number of point processes that will introduce second order (interact
 
 The gist of it is:
 
-+ *SSI* has two parameters. The first is an inhibition distance within which new events are not placed closer to existing events, and the second is the number of events that the process will attempt to randomly place given the inhibition constraint.
++ *SSI* has two parameters. The first is an *inhibition distance* within which new events are not placed closer to existing events, and the second is the number of events that the process will attempt to randomly place given the inhibition constraint.
 + The *Thomas process* takes three parameters.  The first specifies the intensity of a Poisson process that generates 'parent' events, the second specifies a distance that 'child' events will be scattered away from their parents, and the third specifies the average number of children that each parent will produce.
 
 Here are some example plots:
