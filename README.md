@@ -97,7 +97,7 @@ This course is 100% internally assessed.  Assessment is based on four lab assign
 Assessment item | Credit | Due date | CLOs
 :- | :-: | :-: | :-:
 Point pattern analysis | 10% | 6 April | 2 3 4
-Spatial autocorrelation | 10% | 27 April | 2 3 4
+Spatial autocorrelation | 10% | 28 April | 2 3 4
 Spatial interpolation | 10% | 18 May | 2 3 4
 Geodemographic analysis | 10% | 2 June | 2 3 4
 Written report on application of spatial analysis in a particular topic area | 50% | 16 June | 1
