@@ -1,0 +1,185 @@
+#### GISC 422 T1 2020
+# Assignment 3: Geostatistics in R
+In this document we will look at performing geostatistical interpolation (commonly known as kriging) using the `gstats` package in R.
+
+We need a bunch of libraries (as usual). Install any that are missing from your machine.
+```{r}
+# For handling and mapping spatial data
+library(sf)
+library(tmap) 
+
+# For geostatistics and other spatial manipulations
+library(sp)
+library(gstat)
+library(raster)
+```
+Data are provided in the [week-9.zip](zip file) and also include an RMarkdown version of these instructions.
+
+## The data we will work with
+We will work with some old weather data for Pennsylvania on 1 April 1993. It is surprisingly hard to find well behaved data for interpolation, and these work. I tried some local Wellington weather data, but they were (maybe unsurprisingly), not very well-behaved...
+```{r}
+pa.counties <- st_read('pa.shp')
+pa.weather <- st_read('paw19930401.shp')
+```
+
+## Inspect the data
+### The base map
+```{r}
+pa.counties
+```
+### The weather data
+```{r}
+pa.weather
+```
+
+Make some simple maps to get some idea of things. The code below will do the rainfall results. Change it to view other variables. I've added as a scale bar so you have an idea of the scale. If you switch the map mode to `'view'` with `tmap_mode('view')` you can see it in context on a web map.
+```{r}
+tm_shape(pa.counties) +
+  tm_polygons() +
+  tm_shape(pa.weather) +
+  tm_bubbles(col='rain_mm', palette='Blues', size=0.5) +
+  tm_legend(legend.outside=T) +
+  tm_scale_bar(position=c('right', 'TOP')) +
+  tm_layout(main.title='Pennsylvania weather, 1 April 1993')
+```
+
+## Geostatistical interpolation
+Again, I have drawn heavily on [this resource](https://mgimond.github.io/Spatial/interpolation-in-r.html), to put together the instructions below.
+
+Before we start, we have to convert the simple features (`sf`) data to `SpatialPointsDataFrame` data, because... well, because like many other analysis packages, `gstat` is happier working with the older `sp` formats.
+```{r}
+pa.w.sp <- as_Spatial(pa.weather)
+```
+
+### An output grid
+We also need an output grid of locations where we will perform the interpolation. To make this we use the `makegrid` function.
+```{r}
+output <- as.data.frame(makegrid(pa.w.sp, "regular", cellsize=5))
+names(output) <- c('X', 'Y')
+coordinates(output) <- c('X', 'Y')
+gridded(output) <- T
+fullgrid(output) <- T
+proj4string(output) <- proj4string(pa.w.sp)
+```
+
+### Trend surfaces
+Trend surfaces are a special kind of linear regression where we use the spatial coordinates of the control points as predictors of the values measured at those points. The function that is fitted is a polynomial expression in the coordinates. For example a degree 2 polynomial is of the form $z=b_0 + b_1x + b_2y + b_3xy + b_4x^2 + b_5y^2$.
+```{r}
+ts.2 <- krige(rain_mm ~ 1, pa.w.sp, output, degree=2)
+r.ts.2 <- raster(ts.2)
+
+r.ts.2
+```
+
+We can map this as usual...
+```{r}
+tm_shape(pa.counties) + 
+  tm_polygons() +
+  tm_shape(r.ts.2) + 
+  tm_raster(alpha=0.75, palette='Blues', title='Predicted rainfall (mm)') +
+  tm_shape(pa.weather) +
+  tm_bubbles(col='rain_mm', palette='Blues', size=0.5) +
+  tm_legend(legend.outside=T)
+```
+
+You can also see the trend surface in a 3D view.
+```{r}
+persp(r.ts.2, theta=30, phi=25, expand=0.35)
+```
+
+For kriging, it is necessary to retain the trend surface for use. Unfortunately, the way this works is that we have to retain the *formula* associated with the trend surface, not the object produced when we do the interpolation. Here's what that looks like
+
+```{r}
+# a set of formulae for 0, 1st, 2nd and 3rd order trend surfaces
+f.ts.0 <- tmin_c ~ 1
+f.ts.1 <- tmin_c ~ 1 + X + Y
+f.ts.2 <- tmin_c ~ 1 + X + Y + I(X*Y) + I(X^2) + I(Y^2)
+f.ts.3 <- tmin_c ~ 1 + X + Y + I(X*Y) + I(X^2) + I(Y^2) + I(X^2*Y) + I(X*Y^2) + I(X^3) + I(Y^3)
+```
+
+And here is how we do trend surface analysis using a formula. It involves making a *linear model* using the `lm()` function. We may see more of this if we look at regression later. For now don't worry too much about exactly what is happening.
+```{r}
+# use this line to specify which formula to use
+f <- f.ts.3
+
+# use lm to make a linear model
+ts <- lm(f, data=pa.w.sp)
+# use the model to calculate predicted values at the output locations
+ts <- SpatialGridDataFrame(output, data.frame(var1.pred = predict(ts, newdata=output)))
+
+tm_shape(pa.counties) +
+  tm_polygons() +
+  tm_shape(raster(ts)) + 
+  tm_raster(alpha=0.75, palette='Blues', title='Predicted rainfall (mm)') + 
+  tm_legend(legend.outside=T) +
+  tm_shape(pa.weather) +
+  tm_bubbles(col='rain_mm', palette='Blues', size=0.5) +
+  tm_legend(legend.outside=T)
+```
+
+Here's another way to plot the data, just for interest.
+```{r}
+image(raster(ts), asp=1, col=hcl.colors(n=12, palette='Blues', rev=TRUE))
+plot(pa.counties, col=rgb(1,1,1,0), border='gray', add=T)
+contour(raster(ts), col='red', add=T, cex=4)
+```
+
+### Making a variogram
+The other half of kriging is the model of spatial structure in the data that we use, otherwise known as a variogram.
+
+The simplest variogram model is based on a plot of distance between control points against the difference in associated values. 
+```{r}
+# use this line to specify which formula to use
+f <- f.ts.3
+v <- variogram(f, pa.w.sp, cloud=T, cutoff=150)
+plot(v)
+```
+
+If instead of plotting all the points, we summarise the values at a series of distances, then we get an empirical variogram.
+```{r}
+v <- variogram(f, pa.w.sp, cloud=F, cutoff=150)
+plot(v)
+```
+
+From this plot, we can estimate a range (say around 50) and a sill value (say 3), and we then use these to fit a variogram mode to the data.
+```{r}
+fit.v <- fit.variogram(v, vgm(psill=3, model='Exp', range=50))
+plot(v, fit.v)
+```
+
+Many different models are available, see `vgm()` to get a list.
+
+### Finally, kriging
+Now we have a variogram, we can do the actual kriging.
+```{r}
+k <- krige(f, pa.w.sp, fit.v, newdata=output)
+r <- raster(k)
+ci <- sqrt(raster(k, layer='var1.var')) * 1.96
+```
+
+Note that I've retained both the predicted values in the raster `r` and also a 95% confidence interval number in the raster `ci`.  We can plot whichever we are interested in in the usual way.
+```{r}
+tm_shape(pa.counties) +
+  tm_polygons() +
+  tm_shape(r) + 
+  tm_raster(alpha=0.75, palette='Blues', title='Predicted rainfall (mm)') +
+  tm_shape(pa.weather) + 
+  tm_bubbles(col='rain_mm', palette='Blues', size=0.5) +
+  tm_legend(legend.outside=T)
+```
+
+## The assignment
+Using methods eiher from this session (or in last week's) produce interpolated maps of rainfall and maximum and minimum temperatures from the provided data.
+
+Write up a report on the process, providing the R code used to produce your final maps, and also discussing reasons for the choices of methods and parameters you made.
+
+There are a number of choices to make, and consider in your write up:
+
++ interpolation method: Voronoi (Thiessen/proximity) polygons, IDW, trend surface, or kriging;
++ resolution of the output (this is controlled by the cellsize setting in the `makegrid` function for the examples in this session);
++ parameters associated with particular methods, such as power (for IDW), the trend surface degree for trend surfaces and kriging; and
++ variogram model&mdash;although this one is difficult to make a well informed choice about.
+
+Submit a PDF report to the dropbox provided in Blackboard. 
+
+Note that you could do this using the knitr functionality of the provide RMarkdown file, but will obviously need to add additional R code to this document, and tidy things up generally (ask me about this, if you are interested). Please don't just submit a lightly modified version of the file I have provided!
