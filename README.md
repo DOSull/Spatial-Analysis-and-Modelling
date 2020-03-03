@@ -43,7 +43,7 @@ Week# | Date | Lecture | Lab | Notes
 6 | 6 Apr | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/week-06/00-assignment-2-spatial-autocorrelation.md) (10%) | Due 28 Apr
 &nbsp; | Break | &nbsp; | &nbsp; | &nbsp;
 7 | 27 Apr | **No class** ANZAC Day holiday |
-8 | 4 May | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/week-08/interpolation.md) |
+8 | 4 May | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/week-08/00-interpolation.md) |
 9 | 11 May | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/week-09/assignment-3-geostatistics.md) (10%) | Due 18 May
 10 | 18 May | Multivariate methods | [**Geodemographics**](labs/week-10/assignment-4-multivariate-analysis.md) (10%)| Due 2 Jun
 11 | 25 May | [Network analysis](https://southosullivan.com/gisc422/network-analysis/) | [Tools for network analysis](labs/week-11/network-analysis.md) |
