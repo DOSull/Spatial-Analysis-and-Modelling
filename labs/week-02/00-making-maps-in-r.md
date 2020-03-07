@@ -1,9 +1,9 @@
 #### GISC 422 T1 2020
 # Making maps in *R*
 The data for this lab are available as follows:
-+ the [Auckland census area units](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-tb.geojson).
-+ [Auckland TB cases 2006](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-2/ak-tb-cases.geojson) (jittered to anonymise locations)
-+ [Auckland roads](https://github.com/DOSull/GISC-422/blob/master/labs/week-2/ak-rds.zip?raw=true)
++ the [Auckland census area units](https://github.com/DOSull/GISC-422/blob/master/labs/week-02/ak-tb.geojson).
++ [Auckland TB cases 2006](https://github.com/DOSull/GISC-422/blob/master/labs/week-02/ak-tb-cases.geojson) (jittered to anonymise locations)
++ [Auckland roads](https://github.com/DOSull/GISC-422/blob/master/labs/week-02/ak-rds.zip?raw=true)
 
 Before we start we need to load the `sf` package to handle spatial data
 ```{r}
@@ -59,7 +59,7 @@ hist(auckland$TB_RATE, xlab='TB rate per 100,000 population', main='')
 or with the `ggplot2` approach, where we define the data we are using and the aesthetics to apply to it. The latter is quite an involved topic, which we may get into later in the semester, for now it may be easier to stick with the base *R* `hist` function. Many people much prefer the `ggplot2` approach, although for relatively simply plots like these it may not be very obvious why! I am happy to discuss this in more detail, if you find yourself creating complicated visualisations with *R*.
 ```{r}
 library(ggplot2)
-ggplot(auckland, aes(x=TB_RATE)) + 
+ggplot(auckland, aes(x=TB_RATE)) +
   geom_histogram(binwidth=10)
 ```
 
@@ -82,7 +82,7 @@ In this example we didn't say what variable we wanted to colour the map with, so
 ```{r}
 map + tm_polygons(col='TB_RATE')
 ```
-There are a number of options for changing the look of this. We can change colours (`palette`), the number of classes (`n`), and the classification scheme (`style`) 
+There are a number of options for changing the look of this. We can change colours (`palette`), the number of classes (`n`), and the classification scheme (`style`)
 ```{r}
 map + tm_polygons(col='TB_RATE', palette='Greens', n=9, style='quantile')
 ```
@@ -98,7 +98,7 @@ This time, we do it without saving the basemap to a variable
 ```{r}
 tm_shape(auckland) +
   tm_polygons() +
-  tm_shape(cases) + 
+  tm_shape(cases) +
   tm_dots()
 ```
 Again, check the help for this new function `tm_dots` to see what the options are.
@@ -113,9 +113,9 @@ and add it to the map:
 ```{r}
 tm_shape(auckland) +
   tm_polygons() +
-  tm_shape(rds) + 
+  tm_shape(rds) +
   tm_lines() +
-  tm_shape(cases) + 
+  tm_shape(cases) +
   tm_dots(col='red', scale=2)
 ```
 
@@ -152,7 +152,7 @@ You can also try adding map decorations using the `tm_layout` function.
 ## Maps using only `ggplot2`
 Finally, it is worth knowing that there is a way to make maps like these with pure `ggplot2` commands. It goes something like this
 ```{r}
-ggplot(auckland) + 
+ggplot(auckland) +
   geom_sf(aes(fill=TB_RATE), colour='white', lwd=0.0) +
   scale_fill_distiller(palette='Reds', direction=1) +
   geom_sf(data=cases, size=1) +
