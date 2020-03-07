@@ -1,9 +1,11 @@
 #### GISC 422 T1 2020
 # Making maps in *R*
-The data for this lab are available as follows:
+The data for this lab are available in [this zip file](week-02.zip).
+
+You can see previews of two of the data layers at the links below:
+
 + the [Auckland census area units](https://github.com/DOSull/GISC-422/blob/master/labs/week-02/ak-tb.geojson).
 + [Auckland TB cases 2006](https://github.com/DOSull/GISC-422/blob/master/labs/week-02/ak-tb-cases.geojson) (jittered to anonymise locations)
-+ [Auckland roads](https://github.com/DOSull/GISC-422/blob/master/labs/week-02/ak-rds.zip?raw=true)
 
 Before we start we need to load the `sf` package to handle spatial data
 ```{r}
