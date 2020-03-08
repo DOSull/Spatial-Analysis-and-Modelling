@@ -13,7 +13,7 @@ library(sf)
 ```
 
 ## Some quick map plotting
-First we need to read in the spatial data. We don this with the `st_read` function provided by the `sf` package (most functions in `sf` start with `st_`)
+First we need to read in the spatial data. We do this with the `st_read` function provided by the `sf` package (most functions in `sf` start with `st_`)
 ```{r}
 auckland <- st_read("ak-tb.geojson")
 ```
