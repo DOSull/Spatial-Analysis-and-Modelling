@@ -20,7 +20,7 @@ auckland <- st_read("ak-tb.geojson")
 
 The result tells us that we successfully read a file that contains 103 features (i.e. geographical things), and that each of those features has 9 'fields' of information associated with it. Note that to find out more about `st_read` and how it works you can type `?st_read` at any time&mdash;the `?` immediately before a function name provides help information. For help on a package type `??` before the package name, i.e., `??sf`.
 
-Back to the data we just loaded. We can see a feel for the data using the `as_tibble` function from the `tidyr` package. This is a generic function for examining datasets, and shows us the first few rows and columns of the data in a convenient format.
+Back to the data we just loaded. We can get a feel for the data using the `as_tibble` function from the `tidyr` package. This is a generic function for examining datasets, and shows us the first few rows and columns of the data in a convenient format.
 
 ```{r}
 library(tidyr)
