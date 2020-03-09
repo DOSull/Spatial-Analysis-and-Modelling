@@ -18,7 +18,7 @@ First we need to read in the spatial data. We do this with the `st_read` functio
 auckland <- st_read("ak-tb.geojson")
 ```
 
-The result tells us that we successfully read a file that contains 103 features (i.e. geographical things), and that each of those features has 9 'fields' of information associated with it. Note that to find out more about `st_read` and how it works you can type `?st_read` at any time&mdash;the `?` immediately before a function name provides help information. For help on a package type `??` before the package name, i.e., `??sf`.
+The result tells us that we successfully read a file that contains 103 features (i.e. geographical things), and that each of those features has 5 'fields' of information associated with it. Note that to find out more about `st_read` and how it works you can type `?st_read` at any time&mdash;the `?` immediately before a function name provides help information. For help on a package type `??` before the package name, i.e., `??sf`.
 
 Back to the data we just loaded. We can get a feel for the data using the `as_tibble` function from the `tidyr` package. This is a generic function for examining datasets, and shows us the first few rows and columns of the data in a convenient format.
 ```{r}
@@ -50,7 +50,7 @@ summary(auckland)
 - What's the lowest TB_RATE?
 - What's the highest TB_RATE?
 
-Since the *median* is 88, meaning that half the rates are that level or lower, while the average or *mean* value is higher at 106.8, you can see that the date are skewed. More visually, we can make a histogram. We can do this either with the base *R* function `hist` by using the `$` symbol to select only that variable as input:
+Since the *median* is 26.3, meaning that half the rates are that level or lower, while the average or *mean* value is higher at 30.4, you can see that the date are skewed. More visually, we can make a histogram. We can do this either with the base *R* function `hist` by using the `$` symbol to select only that variable as input:
 ```{r}
 hist(auckland$TB_RATE, xlab='TB rate per 100,000 population', main='')
 ```
