@@ -6,7 +6,7 @@ The plain Markdown is readable on the github website, and you can simply follow 
 
 The RMarkdown is really, really cool, however! The quick explanation is that you can
 
-+ Open and RMarkdown file in *RStudio*
++ Open an RMarkdown file in *RStudio*
 + Run code chunks one at a time without typing
 + *Knit* the whole thing into an output document that includes all the code and all the outputs produced in a single neatly formatted document
 
