@@ -1,6 +1,6 @@
 #### GISC 422 T1 2020
 # *RMarkdown* files
-This week's instructional material (and subsequent weeks also) is available both as plain [Markdown](00-introducing-spatstat.md) (`.md`) and as [RMarkdown](00-introducing-spatstat.Rmd) (.Rmd) files.
+This week's instructional material (and subsequent weeks also) is available both as plain [Markdown](00-introducing-spatstat.md?raw=true) (`.md`) and as [RMarkdown](00-introducing-spatstat.Rmd?raw=true) (.Rmd) files.
 
 The plain Markdown is readable on the github website, and you can simply follow the instructions and read along with those if you choose. I would encourage you to do this for now, to continue to familiarise yourself with *R* code.
 
