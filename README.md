@@ -37,8 +37,8 @@ Week# | Date | Lecture | Lab | Notes
  :-: | :-: | :-- | :-- | :--
  1 | 2 Mar | Course overview | [*R* and *RStudio* computing environment](labs/week-01/00-week-01-overview.md) |
 2 | 9 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/) | [More making maps in *R*](labs/week-02/00-making-maps-in-r.md) |
-3 | 16 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/week-03/00-introducing-spatstat.md) |
-4 | 23 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/week-04/00-assignment-1-ppa-in-spatstat.md) (10%) | Due 6 Apr
+3 | 16 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/week-03/week-03.zip?raw=true) |
+4 | 23 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/week-04/week-04.zip?raw=true) (10%) | Due 6 Apr
 5 | 30 Mar | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | Survey of other tools |
 6 | 6 Apr | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/week-06/00-assignment-2-spatial-autocorrelation.md) (10%) | Due 28 Apr
 &nbsp; | Break | &nbsp; | &nbsp; | &nbsp;
