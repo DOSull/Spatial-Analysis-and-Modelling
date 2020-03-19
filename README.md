@@ -5,6 +5,9 @@ This class introduces key concepts and methods of spatial analysis. Practical de
 ## Link to zoom meetings of this class
 [https://vuw.zoom.us/j/156871965](https://vuw.zoom.us/j/156871965)
 
+## Link to lecture videos
+[https://southosullivan.com/gisc422/videos/](https://southosullivan.com/gisc422/videos/)
+
 ## Important dates
 Item | Dates
  -: | :-
