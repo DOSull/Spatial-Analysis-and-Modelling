@@ -3,10 +3,10 @@
 This class introduces key concepts and methods of spatial analysis. Practical deployment in the `R` statistical analysis software package is emphasised, although other tools will be surveyed.
 
 # Important!
-**Details of deadlines and scheduled meetings on this page should be treated as provisional and subject to change until you hear from the course coordinator via Blackboard that they are final. This is due to reorganisation in response to the COVID-19 crisis.**
+**The COVID-19 crisis means that all details are subject to change at any time. Keep close tabs on this page, and on information posted to Blackboard for changes to schedules, etc.**
 
 ## Link to zoom meetings of this class
-[https://vuw.zoom.us/j/156871965](https://vuw.zoom.us/j/156871965)
+You will find the zoom link for this class on [Blackboard](https://blackboard.vuw.ac.nz/webapps/blackboard/content/listContentEditable.jsp?course_id=_106345_1&crosscoursenavrequest=true&content_id=_2641859_1&crosscoursenavrequest=true).
 
 ## Link to lecture videos
 [https://southosullivan.com/gisc422/videos/](https://southosullivan.com/gisc422/videos/)
@@ -31,7 +31,7 @@ Lectures are in Cotton 110 at 9AM on Mondays and will be followed immediately by
 ## Contact details
 ### Lecturer/coordinator
 **Prof. [David O'Sullivan](mailto:david.osullivan@vuw.ac.nz)**
-**Office** CO227 **Extn.** 6492 **Office hours by appointment** [click here](http://calendly.com/dosullivan)
+**Office** CO227 **Extn.** 6492 **Office hours preferably by appointment** [click here](http://calendly.com/dosullivan) but direct message me on [the Slack](https://vuwgisc2020.slack.com) and we can arrange contact
 
 ### GIS Technician
 **[Andrew Rae](mailto:andrew.rae@vuw.ac.nz)**
@@ -45,16 +45,17 @@ Week# | Date | Lecture | Lab | Notes
  1 | 2 Mar | Course overview | [*R* and *RStudio* computing environment](labs/week-01/00-week-01-overview.md) |
 2 | 9 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/) | [More making maps in *R*](labs/week-02/00-making-maps-in-r.md) |
 3 | 16 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/week-03/week-03.zip?raw=true) |
-4 | 23 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/week-04/week-04.zip?raw=true) (10%) | Due 4 May
+4 | 23 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/week-04/week-04.zip?raw=true) (15%) | Due 4 May
 | | **COVID-19** | **[ALERT LEVEL 4](https://covid19.govt.nz/government-actions/covid-19-alert-system/)** | **UNIVERSITY CLOSED**
-5 | 4 May | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/week-06/00-assignment-2-spatial-autocorrelation.md) (10%) | Due 18 May
-6 | 11 May | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/week-08/00-interpolation.md) |
-7 | 18 May | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/week-09/assignment-3-geostatistics.md) (10%) | Due 1 Jun
-8 | 25 May | Multivariate methods | [**Geodemographics**](labs/week-10/assignment-4-multivariate-analysis.md) (10%)| Due 8 Jun
-9 | 1 Jun | **No class** Queen's Birthday | &nbsp; |
-10 | 8 Jun | [Network analysis](https://southosullivan.com/gisc422/network-analysis/) | [Tools for network analysis](labs/week-11/network-analysis.md) |
-11 | 15 Jun | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | Survey of other tools |
-12 | 22 Jun | **No class** |
+5 | 6 Apr | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/week-06/00-assignment-2-spatial-autocorrelation.md) (15%) | Due 18 May
+|| **SEMESTER BREAK** | **(kinda sorta)** | **NO TEACHING**
+6 | 27 Apr | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/week-08/00-interpolation.md) |
+7 | 4 May | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/week-09/assignment-3-geostatistics.md) (15%) | Due 2 Jun
+8 | 11 May | Multivariate methods | [**Geodemographics**](labs/week-10/assignment-4-multivariate-analysis.md) (15%)| Due 8 Jun
+9 | 18 May | [Network analysis](https://southosullivan.com/gisc422/network-analysis/) | [Tools for network analysis](labs/week-11/network-analysis.md) |
+10 | 25 May | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | Survey of other tools |
+11 | 1 Jun | **No class** Queen's Birthday | &nbsp; |
+12 | 8 Jun | **No class** |
 
 ## Lectures
 Lectures will generally consist of around an hour of presented material, and around 30 minutes of more open-ended discussion and Q&A based on the materials and on reading which students will have been expected to do ahead of class.
@@ -103,11 +104,11 @@ This course is 100% internally assessed.  Assessment is based on four lab assign
 
 Assessment item | Credit | Due date | CLOs
 :- | :-: | :-: | :-:
-Point pattern analysis | 10% | 4 May | 2 3 4
-Spatial autocorrelation | 10% | 18 May | 2 3 4
-Spatial interpolation | 10% | 1 June | 2 3 4
-Geodemographic analysis | 10% | 8 June | 2 3 4
-Written report on application of spatial analysis in a particular topic area | 50% | 19 June | 1
+Point pattern analysis | 15% | 4 May | 2 3 4
+Spatial autocorrelation | 15% | 18 May | 2 3 4
+Spatial interpolation | 15% | 2 June | 2 3 4
+Geodemographic analysis | 15% | 22 June | 2 3 4
+Written report on application of spatial analysis in a particular topic area | 30% | 19 June | 1
 Participation (including non-assessed labs) | 10% | NA | 1 2 3 4
 
 Some guidance on the written report assignment expectations is provided [here](report/README.md).
