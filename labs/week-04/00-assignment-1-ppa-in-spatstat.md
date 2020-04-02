@@ -281,7 +281,7 @@ If we were doing a lot of this kind of analysis starting with lat-lon datasets, 
 Now you have a point pattern dataset to work with (`tb.pp`), you can perform point pattern analysis with it.
 
 ## Assignment deliverables
-The submission deadline is **6 April at 8:30AM**. A dropbox will be provided on Blackboard. You should assemble materials in a word processor (export images from *RStudio* to PNG format) and produce a PDF report. Include your name in the filename for ease of identification. You should not read to write more than about 500 words, although your report should include a number of figures. Note that quality of cartography is not an important aspect of this assignment.
+The submission deadline is **4 May at 8:30AM**. A dropbox will be provided on Blackboard. You should assemble materials in a word processor (export images from *RStudio* to PNG format) and produce a PDF report. Include your name in the filename for ease of identification. You should not read to write more than about 500 words, although your report should include a number of figures. Note that quality of cartography is not an important aspect of this assignment.
 
 You need to do three things:
 
