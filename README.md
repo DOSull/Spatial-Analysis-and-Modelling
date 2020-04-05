@@ -48,14 +48,14 @@ Week# | Date | Lecture | Lab | Notes
 4 | 23 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/week-04/week-04.zip?raw=true) (15%) | Due 4 May
 | | **COVID-19** | **[ALERT LEVEL 4](https://covid19.govt.nz/government-actions/covid-19-alert-system/)** | **UNIVERSITY CLOSED**
 5 | 6 Apr | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/week-06/00-assignment-2-spatial-autocorrelation.md) (15%) | Due 18 May
-|| **SEMESTER BREAK** | **NO TEACHING**
-6 | 27 Apr | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/week-08/00-interpolation.md) |
-7 | 4 May | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/week-09/assignment-3-geostatistics.md) (15%) | Due 2 Jun
-8 | 11 May | Multivariate methods | [**Geodemographics**](labs/week-10/assignment-4-multivariate-analysis.md) (15%)| Due 8 Jun
-9 | 18 May | [Network analysis](https://southosullivan.com/gisc422/network-analysis/) | [Tools for network analysis](labs/week-11/network-analysis.md) |
-10 | 25 May | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | Survey of other tools |
+ | | **SEMESTER BREAK** | **NO TEACHING**
+6 | 27 Apr | **No class** ANZAC Day |
+7 | 4 May | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/week-08/00-interpolation.md) |
+8 | 11 May | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/week-09/assignment-3-geostatistics.md) (15%) | Due 2 Jun
+9 | 18 May | Multivariate methods | [**Geodemographics**](labs/week-10/assignment-4-multivariate-analysis.md) (15%)| Due 22 Jun
+10 | 25 May | [Network analysis](https://southosullivan.com/gisc422/network-analysis/) | [Tools for network analysis](labs/week-11/network-analysis.md)
 11 | 1 Jun | **No class** Queen's Birthday | &nbsp; |
-12 | 8 Jun | **No class** |
+12 | 8 Jun | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | Survey of other tools |
 
 ## Lectures
 Lectures will generally consist of around an hour of presented material, and around 30 minutes of more open-ended discussion and Q&A based on the materials and on reading which students will have been expected to do ahead of class.
