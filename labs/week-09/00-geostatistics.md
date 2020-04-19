@@ -6,7 +6,7 @@ We need a bunch of libraries (as usual). Install any that are missing from your 
 ```{r}
 # For handling and mapping spatial data
 library(sf)
-library(tmap) 
+library(tmap)
 
 # For geostatistics and other spatial manipulations
 library(sp)
@@ -73,9 +73,9 @@ r.ts.2
 
 We can map this as usual...
 ```{r}
-tm_shape(pa.counties) + 
+tm_shape(pa.counties) +
   tm_polygons() +
-  tm_shape(r.ts.2) + 
+  tm_shape(r.ts.2) +
   tm_raster(alpha=0.75, palette='Blues', title='Predicted rainfall (mm)') +
   tm_shape(pa.weather) +
   tm_bubbles(col='rain_mm', palette='Blues', size=0.5) +
@@ -109,8 +109,8 @@ ts <- SpatialGridDataFrame(output, data.frame(var1.pred = predict(ts, newdata=ou
 
 tm_shape(pa.counties) +
   tm_polygons() +
-  tm_shape(raster(ts)) + 
-  tm_raster(alpha=0.75, palette='Blues', title='Predicted rainfall (mm)') + 
+  tm_shape(raster(ts)) +
+  tm_raster(alpha=0.75, palette='Blues', title='Predicted rainfall (mm)') +
   tm_legend(legend.outside=T) +
   tm_shape(pa.weather) +
   tm_bubbles(col='rain_mm', palette='Blues', size=0.5) +
@@ -127,7 +127,7 @@ contour(raster(ts), col='red', add=T, cex=4)
 ### Making a variogram
 The other half of kriging is the model of spatial structure in the data that we use, otherwise known as a variogram.
 
-The simplest variogram model is based on a plot of distance between control points against the difference in associated values. 
+The simplest variogram model is based on a plot of distance between control points against the difference in associated values.
 ```{r}
 # use this line to specify which formula to use
 f <- f.ts.3
@@ -161,9 +161,9 @@ Note that I've retained both the predicted values in the raster `r` and also a 9
 ```{r}
 tm_shape(pa.counties) +
   tm_polygons() +
-  tm_shape(r) + 
+  tm_shape(r) +
   tm_raster(alpha=0.75, palette='Blues', title='Predicted rainfall (mm)') +
-  tm_shape(pa.weather) + 
+  tm_shape(pa.weather) +
   tm_bubbles(col='rain_mm', palette='Blues', size=0.5) +
   tm_legend(legend.outside=T)
 ```
@@ -180,6 +180,6 @@ There are a number of choices to make, and consider in your write up:
 + parameters associated with particular methods, such as power (for IDW), the trend surface degree for trend surfaces and kriging; and
 + variogram model&mdash;although this one is difficult to make a well informed choice about.
 
-Submit a PDF report to the dropbox provided in Blackboard. 
+Submit a PDF report to the dropbox provided in Blackboard by **2 June**. 
 
 Note that you could do this using the knitr functionality of the provide RMarkdown file, but will obviously need to add additional R code to this document, and tidy things up generally (ask me about this, if you are interested). Please don't just submit a lightly modified version of the file I have provided!

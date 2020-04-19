@@ -267,4 +267,4 @@ In any case, your report should show clear evidence of having explored the data 
 
 Prepare your report in R-Markdown and run it to produce a final output PDF or Word document for submission (this means I will see your code as well as the outputs!) Avoid any outputs that are just long lists of data (like this file includes), as these are not very informative.
 
-Submit to the dropbox provided on Blackboard.
+Submit to the dropbox provided on Blackboard by **22 June**.

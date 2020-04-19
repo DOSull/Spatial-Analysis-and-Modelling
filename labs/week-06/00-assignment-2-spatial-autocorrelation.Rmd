@@ -180,7 +180,7 @@ You should first work through the instructional materials, also exploring the ca
 
 You don't need to understand all the intricacies of various bits of code, but you should assure yourself that you know how to make maps of any particular variable, how to build the neigbourhood object required for Moran's I analysis, how to find the Moran's statistic for a specified variable, and how to produce local Moran's cluster and significance maps (which may be easier in *GeoDa*).
 
-Once you feel that you have got a handle on things, take a look at the questions below and put together a short report including results and maps produced either in *R* or in *GeoDa* that answer the questions. Your report should be in PDF format, and the file name should include your own name to assist in marking. Upload your completed report to the dropbox provided on blackboard by **28 April**. Your report shouldn't need more than about 500 words, but will need a few maps and/or other charts.
+Once you feel that you have got a handle on things, take a look at the questions below and put together a short report including results and maps produced either in *R* or in *GeoDa* that answer the questions. Your report should be in PDF format, and the file name should include your own name to assist in marking. Upload your completed report to the dropbox provided on blackboard by **18 May**. Your report shouldn't need more than about 500 words, but will need a few maps and/or other charts.
 
 ### Q1. Determine the Moran’s I statistic for each of the four population groups. Which is *least* clustered based on these results? Suggest a simple reason why this might be the case. (40%)
 
