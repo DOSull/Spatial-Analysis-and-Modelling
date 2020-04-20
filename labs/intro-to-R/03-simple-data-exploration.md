@@ -1,9 +1,9 @@
 #### GISC 422 T1 2020
 # Simple visualization and mapping
-The data for this lab are in [this file](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/week-01/week-01-data.zip?raw=true) which you should download to a local folder.
+The data for this lab are in [this file](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/intro-to-R/intro-to-R.zip?raw=true) which you should download to a local folder.
 
 ## Preliminaries
-If you haven't worked through the other two sets of instructions for this week [go back there and do this now](00-week-01-overview.md).
+If you haven't worked through the other two sets of instructions for this week [go back there and do this now](00-overview.md).
 
 Next, set the working directory to where you downloaded the data using the **Session - Set Working Directory - Choose Directory...** menu option. When you do that you should see a response something like
 ```

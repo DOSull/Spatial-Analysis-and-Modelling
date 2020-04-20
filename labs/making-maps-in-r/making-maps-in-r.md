@@ -1,6 +1,6 @@
 #### GISC 422 T1 2020
 # Making maps in *R*
-The data for this lab are available in [this zip file](week-02.zip).
+The data for this lab are available in [this zip file](making-maps-in-r.zip).
 
 You can see previews of two of the data layers at the links below:
 

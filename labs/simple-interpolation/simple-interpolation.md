@@ -1,6 +1,6 @@
 #### GISC 422 T1 2020
 # Simple interpolation methods in *R*
-You'll need to [download the data](week-8.zip?raw=true) and unzip them. The zip file also contains these instructions in an RMarkdown format.
+You'll need to [download the data](simple-interpolation.zip?raw=true) and unzip them. The zip file also contains these instructions in an RMarkdown format.
 
 Load some needed libraries. If any fail to load, then install them in the usual way.
 ```{r}
@@ -18,7 +18,7 @@ Load a dataset that we will use to explore the methods.
 heights <- st_read("maungawhau.shp")
 ```
 
-This is a grid of control points at 10 metre spacing for Maungawhau (Mt. Eden) in Auckland. It was originally digitised by Ross Ihaka at University of Auckland and is a dataset that comes with R in the form of a matrix of height values as the `volcano` dataset. You can get an idea of what you are looking at in a couple of ways. 
+This is a grid of control points at 10 metre spacing for Maungawhau (Mt. Eden) in Auckland. It was originally digitised by Ross Ihaka at University of Auckland and is a dataset that comes with R in the form of a matrix of height values as the `volcano` dataset. You can get an idea of what you are looking at in a couple of ways.
 
 One is a perspective view of the built in matrix dataset called `volcano`
 ```{r}
@@ -52,7 +52,7 @@ To figure out what follows I drew heavily on the Bivand et al. book, and also on
 ### Proximity polygons
 The idea behind proximity polygons is that we simply assign to every location the value associated with the nearest control point. To do this we will make a Voronoi tessellation of the control points. We can do this with `st_` functions in the `sf` package. First we need a bounding box for the analysis, which we will make from the original heights data
 ```{r}
-bb <- heights %>% 
+bb <- heights %>%
   st_union() %>% ## combine heights into a multipoint
   st_bbox() %>% ## get the bounding box
   st_as_sfc() ## convert it to a polygon
@@ -106,7 +106,7 @@ And then we can plot it using `tmap` with the `tm_raster` function. Note that th
 ```{r}
 tm_shape(r.ss) +
   tm_raster(col='layer', n=10, palette='-BrBG', title="IDW heights") +
-  tm_shape(controls) + 
+  tm_shape(controls) +
   tm_dots(size=0.05) +
   tm_legend(legend.outside=T)
 ```
@@ -144,7 +144,7 @@ crs(r.gs) <- st_crs(heights)$proj4string
 tm_shape(r.gs) +
   tm_raster(col='var1.pred', n=10,palette = "-BrBG", title="IDW heights") +
   tm_legend(legend.outside=T) +
-  tm_shape(controls) + 
+  tm_shape(controls) +
   tm_dots(size=0.05)
 ```
 
@@ -176,7 +176,7 @@ points(trans3d(xy[,1], xy[,2], controls$height, p), col='purple', pch=20, cex=0.
 tm_shape(r.spline.mba) +
   tm_raster(col='z', n=10, palette = "-BrBG", title="mba.surf spline heights") +
   tm_legend(legend.outside=T) +
-  tm_shape(controls) + 
+  tm_shape(controls) +
   tm_dots(size=0.05)
 ```
 
@@ -188,7 +188,7 @@ library(akima)
 
 The function is called `interp`.  Again, it has a few settings.
 ```{r}
-xy <- st_coordinates(controls) 
+xy <- st_coordinates(controls)
 xyz <- data.frame(x=xy[,1],
                   y=xy[,2],
                   z=controls$height)
@@ -207,6 +207,6 @@ And again, mapping it
 tm_shape(r.spline.akima) +
   tm_raster(col='layer', n=10, palette='-BrBG', title='akima interp spline heights') +
   tm_legend(legend.outside=T) +
-  tm_shape(controls) + 
+  tm_shape(controls) +
   tm_dots(size=0.05)
 ```

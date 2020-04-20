@@ -13,7 +13,7 @@ library(sp)
 library(gstat)
 library(raster)
 ```
-Data are provided in the [week-9.zip](zip file) and also include an RMarkdown version of these instructions.
+Data are provided in the [zip file](geostatistics.zip) and also include an RMarkdown version of these instructions.
 
 ## The data we will work with
 We will work with some old weather data for Pennsylvania on 1 April 1993. It is surprisingly hard to find well behaved data for interpolation, and these work. I tried some local Wellington weather data, but they were (maybe unsurprisingly), not very well-behaved...
@@ -180,6 +180,6 @@ There are a number of choices to make, and consider in your write up:
 + parameters associated with particular methods, such as power (for IDW), the trend surface degree for trend surfaces and kriging; and
 + variogram model&mdash;although this one is difficult to make a well informed choice about.
 
-Submit a PDF report to the dropbox provided in Blackboard by **2 June**. 
+Submit a PDF report to the dropbox provided in Blackboard by **2 June**.
 
 Note that you could do this using the knitr functionality of the provide RMarkdown file, but will obviously need to add additional R code to this document, and tidy things up generally (ask me about this, if you are interested). Please don't just submit a lightly modified version of the file I have provided!
