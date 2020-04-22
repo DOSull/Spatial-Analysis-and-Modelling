@@ -1,9 +1,9 @@
-#### GISC 422 T1 2019
+#### GISC 422 T1 2020
 # Review of spatial analysis written report
 This document sets out my expectations of the report you are required to write on spatial analysis as it has been applied in some field of interest. I am happy to meet to discuss your plans and thinking; make an appointment [here](https://calendly.com/dosullivan).
 
 ## Scope of the report
-The final written report should be 2,500 to 3,500 words in length (inclusive of references).
+The final written report should be 2,000 to 3,000 words in length (inclusive of references).
 
 The goal is to demonstrate your ability to critically evaluate the usefulness, potential, and limitations of spatial analysis techniques in a particular subfield of interest.
 
