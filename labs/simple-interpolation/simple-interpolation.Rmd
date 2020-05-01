@@ -134,6 +134,7 @@ result <- as(as_Spatial(heights), 'SpatialPixelsDataFrame')
 idw.gs <- gstat::idw(height ~ 1, as_Spatial(controls), newdata=result, idp=2.0)
 persp(as.matrix(idw.gs), expand=0.35, theta=30, phi=35, col=rgb(0, .75, .1, .65), lwd=0.5)
 ```
+
 And mapping the results as before:
 ```{r}
 # For mapping make a raster object
@@ -149,6 +150,17 @@ tm_shape(r.gs) +
 ```
 
 ### Splines
+Splines are very general (not just spatial) interpolation technique. For example they can be used to interpolate time series data, and they are also used in drawing software to produce smooth curves. Because their use is widespread, there are a number of different packages in R that can perform spline-based interpolation. We'll look at a couple of them below. Both require a data table with attributes *x*, *y* and *z* for the control point information, where the *z* value is the attribute value at the associated (*x*, *y*) location.
+
+So first, we'll make that data frame from our control points.
+```{r}
+# use st_coordinates to extract x,y from points data as a matrix
+xy <- st_coordinates(controls)
+xyz <- data.frame(x=xy[,1], # column 1
+                  y=xy[,2], # column 2
+                  z=controls$height) # and the heights
+```
+
 #### Using `MBA::mba.surf`
 One library we can use for splines is `MBA`. (You will need to install this.)
 ```{r}
@@ -157,17 +169,13 @@ library(MBA)
 
 Below is an example of how the `mba.surf` function can be used to perform spline interpolation. You should take a look at the help for this function to see if you can figure out what's going on.
 ```{r}
-xy <- st_coordinates(controls)
-xyz <- data.frame(x=xy[,1],
-                  y=xy[,2],
-                  z=controls$height)
-
-
 spline.mba <- mba.surf(xyz, no.X=61, no.Y=87, n=87/61, m=1, extend=T, sp=T)$xyz.est
 
+# now make the result into a raster
 r.spline.mba <- raster(spline.mba)
 crs(r.spline.mba) <- st_crs(heights)$proj4string
 
+# and view it like the others
 p <- persp(r.spline.mba, expand=0.35, theta=30, phi=35, col=rgb(0, .75, .1, .65), lwd=0.5)
 points(trans3d(xy[,1], xy[,2], controls$height, p), col='purple', pch=20, cex=0.6)
 ```
@@ -188,11 +196,6 @@ library(akima)
 
 The function is called `interp`.  Again, it has a few settings.
 ```{r}
-xy <- st_coordinates(controls)
-xyz <- data.frame(x=xy[,1],
-                  y=xy[,2],
-                  z=controls$height)
-
 spline.akima <- interp(xyz$x, xyz$y, xyz$z, nx=61, ny=87, extrap=T, linear=F)
 
 p <- persp(spline.akima, expand=0.35, theta=30, phi=35, col=rgb(0, .75, .1, .65), lwd=0.5)
