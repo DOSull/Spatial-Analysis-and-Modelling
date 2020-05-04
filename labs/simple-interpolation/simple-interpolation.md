@@ -150,7 +150,7 @@ tm_shape(r.gs) +
 ```
 
 ### Splines
-Splines are very general (not just spatial) interpolation technique. For example they can be used to interpolate time series data, and they are also used in drawing software to produce smooth curves. Because their use is widespread, there are a number of different packages in R that can perform spline-based interpolation. We'll look at a couple of them below. Both require a data table with attributes *x*, *y* and *z* for the control point information, where the *z* value is the attribute value at the associated (*x*, *y*) location.
+Splines are a very general (not just spatial) interpolation technique. For example they can be used to interpolate time series data, and they are also used in drawing software to produce smooth curves. Because their use is widespread, there are a number of different packages in R that can perform spline-based interpolation. We'll look at a couple of them below. Both require a data table with attributes *x*, *y* and *z* for the control point information, where the *z* value is the attribute value at the associated (*x*, *y*) location.
 
 So first, we'll make that data frame from our control points.
 ```{r}
