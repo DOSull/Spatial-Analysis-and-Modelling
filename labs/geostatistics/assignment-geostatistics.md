@@ -40,32 +40,34 @@ tm_shape(pa.counties) +
   tm_bubbles(col='rain_mm', palette='Blues', size=0.5) +
   tm_legend(legend.outside=T) +
   tm_scale_bar(position=c('right', 'TOP')) +
-  tm_layout(main.title='Pennsylvania weather, 1 April 1993')
+  tm_layout(main.title='Pennsylvania weather, 1 April 1993',
+            main.title.size=1)
 ```
 
 ## Geostatistical interpolation
 Again, I have drawn heavily on [this resource](https://mgimond.github.io/Spatial/interpolation-in-r.html), to put together the instructions below.
 
-Before we start, we have to convert the simple features (`sf`) data to `SpatialPointsDataFrame` data, because... well, because like many other analysis packages, `gstat` is happier working with the older `sp` formats.
+Before we start, we have to convert the simple features (`sf`) data to `SpatialPointsDataFrame` data, because... well, because like many other analysis packages, `gstat` is happier working with the older `sp` formats. I use the `.sp` in the variable name to indicate the `sp` format data.
 ```{r}
-pa.w.sp <- as_Spatial(pa.weather)
+pa.weather.sp <- as_Spatial(pa.weather)
 ```
 
 ### An output grid
 We also need an output grid of locations where we will perform the interpolation. To make this we use the `makegrid` function.
 ```{r}
-output <- as.data.frame(makegrid(pa.w.sp, "regular", cellsize=5))
+output <- as.data.frame(makegrid(pa.weather.sp, "regular", cellsize=5))
 names(output) <- c('X', 'Y')
 coordinates(output) <- c('X', 'Y')
-gridded(output) <- T
+gridded(output) <- TRUE
 fullgrid(output) <- T
-proj4string(output) <- proj4string(pa.w.sp)
+proj4string(output) <- proj4string(pa.weather.sp)
 ```
 
 ### Trend surfaces
 Trend surfaces are a special kind of linear regression where we use the spatial coordinates of the control points as predictors of the values measured at those points. The function that is fitted is a polynomial expression in the coordinates. For example a degree 2 polynomial is of the form $z=b_0 + b_1x + b_2y + b_3xy + b_4x^2 + b_5y^2$.
+
 ```{r}
-ts.2 <- krige(rain_mm ~ 1, pa.w.sp, output, degree=2)
+ts.2 <- krige(rain_mm ~ 1, pa.weather.sp, output, degree=2)
 r.ts.2 <- raster(ts.2)
 
 r.ts.2
@@ -103,7 +105,7 @@ And here is how we do trend surface analysis using a formula. It involves making
 f <- f.ts.3
 
 # use lm to make a linear model
-ts <- lm(f, data=pa.w.sp)
+ts <- lm(f, data=pa.weather.sp)
 # use the model to calculate predicted values at the output locations
 ts <- SpatialGridDataFrame(output, data.frame(var1.pred = predict(ts, newdata=output)))
 
@@ -131,19 +133,19 @@ The simplest variogram model is based on a plot of distance between control poin
 ```{r}
 # use this line to specify which formula to use
 f <- f.ts.3
-v <- variogram(f, pa.w.sp, cloud=T, cutoff=150)
+v <- variogram(f, pa.weather.sp, cloud=T, cutoff=150)
 plot(v)
 ```
 
 If instead of plotting all the points, we summarise the values at a series of distances, then we get an empirical variogram.
 ```{r}
-v <- variogram(f, pa.w.sp, cloud=F, cutoff=150)
+v <- variogram(f, pa.weather.sp, cloud=F, cutoff=150)
 plot(v)
 ```
 
 From this plot, we can estimate a range (say around 50) and a sill value (say 3), and we then use these to fit a variogram mode to the data.
 ```{r}
-fit.v <- fit.variogram(v, vgm(psill=3, model='Exp', range=50))
+fit.v <- fit.variogram(v, vgm(psill=3, model='Gau'))
 plot(v, fit.v)
 ```
 
@@ -152,7 +154,7 @@ Many different models are available, see `vgm()` to get a list.
 ### Finally, kriging
 Now we have a variogram, we can do the actual kriging.
 ```{r}
-k <- krige(f, pa.w.sp, fit.v, newdata=output)
+k <- krige(f, pa.weather.sp, fit.v, newdata=output)
 r <- raster(k)
 ci <- sqrt(raster(k, layer='var1.var')) * 1.96
 ```
@@ -182,4 +184,4 @@ There are a number of choices to make, and consider in your write up:
 
 Submit a PDF report to the dropbox provided in Blackboard by **2 June**.
 
-Note that you could do this using the knitr functionality of the provide RMarkdown file, but will obviously need to add additional R code to this document, and tidy things up generally (ask me about this, if you are interested). Please don't just submit a lightly modified version of the file I have provided!
+Note that you could do this using the knitr functionality of the provided RMarkdown file, but will obviously need to add additional R code to this document, and also tidy things up generally (ask me about this, if you are interested). Please don't just submit a lightly modified version of the file I have provided&mdash;at the very least remove the tutorial material.
