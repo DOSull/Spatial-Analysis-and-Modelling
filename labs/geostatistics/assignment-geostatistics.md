@@ -13,7 +13,7 @@ library(sp)
 library(gstat)
 library(raster)
 ```
-Data are provided in the [zip file](geostatistics.zip) and also include an RMarkdown version of these instructions.
+Data are provided in the [zip file](geostatistics.zip?raw=true) and also include an RMarkdown version of these instructions.
 
 ## The data we will work with
 We will work with some old weather data for Pennsylvania on 1 April 1993. It is surprisingly hard to find well behaved data for interpolation, and these work. I tried some local Wellington weather data, but they were (maybe unsurprisingly), not very well-behaved...
@@ -40,7 +40,7 @@ tm_shape(pa.counties) +
   tm_bubbles(col='rain_mm', palette='Blues', size=0.5) +
   tm_legend(legend.outside=T) +
   tm_scale_bar(position=c('right', 'TOP')) +
-  tm_layout(main.title='Pennsylvania weather, 1 April 1993',
+  tm_layout(main.title='Pennsylvania weather, 1 April 1993', 
             main.title.size=1)
 ```
 

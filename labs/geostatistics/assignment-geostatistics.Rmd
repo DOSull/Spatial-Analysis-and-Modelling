@@ -13,7 +13,7 @@ library(sp)
 library(gstat)
 library(raster)
 ```
-Data are provided in the [zip file](geostatistics.zip) and also include an RMarkdown version of these instructions.
+Data are provided in the [zip file](geostatistics.zip?raw=true) and also include an RMarkdown version of these instructions.
 
 ## The data we will work with
 We will work with some old weather data for Pennsylvania on 1 April 1993. It is surprisingly hard to find well behaved data for interpolation, and these work. I tried some local Wellington weather data, but they were (maybe unsurprisingly), not very well-behaved...
