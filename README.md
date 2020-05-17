@@ -43,17 +43,17 @@ Here's the trimester schedule we will aim to follow. **Bolded labs** have an ass
 Week# | Date | Lecture | Lab | Notes
  :-: | :-: | :-- | :-- | :--
  1 | 2 Mar | Course overview | [*R* and *RStudio* computing environment](labs/intro-to-R/00-overview.md) |
-2 | 9 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/) | [More making maps in *R*](labs/making-maps-in-r/making-maps-in-r.md) |
-3 | 16 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/introducing-spatstat/introducing-spatstat.zip?raw=true) |
-4 | 23 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/point-pattern-analysis/point-pattern-analysis.zip?raw=true) (15%) | Due 4 May
+2 | 9 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/) | [More making maps in *R*](labs/making-maps-in-r/00-overview.md) |
+3 | 16 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/introducing-spatstat/00-overview.md) |
+4 | 23 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/point-pattern-analysis/00-overview.md) (15%) | Due 4 May
 | | **COVID-19** | **[ALERT LEVEL 4](https://covid19.govt.nz/government-actions/covid-19-alert-system/)** | **UNIVERSITY CLOSED**
-5 | 6 Apr | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/spatial-autocorrelation/assignment-spatial-autocorrelation.md) (15%) | Due 18 May
+5 | 6 Apr | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/spatial-autocorrelation/00-overview.md) (15%) | Due 18 May
  | | **SEMESTER BREAK** | **NO TEACHING**
 6 | 27 Apr | **No class** ANZAC Day |
-7 | 4 May | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/simple-interpolation/simple-interpolation.md) |
-8 | 11 May | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/geostatistics/assignment-geostatistics.md) (15%) | Due 2 Jun
-9 | 18 May | Multivariate methods | [**Geodemographics**](labs/multivariate-analysis/assignment-multivariate-analysis.md) (15%)| Due 22 Jun
-10 | 25 May | [Network analysis](https://southosullivan.com/gisc422/network-analysis/) | [Tools for network analysis](labs/network-analysis/network-analysis.md)
+7 | 4 May | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/simple-interpolation/00-overview.md) |
+8 | 11 May | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/geostatistics/00-overview.md) (15%) | Due 2 Jun
+9 | 18 May | Multivariate methods | [**Geodemographics**](labs/multivariate-analysis/00-overview.md) (15%)| Due 22 Jun
+10 | 25 May | [Network analysis](https://southosullivan.com/gisc422/network-analysis/) | [Tools for network analysis](labs/network-analysis/00-overview.md)
 11 | 1 Jun | **No class** Queen's Birthday | &nbsp; |
 12 | 8 Jun | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | Survey of other tools |
 

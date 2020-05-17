@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 #### GISC 422 T1 2020
 # Assignment 3: Geostatistics in R
 In this document we will look at performing geostatistical interpolation (commonly known as kriging) using the `gstats` package in R.
@@ -93,10 +98,10 @@ For kriging, it is necessary to retain the trend surface for use. Unfortunately,
 
 ```{r}
 # a set of formulae for 0, 1st, 2nd and 3rd order trend surfaces
-f.ts.0 <- tmin_c ~ 1
-f.ts.1 <- tmin_c ~ 1 + X + Y
-f.ts.2 <- tmin_c ~ 1 + X + Y + I(X*Y) + I(X^2) + I(Y^2)
-f.ts.3 <- tmin_c ~ 1 + X + Y + I(X*Y) + I(X^2) + I(Y^2) + I(X^2*Y) + I(X*Y^2) + I(X^3) + I(Y^3)
+f.ts.0 <- rain_mm ~ 1
+f.ts.1 <- rain_mm ~ 1 + X + Y
+f.ts.2 <- rain_mm ~ 1 + X + Y + I(X*Y) + I(X^2) + I(Y^2)
+f.ts.3 <- rain_mm ~ 1 + X + Y + I(X*Y) + I(X^2) + I(Y^2) + I(X^2*Y) + I(X*Y^2) + I(X^3) + I(Y^3)
 ```
 
 And here is how we do trend surface analysis using a formula. It involves making a *linear model* using the `lm()` function. We may see more of this if we look at regression later. For now don't worry too much about exactly what is happening.
@@ -145,7 +150,7 @@ plot(v)
 
 From this plot, we can estimate a range (say around 50) and a sill value (say 3), and we then use these to fit a variogram mode to the data.
 ```{r}
-fit.v <- fit.variogram(v, vgm(psill=3, model='Gau'))
+fit.v <- fit.variogram(v, vgm(psill=30, model='Gau'))
 plot(v, fit.v)
 ```
 
