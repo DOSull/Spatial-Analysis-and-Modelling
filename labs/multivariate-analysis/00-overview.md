@@ -1,8 +1,8 @@
 #### GISC 422 T1 2020
-# Week 1 Overview
-This week we have a couple of things to do, which are explained in detail in the documents linked below.
-+ [Familiarise with the _R_ and _RStudio_ environments](01-introducing-r-and-rstudio.md)
-+ [Ensure that the environment is set up correctly](02-installing-packages.md)
-+ [Do some simple data exploration](03-simple-data-exploration.md)
-+ [Make some simple maps](04-simple-maps.md)
-+ [Wrapping up](05-wrapping-up.md)
+# Multivariate analysis overview
+This week we're looking at three different things. You'll find all the necessary materials in this ZIP FILE.
+
+The instructions for each stage of the material are linked below:
++ Introducing [the multivariate data problem](01-multivariate-analysis-the-problem.md)
++ The [*R* `tidyverse`](the-tidyverse.md) and cleaning up messy data
++ [Assignment on multivariate analysis](assignment-multivariate-analysis.md)
