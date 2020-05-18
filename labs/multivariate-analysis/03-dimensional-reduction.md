@@ -49,4 +49,4 @@ tm_shape(sfd) +
   tm_legend(legend.outside=T)
 ```
 
-Related techniques to PCA are *factor analysis* and *multidimensional scaling* (MDS), although the last of these is also closely related to the second broad class of methods, classification which we will look at... [so let's do that now](04-clustering-and-classification.md).
+Related techniques to PCA are *factor analysis* and *multidimensional scaling* (MDS), although the last of these is also closely related to the second broad class of methods, classification which we will look at... [so let's do that now](04-classification-and-clustering.md).
