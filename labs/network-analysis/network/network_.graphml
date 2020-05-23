@@ -14,10 +14,10 @@
   <key attr.name="name" attr.type="string" for="edge" id="d11" />
   <key attr.name="oneway" attr.type="string" for="edge" id="d10" />
   <key attr.name="osmid" attr.type="string" for="edge" id="d9" />
-  <key attr.name="lat" attr.type="string" for="node" id="d8" />
-  <key attr.name="lon" attr.type="string" for="node" id="d7" />
-  <key attr.name="y" attr.type="string" for="node" id="d6" />
-  <key attr.name="x" attr.type="string" for="node" id="d5" />
+  <key attr.name="lat" attr.type="float" for="node" id="d8" />
+  <key attr.name="lon" attr.type="float" for="node" id="d7" />
+  <key attr.name="y" attr.type="float" for="node" id="d6" />
+  <key attr.name="x" attr.type="float" for="node" id="d5" />
   <key attr.name="osmid" attr.type="string" for="node" id="d4" />
   <key attr.name="highway" attr.type="string" for="node" id="d3" />
   <key attr.name="streets_per_node" attr.type="string" for="graph" id="d2" />
