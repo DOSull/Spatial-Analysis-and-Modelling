@@ -1,8 +1,3 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 #### GISC 422 T1 2020
 # Assignment 3: Geostatistics in R
 In this document we will look at performing geostatistical interpolation (commonly known as kriging) using the `gstats` package in R.
@@ -45,7 +40,7 @@ tm_shape(pa.counties) +
   tm_bubbles(col='rain_mm', palette='Blues', size=0.5) +
   tm_legend(legend.outside=T) +
   tm_scale_bar(position=c('right', 'TOP')) +
-  tm_layout(main.title='Pennsylvania weather, 1 April 1993', 
+  tm_layout(main.title='Pennsylvania weather, 1 April 1993',
             main.title.size=1)
 ```
 
@@ -150,7 +145,7 @@ plot(v)
 
 From this plot, we can estimate a range (say around 50) and a sill value (say 3), and we then use these to fit a variogram mode to the data.
 ```{r}
-fit.v <- fit.variogram(v, vgm(psill=30, model='Gau'))
+fit.v <- fit.variogram(v, vgm(psill=3, model='Gau'))
 plot(v, fit.v)
 ```
 
