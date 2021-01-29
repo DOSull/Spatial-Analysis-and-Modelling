@@ -1,24 +1,19 @@
-#### GISC 422 T1 2020
+#### GISC 422 T1 2021
 # GISC 422 Spatial Analysis and Modelling
-This class introduces key concepts and methods of spatial analysis. Practical deployment in the `R` statistical analysis software package is emphasised, although other tools will be surveyed.
+This class introduces key concepts and methods of spatial analysis. Practical deployment in the *R* statistical analysis software package is emphasised, although other tools will be surveyed.
 
-# Important!
-**The COVID-19 crisis means that all details are subject to change at any time. Keep close tabs on this page, and on information posted to Blackboard for changes to schedules, etc.**
+## Link to related video content
+Some (but not all) of last year's lectures were recorded during the 2020 March-May lockdown. Many of these videos provide useful coverage of the course material, which you may find helpful:
 
-## Link to zoom meetings of this class
-You will find the zoom link for this class on [Blackboard](https://blackboard.vuw.ac.nz/webapps/blackboard/content/listContentEditable.jsp?course_id=_106345_1&crosscoursenavrequest=true&content_id=_2641859_1&crosscoursenavrequest=true).
-
-## Link to lecture videos
 [https://southosullivan.com/gisc422/videos/](https://southosullivan.com/gisc422/videos/)
 
 ## Important dates
 Item | Dates
  -: | :-
-Trimester | 2 March to 26 June 2020
-Teaching period | 2 March to 26 June 2020
-University shutdown | 24 March to 27 April2020
-Mid-trimester break | NA
-Last assessment item due (in this class) | 19 June 2020
+Trimester | 22 February to 19 June 2021
+Teaching period | 22 February to 28 May 2021
+Mid-trimester break | 5 April to 16 April 2021
+Last assessment item due (in this class) | **TBD**
 Study period | NA
 Examination period | NA
 Withdrawal dates | See [Course additions and withdrawals](www.victoria.ac.nz/home/admisenrol/payments/withdrawalsrefunds)
@@ -26,12 +21,12 @@ Withdrawal dates | See [Course additions and withdrawals](www.victoria.ac.nz/hom
 If you cannot complete an assignment or sit a test or examination, refer to [Aegrotats](www.victoria.ac.nz/home/study/exams-and-assessments/aegrotat)
 
 ## Lecture and lab schedule
-Lectures are in Cotton 110 at 9AM on Mondays and will be followed immediately by related lab sessions in the same location. The combined session will last up to three hours, finishing up before noon.
+Lectures are in Cotton 110 at 9AM on Mondays and will be followed immediately by related lab sessions in the same location. The combined session will last up to three hours, finishing before noon.
 
 ## Contact details
 ### Lecturer/coordinator
 **Prof. [David O'Sullivan](mailto:david.osullivan@vuw.ac.nz)**
-**Office** CO227 **Extn.** 6492 **Office hours preferably by appointment** [click here](http://calendly.com/dosullivan) but direct message me on [the Slack](https://vuwgisc2020.slack.com) and we can arrange contact
+**Office** CO227 **Extn.** 6492 **Office hours preferably by appointment** [click here](http://calendly.com/dosullivan) but direct message me on [the Slack](https://vuwgisc2020.slack.com) and we can arrange contact. The office phone system is not a good way to reach me.
 
 ### GIS Technician
 **[Andrew Rae](mailto:andrew.rae@vuw.ac.nz)**
@@ -41,24 +36,23 @@ Lectures are in Cotton 110 at 9AM on Mondays and will be followed immediately by
 Here's the trimester schedule we will aim to follow. **Bolded labs** have an associated assignment that must be submitted and contributes the indicated percentage of the course credit. General instructions for the labs are [here](labs/README.md).  Relevant materials (lecture slides, lab scripts and datasets) are linked below, when available.
 
 Week# | Date | Lecture | Lab | Notes
- :-: | :-: | :-- | :-- | :--
- 1 | 2 Mar | Course overview | [*R* and *RStudio* computing environment](labs/intro-to-R/00-overview.md) |
-2 | 9 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/) | [More making maps in *R*](labs/making-maps-in-r/00-overview.md) |
-3 | 16 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/introducing-spatstat/00-overview.md) |
-4 | 23 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/point-pattern-analysis/00-overview.md) (15%) | Due 4 May
-| | **COVID-19** | **[ALERT LEVEL 4](https://covid19.govt.nz/government-actions/covid-19-alert-system/)** | **UNIVERSITY CLOSED**
-5 | 6 Apr | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/spatial-autocorrelation/00-overview.md) (15%) | Due 18 May
- | | **SEMESTER BREAK** | **NO TEACHING**
-6 | 27 Apr | **No class** ANZAC Day |
-7 | 4 May | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/simple-interpolation/00-overview.md) |
-8 | 11 May | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/geostatistics/00-overview.md) (15%) | Due 2 Jun
-9 | 18 May | Multivariate methods | [**Geodemographics**](labs/multivariate-analysis/00-overview.md) (15%)| Due 22 Jun
-10 | 25 May | [Network analysis](https://southosullivan.com/gisc422/network-analysis/) | [Tools for network analysis](labs/network-analysis/00-overview.md)
-11 | 1 Jun | **No class** Queen's Birthday | &nbsp; |
-12 | 8 Jun | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | Survey of other tools |
+:-: | :-: | :-- | :-- | :--
+1 | 22 Feb | Course overview | [*R* and *RStudio* computing environment and Markdown documents](labs/intro-to-R-and-friends/00-overview.md) |
+2 | 1 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/) | [Making maps in *R*](labs/making-maps-in-r/00-overview.md) |
+3 | 8 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/introducing-spatstat/00-overview.md) |
+4 | 15 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/point-pattern-analysis/00-overview.md) (15%) | Due 19 April
+5 | 22 Mar | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/spatial-autocorrelation/00-overview.md) (15%) | Due 3 May
+6 | 29 Mar | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/simple-interpolation/00-overview.md) |
+| | **SEMESTER BREAK** | **NO TEACHING**
+7 | 19 Apr | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/geostatistics/00-overview.md) (15%) | Due 10 May
+8 | 26 Apr | **NO CLASS** | ANZAC Day |
+9 | 3 May | Multivariate methods | [**Geodemographics**](labs/multivariate-analysis/00-overview.md) (15%)| Due 24 May
+10 | 10 May | Overlay, regression models and related methods | TBD |
+11 | 17 May | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | TBD |
+12 | 24 May | [Network analysis](https://southosullivan.com/gisc422/network-analysis/) | [Tools for network analysis](labs/network-analysis/00-overview.md)
 
 ## Lectures
-Lectures will generally consist of around an hour of presented material, and around 30 minutes of more open-ended discussion and Q&A based on the materials and on reading which students will have been expected to do ahead of class.
+Lectures will generally consist of around an hour of presented material, followed by time for Q&A and discussion based on the materials and any related reading students have completed ahead of class.
 
 ### Readings
 Details of any required readings will be provided ahead of class and where possible either publicly available, or linked from [Blackboard](https://blackboard.vuw.ac.nz/). Most readings will be from one or the other of
@@ -100,15 +94,15 @@ Both *R* and *RStudio* are available on the lab computers. Both are freely downl
 4. Identify and perform appropriate spatial analysis
 
 ## Assessment
-This course is 100% internally assessed.  Assessment is based on four lab assignments worth 12.5% of overall course credit each, and a final assignment worth 50% of course credit due in the exam period.
+This course is 100% internally assessed.  Assessment is based on four lab assignments worth 15% of overall course credit each, and a final assignment worth 30% of course credit which is due in the exam period.
 
 Assessment item | Credit | Due date | CLOs
 :- | :-: | :-: | :-:
-Point pattern analysis | 15% | 4 May | 2 3 4
-Spatial autocorrelation | 15% | 18 May | 2 3 4
-Spatial interpolation | 15% | 2 June | 2 3 4
-Geodemographic analysis | 15% | 22 June | 2 3 4
-Written report on application of spatial analysis in a particular topic area | 30% | 19 June | 1
+Point pattern analysis | 15% | 19 April | 2 3 4
+Spatial autocorrelation | 15% | 3 May | 2 3 4
+Spatial interpolation | 15% | 10 May | 2 3 4
+Geodemographic analysis | 15% | 24 May | 2 3 4
+Written report on application of spatial analysis in a particular topic area | 30% | 4 June | 1
 Participation (including non-assessed labs) | 10% | NA | 1 2 3 4
 
 Some guidance on the written report assignment expectations is provided [here](report/README.md).
@@ -116,7 +110,7 @@ Some guidance on the written report assignment expectations is provided [here](r
 Assessments are submitted electronically via dropbox on [Blackboard](https://blackboard.vuw.ac.nz/). I will aim to return coursework within 3 weeks. Extensions should be requested from the SGEES administration office. If you anticipate problems come and talk to me.
 
 ### Late submission penalties
-All assignments must be handed in by their due dates. Non-submission  by the required date will result in a 5% penalty  off your grade for that assignment for each day or part thereof that the coursework is late.  No submissions will be accepted more than 5 days after the due date.
+All assignments must be handed in by their due dates. Non-submission  by the required date will result in a 5% penalty off your grade for that assignment for each day or part thereof that the coursework is late.  No submissions will be accepted more than 5 days after the due date.
 
 Computer crash or similar excuses are not acceptable. Save your material and make sure you have something to submit by the due date.
 
