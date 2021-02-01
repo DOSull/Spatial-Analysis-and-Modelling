@@ -1,4 +1,4 @@
-#### GISC 422 T1 2020
+#### GISC 422 T1 2021
 # Making simple maps
 To mentally prepare you for what's coming, the next few paragraphs walk you through making a map of some data, using the `sf` and `tmap` packages. I think it is helpful to do this just to get a feeling for what is going on before we dive into details in the coming weeks.
 
@@ -126,4 +126,4 @@ Then make a map as before, but no need for the `nz` layer
 tm_shape(qmap) +
   tm_dots(col='MAG', palette='Reds')
 ```
-OK. That's it for this week. On to the [wrap up](05-wrapping-up.md).
+OK. Before we wrap up a quick look at [_R Markdown_](05-r-markdown.md).
