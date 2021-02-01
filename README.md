@@ -8,6 +8,7 @@ Some (but not all) of last year's lectures were recorded during the 2020 March-M
 [https://southosullivan.com/gisc422/videos/](https://southosullivan.com/gisc422/videos/)
 
 ## Important dates
+
 Item | Dates
  -: | :-
 Trimester | 22 February to 19 June 2021
