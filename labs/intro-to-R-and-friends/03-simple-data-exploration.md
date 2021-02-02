@@ -1,11 +1,9 @@
 #### GISC 422 T1 2021
 # Simple visualization and mapping
-The data for this lab are in [this file](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/intro-to-R-and-friends/intro-to-R-and-friends.zip?raw=true) which you should download and unzip to a local folder.
-
 ## Preliminaries
 If you haven't worked through the other two sets of instructions for this week [go back there and do this now](00-overview.md).
 
-Next, set the working directory to where you downloaded the data using the **Session - Set Working Directory - Choose Directory...** menu option. When you do that you should see a response something like
+Next, set the working directory to where you would like to work using the **Session - Set Working Directory - Choose Directory...** menu option. When you do that you should see a response something like
 ```
 setwd("~/Documents/teaching/GISC-422/labs/scratch")
 ```
