@@ -8,16 +8,16 @@ _R Markdown_ is an example of *literate computing* which is a more general move 
 
 What does that mean?
 
-Well a couple of things, but first we need to re-open this document in _RStudio_:
+Well a couple of things, but first we need to re-open **this** document (the one you are reading now) in _RStudio_:
 
 + In _RStudio_ go to **File - Open File...** and navigate to the folder where you unpacked the lab `.zip` file
-+ Open this file `r-markdown.md` (that's this file as it happens)
-+ Now do **File - Save As...** and save the file but change the extension from `.md` to `.Rmd`
++ Open the file `r-markdown.md` (i.e., this file)
++ Now do **File - Save As...** and save the file but _change the extension from_ `.md` _to_ `.Rmd` (if you can't see file extensions on your computer ask about this).
 
 ## Now what?
-OK. Are you ready for this?!
+That should mean you are now looking at a slightly different version of the file, in plain text, but with formatting marks also included.
 
-This document is a combination of *markdown formatted text* (like this) which allows creation of simple structured documents with different heading levels and simple formatting such as *italics*, **bold** and `code` fonts. We can also include (and this is the clever part) *code chunks*. These begin and end with three backticks and an indication of what kind of code is included, in them. Here's a very simple example:
+The document is a combination of *markdown formatted text* (like this) which allows creation of simple structured documents with different heading levels and simple formatting such as *italics*, **bold** and `code` fonts. It also includes (and this is the really clever part) *code chunks*. These begin and end with three backtick symbols and an indication of what kind of code is included, in them. Here's a very simple example:
 
 ```{r}
 x <- 5
@@ -25,20 +25,20 @@ y <- 6
 x + y
 ```
 
-What's special about these code chunks is that you can *run* them using the little 'play' arrow at the top right of the chunk, and when you do, you see the result. Try it now.
+You can *run* these code chunks using the little 'play' arrow at the top right of the chunk, and when you do, you see the result it outputs. Try it on the code chunk above now.
 
 In effect, you are running an *R* session in pieces, inside a document that explains itself as it goes along.
 
 # The really clever bit
-That's pretty smart.
+That's pretty smart (I think it is anyway).
 
-But the really clever part comes when you *knit* the document together into an output format. You do this in *RStudio* using the **Knit** button, which you'll see at the top of this panel in the interface. Click on the little down arrow and select **Knit to HTML**. [You may be asked to install some things: go ahead and say yes!]
+But the _really_ clever part comes when you *knit* the document together into an output file. You do this in *RStudio* using the **Knit** button, which you'll see at the top of the files panel in the interface. Click on the little down arrow and select **Knit to HTML**. First time you do this, you will probably be asked if you want to install some packages: go ahead and say yes! Once you've done that **Knit to HTML** again and *RStudio* should think for a bit, and will produce a HTML file that appears in the **Viewer** panel (at the bottom right of the RStudio interface). You can also knit to a Word document (try it!). It likely won't work in Windows, but you can also knit to PDF format. Depending on how your session is configured the output may appear in its own window.
 
-*RStudio* should think for a bit, and will produce a HTML file that appears in the **Viewer** (at the bottom of the RStudio interface). You can also knit to a Word document (try it!). It likely won't work in Windows, but you can also knit to PDF format.
+Either way, the document that is produced includes all the linking text, nicely formatted based on the markdown, and also the code chunks *and their outputs* nicely formatted.
 
-The document that is produced includes all the linking text, nicely formatted, and also the code chunks *and their outputs* nicely formatted. All that means that you can use this to produce a formatted report explaining a data analysis and how you produced it.
+You can use this to produce a formatted report explaining a data analysis and how you produced it.
 
-The first part of this week's assignment (this document) explains all this, before moving on to the statistical model building part. If you are feeling ambitious you are can produce your submission using Rmarkdown (although this is *not* required). Either way, the fact that the materials are presented this way, will save you a lot of typing. Just don't forget to *actually read the materials presented* so that you understand what's going on!
+The remainder of this document provides a bit more detail on this. Ideally, you should complete assignments for this class using _R Markdown_, so pay attention (but know that it will be another couple of weeks before you need to do this for real, so you have time to get used to it).
 
 ## Some notes on markdown formatting
 Markdown is now a widely used format for document preparation. Details are available [here](https://daringfireball.net/projects/markdown/syntax). This section provides an outline so you can understand how the materials for this lab have been prepared, and also write your own Rmarkdown file if you wish.
@@ -53,12 +53,32 @@ Document header levels are denoted by hash signs (there are other ways to do thi
 
 Plain text is just plain text. *Italics* are designated by single asterisks and **bold** by double asterisks. Code format text is designated by `backticks` (this obscure key is at the top-left of your keyboard).
 
-And, crucially, code chunks appear, as you've seen above between **```{r}** and **```** markers. You can also have code blocks that don't run by leaving out the `{r}`. You won't need to make any Rmarkdown files for this lab, but this should be enough information so you can understand what is going on.
+## Code chunks
+Code chunks appear, as you've seen above like this:
 
-# **WARNING**
-## Run everything in order!
-One problem with this kind of file is that there is a temptation to jump ahead and run code chunks out of sequence. Usually this will cause bad things to happen, because variables end up containing information they are not expected to contain, or don't contain information they are expected to contain.
+```{r}
+# This is a code chunk
+x <- 5
+```
 
-So... it pays to work through the document chunk by chunk, in sequence, reading the accompanying information so you understand what is happening. If things go haywire, it often pays to go back a few chunks and re-run them, in order. Avoid the temptation to jump around at random in documents!
+You can have code chunks that don't run (but are formatted to look like code) by leaving out the `{r}`. You can also control what output a code chunk produces with a number of option settings. For example
+
+```{r message=FALSE}
+# This code won't show any messages
+```
+
+Some of the option settings are explained in [this document](https://rmarkdown.rstudio.com/lesson-3.html).
+
+# Running labs in _R Markdown_
+It's worth noting that any lab instructions pages for this class provided as `.md` files (which most of them are) can be converted to `.Rmd` format in exactly the way described above. This means that they can be run conveniently, without much typing.
+
+If you do this, there are a couple of things to keep in mind:
+
++ don't forget to *actually read the materials presented* so that you understand what's going on!
++ don't forget to try changing parameters in the commands so that you learn how you can do analyses differently
+
+Perhaps most importantly: **run everything in order!**. A problem with this kind of file is that it's tempting to jump around and run code chunks out of sequence. This often causes bad things to happen. Variables end up containing information they are not expected to, or don't contain information they are expected to, or required libraries have not been loaded, and so on. So... it pays to work through the document chunk by chunk, _in order_, reading the accompanying information so you understand what is happening.
+
+And if things go haywire, it often pays to go back a few chunks and re-run them, in order.
 
 OK on to the final [wrap up](wrapping-up.md)
