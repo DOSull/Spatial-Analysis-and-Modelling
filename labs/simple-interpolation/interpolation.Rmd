@@ -1,0 +1,82 @@
+
+```{r}
+library(sf)
+library(dplyr)
+library(raster)
+library(gstat)
+library(rayshader)
+```
+
+## Read a raster dataset
+```{r}
+volcano <- raster("maungawhau.tif")
+names(volcano) <- "height"
+```
+
+### Map it
+```{r}
+tm_shape(volcano) + 
+  tm_raster(col = "height", pal = "-BrBG") +
+  tm_legend(outside = TRUE)
+```
+
+### View the raster on a map
+```{r}
+tm_shape(volcano_r) + 
+  tm_raster(col = 'height', pal = "-BrBG") +
+  tm_legend(outside = TRUE)
+```
+
+### View the raster in perspective view
+#### Using `persp
+```{r}
+persp(volcano, scale = FALSE, theta = 35, phi = 30)
+```
+
+#### Using `rayshader`
+```{r}
+# this package wants a matrix not a raster
+volcano_m <- volcano %>%
+  raster_to_matrix()
+
+volcano_m %>%
+  sphere_shade(texture = 'bw') %>%
+  plot_3d(heightmap = volcano_m, zscale = 10, theta = 35, phi = 30, fov = 5)
+```
+
+## Make a set of control points
+```{r}
+controls <- extent(volcano) %>% 
+  st_bbox() %>% 
+  st_as_sfc() %>% 
+  st_sample(size = 250) %>% 
+  st_as_sf(crs = crs(volcano)) %>%
+  rename(geometry = x) %>%
+  mutate(height = extract(volcano, .))
+```
+
+
+
+
+```{r}
+# make an X, Y data frame of locations to be interpolated
+grid <- pa.weather %>%
+  st_make_grid(cellsize = 5, what = "centers") %>%
+  st_as_sf() %>%
+  cbind(st_coordinates(.)) %>%
+  st_drop_geometry() %>%
+  mutate(Z = 0)
+
+# make a raster from it
+grid_raster <- grid %>%
+  rasterFromXYZ(crs = proj4string(as(pa.weather, "Spatial")))
+
+
+
+ts.2 <- krige(rain_mm ~ 1, locations = pa.weather, newdata = gridpts)
+
+r.ts.2 <- raster(extent(st_bbox(gridpts)),  res = 5, 
+                 crs = proj4string(as(ip, "Spatial")))
+
+r.ts.2 <- rasterize(ts.2, r.ts.2)
+```

@@ -1,3 +1,3 @@
-#### GISC 422 T1 2020
+#### GISC 422 T1 2021
 # Geostatistics overview
 This week simply download [this zip file](geostatistics.zip?raw=true) and unpack it a local folder, then follow the [instructions here](assignment-geostatistics.md).
