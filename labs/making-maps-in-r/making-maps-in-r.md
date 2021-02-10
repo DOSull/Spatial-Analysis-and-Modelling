@@ -134,7 +134,7 @@ Again, check the help for this new function `tm_dots` to see what the options ar
 Now read the roads dataset
 
 ```{r}
-rds <- st_read("ak-rds.shp")
+rds <- st_read("ak-rds.gpkg")
 ```
 
 and add it to the map:

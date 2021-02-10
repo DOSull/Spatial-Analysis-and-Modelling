@@ -111,9 +111,9 @@ and because *R* is a statistics package, we can easily fit and plot a simple lin
 ```{r}
 regmodel <- lm(MAG ~ DEPTH)
 plot(DEPTH, MAG)
-abline(regmodel, col='red')
+abline(regmodel, col = 'red')
 ```
-Note here the use of `<-` to assign the model, made by the *linear model* `lm()` command to a new variable, called `regmodel`. You can get more details of this model by typing `regmodel` or `summary(regmodel)`. If you know anything about regression models, these may be of interest to you. Also note how, I've requested that the line be plotted in red `(col='red')`, so it can be seen more easily.
+Note here the use of `<-` to assign the model, made by the *linear model* `lm()` command to a new variable, called `regmodel`. You can get more details of this model by typing `regmodel` or `summary(regmodel)`. If you know anything about regression models, these may be of interest to you. Also note how, I've requested that the line be plotted in red `(col = 'red')`, so it can be seen more easily.
 
 We can make more complex displays. For example
 ```{r}
@@ -125,6 +125,6 @@ boxplot(MAG ~ cut(ELAPSED_DAYS, seq(0,200,20)))
 ```
 Give that a try and see what you get. To label the chart more informatively we need to add information for *x* and *y* axis labels
 ```{r}
-boxplot(MAG ~ cut(ELAPSED_DAYS, seq(0, 200, 20)), xlab="Days after Sept 3, 2010", ylab="Magnitude")
+boxplot(MAG ~ cut(ELAPSED_DAYS, seq(0, 200, 20)), xlab = "Days after Sept 3, 2010", ylab = "Magnitude")
 ```
 Next up: [simple maps](04-simple-maps.md).

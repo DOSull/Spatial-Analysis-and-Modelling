@@ -93,7 +93,7 @@ Now let's take a look:
 
 ```{r}
 plot(density(tb.pp))
-plot(tb.pp, add=T)
+plot(tb.pp, add = T)
 ```
 
 Finally!

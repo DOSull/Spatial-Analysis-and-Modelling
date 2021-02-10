@@ -1,14 +1,12 @@
-#### GISC 422 T1 2020
-# **Assignment 2** Spatial autocorrelation in R and GeoDa
+#### GISC 422 T1 2021
+# **Assignment 2** Spatial autocorrelation in R and/or GeoDa
 This assignment walks you through applying spatial autocorrelation measures, specifically Moran's index of spatial autocorrelation in both its local and global forms.
 
-These instructions show how these analyses can be performed in *R*, although many of you may prefer to complete the assignment using *GeoDa* which is installed on the lab machines and also free to download and install from [this website](http://geodacenter.github.io/download.html). Operation of *GeoDa* is relatively self-explanatory whereas performing these analyses in *R* using the `spdep` package is not, so you are on your own in *GeoDa*, but should find these instructions a useful overview of the methods helpful for either platform.
-
-## Materials
-Materials for this assignment are in [this zip file](week-06.zip?raw=true). Unpack these to a folder, and make sure to set it as the working directory for your R session.
+These instructions show how these analyses can be performed in *R*, although many of you may prefer to complete the assignment using *GeoDa* which is installed on the lab machines and also free to download and install from [this website](http://geodacenter.github.io/download.html). Operation of *GeoDa* is relatively self-explanatory whereas performing these analyses in *R* using the `spdep` package is not, so you are on your own in *GeoDa*, but should find these instructions a useful overview of the methods helpful for either platform. If you work in *R* you'll find making the final report easier since you can use *R Markdown*.
 
 ## Required packages
 We need a bunch of these, so load them all now.
+
 ```{r}
 library(sf)
 library(tmap)
@@ -17,6 +15,7 @@ library(dplyr) # for manipulating datasets
 ```
 
 And also, the package that provides the spatial autocorrelation methods we need
+
 ```{r}
 library(spdep)
 ```
@@ -25,10 +24,11 @@ library(spdep)
 OK... now we are ready to load the data for this lab. This is a super-set of the data we previously used for the point pattern analysis lab, which includes the TB data for the old Auckland City, but extended to a wider region, and also with the additional inclusion of contemporary ethnicity data from the 2006 Census.
 
 ```{r}
-ak <- st_read("akregion-tb-06.shp")
+ak <- st_read("akregion-tb-06.gpkg")
 ```
 
 One of the advantages of the `sf` type is that plotting it provides maps of *all* the attributes, so let's look at that.
+
 ```{r}
 plot(ak)
 ```
@@ -36,24 +36,27 @@ plot(ak)
 The maps are a little small, but this is a nice overview. The legibility is improved somewhat if you set the plot parameter `lwd` (line width) to something less than 1. We can also `select` columns to plot (say the ethnicity percentages) by specifying their column numbers.
 
 ```{r}
-plot(select(ak, 6:9), lwd=0.35)
+plot(select(ak, 6:9), lwd = 0.35)
 ```
 
 Remember that we can also make maps of specific attributes as follows
+
 ```{r}
 map <- tm_shape(ak) +
-  tm_fill(col="EUR_P_06", palette='Blues') + # add colour fill
-  tm_borders(col='gray', lwd=0.5) # add borders to the polygons
+  tm_fill(col = "EUR_P_06", palette = 'Blues') + # add colour fill
+  tm_borders(col = 'gray', lwd = 0.5) # add borders to the polygons
 map
 ```
 
-Remember that if we want an interactive web map, we can change the `tmap` mode to `"view"`
+Remember also that if we want an interactive web map, we can change the `tmap` mode to `"view"`
+
 ```{r}
 tmap_mode("view")
 map
 ```
 
 For now, we probably don't need interactive web maps, so change back to `"plot"` mode and make sure everything is still good to go
+
 ```{r}
 tmap_mode("plot")
 map
@@ -71,7 +74,7 @@ Since `akp` and `ak` are derived from the same underlying data and retain the sa
 The main reason for making this object is that the key functions of `spdep` require the construction of *neighbourhoods* for each polygon in the dataset, on which the autocorrelation calculations will be based. The most basic neighbourhood construction is based on adjacency and is generated using the `poly2nb()` function. This is how it works
 
 ```{r}
-nb <- poly2nb(akp, row.names=ak$AU_NAME, queen=TRUE)
+nb <- poly2nb(akp, row.names = ak$AU_NAME, queen = TRUE)
 ```
 
 We can inspect what we just did, with the `summary()` function
@@ -85,39 +88,40 @@ We can see here that we made a neighbourhood object that has 1612 adjacency link
 To get a better idea what is going on we can map these
 
 ```{r}
-plot(akp, col="lightgrey", lwd=0.5, border='white')
-plot(nb, coordinates(akp), col='red', lwd=0.5, cex=0.35, add=T)
+plot(akp, col = "lightgrey", lwd = 0.5, border = 'white')
+plot(nb, coordinates(akp), col = 'red', lwd = 0.5, cex = 0.35, add = T)
 ```
 
-At this point, you should experiment with the `poly2nb` function (what happens if you set `queen=FALSE`?).
+At this point, you should experiment with the `poly2nb` function (what happens if you set `queen = FALSE`?).
 
 ### Other neighborhood construction methods
 It is possible to construct neighbourhoods on other bases, such as for example, the k nearest neighbours approach. This is unfortunately where the `spdep` package shows its age, because doing so is fiddly. Here is how it works, just as an example, that you are welcome to explore further.
 
 ```{r}
-ak_k5 <- knearneigh(coordinates(akp), k=5)
+ak_k5 <- knearneigh(coordinates(akp), k = 5)
 nb_k5 <- knn2nb(ak_k5)
-plot(akp, col="lightgrey", lwd=0.5, border='white')
-plot(nb_k5, coordinates(akp), cex=0.35, lwd=0.5, col='red', add=T)
+plot(akp, col = "lightgrey", lwd = 0.5, border = 'white')
+plot(nb_k5, coordinates(akp), cex = 0.35, lwd = 0.5, col = 'red', add = T)
 ```
 
 Or another alternative is to use a distance criterion
+
 ```{r}
-nb_d2500 <- dnearneigh(coordinates(akp), d1=100, d2=2500)
-plot(akp, col="lightgrey", lwd=0.5, border='white')
-plot(nb_d2500, coordinates(akp), cex=0.35, lwd=0.5, col='red', add=T)
+nb_d2500 <- dnearneigh(coordinates(akp), d1 = 100, d2 = 2500)
+plot(akp, col = "lightgrey", lwd = 0.5, border = 'white')
+plot(nb_d2500, coordinates(akp), cex = 0.35, lwd = 0.5, col = 'red', add = T)
 ```
 
 You can probably see here why I say that the `spdep` functions are a bit obscure to work with.  Anyway, let's return to doing the analysis based on simple adjacency, as recorded in the `nb` object we made before.
 
-## Back to spatial autocorrelation
-Something to pay attention to from here forward is that many of the Moran's index methods run into problems if an area has no neighbours. To tell functions to ignore this problem (which exists in our dataset) we set the option `zero.policy=T` in many of the function calls in the remained of these instructions.
+## Back to spatial autocorrelation... for real this time
+Something to pay attention to from here forward is that many of the Moran's index methods run into problems if an area has no neighbours. To tell functions to ignore this problem (which exists in our dataset) we set the option `zero.policy = TRUE` (or `T` for short) in many of the function calls in the remained of these instructions.
 
 Another quirk of the `spdep` package is that it requires the neighbourhood information in a particular format to work, and this is *not* the format that the various neighbourhood construction methods produce. To get the right format we must convert the neighbourhood information to a `listw` object
 
 ```{r}
-wl <- nb2listw(nb, style="W", zero.policy=T)
-summary(wl, zero.policy=T)
+wl <- nb2listw(nb, style = "W", zero.policy = T)
+summary(wl, zero.policy = T)
 ```
 
 As you can see (and reassuringly!) this object has exactly the same characteristics as the neighbourhood object we made before.
@@ -126,7 +130,7 @@ As you can see (and reassuringly!) this object has exactly the same characterist
 After all that, the moment of truth is very simple. We can calculate the value of Moran's index. The permutation approach discussed in lectures is the most appropriate way to put some kind of statistical limits on the result for interpretive purposes. This is invoked by `moran.mc()`
 
 ```{r}
-moransI <- moran.mc(ak$ASI_P_06, wl, nsim=999, zero.policy=T)
+moransI <- moran.mc(ak$ASI_P_06, wl, nsim = 999, zero.policy = T)
 moransI
 ```
 
@@ -139,7 +143,7 @@ plot(moransI)
 An even more useful plot is the scatter plot of the data values (*x*-axis) against the local mean values (*y*-axis), which can be produced using `moran.plot()`
 
 ```{r}
-moran.plot(ak$ASI_P_06, wl, zero.policy=TRUE)
+moran.plot(ak$ASI_P_06, wl, zero.policy = TRUE)
 ```
 
 What do you think the gray circle represents in the plot?
@@ -148,7 +152,7 @@ What do you think the gray circle represents in the plot?
 Finally, we can also calculate the local version of Moran's *I*.
 
 ```{r}
-localm <- localmoran(ak$ASI_P_06, wl, zero.policy=T)
+localm <- localmoran(ak$ASI_P_06, wl, zero.policy = T)
 head(localm)
 ```
 

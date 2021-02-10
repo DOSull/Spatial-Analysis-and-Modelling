@@ -17,15 +17,15 @@ map <- tm_shape(nz)
 ```
 At this point nothing happens, we're just setting things up. We need to layer on or add additional information so `tmap` knows what to do with it. In this case, we are mapping polygons, so the `tm_polygons` function provides the needed information (to find out more about the available options, type `?tm_polygons` at the command prompt.
 ```{r}
-map + tm_polygons(col='green', border.col='black')
+map + tm_polygons(col = 'green', border.col = 'black')
 ```
 If we want to add a few more cartographic frills like a compass rose and scale bar, we can do that too:
 ```{r}
-map + tm_polygons(col='darkseagreen2', border.col='skyblue', lwd=0.5) +
-  tm_layout(main.title='Aotearoa New Zealand',
-            main.title.position='center',
-            main.title.size=1,
-            bg.color='powderblue') +
+map + tm_polygons(col = 'darkseagreen2', border.col = 'skyblue', lwd = 0.5) +
+  tm_layout(main.title = 'Aotearoa New Zealand',
+            main.title.position = 'center',
+            main.title.size = 1,
+            bg.color = 'powderblue') +
   tm_compass() +
   tm_scale_bar()
 ```
@@ -41,7 +41,7 @@ quakes <- read_csv('earthquakes.csv')
 
 This is just a dataframe. The `sf` package provides the required functions to convert the dataframe to a *simple features* dataset, which *is* a spatial data format. The following command will do the necessary conversion (you need to be careful to type it exactly as shown).
 ```{r}
-qmap <- st_as_sf(quakes, coords=c('NZMGE', 'NZMGN'), crs=27200) %>%
+qmap <- st_as_sf(quakes, coords = c('NZMGE', 'NZMGN'), crs = 27200) %>%
   st_transform(st_crs(nz))
 ```
 What's happening here? Quite a lot it turns out.
@@ -53,16 +53,16 @@ Unfortunately, this is a different projection than the `nz` dataset. But I can *
 Now we have two datasets we can make a layered map including both of them.
 ```{r}
 tm_shape(nz) +
-  tm_polygons(col='darkseagreen2') +
+  tm_polygons(col = 'darkseagreen2') +
   tm_shape(qmap) +
   tm_dots()
 ```
 
 That's OK, although not very useful, we really need to zoom in on the extent or *bounding box* of the earthquake data:
 ```{r}
-tm_shape(nz, bbox=st_bbox(qmap)) +
-  tm_polygons(col='white', lwd=0) +
-  tm_layout(bg.color='powderblue') +
+tm_shape(nz, bbox = st_bbox(qmap)) +
+  tm_polygons(col = 'white', lwd = 0) +
+  tm_layout(bg.color = 'powderblue') +
   tm_shape(qmap) +
   tm_dots() +
   tm_scale_bar()
@@ -72,11 +72,11 @@ This still not very useful, because the `nz` dataset includes no actual referenc
 
 For now, an alternative to `tm_dots` is `tm_bubbles` which allows us to scale the symbols by some variable
 ```{r}
-tm_shape(nz, bbox=st_bbox(qmap)) +
-  tm_polygons(col='white', lwd=0) +
-  tm_layout(bg.color='powderblue') +
+tm_shape(nz, bbox = st_bbox(qmap)) +
+  tm_polygons(col = 'white', lwd = 0) +
+  tm_layout(bg.color = 'powderblue') +
   tm_shape(qmap) +
-  tm_bubbles(size='MAG', perceptual=TRUE, alpha=0.5) +
+  tm_bubbles(size = 'MAG', perceptual = TRUE, alpha = 0.5) +
   tm_scale_bar()
 ```
 
@@ -91,22 +91,22 @@ bigq <- qmap %>%
 Try again, this time also making the bubbles transparent:
 
 ```{r}
-tm_shape(nz, bbox=st_bbox(qmap)) +
-  tm_polygons(col='white', lwd=0) +
-  tm_layout(bg.color='powderblue') +
+tm_shape(nz, bbox = st_bbox(qmap)) +
+  tm_polygons(col = 'white', lwd = 0) +
+  tm_layout(bg.color = 'powderblue') +
   tm_shape(bigq) +
-  tm_bubbles(size='MAG', perceptual=T, alpha=0) +
+  tm_bubbles(size = 'MAG', perceptual = T, alpha = 0) +
   tm_scale_bar()
 ```
 
 Alternatively, we might use colour to show the different magnitudes:
 
 ```{r}
-tm_shape(nz, bbox=st_bbox(qmap)) +
-  tm_polygons(col='white', lwd=0) +
-  tm_layout(bg.color='powderblue') +
+tm_shape(nz, bbox = st_bbox(qmap)) +
+  tm_polygons(col = 'white', lwd = 0) +
+  tm_layout(bg.color = 'powderblue') +
   tm_shape(bigq) +
-  tm_bubbles(size='MAG', col='MAG', palette='Reds', alpha=0.5) +
+  tm_bubbles(size = 'MAG', col = 'MAG', palette = 'Reds', alpha = 0.5) +
   tm_scale_bar()
 ```
 
@@ -124,6 +124,6 @@ Then make a map as before, but no need for the `nz` layer
 
 ```{r}
 tm_shape(qmap) +
-  tm_dots(col='MAG', palette='Reds')
+  tm_dots(col = 'MAG', palette = 'Reds')
 ```
 OK. Before we wrap up a quick look at [_R Markdown_](05-r-markdown.md).

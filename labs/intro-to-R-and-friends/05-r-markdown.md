@@ -71,7 +71,7 @@ x <- 5
 
 You can have code chunks that don't run (but are formatted to look like code) by leaving out the `{r}`. You can also control what output a code chunk produces with a number of option settings. For example
 
-```{r message=FALSE}
+```{r message = FALSE}
 # This code won't show any messages
 ```
 

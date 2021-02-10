@@ -14,7 +14,7 @@ library(spatstat)
 
 If there is a problem then install the package with
 
-    install.packages("spatstat", dependencies=TRUE)
+    install.packages("spatstat", dependencies = TRUE)
 
 We will also need `RColorBrewer` for nice colour schemes:
 
@@ -90,7 +90,7 @@ We can plot any of these individually or request more information by typing its 
 It is often useful in R to see a number of plots side-by-side, which we can do by issuing a `par()` command to change the *graphics parameters*. If we want one row of three plots side by side, we get this using
 
 ```{R}
-par(mfrow=c(1,3)) # this means, 1 row, 3 columns
+par(mfrow = c(1,3)) # this means, 1 row, 3 columns
 plot(rw)
 plot(ce)
 plot(jp)
@@ -99,7 +99,7 @@ plot(jp)
 This can look a bit weird because of the margins that *R* chooses automatically and how those interact with plotting window dimensions. Experiment with changing the size of your plot area in $RStudio$, or alternatively you can fiddle with the plotting parameters (although this gets messy fast). For example setting the `mai` plot parameter, changes the margins around each plot.
 
 ```{R}
-par(mfrow=c(1,3), mai=c(0.1, 0.1, 0.1, 0.1))
+par(mfrow = c(1,3), mai = c(0.1, 0.1, 0.1, 0.1))
 plot(rw)
 plot(ce)
 plot(jp)
@@ -121,22 +121,22 @@ An important way to improve our sense of a point pattern is to create density ma
 
 ```{R}
 plot(density(rw))
-plot(rw, add=T)
+plot(rw, add = T)
 ```
 
 The density surface bandwidth (the larger this is the smoother the surface produced) is automatically chosen by $R$, but we can opt instead to set a bandwidth
 
 ```{R}
-par(mfrow=c(1,3))
-d05 <- density(rw, sigma=0.05)
-plot(d05, main='bw=0.05')
-plot(rw, add=T)
-d10 <- density(rw, sigma=0.1)
-plot(d10, main='bw=0.1')
-plot(rw, add=T)
-d25 <- density(rw, sigma=0.25)
-plot(d25, main='bw=0.25')
-plot(rw, add=T, main='bw=0.25')
+par(mfrow = c(1,3))
+d05 <- density(rw, sigma = 0.05)
+plot(d05, main = 'bw = 0.05')
+plot(rw, add = T)
+d10 <- density(rw, sigma = 0.1)
+plot(d10, main = 'bw = 0.1')
+plot(rw, add = T)
+d25 <- density(rw, sigma = 0.25)
+plot(d25, main = 'bw = 0.25')
+plot(rw, add = T, main = 'bw = 0.25')
 ```
 
 The `sigma` parameter controls the bandwidth used. Note that the dimensions of the region covered by the built in point patterns are a 1 by 1 square, and the bandwidth is expressed in the same units. In cases where you are working with datasets that extend over 100s or 1000s or meters or miles (or whatever) you have to express the bandwidth required appropriately.
@@ -148,26 +148,26 @@ Experiment with settings in the previous cells until you feel confident with plo
 The color scheme used by default for density maps is ... not great. We can change it out for a Color Brewer palette which may be preferable.
 
 ```{R}
-par(mfrow=c(1,3))
-plot(density(rw), col=brewer.pal(9, 'Reds'))
-plot(rw, add=T)
-plot(density(rw), col=brewer.pal(9, 'YlGnBu'))
-plot(rw, add=T)
-plot(density(rw), col=brewer.pal(9, 'Greys'))
-plot(rw, add=T)
+par(mfrow = c(1,3))
+plot(density(rw), col = brewer.pal(9, 'Reds'))
+plot(rw, add = T)
+plot(density(rw), col = brewer.pal(9, 'YlGnBu'))
+plot(rw, add = T)
+plot(density(rw), col = brewer.pal(9, 'Greys'))
+plot(rw, add = T)
 
 ```
 
 A final tweak to the appearance, is to make the events smaller, which can sometimes make things easier to see.
 
 ```{R}
-par(mfrow=c(1,3), cex=0.5)
-plot(density(rw), col=brewer.pal(9, 'Blues'))
-plot(rw, add=T)
-plot(density(rw), col=brewer.pal(9, 'RdBu'))
-plot(rw, add=T)
-plot(density(rw), col=brewer.pal(9, 'PRGn'))
-plot(rw, add=T)
+par(mfrow = c(1,3), cex = 0.5)
+plot(density(rw), col = brewer.pal(9, 'Blues'))
+plot(rw, add = T)
+plot(density(rw), col = brewer.pal(9, 'RdBu'))
+plot(rw, add = T)
+plot(density(rw), col = brewer.pal(9, 'PRGn'))
+plot(rw, add = T)
 ```
 
 Make sure you have a good idea of how all these options work before proceeding to the next section.
@@ -183,7 +183,7 @@ The next sections explain some of the point process commands available in a bit 
 The `rpoint` or `rpoispp` commands will generate patterns with no first or second order effects such that there is no bias in where events occur and no interaction between events. `rpoint` is simpler and will produce exactly the number of events requested. `rpoispp` is a *Poisson process* and produces events at the requested *intensity* per unit area. Since the default region for a point pattern in `spatstat` is a 1 by 1 unit square, this will seem very similar to `rpoint()` except that the number of events produced in a particular realization of `rpoispp()` will vary each time you run it.
 
 ```{R}
-par(mfrow=c(1,2))
+par(mfrow = c(1,2))
 p1 <- rpoint(100)
 p2 <- rpoispp(100)
 plot(p1)
@@ -197,13 +197,13 @@ You can confirm these patterns have different numbers of events using the `summa
 If this was all you could do with `rpoispp` it probably wouldn't justify it being a completely different point process than `rpoint`. In fact, it can do a lot more. If instead of specifying a number, which produces a uniform intensity, you provide a function, then you can introduce spatial trends across the area occupied by the pattern.
 
 ```{R}
-par(mfrow=c(1,3))
+par(mfrow = c(1,3))
 p1 <- rpoispp(function(x,y){200*x^2 + 200*y^2})
 p2 <- rpoispp(function(x,y){200*(1-x)^2 + 200*y^2})
 p3 <- rpoispp(function(x,y){400*(x-0.5)^2 + 400*(y-0.5)^2})
-plot(p1, main='SW-NE trend')
-plot(p2, main='NW-SE trend')
-plot(p3, main='Increasing from the center')
+plot(p1, main = 'SW-NE trend')
+plot(p2, main = 'NW-SE trend')
+plot(p3, main = 'Increasing from the center')
 ```
 
 In these patterns a fixed value for the process intensity is replaced with a function that converts an `x` and `y` value into a number according to some formula. For `p1` the function is defined by the code `function(x,y){200*x^2 + 200*y^2}` in other words, 200*x*<sup>2</sup>+200*y*<sup>2</sup>. Since the default coordinates that the pattern is generating are in the unit square from (0, 0) to (1, 1) the pattern intensity ranges from 0 to 400 events per unit area with increasing intensity from low coordinates at the lower left to higher coordinates at the upper right.
@@ -226,7 +226,7 @@ And here it is in action
 ```{R}
 p <- rpoispp(complicated_slope)
 plot(density(p))
-plot(p, add=T)
+plot(p, add = T)
 ```
 
 ### Introducing second order effects
@@ -241,7 +241,7 @@ The gist of it is:
 Here are some example plots:
 
 ```{R}
-par(mfrow=c(2,2), cex=0.5)
+par(mfrow = c(2,2), cex = 0.5)
 plot(rSSI(0.01, 100))
 plot(rSSI(0.08, 100))
 plot(rThomas(10, 0.1, 10))

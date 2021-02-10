@@ -39,17 +39,17 @@ rw <- redwoodfull
 It's nice to see the patterns alongside one another, so set up the plot window for a row of three plots
 
 ```{r}
-par(mfrow=c(1,3))
+par(mfrow = c(1,3))
 plot(ce)
 plot(jp)
 plot(rw)
 ```
 
-Notice that the plot titles default to the same as the variable names, so you may want to use more descriptive titles. You do this using the `main=”My plot title”` option, like this:
+Notice that the plot titles default to the same as the variable names, so you may want to use more descriptive titles. You do this using the `main = ”My plot title”` option, like this:
 
 ```{r}
-par(mfrow=c(1,1))
-plot(ce, main="Cell centers")
+par(mfrow = c(1,1))
+plot(ce, main = "Cell centers")
 ```
 
 ## A tour of different point pattern analysis methods
@@ -61,23 +61,23 @@ The analysis methods we've looked at in class and in the readings are covered in
 As discussed quadrat counting is a rather limited method, and the spatstat implementation is accordingly a bit limited, because the method is not much used. In any case, here it is below. Shown here for the cells data at three different resolutions.
 
 ```{r}
-par(mfrow=c(1,3))
+par(mfrow = c(1,3))
 
 plot(quadratcount(ce))
-plot(ce, add=T, col='red', cex=0.5)
-plot(quadratcount(ce, nx=3))
-plot(ce, add=T, col='red', cex=0.5)
-plot(quadratcount(ce, nx=10))
-plot(ce, add=T, col='red', cex=0.5)
+plot(ce, add = T, col = 'red', cex = 0.5)
+plot(quadratcount(ce, nx = 3))
+plot(ce, add = T, col = 'red', cex = 0.5)
+plot(quadratcount(ce, nx = 10))
+plot(ce, add = T, col = 'red', cex = 0.5)
 ```
 
 There is also a statistical test associated with quadrat counting:
 
 ```{r}
-quadrat.test(ce, method="MonteCarlo", nsim=999)
+quadrat.test(ce, method = "MonteCarlo", nsim = 999)
 ```
 
-This can also take different `nx` and `ny` settings. The `method="MonteCarlo"` and `nsim=999` settings are worth noting. This method setting tests the data by simulation, rather than based on a precalculated Chi-square distribution. This makes the method more useful with small datasets.
+This can also take different `nx` and `ny` settings. The `method = "MonteCarlo"` and `nsim = 999` settings are worth noting. This method setting tests the data by simulation, rather than based on a precalculated Chi-square distribution. This makes the method more useful with small datasets.
 
 The *p*-value tells us how probable the particular observed quadrat counts would be if the underlying process was one of complete spatial randomness.
 
@@ -90,25 +90,25 @@ You have already seen this in the previous lab. To create a density surface from
 For example, for the redwood data (the most interesting for density mapping)
 
 ```{r}
-par(mfrow=c(1,3))
+par(mfrow = c(1,3))
 
 # bandwith 0.05
-d05 <- density(rw, sigma=0.05)
+d05 <- density(rw, sigma = 0.05)
 plot(d05)
-contour(d05, add=T)
-plot(rw, add=T, cex=0.4)
+contour(d05, add = T)
+plot(rw, add = T, cex = 0.4)
 
 # bandwidth 0.1
-d10 <- density(rw, sigma=0.1)
+d10 <- density(rw, sigma = 0.1)
 plot(d10)
-contour(d10, add=T)
-plot(rw, add=T, cex=0.4)
+contour(d10, add = T)
+plot(rw, add = T, cex = 0.4)
 
 # bandwidth 0.25
-d25 <- density(rw, sigma=0.25)
+d25 <- density(rw, sigma = 0.25)
 plot(d25)
-contour(d25, add=T)
-plot(rw, add=T, cex=0.4)
+contour(d25, add = T)
+plot(rw, add = T, cex = 0.4)
 ```
 
 As noted previously, the default color scheme is not great, and you might want to experiment with alternatives provided by `RColorBrewer` package (see the previous lab for reminders about how to do this).
@@ -124,7 +124,7 @@ nnd.c <- nndist(ce)
 nnd.j <- nndist(jp)
 nnd.r <- nndist(rw)
 
-par(mfrow=c(1,3))
+par(mfrow = c(1,3))
 
 hist(nnd.c)
 hist(nnd.j)
@@ -152,8 +152,8 @@ You can then compare expected and actual mean NND values. You can put them on th
 
 ```{r}
 hist(nnd.c)
-abline(v=mnnd.c, col='red', lwd=2)
-abline(v=emnnd.c, col='red', lwd=2, lty='dashed')
+abline(v = mnnd.c, col = 'red', lwd = 2)
+abline(v = emnnd.c, col = 'red', lwd = 2, lty = 'dashed')
 ```
 
 As you can see, in the histogram, the expected mean NND (dashed line as set by the line type parameter `lty`) is very much less than the actual, which shown as a solid red line.
@@ -163,10 +163,10 @@ As you can see, in the histogram, the expected mean NND (dashed line as set by t
 Nearest neighbor distances on their own aren't very useful. An array of functions using either nearest neighbor distances (*G* and *F*) or all the inter-event distances (*K* and *g*, also known as the *pair correlation function*, PCF) are more useful and informative. These are easy to calculate and plot:
 
 ```{r}
-plot(Gest(rw), main="G function Redwoods")
-plot(Fest(rw), main="F function Redwoods")
-plot(Kest(rw), main="K function Redwoods")
-plot(pcf(rw), main="PCF function Redwoods")
+plot(Gest(rw), main = "G function Redwoods")
+plot(Fest(rw), main = "F function Redwoods")
+plot(Kest(rw), main = "K function Redwoods")
+plot(pcf(rw), main = "PCF function Redwoods")
 ```
 
 The `est` part of these function names indicates that these are 'estimated' functions. Note that I've included more readable names for the plots shown, using the `main` option (for *main title*). Each plot shows the function itself calculated from the pattern as a solid black line, and dotted lines showing slight variations depending on how we correct for edge effects (check the help if you want more on the details of this).
@@ -176,13 +176,13 @@ The solid black line and the dotted blue line are the most relevant. The dotted 
 You will find that it's hard to see what is going on with the *K* function because the shape of the curve and how far it deviates from the expected line may be difficult to see. The PCF is more useful, but does have a problem that the range of values at short distances can be very large. This is a result of details of how it is calculated. You can limit this by setting y-limits on the plot with the `ylim` parameter.
 
 ```{r}
-plot(pcf(rw), ylim=c(0, 2))
+plot(pcf(rw), ylim = c(0, 2))
 ```
 
 While these basic plots are helpful, they don't allow us to statistically assess the deviation of patterns from randomness (or potentially from other point process models). To do this we make use of the envelope function to calculate many random values for the function and compare it with the actual data. In its simplest form, this is very easy:
 
 ```{r}
-plot(envelope(rw, pcf), ylim=c(0,4))
+plot(envelope(rw, pcf), ylim = c(0,4))
 ```
 
 I've shown this for PCF, but it can easily be changed for any of the other functions `Fest`, `Gest` or `Kest`. When this runs, *R* tells you that it is running 99 simulations of complete spatial randomness (CSR) for the data, and it is using these to construct the envelope of results shown in gray in the plot.
@@ -199,20 +199,20 @@ An example might be to use the intensity derived from the data, as a basis for a
 
 ```{r}
 # calculate density surface for the cells data
-dc <- density(ce, sigma=0.2)
+dc <- density(ce, sigma = 0.2)
 # use it to simulate an inhomogeneous Poisson process
-env <- envelope(ce, pcf, simulate=expression(rpoispp(dc)), nsim=99)
-plot(env, ylim=c(0,4), main='Envelope for 99 simulations PCF, cells')
+env <- envelope(ce, pcf, simulate = expression(rpoispp(dc)), nsim = 99)
+plot(env, ylim = c(0,4), main = 'Envelope for 99 simulations PCF, cells')
 ```
 
 And now make the plots.
 
 ```{r}
-plot(dc, main="Density of cells, sigma=0.2")
-plot(ce, add=TRUE)
+plot(dc, main = "Density of cells, sigma = 0.2")
+plot(ce, add = TRUE)
 ```
 
-The code `simulate=expression(rpoispp(dc)), nsim=99` in the envelope function tells spatstat *not* to use complete spatial randomness for the simulated patterns that determine the envelope, but instead to use the function provided in the expression statement.
+The code `simulate = expression(rpoispp(dc)), nsim = 99` in the envelope function tells spatstat *not* to use complete spatial randomness for the simulated patterns that determine the envelope, but instead to use the function provided in the expression statement.
 
 Here I have specified that `rpoispp(dc)` should be used, which is an inhomogeneous Poisson process based on the density calculated from the pattern. That means that the simulated patterns *include first order effects from the original pattern*, so remaining departures from expectations should reflect second order effects only.
 
