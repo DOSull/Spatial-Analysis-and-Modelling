@@ -220,4 +220,4 @@ The plot confirms this: there is evidence for a lack of inter-event distances up
 
 **This is a fairly advanced concept, but it is worth trying to get your head around it, as it is the basis on which the most sophisticated point pattern analysis work in research settings is performed.** See if you can run a similar analysis for the Redwood dataset (or indeed for the assignment dataset).
 
-[**back to overview**](00-overview.md) \| [**on to PPA with real data**](02-ppa-with-real-data.md)
+[**back to overview**](README.md) \| [**on to PPA with real data**](02-ppa-with-real-data.md)
