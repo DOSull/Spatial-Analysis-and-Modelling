@@ -1,8 +1,9 @@
-#### GISC 422 T1 2020
+#### GISC 422 T1 2021
 # **Assignment 1: Point pattern analysis in `spatstat`**
 As we've seen, there are many ways to describe, measure and analyze a point pattern. In this section, we will go through how these are performed in `spatstat`, before, in the lab assignment itself looking at the dataset you will analyze for this assignment.
 
 We will use three datasets provided in spatstat to illustrate the explanations in the first part of these instructions because they exhibit clear patterns, and because they are easier to work with. In the second half of these instructions you will see how to get real spatial data into `spatstat` for the assignment. To load up the three datasets, ensure spatstat is installed and run:
+
 ```{r}
 library(spatstat)
 library(RColorBrewer)
@@ -10,9 +11,11 @@ library(RColorBrewer)
 # so we can reset them at any time
 pardefaults <- par()
 ```
+
 If any of these don't load, then install them in the usual way.
 
 Now get the datasets built in to `spatstat`.
+
 ```{r}
 data(cells)
 data(japanesepines)
@@ -20,18 +23,21 @@ data(redwoodfull)
 ```
 
 You can find out more about each dataset by typing
+
 ```{r}
 ?cells
 ```
 
 Give the datasets shorter names, to save on typing:
+
 ```{r}
 ce <- cells
 jp <- japanesepines
 rw <- redwoodfull
 ```
 
-It’s nice to see the patterns alongside one another, so set up the plot window for a row of three plots
+It's nice to see the patterns alongside one another, so set up the plot window for a row of three plots
+
 ```{r}
 par(mfrow=c(1,3))
 plot(ce)
@@ -40,16 +46,20 @@ plot(rw)
 ```
 
 Notice that the plot titles default to the same as the variable names, so you may want to use more descriptive titles. You do this using the `main=”My plot title”` option, like this:
+
 ```{r}
 par(mfrow=c(1,1))
 plot(ce, main="Cell centers")
 ```
 
 ## A tour of different point pattern analysis methods
-The analysis methods we’ve looked at in class and in the readings are covered in each of the sections below.
+
+The analysis methods we've looked at in class and in the readings are covered in each of the sections below.
 
 ### Quadrat counting
+
 As discussed quadrat counting is a rather limited method, and the spatstat implementation is accordingly a bit limited, because the method is not much used. In any case, here it is below. Shown here for the cells data at three different resolutions.
+
 ```{r}
 par(mfrow=c(1,3))
 
@@ -62,6 +72,7 @@ plot(ce, add=T, col='red', cex=0.5)
 ```
 
 There is also a statistical test associated with quadrat counting:
+
 ```{r}
 quadrat.test(ce, method="MonteCarlo", nsim=999)
 ```
@@ -73,9 +84,11 @@ The *p*-value tells us how probable the particular observed quadrat counts would
 Try running the same analysis on the pines `jp` or redwoods `rw` data to see what you get
 
 ### Density estimation
+
 You have already seen this in the previous lab. To create a density surface from a pattern you use the density function. You can save the density to a variable, and examine how useful different surfaces appear as you vary the bandwidth using the `sigma` parameter.
 
 For example, for the redwood data (the most interesting for density mapping)
+
 ```{r}
 par(mfrow=c(1,3))
 
@@ -103,6 +116,7 @@ As noted previously, the default color scheme is not great, and you might want t
 When it comes to selecting a bandwidth, keep in mind that density estimation is most useful as an *exploratory* method, and that there is no 'correct' bandwidth. A function `bw.diggle`, or much slower, `bw.ppl` will recommend a bandwidth. `bw.diggle` seems to favor small bandwidths, while the `bw.ppl` function returns fairly plausible values (to my eye, but you may disagree). The default bandwidth used by the density function seems to be calculated using a function called `bw.scott` and seems to me a bit large most of the time.
 
 ### Mean nearest neighbor distance
+
 You calculate all the nearest neighbor distances for events in a point pattern using the `nndist()` function. You can store the results in a new variable, which is useful for plotting them and can be helpful.
 
 ```{r}
@@ -135,6 +149,7 @@ emnnd.c
 ```
 
 You can then compare expected and actual mean NND values. You can put them on the histogram to compare them visually. You do this using the `abline` function, which can draw arbitrary lines on the most recent plot you made.
+
 ```{r}
 hist(nnd.c)
 abline(v=mnnd.c, col='red', lwd=2)
@@ -144,10 +159,10 @@ abline(v=emnnd.c, col='red', lwd=2, lty='dashed')
 As you can see, in the histogram, the expected mean NND (dashed line as set by the line type parameter `lty`) is very much less than the actual, which shown as a solid red line.
 
 ### The *G*, *F*, *K* and *g* (or PCF) functions
-Nearest neighbor distances on their own aren’t very useful. An array of functions using either nearest neighbor distances (*G* and *F*) or all the inter-event distances (*K* and *g*, also known as the *pair correlation function*, PCF) are more useful and informative. These are easy to calculate and plot:
-```{r}
-par(mfrow=c(2,2))
 
+Nearest neighbor distances on their own aren't very useful. An array of functions using either nearest neighbor distances (*G* and *F*) or all the inter-event distances (*K* and *g*, also known as the *pair correlation function*, PCF) are more useful and informative. These are easy to calculate and plot:
+
+```{r}
 plot(Gest(rw), main="G function Redwoods")
 plot(Fest(rw), main="F function Redwoods")
 plot(Kest(rw), main="K function Redwoods")
@@ -158,17 +173,19 @@ The `est` part of these function names indicates that these are 'estimated' func
 
 The solid black line and the dotted blue line are the most relevant. The dotted blue line is the expected line for a pattern produced by complete spatial randomness, and is the baseline for comparison that you should consider when evaluating such plots.
 
-You will find that it’s hard to see what is going on with the *K* function because the shape of the curve and how far it deviates from the expected line may be difficult to see. The PCF is more useful, but does have a problem that the range of values at short distances can be very large. This is a result of details of how it is calculated. You can limit this by setting y-limits on the plot with the `ylim` parameter.
+You will find that it's hard to see what is going on with the *K* function because the shape of the curve and how far it deviates from the expected line may be difficult to see. The PCF is more useful, but does have a problem that the range of values at short distances can be very large. This is a result of details of how it is calculated. You can limit this by setting y-limits on the plot with the `ylim` parameter.
+
 ```{r}
 plot(pcf(rw), ylim=c(0, 2))
 ```
 
 While these basic plots are helpful, they don't allow us to statistically assess the deviation of patterns from randomness (or potentially from other point process models). To do this we make use of the envelope function to calculate many random values for the function and compare it with the actual data. In its simplest form, this is very easy:
+
 ```{r}
 plot(envelope(rw, pcf), ylim=c(0,4))
 ```
 
-I’ve shown this for PCF, but it can easily be changed for any of the other functions `Fest`, `Gest` or `Kest`. When this runs, *R* tells you that it is running 99 simulations of complete spatial randomness (CSR) for the data, and it is using these to construct the envelope of results shown in gray in the plot.
+I've shown this for PCF, but it can easily be changed for any of the other functions `Fest`, `Gest` or `Kest`. When this runs, *R* tells you that it is running 99 simulations of complete spatial randomness (CSR) for the data, and it is using these to construct the envelope of results shown in gray in the plot.
 
 The black line shows the function as calculated from the data, and the idea is to compare the two.
 
@@ -176,9 +193,10 @@ Anywhere that the data (the black line) is *inside the envelope* from the simula
 
 Note that the envelope is very high at very short distances, but this is an artifact of how PCF is calculated and can be safely ignored in interpretation.
 
-You can also use this method to compare your pattern to any pattern produced by any process, given that complete spatial randomness is unlikely in practice (redwoods don’t just fall out of the sky). So it may be more interesting to see how a pattern compares to one that is more likely given your observed data.
+You can also use this method to compare your pattern to any pattern produced by any process, given that complete spatial randomness is unlikely in practice (redwoods don't just fall out of the sky). So it may be more interesting to see how a pattern compares to one that is more likely given your observed data.
 
 An example might be to use the intensity derived from the data, as a basis for an inhomogeneous Poisson process. This allows you to partially separate first and second order effects. Here's an example
+
 ```{r}
 # calculate density surface for the cells data
 dc <- density(ce, sigma=0.2)
@@ -198,108 +216,8 @@ The code `simulate=expression(rpoispp(dc)), nsim=99` in the envelope function te
 
 Here I have specified that `rpoispp(dc)` should be used, which is an inhomogeneous Poisson process based on the density calculated from the pattern. That means that the simulated patterns *include first order effects from the original pattern*, so remaining departures from expectations should reflect second order effects only.
 
-The plot confirms this: there is evidence for a lack of inter-event distances up to around 0.1, and also evidence of ‘too many’ inter-event distances around 0.15 (which is the near-uniform spacing of the events in this pattern).
+The plot confirms this: there is evidence for a lack of inter-event distances up to around 0.1, and also evidence of 'too many' inter-event distances around 0.15 (which is the near-uniform spacing of the events in this pattern).
 
-**This is a fairly advanced concept, but it is worth trying to get your head around it, as it is the basis on which the most sophisticated point pattern analysis work in research settings is performed.**  See if you can run a similar analysis for the Redwood dataset (or indeed for the assignment dataset).
+**This is a fairly advanced concept, but it is worth trying to get your head around it, as it is the basis on which the most sophisticated point pattern analysis work in research settings is performed.** See if you can run a similar analysis for the Redwood dataset (or indeed for the assignment dataset).
 
-# Point pattern analysis with real data
-Now we need to read two data files, one with the point events and one with the study area. These are [here](ak-tb-cases.geojson?raw=true) and [here](ak-tb.geojson?raw=true). Load the `sf` library for handling spatial data.
-```{r}
-library(sf)
-```
-and use it to load the data:
-```{r}
-ak <- st_read("ak-tb.geojson")
-tb <- st_read("ak-tb-cases.geojson")
-```
-
-Check that things line up OK by mapping them using `tmap`.
-```{r}
-library(tmap)
-
-tm_shape(ak) +
-  tm_polygons() +
-  tm_shape(tb) +
-  tm_dots()
-```
-
-## Reprojecting the data
-For PPA we really need to be working in a projected coordinate system that uses real spatial units (like metres, even better kilometres), not latitude-longitude.
-
-```{r}
-st_crs(ak)
-st_crs(tb)
-```
-
-By now you should recognise these as 'unprojected' lat-lon, which is no good to us. We should instead use the New Zealand Transverse Mercator. We get the proj4 string for this from an appropriate source, and use it to transform the two layers. I have modified the projection to centre it on Auckland (the `lat_0` and `lon_0` settings), and also to make the units km (the `units` setting) rather than metres as this has a dramatic effect on how well `spatstat` runs. It also makes it easier to interpret results meaningfully.
-
-```{r}
-nztm <- '+proj=tmerc +lat_0=0 +lon_0=173 +k=0.9996 +x_0=1600 +y_0=10000 +ellps=GRS80 +units=km'
-
-ak <- st_transform(ak, nztm)
-tb <- st_transform(tb, nztm)
-```
-
-Now we should check that things still line up OK.
-
-```{r}
-tm_shape(ak) +
-  tm_polygons() +
-  tm_shape(tb) +
-  tm_dots()
-```
-
-## Converting spatial data to `spatstat` data
-OK. So much for the spatial data. `spatstat` works in its own little world and performs PPA on `ppp` objects, which have two components, a set of (*x*, *y*) points, and a study area or 'window'.
-
-This is quite a fiddly business, which never seems to get any easier (every time I do it, I have to look it up in help). We need some conversion functions `as_Spatial` from the `sf` package, and some more in the `maptools' package. So load that
-```{r}
-library(maptools)
-```
-If it doesn't load, then make sure it is installed and try again. Now we use `as.ppp` to make a point pattern from the geometry of the `tb` data set.
-```{r}
-tb.pp <- as.ppp(as_Spatial(tb$geometry))
-```
-and plot it to take a look:
-```{r}
-plot(tb.pp)
-```
-That's better than nothing, but ideally we use the land area for the study area. Again, we use a conversion function from `maptools`.
-```{r}
-tb.pp$window <- as.owin(as_Spatial(st_union(ak)))
-```
-Now let's take a look:
-```{r}
-plot(density(tb.pp))
-plot(tb.pp, add=T)
-```
-Finally!
-
-If we were doing a lot of this kind of analysis starting with lat-lon datasets, then we would build a function from some of the elements above to automate all these steps. In this case, since we are only running the analysis once for this lab, I will leave that as an exercise for the reader...
-
-# **The assignment: A point pattern analysis of the Auckland TB data**
-Now you have a point pattern dataset to work with (`tb.pp`), you can perform point pattern analysis with it.
-
-## Assignment deliverables
-The submission deadline is **4 May at 8:30AM**. A dropbox will be provided on Blackboard. You should assemble materials in a word processor (export images from *RStudio* to PNG format) and produce a PDF report. Include your name in the filename for ease of identification. You should not read to write more than about 500 words, although your report should include a number of figures. Note that quality of cartography is not an important aspect of this assignment.
-
-You need to do three things:
-
-### First (25%)
-Present kernel density surfaces of the tuberculosis data.
-
-**You should present three different density surfaces, and explain which are likely to be the most useful in different contexts.**
-
-Explain what bandwidths you have selected, and the basis for your choice. (Remember that the distance units are km.)  Keep in mind that there is no absolute right answer, and that the various suggestions you can get from functions available (see the section about kernel density) are only suggestions. You might want to make selections close to these but rounded to more readily understood values, for example.
-
-You will need to present maps of the density surfaces.
-
-### Second (50%)
-Conduct a point pattern analysis of the data and report the results.
-
-You may use whatever methods from those available (quadrats, mean nearest neighbors, *G*, *F*, Ripley’s *K*, the pair correlation function) that you find useful, and that you feel comfortable explaining and interpreting. You should use at least one of the simulation envelope based methods.
-
-You will need to present graphs or other output on which your analysis is based.
-
-### Third (25%)
-Comment on what the principle drivers of the tuberculosis incidents might be. Consider how you might run point pattern analysis to take account of such factors. What might a better null model for the occurrence of incidents be in this case than the default of complete spatial randomness?
+[**back to overview**](00-overview.md) \| [**on to PPA with real data**](02-ppa-with-real-data.md)
