@@ -43,9 +43,9 @@ Week# | Date | Lecture | Lab | Notes
 3 | 8 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/introducing-spatstat/) |
 4 | 15 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/point-pattern-analysis/) (15%) | Due 19 April
 5 | 22 Mar | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/spatial-autocorrelation/) (15%) | Due 3 May
-6 | 29 Mar | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/simple-interpolation/) |
+6 | 29 Mar | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/interpolation/) |
 | | **SEMESTER BREAK** | **NO TEACHING**
-7 | 19 Apr | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/geostatistics/) (15%) | Due 10 May
+7 | 19 Apr | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/interpolation/) (15%) | Due 10 May
 8 | 26 Apr | **NO CLASS** | ANZAC Day |
 9 | 3 May | Multivariate methods | [**Geodemographics**](labs/multivariate-analysis/) (15%)| Due 24 May
 10 | 10 May | Overlay, regression models and related methods | TBD |

@@ -9,7 +9,7 @@ library(tmap)
 ```
 We us the `sf` pacakge to read data in spatial formats like shape files, with the `st_read` function:
 ```{r}
-nz <- st_read('nz.shp')
+nz <- st_read('nz.gpkg')
 ```
 To make a map with this, we use the `tmap` package. We'll learn more about this package in the next couple of weeks. Basically it lets you make a map by progressively adding layers of data. To start a map you tell it the dataset to use
 ```{r}
