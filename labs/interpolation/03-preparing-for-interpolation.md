@@ -1,4 +1,6 @@
 #### GISC 422 T1 2021
+
+# Preparing for interpolation
 Run this first to make sure all the data and packages you need are loaded:
 ```{r}
 library(sf)
@@ -10,13 +12,12 @@ volcano <- raster("data/maungawhau.tif")
 names(volcano) <- "height"
 ```
 
-## Preparing for interpolation
-### Spatial extent of the study area
+## Spatial extent of the study area
 It's useful to have a spatial extent polygon. For the example dataset, we make it from the raster layer (**remember you wouldn't normally be able to do this!**)
 
 ```{r}
-interp_ext <- extent(volcano) %>% 
-  st_bbox() %>% 
+interp_ext <- extent(volcano) %>%
+  st_bbox() %>%
   st_as_sfc() %>%
   st_sf(crs = crs(volcano))
 st_write(interp_ext, "data/interp-ext.gpkg", delete_layer = TRUE)
@@ -33,14 +34,14 @@ interp_ext <- controls %>%
   st_sf()
 ```
 
-### Control points
-For the demonstration data, we already know the result. 
+## Control points
+For the demonstration data, we already know the result.
 
 Normally, we would have a set of control points in some spatial format and would simply read them with `sf::st_read`. Here, we will make set of random control points to work with in the other steps of these instructions when we are using the Maungawhau data. We start from the interpolation extent we made before, use `st_sample` to get a specified random number of points in the extent, then convert it to an `sf` dataset. Finally we use the `raster::extract` function to extract values from the raster dataset and assign their values to a height attribute of the `sf` dataset.
 
 ```{r}
-controls <- interp_ext %>% 
-  st_sample(size = 250) %>% 
+controls <- interp_ext %>%
+  st_sample(size = 250) %>%
   st_sf(crs = crs(volcano)) %>%
   mutate(height = extract(volcano, .))
 ```
@@ -67,7 +68,7 @@ st_read("data/controls.gpkg") %>%
 
 Remember that if you change the control points, you should also change this file to keep them matching.
 
-### Make a set of locations to interpolate
+## Make a set of locations to interpolate
 Unlike the previous step which may not be necessary when you are provided with control points to interpolate directly, this step is always required. Basically, *R* wants a raster layer to *interpolate into*. We'll call this `sites` and make `sf`, `raster` and simple xyz versions of these.
 
 ```{r}

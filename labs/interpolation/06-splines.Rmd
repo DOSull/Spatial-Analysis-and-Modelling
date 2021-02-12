@@ -64,4 +64,4 @@ spatial_model
 ```
 
 
-Back to [trend surfaces and kriging](05-trend-surfaces-and-kriging.md) | [On to other R packages](07-other-r-packages.md)
+Back to [trend surfaces and kriging](05-trend-surfaces-and-kriging.md) | On to [other R packages](07-other-r-packages.md)

@@ -49,7 +49,7 @@ v_ssi <- variogram(
 v.fit_ssi <- fit.variogram(v_ssi, vgm(model = "Gau"))
 # make the kriging model
 fit_K_ssi <- gstat(
-  formula = height ~ 1, 
+  formula = height ~ 1,
   data = as(controls_ssi, "Spatial"),
   model = v.fit_ssi,
   nmax = 8
@@ -72,8 +72,8 @@ But we saw before that with a localised trend surface you can already get a pret
 ```{r}
 # make a trend surface interpolation
 fit_TS <- gstat(
-  formula = height ~ 1, 
-  data = as(controls, "Spatial"), 
+  formula = height ~ 1,
+  data = as(controls, "Spatial"),
   nmax = 24,
   degree = 2,
 )
@@ -81,7 +81,7 @@ interp_pts_TS <- predict(fit_TS, sites)
 interp_TS <- rasterize(as(interp_pts_TS, "Spatial"), sites_raster)$var1.pred
 
 # get the ts values and include in controls also making a residual
-controls_resid <- controls %>% 
+controls_resid <- controls %>%
   mutate(ts = extract(interp_TS, .),
          resid = height - ts)
 
@@ -96,7 +96,7 @@ v_resid <- variogram(
 v.fit_resid <- fit.variogram(v_resid, vgm(model = "Gau"))
 # make the kriging model
 fit_K_resid <- gstat(
-  formula = resid ~ 1, 
+  formula = resid ~ 1,
   data = as(controls_resid, "Spatial"),
   model = v.fit_resid,
   nmax = 8
@@ -108,4 +108,4 @@ interp_K_final <- interp_TS + interp_K_resid
 
 persp(interp_K_final, scale = FALSE, expand = 2, theta = 35, phi = 30, lwd = 0.5)
 ```
-Back to [trend surfaces and kriging](05-trend-surfaces-and-kriging.md) | [On to splines](06-splines.md)
+Back to [trend surfaces and kriging](05-trend-surfaces-and-kriging.md) | On to [splines](06-splines.md)

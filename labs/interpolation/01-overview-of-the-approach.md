@@ -1,4 +1,5 @@
 #### GISC 422 T1 2021
+
 #The overall approach to interpolation
 The *R* ecosystem's approach to spatial interpolation seems pretty complicated at first. It's not exactly simple, although the overall concept is straightforward enough and some of the apparent complexity has more to do with making different data types interact with one another successfully.
 
@@ -20,7 +21,7 @@ We also need to specify where and at what resolution (or degree of detail) we wa
 
 Generally this will be across the area covered by the control points. We'll assume that a bounding box (i.e. a rectangular region) is 'good enough' but in specific cases, you might want to mask out regions, when it may get more complicated.
 
-The most straightforward way to make use of the sites to interpolate at is as an 'empty' raster dataset with the required resolution. 
+The most straightforward way to make use of the sites to interpolate at is as an 'empty' raster dataset with the required resolution.
 
 Surprisingly there is no simple way to make this from a set of control points, instead we have to go via `st_make_grid` to get a grid of points, then turn this into an 'xyz' data table, then use the `rasterFromXYZ` function to get a suitable 'target' raster layer. That's way more complicated than I'd like, but it seems to be the most robust approach. How it's done is shown in the instructions.
 
