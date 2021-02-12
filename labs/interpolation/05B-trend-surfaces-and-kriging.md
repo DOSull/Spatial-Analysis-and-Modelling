@@ -37,7 +37,7 @@ Some of the challenges encountered in the main instructions are mitigated with b
 controls_ssi <- st_read("data/interp-ext.gpkg") %>%
   st_sample(size = 250, type = "SSI", r = 30, n = 250) %>%
   st_sf(crs = crs(volcano)) %>%
-  mutate(height = extract(volcano, .))
+  mutate(height = raster::extract(volcano, .))
 # make a new variogram
 v_ssi <- variogram(
   height ~ 1,

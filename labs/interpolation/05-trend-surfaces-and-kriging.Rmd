@@ -79,7 +79,7 @@ The `cutoff` is the separation distance between control points beyond which we a
 Next, we fit a curve to the empirical variogram using the `fit.variogram` function. This requires a functional form (the `model` parameter) which is set by calling the `vgm function). Many possible curves are possible (you can get a list by running`vgm()`with no parameters), although for these data, I've found that`"Gau"\` is the most convincing option.
 
 ```{r}
-v.fit <- fit.variogram(v, vgm(model = "Gau"))
+v.fit <- gstat::fit.variogram(v, vgm(model = "Gau"))
 plot(v, v.fit)
 ```
 

@@ -27,8 +27,8 @@ Trend surfaces are a special kind of linear regression where we use the spatial 
 
 ```{r}
 fit_TS <- gstat(
-  formula = height ~ 1, 
-  data = as(controls, "Spatial"), 
+  formula = height ~ 1,
+  data = as(controls, "Spatial"),
   # nmax = 24,
   degree = 2,
 )
@@ -79,7 +79,7 @@ The `cutoff` is the separation distance between control points beyond which we a
 Next, we fit a curve to the empirical variogram using the `fit.variogram` function. This requires a functional form (the `model` parameter) which is set by calling the `vgm function). Many possible curves are possible (you can get a list by running`vgm()`with no parameters), although for these data, I've found that`"Gau"\` is the most convincing option.
 
 ```{r}
-v.fit <- fit.variogram(v, vgm(model = "Gau"))
+v.fit <- gstat::fit.variogram(v, vgm(model = "Gau"))
 plot(v, v.fit)
 ```
 
@@ -89,7 +89,7 @@ Now everything is set up to perform kriging interpolation. Kriging in principle 
 
 ```{r}
 fit_K <- gstat(
-  formula = height ~ 1, 
+  formula = height ~ 1,
   data = as(controls, "Spatial"),
   model = v.fit,
   nmax = 8
@@ -108,15 +108,15 @@ persp(interp_K$var1.pred, scale = FALSE, expand = 2, theta = 35, phi = 30, lwd =
 You can almost certainly see some areas where the interpolation has not worked out so well. You can see by running the code chunk below why this is.
 
 ```{r}
-tm_shape(interp_K$var1.var) + 
+tm_shape(interp_K$var1.var) +
   tm_raster(pal = "Reds", style = "cont") +
   tm_legend(outside = TRUE) +
-  tm_shape(controls) + 
+  tm_shape(controls) +
   tm_dots(col = "black") +
   tm_scale_bar()
 ```
 
-Kriging is complicated and this exercise is intended only to give you a flavour of that, so we will move on. 
+Kriging is complicated and this exercise is intended only to give you a flavour of that, so we will move on.
 
 However, it is worth also looking at a couple of ['digressions' on kriging in this notebook](05B-trend-surfaces-and-kriging.md) if you are keen to know more about kriging in particular.
 

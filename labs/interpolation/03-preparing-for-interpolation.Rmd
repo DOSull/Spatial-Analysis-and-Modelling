@@ -43,7 +43,7 @@ Normally, we would have a set of control points in some spatial format and would
 controls <- interp_ext %>%
   st_sample(size = 250) %>%
   st_sf(crs = crs(volcano)) %>%
-  mutate(height = extract(volcano, .))
+  mutate(height = raster::extract(volcano, .))
 ```
 
 Every time you run the above you will get a different random set of the specified number of control point locations. It is useful to map them on top of the underlying data and think about how many you might need to get a reasonable representation of the height map of Maungawhau.
