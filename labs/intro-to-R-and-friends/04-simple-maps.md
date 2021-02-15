@@ -48,7 +48,7 @@ What's happening here? Quite a lot it turns out.
 
 `st_as_sf` is the function that does the conversion. The *parameters* in parentheses tell the function what to work on. First is the input dataframe `quakes`. Next the `coords` parameter tells the function which variables in the dataframe are the *x* and *y* coordinates in the dataframe. the `c()` structure concatenates the two variable names into a single *vector* which is required by `st_as_sf`. Finally, we also specify the *coordinate reference system* or map projection of the data. These data are in New Zealand Map Grid, which has an [EPSG code 27200](https://epsg.io/27200).
 
-Unfortunately, this is a different projection than the `nz` dataset. But I can *pipe* the data into the `st_transform` function to convert its projection to match that of the `nz` dataset using `st_crs(nz)` to retrieve this information from the `nz` dataset and apply it to the new spatial `qmap` layer we are making.
+Unfortunately, this is a different projection than the `nz` dataset. But I can *pipe* the data using the `%>%` symbol into the `st_transform` function to convert its projection to match that of the `nz` dataset using `st_crs(nz)` to retrieve this information from the `nz` dataset and apply it to the new spatial `qmap` layer we are making.
 
 Now we have two datasets we can make a layered map including both of them.
 ```{r}
@@ -80,12 +80,12 @@ tm_shape(nz, bbox = st_bbox(qmap)) +
   tm_scale_bar()
 ```
 
-This isn't a great map. It might be easier to see if we only showed the larger aftershocks. We use another tidyverse tool in the `dplyr` package.
+This isn't a great map. It might be easier to see if we only showed the larger aftershocks. We use another pipe `%>%` to pass the data into a filter tool from the `dplyr` package.
 
 ```{r}
 library(dplyr)
 bigq <- qmap %>%
-  filter(MAG >= 4)
+  dplyr::filter(MAG >= 4)
 ```
 
 Try again, this time also making the bubbles transparent:

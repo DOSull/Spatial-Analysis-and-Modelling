@@ -4,6 +4,6 @@ I have assembled some [demographic data for Aotearoa New Zealand](nz-2193-cau-20
 
 In any case, your report should show clear evidence of having explored the data using the many tools we have seen this semester so far (no need to use all of them, and it's fine to focus on only the ones from this week, if you wish).
 
-Prepare your report in R-Markdown and run it to produce a final output PDF or Word document for submission (this means I will see your code as well as the outputs!) Avoid any outputs that are just long lists of data (like this file includes), as these are not very informative (you can do this by prefixing the code chunk with ````{r, results=FALSE}`.
+Prepare your report in R-Markdown and run it to produce a final output PDF or Word document for submission (this means I will see your code as well as the outputs!) Avoid any outputs that are just long lists of data (like this file includes), as these are not very informative (you can do this by prefixing the code chunk with ````{r, results = FALSE}`.
 
 Submit your report to the dropbox provided on Blackboard by **22 June**.

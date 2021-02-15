@@ -18,7 +18,7 @@ This [interactive graphic](https://www.joyofdata.de/public/pca-3d/) provides a n
 
 OK... so how does this work in practice. It's actually pretty easy. The function `princomp` in R performs the analysis.
 ```{r}
-sfd.pca <- princomp(sfd.d, cor=TRUE)
+sfd.pca <- princomp(sfd.d, cor = TRUE)
 ```
 
 The results are stored in the `sfd.pca` object. We can get a summary
@@ -35,7 +35,7 @@ Determining the interpretation of each component is based on which variable weig
 
 A plot which sometimes helps is the biplot produced as below
 ```{r}
-biplot(sfd.pca, pc.biplot=TRUE, cex=0.5)
+biplot(sfd.pca, pc.biplot = TRUE, cex = 0.5)
 ```
 
 This helps us to see which variables weight similarly on the components (they point in similar directions) and also which observations (i.e. which census tracts in this case) score highly or not on each variable. It is important to keep in mind when inspecting such plots that they are a reduction of the original data (that's the whole point) and must be interpreted with caution.
@@ -45,8 +45,8 @@ If we want to see the geography of components, then we can extract components fr
 sfd$PC1 <- sfd.pca$scores[,1]
 tmap_mode('view')
 tm_shape(sfd) +
-  tm_polygons(col='PC1') +
-  tm_legend(legend.outside=T)
+  tm_polygons(col = 'PC1') +
+  tm_legend(legend.outside = T)
 ```
 
 Related techniques to PCA are *factor analysis* and *multidimensional scaling* (MDS), although the last of these is also closely related to the second broad class of methods, classification which we will look at... [so let's do that now](04-classification-and-clustering.md).

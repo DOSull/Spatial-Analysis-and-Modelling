@@ -64,7 +64,7 @@ summary(auckland)
 Since the *median* is 26.3, meaning that half the rates are that level or lower, while the average or *mean* value is higher at 30.4, you can see that the date are skewed. More visually, we can make a histogram. We can do this either with the base *R* function `hist` by using the `$` symbol to select only that variable as input:
 
 ```{r}
-hist(auckland$TB_RATE, xlab='TB rate per 100,000 population', main='')
+hist(auckland$TB_RATE, xlab = 'TB rate per 100,000 population', main = '')
 ```
 
 or with the `ggplot2` approach, where we define the data we are using and the aesthetics to apply to it. The latter is quite an involved topic, which we *might* get into later in the semester, for now it may be easier to stick with the base *R* `hist` function. Many people much prefer the `ggplot2` approach, although for relatively simply plots like these it may not be very obvious why! I am happy to discuss this in more detail, if you find yourself creating complicated visualisations with *R*.
@@ -72,7 +72,7 @@ or with the `ggplot2` approach, where we define the data we are using and the ae
 ```{r}
 library(ggplot2)
 ggplot(auckland) +
-  geom_histogram(aes(x=TB_RATE), binwidth=20)
+  geom_histogram(aes(x = TB_RATE), binwidth=20)
 ```
 
 Inspecting the histograms, think about how a map might look using different classification schemes. Say we used 9 *equal interval* classes, how many would be in the lowest class? How many in the highest? Would any class have no members? Keep these questions in mind as we experiment with maps in the next section.
@@ -101,13 +101,13 @@ Here, we just get polygons. For a choropleth map, we have to say what variable w
 
 ```{r}
 # note the 'col' here means colour, not column
-m + tm_polygons(col='TB_RATE')
+m + tm_polygons(col = 'TB_RATE')
 ```
 
 There are a number of options for changing the look of this. We can change colours (`palette`), the number of classes (`n`), and the classification scheme (`style`)
 
 ```{r}
-m + tm_polygons(col='TB_RATE', palette='Greens', n=9, style='quantile')
+m + tm_polygons(col = 'TB_RATE', palette = 'Greens', n = 9, style = 'quantile')
 ```
 
 To find out what options are available check the help with `?tm_polygons`. Before going any further experiment with these options, until you are comfortable making such maps easily.

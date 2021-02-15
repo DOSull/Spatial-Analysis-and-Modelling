@@ -14,7 +14,7 @@ Whereas dimensional reduction methods focus on the variables in a dataset, clust
 
 There is no easy way to define clusters beyond recognising that clusters are the groups of observations identified by a clustering method. Like PCA, clustering analysis depends a great deal on the interpretation of an analyst.
 
-What do we mean by 'similar' and 'different'? We extend the basic idea of distance in Euclidean (two dimensional) space where $d_{ij}=\sqrt{(x_i-x_j)^2+(y_i-y_j)^2}$, that is the square root of the sum of the squared difference in each coordinate to higher dimensions. So if we are in 24 dimensional data space, we take the sum of the squared differences in each of the 24 dimensions (i.e. on each variable) between two observations, add them together and take the square root. Other versions of the basic idea of 'total difference' in attribute values are possible. An important consideration is that all the attributes be rescaled so that the differences in one particular attribute which happens to have large values associated with it don't 'drown out' differences in other variables. A similar concern is that we take care not to include lots of strongly correlated variables in the analysis (sometimes clustering is done on principal component scores for this reason).
+What do we mean by 'similar' and 'different'? We extend the basic idea of distance in Euclidean (two dimensional) space where $d_{ij} = \sqrt{(x_i-x_j)^2+(y_i-y_j)^2}$, that is the square root of the sum of the squared difference in each coordinate to higher dimensions. So if we are in 24 dimensional data space, we take the sum of the squared differences in each of the 24 dimensions (i.e. on each variable) between two observations, add them together and take the square root. Other versions of the basic idea of 'total difference' in attribute values are possible. An important consideration is that all the attributes be rescaled so that the differences in one particular attribute which happens to have large values associated with it don't 'drown out' differences in other variables. A similar concern is that we take care not to include lots of strongly correlated variables in the analysis (sometimes clustering is done on principal component scores for this reason).
 
 ### K-means clustering
 One common clustering approach is k-means clustering. The algorithm is pretty simple:
@@ -32,12 +32,12 @@ It's important to realise that k-means clustering is non-deterministic, as the c
 So here is how we accomplish this in R.
 ```{r}
 km <- kmeans(sfd.d, 7)
-clusters <- fitted(km, method='classes')
+clusters <- fitted(km, method = 'classes')
 sfd$c7 <- clusters
 tmap_mode('view')
 tm_shape(sfd) +
-  tm_polygons(col='c7', palette='cat') +
-  tm_legend(legend.outside=T)
+  tm_polygons(col = 'c7', palette = 'cat') +
+  tm_legend(legend.outside = T)
 ```
 
 The `kmeans` function does the work, and requires that we decide in advance how many clusters we want (I picked 7 just because... well... SEVEN). We retrieve the resulting cluster assignments using the `fitted` function, and map it like any other variable&mdash;remembering that it is a categorical variable, hence the `cat` palette specification.
@@ -69,10 +69,10 @@ Blimey! What the heck is that thing? As the title says it is a *cluster dendrogr
 As you can see, even for this relatively small dataset of only 189 observations, the dendrogram is not that easy to read. Again, interactive visualization methods can be used to help with this. However another option is to 'cut the dendrogam' specifying either the height value to do it at, or the number of clusters desired. In this case, it looks like 5 is not a bad option, so...
 
 ```{r}
-sfd$hc5 <- cutree(hc, k=5)
+sfd$hc5 <- cutree(hc, k = 5)
 tm_shape(sfd) +
-  tm_polygons(col='hc5', palette='cat') +
-  tm_legend(legend.outside=T)
+  tm_polygons(col = 'hc5', palette = 'cat') +
+  tm_legend(legend.outside = T)
 ```
 
 It's good to see that there are clear similarities between this output and the k-means one (at least there were first time I ran the analysis!)
@@ -82,13 +82,13 @@ As with k-means analysis, there are more details around all of this. Different a
 Once clusters have been assigned, we can do further analysis comparing characteristics of different clusters. FOr example
 
 ```{r}
-boxplot(sfd$PCunemployed ~ sfd$hc5, xlab='Cluster', ylab='Unemployment')
+boxplot(sfd$PCunemployed ~ sfd$hc5, xlab = 'Cluster', ylab = 'Unemployment')
 ```
 
 Or we can aggregate the clusters into single areas and assign them values based on the underlying data of all the member units:
 
 ```{r}
-sfd.c <- aggregate(sfd, by=list(sfd$hc5), mean)
+sfd.c <- aggregate(sfd, by = list(sfd$hc5), mean)
 plot(sfd.c)
 ```
 
@@ -97,7 +97,7 @@ In the specific context of demographic data, clustering analysis is often referr
 
 Spielman, S. E., and A. Singleton. 2015. [Studying Neighborhoods Using Uncertain Data from the American Community Survey: A Contextual Approach](http://www.tandfonline.com/doi/full/10.1080/00045608.2015.1052335). Annals of the Association of American Geographers 105 (5):1003–1025.
 
-which describes a cluster analysis of the hundreds of thousands of census tracts of the United States. Accompanying data is [available here](https://www.openicpsr.org/openicpsr/project/100235/version/V5/view?path=/openicpsr/100235/fcr:versions/V5/Output-Data&type=folder), although it's kind of enormous! An interactive map of a classification of London at fine spatial resolution is the [London Open Area Classification](https://maps.cdrc.ac.uk/#/geodemographics/loac11/default/BTTTFFT/10/-0.1500/51.5200/).
+which describes a cluster analysis of the hundreds of thousands of census tracts of the United States. Accompanying data is [available here](https://www.openicpsr.org/openicpsr/project/100235/version/V5/view?path = /openicpsr/100235/fcr:versions/V5/Output-Data&type = folder), although it's kind of enormous! An interactive map of a classification of London at fine spatial resolution is the [London Open Area Classification](https://maps.cdrc.ac.uk/#/geodemographics/loac11/default/BTTTFFT/10/-0.1500/51.5200/).
 
 Although geodemographics ia a very visible example of cluster-based classification, exactly the same methods are applicable to other kinds of data, such as physical, climate or other variables.
 

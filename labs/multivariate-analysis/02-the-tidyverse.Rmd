@@ -106,19 +106,19 @@ sfd %>%
 Another aspect to the tidyverse is a more consistent approach to plotting, particularly if you are making complicated figures. We've already seen an example of this in the previous document. Here it is again
 ```{r}
 ggplot(sfd) +
-  geom_point(aes(x=density,
-                 y=medianYearBuilt,
-                 colour=PConeUnit,
-                 size=PCownerOccUnits), alpha=0.5)
+  geom_point(aes(x = density,
+                 y = medianYearBuilt,
+                 colour = PConeUnit,
+                 size = PCownerOccUnits), alpha = 0.5)
 ```
 
-What's going on here?! The idea behind `ggplot2` functions is that there should be an *aesthetic mapping* between each data attribute and some graphical aspect. This idea is discussed in [this paper](http://vita.had.co.nz/papers/layered-grammar.pdf). We've already seen a version of it in `tmap` when we specify `col=` for a map variable. The above example is more complete implementation of the idea. The `ggplot` function specifies the dataset, an additional layer is specified by a geometry function, in this case `geom_point`, for which we must specify the aesthetic mapping using `aes()` telling which graphical parameters, x and y location, colour and size are linked to which data attributes.
+What's going on here?! The idea behind `ggplot2` functions is that there should be an *aesthetic mapping* between each data attribute and some graphical aspect. This idea is discussed in [this paper](http://vita.had.co.nz/papers/layered-grammar.pdf). We've already seen a version of it in `tmap` when we specify `col = ` for a map variable. The above example is more complete implementation of the idea. The `ggplot` function specifies the dataset, an additional layer is specified by a geometry function, in this case `geom_point`, for which we must specify the aesthetic mapping using `aes()` telling which graphical parameters, x and y location, colour and size are linked to which data attributes.
 
 It is worth knowing that `ggplot` knows about `sf` data, and so can be used as an alternative to `tmap`. This is a big topic, and I only touch on it here so I can used `ggplot` functions from time to time without freaking everybody out! Happy to discuss further if this is a topic that interests or excites you.
 ```{r}
 ggplot(sfd) +
-  geom_sf(aes(fill=density)) + 
-  scale_fill_distiller(palette='Reds', direction=1)
+  geom_sf(aes(fill = density)) + 
+  scale_fill_distiller(palette = 'Reds', direction = 1)
 ```
 
 Now let's get back to multivariate data. Go to [this document](03-dimensional-reduction.md).

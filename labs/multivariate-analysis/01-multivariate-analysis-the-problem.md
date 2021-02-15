@@ -14,7 +14,7 @@ library(ggplot2) # nice plots - we will learn more about this later in the sessi
 ```
 
 ## Data
-As a vehicle for this exploration we use a demographic dataset for San Francisco, assembled by [Luc Guillemot](http://lucguillemot.com/) and demonstrated on this [web page](http://lucguillemot.com/bayareageodemo/). These data have been tidied up quite nicely and thus provide a good exploration for this analysis. The materials including the data for this week's session are in [this zip file](multivariate-analysis.zip?raw=true).
+As a vehicle for this exploration we use a demographic dataset for San Francisco, assembled by [Luc Guillemot](http://lucguillemot.com/) and demonstrated on this [web page](http://lucguillemot.com/bayareageodemo/). These data have been tidied up quite nicely and thus provide a good exploration for this analysis. The materials including the data for this week's session are in [this zip file](multivariate-analysis.zip?raw = true).
 ```{r}
 sfd <- st_read('sf_demo.geojson')
 ```
@@ -23,10 +23,10 @@ In the usual way, **have a bit of an explore**, using `View`, `plot`, `summary` 
 
 Here's another option, which makes a boxplot of all the variables in the dataset. Don't worry too much about how I made this, focus for now on the complexity of the data.
 ```{r}
-boxplot(as.list(st_drop_geometry(sfd)), horizontal=T, par(las=1, mar=c(3,10,2,1)))
+boxplot(as.list(st_drop_geometry(sfd)), horizontal = T, par(las = 1, mar = c(3,10,2,1)))
 ```
 
-It's a bit fiddly to make, because I had to change the figure margins using `par(mar=...)`to accommodate the variables names, and `par(las=1)` to orient the labels the right way round.
+It's a bit fiddly to make, because I had to change the figure margins using `par(mar = ...)`to accommodate the variables names, and `par(las = 1)` to orient the labels the right way round.
 
 Most of the variables are expressed as percents (actually proportions), although `density` has been standardised so that the highest population density is 1 and all the other values are relative to that number.
 
@@ -36,8 +36,8 @@ The important thing is that this is clearly a complicated dataset. There may be 
 One option is mapping the data. For example
 ```{r}
 tm_shape(sfd) +
-  tm_polygons(col='PCunemployed') +
-  tm_legend(legend.outside=T)
+  tm_polygons(col = 'PCunemployed') +
+  tm_legend(legend.outside = T)
 ```
 
 Remember that you can use `tmap_mode('view')` if you'd like a web map for orientation. You should explore some of the other variables, until you get an overall sense of the dataset. You can also, of course simply plot the whole thing with
@@ -52,12 +52,12 @@ There are two broad categories of approach in mutlivariate analysis (other than 
 There are 23 variable in this dataset (not including the geometry). We can look at any two of them relative to each other, fairly easily. It might not look that simple, but we'll examine this in more detail later in the session.
 ```{r}
 ggplot(sfd) +
-  geom_point(aes(x=PCownerOccUnits, y=PCmarriedCouple))
+  geom_point(aes(x = PCownerOccUnits, y = PCmarriedCouple))
 ```
 
 If we want to see all the relationships, among all the variables, we can do correlation analysis among all the variables, but it's pretty overwhelming:
 ```{r}
-cor(st_drop_geometry(sfd), use='complete.obs')
+cor(st_drop_geometry(sfd), use = 'complete.obs')
 ```
 
 You will notice that we have had to specify how to handle 'NA' or missing values, and also had to tell the functions to ignore the geometry. It's probably easier to clean the data and get rid of these problems. We'll drop the NA's first, then make a new copy of the data table, without the geometry.
@@ -84,7 +84,7 @@ However, for now we are going to proceed in a different way either by trying to 
 Roughly speaking, we can consider each variable in a dataset to be a *dimension* of the data. This can be interpreted fairly literally, in the sense that each *numeric* variable allows the data to be plotted along an axis. Let's see that with the first three variables in this dataset. For now I will use the basic *R* plot functions to do this, since we haven't learned yet about `ggplot`.
 ```{r}
 # one varible, one dimension
-stripchart(sfd$density, vertical=T)
+stripchart(sfd$density, vertical = T)
 # two variables, two dimensions
 plot(sfd$density, sfd$medianYearBuilt)
 # there variables, three dimensions
@@ -94,10 +94,10 @@ scatterplot3d(sfd$density, sfd$medianYearBuilt, sfd$PConeUnit)
 But now what? How can we simultaneously visualize a fourth, or fifth, or even 24th dimension? We could use symbol size and symbol colour. To get a sense of how this might work, here are two variables in space, one in colour, and one in size, this time using `ggplot` to handle the complications
 ```{r}
 ggplot(sfd) +
-  geom_point(aes(x=density,
-                 y=medianYearBuilt,
-                 colour=PConeUnit,
-                 size=PCownerOccUnits), alpha=0.5)
+  geom_point(aes(x = density,
+                 y = medianYearBuilt,
+                 colour = PConeUnit,
+                 size = PCownerOccUnits), alpha = 0.5)
 ```
 
 This works up to a point, but there's a lot going on in even that simple plot, and perhaps a better approach is to reduce the number of dimensions in the data.
