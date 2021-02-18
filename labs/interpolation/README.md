@@ -12,7 +12,7 @@ The steps along the way are described in the instructions below. You'll get the 
 + [Near neighbour and inverse-distance weighted interpolation](04-nn-and-idw.md)
 + [Trend surfaces and kriging](05-trend-surfaces-and-kriging.md)
 + [Splines](06-splines.md)
-+ [Other *R* packages and platforms][07-other-r-packages.md]
++ [Other *R* packages and platforms](07-other-r-packages.md)
 
 And then of course...
 
