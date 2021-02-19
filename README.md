@@ -2,10 +2,18 @@
 # GISC 422 Spatial Analysis and Modelling
 This class introduces key concepts and methods of spatial analysis. Practical deployment in the *R* statistical analysis software package is emphasised, although other tools will be surveyed.
 
+## COVID Alert level changes
+If COVID alert levels change, the class will continue as follows:
++ **Level 1** Class as normal. Attendance in person preferred, streamed content will be available at the link posted on Blackboard.
++ **Level 2** Room capacity will be reduced. We will determine which students and how many wish to attend in person consistent with those limitations. Otherwise as level 1.
++ **Level 3** or **Level 4** Class will be conducted solely over zoom with recordings available later for review.
+
 ## Link to related video content
-Some (but not all) of last year's lectures were recorded during the 2020 March-May lockdown. Many of these videos provide useful coverage of the course material, which you may find helpful:
+Some (but not all) of last year's lectures were recorded during the 2020 March-May lockdown. Many of these videos provide useful coverage of the course material, which you may find helpful.
 
 [https://southosullivan.com/gisc422/videos/](https://southosullivan.com/gisc422/videos/)
+
+These videos will be switched out for 2021 material as we get there in this year's class.
 
 ## Important dates
 
