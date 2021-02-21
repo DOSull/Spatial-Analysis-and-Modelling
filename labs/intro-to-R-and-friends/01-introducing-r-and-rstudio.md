@@ -12,6 +12,8 @@ Like any good software, versions of *R* are available for MacOS, Windows and Lin
 
 Installation is pretty straightforward on all platforms. When you are running *R* you will want a web connection to install any additional packages called for in lab instructions below. You will also find it useful to have a reasonably high resolution display (an old 1024&times;768 display will not be a lot of fun to work on, but high pixel density modern displays, such as 4K, can be a bit painful also, without tweaking the display settings). For this reason, if no other, you may find it good to work on the lab machines.
 
+**You should aim for R version 4 and RStudio version 1.4. If you have older versions of these installed you should update to avoid confusion that might arise from inaccurate instructions.**
+
 ### *DON'T PANIC!*
 This lab introduces *R* by just asking you to get on with it, without stopping to explain too much, at least not at first. This is because it's probably better, to just do things with *R* to get a feel for what it's about without thinking too hard about what is going on; kind of like learning to swim by jumping in at the deep end. You may sometimes feel like you are drowning. Try not to worry too much and stick with it, and bear in mind that the assignments will not assume you are some kind of *R* guru (I'm no R guru, I know enough to be dangerous, but am only just competent). Ask questions, confer with your fellow students, consult Google (this [cartoon](https://xkcd.com/627/) is good advice).
 

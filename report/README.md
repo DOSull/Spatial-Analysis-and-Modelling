@@ -1,4 +1,4 @@
-#### GISC 422 T1 2020
+#### GISC 422 T1 2021
 # Review of spatial analysis written report
 This document sets out my expectations of the report you are required to write on spatial analysis as it has been applied in some field of interest. I am happy to meet to discuss your plans and thinking; make an appointment [here](https://calendly.com/dosullivan).
 
