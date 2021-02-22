@@ -35,7 +35,7 @@ Lectures are in Cotton 110 at 9AM on Mondays and will be followed immediately by
 ## Contact details
 ### Lecturer/coordinator
 **Prof. [David O'Sullivan](mailto:david.osullivan@vuw.ac.nz)**
-**Office** CO227 **Extn.** 6492 **Office hours preferably by appointment** [click here](http://calendly.com/dosullivan) but direct message me on [the Slack](https://vuwgisc2020.slack.com) and we can arrange contact. The office phone system is not a good way to reach me.
+**Office** CO227 **Extn.** 6492 **Office hours preferably by appointment** [click here](http://calendly.com/dosullivan) but direct message me on [the Slack](https://vuwgisc2021.slack.com) and we can arrange contact. The office phone system is not a good way to reach me.
 
 ### GIS Technician
 **[Andrew Rae](mailto:andrew.rae@vuw.ac.nz)**
