@@ -39,7 +39,7 @@ Lectures are in Cotton 110 at 9AM on Mondays and will be followed immediately by
 
 ### GIS Technician
 **[Andrew Rae](mailto:andrew.rae@vuw.ac.nz)**
-**Office** CO502 **Office hours** TBD
+**Office** CO502 **Office hours** 1-3PM Mondays
 
 ## Lab and lecture timetable
 Here's the trimester schedule we will aim to follow. **Bolded labs** have an associated assignment that must be submitted and contributes the indicated percentage of the course credit. General instructions for the labs are [here](labs/README.md).  Relevant materials (lecture slides, lab scripts and datasets) are linked below, when available.
