@@ -130,7 +130,7 @@ Note that there are also non-assessed lab sessions. These will be important for 
 The primary mode of communication for the course will be via Blackboard, so please ensure that your contact details there are up to date and are regularly checked (note that Blackboard defaults to your myvuw email address).
 
 ### Class representatives
-Since this is a relatively small graduate class, I expect that it will not be a problem to raise any issues or concerns directly with me, or with the GIS technician.
+A volunteer is need to act as class representative. If you are interested let me know. Further information about the role is available [here](https://www.vuwsa.org.nz/class-representatives/).
 
 ### Other useful resources
 + [Academic Integrity and Plagiarism](http://www.victoria.ac.nz/home/study/plagiarism)
