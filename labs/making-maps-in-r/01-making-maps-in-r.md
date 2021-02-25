@@ -6,8 +6,8 @@ The data for this lab are available in [this zip file](making-maps-in-r.zip).
 
 You can see previews of two of the data layers at the links below:
 
--   the [Auckland census area units](https://github.com/DOSull/GISC-422/blob/master/labs/week-02/ak-tb.geojson).
--   [Auckland TB cases 2006](https://github.com/DOSull/GISC-422/blob/master/labs/week-02/ak-tb-cases.geojson) (jittered to anonymise locations)
+-   the [Auckland census area units](ak-tb.geojson).
+-   [Auckland TB cases 2006](ak-tb-cases.geojson) (jittered to anonymise locations)
 
 Before we start we need to load the `sf` package to handle spatial data
 
