@@ -4,6 +4,8 @@
 
 This lab introduces the `spatstat` library and its capabilities, and asks you to explore the variation we observe in spatial point processes. This is essential preparation for next week's assessed lab assignment on point pattern analysis, and also should develop your understanding of the concept of a 'process' in spatial analysis.
 
+Note that no data are required this week, so there is no zip file to download.
+
 ## Getting started
 
 `spatstat` should already be installed on the lab machines. You should be able to load it with

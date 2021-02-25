@@ -1,4 +1,7 @@
 #### GISC 422 T1 2020
+
+This page expected to change in 2021!
+
 # Multivariate analysis overview
 This week we're looking at several things. You'll find all the necessary materials in this [zip file](multivariate-analysis.zip?raw = true).
 
