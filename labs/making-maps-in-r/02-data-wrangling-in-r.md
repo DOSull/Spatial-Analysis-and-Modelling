@@ -20,7 +20,7 @@ The [`tidyverse`](https://www.tidyverse.org/) is a large collection of packages 
 
 Like *R* itself the `tidyverse` is largely inspired by the work of another New Zealander, [Hadley Wickham](http://hadley.nz/)... Aotearoa represent!
 
-We can't really get into the philosophy of it all here. Instead we focus on some key functionality provided by functions in the `dplyr` package. We will also look at processing pipelines using the `>%>` or 'pipe' operator. We'll round things off with a quick look at `ggplot2`.
+We can't really get into the philosophy of it all here. Instead we focus on some key functionality provided by functions in the `dplyr` package. We will also look at processing pipelines using the `>%>` or 'pipe' operator.
 
 So... load these libraries
 
@@ -33,9 +33,9 @@ library(tidyr)
 If any of them aren't installed, then install them in the usual way, and load them again.
 
 ## Data tidying with `dplyr`
-The core tidying operations in `dplyr` are 
+The core tidying operations in `dplyr` are
 
-+ _selecting_ columns to keep or reject 
++ _selecting_ columns to keep or reject
 + _slicing_ rows to keep or reject
 + _filtering_ data based on attribute values
 + _mutating_ data values by combining them or operating on them in various ways
@@ -121,13 +121,13 @@ and so on. To combine these operations into a single line you would do something
 c <- mutate(dplyr::filter(select(y, ...), ...), ... )
 ```
 
-but this can get very confusing very quickly. The order of operations is opposite to the order they are written, and keeping track of all those opening and closing parentheses is error-prone. 
+but this can get very confusing very quickly. The order of operations is opposite to the order they are written, and keeping track of all those opening and closing parentheses is error-prone.
 
 The tidyverse introduces a 'pipe' operator `%>%`, which, once you get used to it, simplifies things greatly. Instead of the above, we have
 
 ```
-c <- y %>% select(...) %>% 
-           dplyr::filter(...) %>% 
+c <- y %>% select(...) %>%
+           dplyr::filter(...) %>%
            mutate(...)
 ```
 
