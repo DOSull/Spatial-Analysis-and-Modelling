@@ -22,7 +22,7 @@ Item | Dates
 Trimester | 22 February to 19 June 2021
 Teaching period | 22 February to 28 May 2021
 Mid-trimester break | 5 April to 16 April 2021
-Last assessment item due (in this class) | **TBD**
+Last assessment item due (in this class) | 4 June 2021
 Study period | NA
 Examination period | NA
 Withdrawal dates | See [Course additions and withdrawals](www.victoria.ac.nz/home/admisenrol/payments/withdrawalsrefunds)

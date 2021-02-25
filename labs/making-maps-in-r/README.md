@@ -7,13 +7,6 @@ This week simply download [this zip file](making-maps-in-r.zip?raw=true) and unp
 ## Some videos
 These were made for another class I teach which makes use of `tmap` and `sf` and `dplyr`, and you might find them useful.
 
-### Selecting and tidying data
-[Filtering and selecting data](http://southosullivan.com/geog315/video/week-03-lab/geog315-week03-02-making-maps-filter-and-select.mp4) (6:07 min)
-
-[Mutating data](http://southosullivan.com/geog315/video/week-03-lab/geog315-week03-03-making-maps-mutate.mp4) (3:09 min)
-
-[Pipelines](http://southosullivan.com/geog315/video/week-03-lab/geog315-week03-04-making-maps-tidy-pipelines.mp4) (10:17 min)
-
 ### How to use the `tmap` functions
 [Introduction to tmap](http://southosullivan.com/geog315/video/week-03-lab/geog315-week03-05-making-maps-tmap-intro.mp4) (2:58 min)
 
@@ -26,3 +19,10 @@ These were made for another class I teach which makes use of `tmap` and `sf` and
 [The classification style](http://southosullivan.com/geog315/video/week-03-lab/geog315-week03-09-making-maps-tmap-classification-styles.mp4) (7:24 min)
 
 [Other map frills](http://southosullivan.com/geog315/video/week-03-lab/geog315-week03-10-making-maps-tmap-frills.mp4) (2:50 min)  
+
+### Selecting and tidying data
+[Filtering and selecting data](http://southosullivan.com/geog315/video/week-03-lab/geog315-week03-02-making-maps-filter-and-select.mp4) (6:07 min)
+
+[Mutating data](http://southosullivan.com/geog315/video/week-03-lab/geog315-week03-03-making-maps-mutate.mp4) (3:09 min)
+
+[Pipelines](http://southosullivan.com/geog315/video/week-03-lab/geog315-week03-04-making-maps-tidy-pipelines.mp4) (10:17 min)
