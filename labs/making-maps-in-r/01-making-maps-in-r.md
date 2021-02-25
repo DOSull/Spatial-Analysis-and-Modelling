@@ -23,7 +23,7 @@ First we need to read in the spatial data. We do this with the `st_read` functio
 auckland <- st_read("ak-tb.geojson")
 ```
 
-The result tells us that we successfully read a file that contains 103 features (i.e. geographical things), and that each of those features has 5 'fields' of information associated with it. Note that to find out more about `st_read` and how it works you can type `?st_read` at any time---the `?` immediately before a function name provides help information. For help on a package type `??` before the package name, i.e., `??sf`.
+The result tells us that we successfully read a file that contains 103 features (i.e. geographical things), and that each of those features has 5 'fields' of information associated with it. Note that to find out more about `st_read` and how it works you can type `?st_read` at any time. Typing `?` immediately before a function name provides help information. Or as you type the function name _RStudio_ will offer you a chance to see more information by hitting **F1**. For help on a whole package type `??` before the package name, i.e., `??sf`.
 
 Back to the data we just loaded. We can get a feel for the data using the `as_tibble` function from the `tidyr` package. This is a generic function for examining datasets, and shows us the first few rows and columns of the data in a convenient format.
 
@@ -38,13 +38,15 @@ Alternatively, use `View`
 View(auckland)
 ```
 
-to see a view of the data in the *RStudio* viewer.
+to see a view of the data in the *RStudio* viewer, although be aware that this can be quite slow on large datasets so be careful!
 
-We can also use the `plot` function to plot the data, and, since these data are geographical, we will get an array of small maps one for each data attribute. It's important to realise that what is happening here is that because we read the data in with the `sf::st_read` function, *R* knows that these data are spatial and produces maps rather than statistical plots.
+We can also use the `plot` function to plot the data. Since these data are geographical, we will get an array of small maps one for each data attribute. It's important to realise that what is happening here is that because we read the data in with the `sf::st_read` function, so *R* knows that these data are spatial and produces maps rather than statistical plots.
 
 ```{r}
 plot(auckland)
 ```
+
+The default colour scheme of these plots is not great. Higher values are at the yellow end of the spectral scale. However, it is fiddly to change this, and it is easy to make nicer maps anyway, as we'll see in the next section.
 
 ## Chloropleth maps
 
@@ -64,10 +66,11 @@ summary(auckland)
 Since the *median* is 26.3, meaning that half the rates are that level or lower, while the average or *mean* value is higher at 30.4, you can see that the date are skewed. More visually, we can make a histogram. We can do this either with the base *R* function `hist` by using the `$` symbol to select only that variable as input:
 
 ```{r}
-hist(auckland$TB_RATE, xlab = 'TB rate per 100,000 population', main = '')
+hist(auckland$TB_RATE,
+     xlab = 'TB rate per 100,000 population', main = '')
 ```
 
-or with the `ggplot2` approach, where we define the data we are using and the aesthetics to apply to it. The latter is quite an involved topic, which we *might* get into later in the semester, for now it may be easier to stick with the base *R* `hist` function. Many people much prefer the `ggplot2` approach, although for relatively simply plots like these it may not be very obvious why! I am happy to discuss this in more detail, if you find yourself creating complicated visualisations with *R*.
+or with the `ggplot2` approach, where we define the data we are using and the aesthetics to apply to it. The latter is quite an involved topic, which we *might* get into later in the semester, for now it may be easier to stick with the base *R* `hist` function. Many people much prefer the `ggplot2` approach, although for relatively simply plots like these it may not be very obvious why! I am happy to discuss this in more detail, if you find yourself trying to build complicated visualisations with *R* when `ggplot` becomes really useful.
 
 ```{r}
 library(ggplot2)
@@ -94,20 +97,25 @@ m <- tm_shape(auckland)
 This makes a map object called `m` based on the `auckland` dataset. We now say how we want to symbolize it by adding layers. Since the `auckland` data are polygons we use the `tm_polygons` function
 
 ```{r}
-m + tm_polygons()
+m +
+  tm_polygons()
 ```
 
 Here, we just get polygons. For a choropleth map, we have to say what variable we want the polygon colours to be based on, so do this:
 
 ```{r}
 # note the 'col' here means colour, not column
-m + tm_polygons(col = 'TB_RATE')
+m +
+  tm_polygons(col = 'TB_RATE')
 ```
 
 There are a number of options for changing the look of this. We can change colours (`palette`), the number of classes (`n`), and the classification scheme (`style`)
 
 ```{r}
-m + tm_polygons(col = 'TB_RATE', palette = 'Greens', n = 9, style = 'quantile')
+m +
+  tm_polygons(col = 'TB_RATE',
+              palette = 'Greens',
+              n = 9, style = 'quantile')
 ```
 
 To find out what options are available check the help with `?tm_polygons`. Before going any further experiment with these options, until you are comfortable making such maps easily.
@@ -120,7 +128,7 @@ We can add layers of other data pretty easily using the same approach. We need t
 cases <- st_read('ak-tb-cases.geojson')
 ```
 
-This time, we make a map without saving the basemap to a variable
+This time, we make a map directly without saving the basemap to a variable
 
 ```{r}
 tm_shape(auckland) +
@@ -166,7 +174,7 @@ But again, this isn't necessary unless we are planning on more detailed analytic
 
 ## Using a web basemap for context
 
-`tmap` provides a simple way to make web maps.
+`tmap` also provides a simple way to make web maps.
 
 ```{r}
 tmap_mode('view')
@@ -178,7 +186,7 @@ Switch back to 'static' map mode using `tmap_mode(plot)`.
 
 ## Things to Try
 
-Nothing specific... but you should go back over the instructions and experiment with things like the colour palettes used, and the classification scheme specificed by the `style` setting in the `tm_polygons` function call. Make use of the *RStudio* help to assist in these explorations.
+Nothing specific... but you should go back over the instructions and experiment with things like the colour palettes used, and the classification scheme specified by the `style` setting in the `tm_polygons` function call. Make use of the *RStudio* help to assist in these explorations.
 
 You can also try adding map decorations using the `tm_layout` function.
 
@@ -188,10 +196,11 @@ Finally, it is worth knowing that there is a way to make maps like these with pu
 
 ```{r}
 ggplot(auckland) +
-  geom_sf(aes(fill = TB_RATE), lwd = 0.0) +
+  geom_sf(aes(fill = TB_RATE), lwd = 0.2, colour = 'grey') +
   scale_fill_distiller(palette = 'Reds', direction = 1) +
   geom_sf(data = cases, size = 1) +
-  geom_sf(data = rds, lwd = 0.15, colour = 'darkgrey')
+  geom_sf(data = rds, lwd = 0.1, colour = 'darkgrey') +
+  theme_minimal()
 ```
 
 If you are an afficionado of the `ggplot` libraries this can be very helpful, although it is generally easier to work with `tmap` at least to begin with. A significant advantage of `tmap` is the ease with which we can make web map outputs.
