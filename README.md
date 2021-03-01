@@ -4,8 +4,8 @@ This class introduces key concepts and methods of spatial analysis. Practical de
 
 ## COVID Alert level changes
 If COVID alert levels change, the class will continue as follows:
-+ **Level 1** Class as normal. Attendance in person preferred, streamed content will be available at the link posted on Blackboard.
-+ **Level 2** Room capacity will be reduced. We will determine which students and how many wish to attend in person consistent with those limitations. Otherwise as level 1.
++ **Level 1** Class as normal. Attendance in person preferred, streamed content will be available at the link posted on Blackboard. **Stay home if you are unwell**.
++ **Level 2** Room entry must be recorded using COVID app and/or the sign-in sheet. Sanitise hands on entry and exit from the lab. Wipe down your workstation (keyboard, mouse) with wipes provided at start and end of session. And, since the sessions are 3 hours long, wear a mask. As at other levels class will be streamed and recorded for those unwilling or unable to attend. Above all **stay home if you are unwell**.
 + **Level 3** or **Level 4** Class will be conducted solely over zoom with recordings available later for review.
 
 ## Link to related video content
