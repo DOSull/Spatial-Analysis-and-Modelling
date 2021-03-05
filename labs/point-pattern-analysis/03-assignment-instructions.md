@@ -1,5 +1,5 @@
 #### GISC 422 T1 2021
-# **The assignment: A point pattern analysis of the Auckland TB data**
+# **Assignment 1: A point pattern analysis of the Auckland TB data**
 Now you have a point pattern dataset to work with (`tb.pp`), you can perform point pattern analysis with it. You may need to [go back to the previous set of instructions](02-ppa-with-real-data.md) to get to this point.
 
 ## Assignment deliverables
