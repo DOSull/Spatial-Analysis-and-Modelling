@@ -42,7 +42,7 @@ Here's the trimester schedule we will aim to follow. **Bolded labs** have an ass
 
 Week# | Date | Lecture | Lab | Notes
 :-: | :-: | :-- | :-- | :--
-1 | 22 Feb | Course overview | [*R* and *RStudio* computing environment and Markdown documents](labs/intro-to-R-and-friends/README.md) |
+1 | 22 Feb | Course overview | [*R* and *RStudio* computing environment and Markdown documents](labs/intro-to-R-and-friends/README.md)<br />[Videos](video-links.md#introducing-r-and-friends) |
 2 | 1 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/)<br />[Videos](video-links.md#lecture-on-spatial-is-special) | [Making maps in *R*](labs/making-maps-in-r/README.md)<br />[Videos](video-links.md#practical-materials-on-making-maps-in-r) |
 3 | 8 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/)<br />[Videos](video-links.md#lecture-on-the-idea-of-a-spatial-process) | [Introducing `spatstat`](labs/introducing-spatstat/README.md)<br />[Video](video-links.md#practical-materials-on-spatial-processes) |
 4 | 15 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/point-pattern-analysis/README.md) (15%) | Due 19 April

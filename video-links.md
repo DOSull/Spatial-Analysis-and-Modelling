@@ -1,7 +1,6 @@
 #### GISC 422 T1 2021
 
-# Consolidated index of video content
-
+# Consolidated index of video content=
 ## Week 1 Introducing R and friends
 These were made for the class Geog 315, but are equally applicable to this course
 + [Overview of the RStudio interface](http://southosullivan.com/geog315/video/week-02-lab/geog315-week02-01-r-intro-overview-of-interface.mp4)
