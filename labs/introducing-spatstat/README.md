@@ -98,7 +98,7 @@ plot(ce)
 plot(jp)
 ```
 
-This can look a bit weird because of the margins that *R* chooses automatically and how those interact with plotting window dimensions. Experiment with changing the size of your plot area in $RStudio$, or alternatively you can fiddle with the plotting parameters (although this gets messy fast). For example setting the `mai` plot parameter, changes the margins around each plot.
+This can look a bit weird because of the margins that *R* chooses automatically and how those interact with plotting window dimensions. Experiment with changing the size of your plot area in _RStudio_, or alternatively you can fiddle with the plotting parameters (although this gets messy fast). For example setting the `mai` plot parameter, changes the margins around each plot.
 
 ```{R}
 par(mfrow = c(1,3), mai = c(0.1, 0.1, 0.1, 0.1))
@@ -126,7 +126,7 @@ plot(density(rw))
 plot(rw, add = T)
 ```
 
-The density surface bandwidth (the larger this is the smoother the surface produced) is automatically chosen by $R$, but we can opt instead to set a bandwidth
+The density surface bandwidth (the larger this is the smoother the surface produced) is automatically chosen by _R_, but we can opt instead to set a bandwidth
 
 ```{R}
 par(mfrow = c(1,3))
@@ -256,6 +256,6 @@ Try making point patterns that exhibit 1. no first and second order effects 2. c
 
 Try to get such patterns not just the obvious way (e.g., using `rpoispp` to make a pattern with no first or second order effects), but using a process that might not be expected to produce a pattern with those properties.
 
-What I mean is this: make plots of patterns that **you know** to have first or second order effects in operation, but where how those effects act produces patterns that don't obviously exhibit those effects.
+What I mean is this: make plots of patterns that **you know** to have first or second order effects in operation, but where how those effects produce patterns that don't obviously exhibit those effects.
 
 For example, see if you can make the Thomas process produce patterns that don\`t *appear* clustered, or if you can get realizations of a simple random process that appear to include clusters, or a trend.
