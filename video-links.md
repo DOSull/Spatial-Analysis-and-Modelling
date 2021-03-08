@@ -18,7 +18,7 @@ These were made for the class Geog 315, but are equally applicable to this cours
 + [Modifiable areal unit problem (MAUP)](https://southosullivan.com/gisc422/videos/spatial-is-special/gisc422-spatial-is-special-05-MAUP.mp4)
 + [Course topic overview](https://southosullivan.com/gisc422/videos/spatial-is-special/gisc422-spatial-is-special-06-course-preview.mp4)
 
-### Practical materials
+### Practical materials on making maps in *R*
 These were also made for Geog 315, but again are equally applicable to this class
 
 #### How to use the `tmap` functions
@@ -47,5 +47,5 @@ These were also made for Geog 315, but again are equally applicable to this clas
 + [A null process: the Poisson point process](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-09.mp4)
 + [A bunch of other processes](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-10.mp4)
 
-### Practical materials
+### Practical materials on spatial processes
 + [Overview of the lab materials](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-11.mp4)
