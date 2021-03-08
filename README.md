@@ -9,11 +9,7 @@ If COVID alert levels change, the class will continue as follows:
 + **Level 3** or **Level 4** Class will be conducted solely over zoom with recordings available later for review.
 
 ## Link to related video content
-Some (but not all) of last year's lectures were recorded during the 2020 March-May lockdown. Many of these videos provide useful coverage of the course material, which you may find helpful.
-
-[https://southosullivan.com/gisc422/videos/](https://southosullivan.com/gisc422/videos/)
-
-These videos will be switched out for 2021 material as we get there in this year's class.
+A consolidated list of relevant video content for this class is available on [this page](video-links.md).
 
 ## Important dates
 
@@ -47,8 +43,8 @@ Here's the trimester schedule we will aim to follow. **Bolded labs** have an ass
 Week# | Date | Lecture | Lab | Notes
 :-: | :-: | :-- | :-- | :--
 1 | 22 Feb | Course overview | [*R* and *RStudio* computing environment and Markdown documents](labs/intro-to-R-and-friends/README.md) |
-2 | 1 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/)<br />[Videos](https://southosullivan.com/gisc422/videos/spatial-is-special/) | [Making maps in *R*](labs/making-maps-in-r/README.md) |
-3 | 8 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/introducing-spatstat/README.md) |
+2 | 1 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/)<br />[Videos](video-links.md#lecture-on-spatial-is-special) | [Making maps in *R*](labs/making-maps-in-r/README.md)<br />[Videos](video-links.md#practical-materials-on-making-maps-in-r) |
+3 | 8 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/)<br />[Videos](video-links.md#lecture-on-the-idea-of-a-spatial-process) | [Introducing `spatstat`](labs/introducing-spatstat/README.md)<br />[Video](video-links.md#practical-materials-on-spatial-processes) |
 4 | 15 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/point-pattern-analysis/README.md) (15%) | Due 19 April
 5 | 22 Mar | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/spatial-autocorrelation/README.md) (15%) | Due 3 May
 6 | 29 Mar | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/interpolation/README.md) |
