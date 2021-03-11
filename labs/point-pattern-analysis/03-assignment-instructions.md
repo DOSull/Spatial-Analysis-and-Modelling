@@ -8,7 +8,7 @@ The submission deadline is **19 April at 8:30AM**. A dropbox will be provided on
 
 You can assemble materials in a word processor (export images from *RStudio* to PNG format) and produce a PDF report as an alternative, but I recommend the R Markdown approach.
 
-Avoid showing lots of irrelevant output with options like `message = FALSE` in the code chunk headers.
+Avoid showing lots of irrelevant output with options like `message = FALSE` in the code chunk headers. You can control these using the options in the 'gearwheel' button at the top of the files part of _RStudio_.
 
 Include your name in the submitted filename for ease of identification. You should not need to write more than about 500 words, although your report should include a number of figures. Note that quality of cartography is not an important aspect of this assignment.
 

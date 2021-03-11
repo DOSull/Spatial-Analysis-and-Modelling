@@ -43,7 +43,7 @@ st_crs(ak)
 st_crs(tb)
 ```
 
-By now you should recognise these as 'unprojected' lat-lon, which is no good to us. We should instead use the New Zealand Transverse Mercator. We get the proj4 string for this from an appropriate source, and use it to transform the two layers. I have modified the projection to centre it on Auckland (the `lat_0` and `lon_0` settings), and also to make the units km (the `units` setting) rather than metres as this has a dramatic effect on how well `spatstat` runs. It also makes it easier to interpret results meaningfully.
+By now you should recognise these as 'unprojected' lat-lon, which is no good to us. We should instead use the New Zealand Transverse Mercator. We get the proj4 string for this from an appropriate source, such as [epsg.io/2193](https://epsg.io/2193), and use it to transform the two layers. I have modified the projection to make the units km (the `units` setting) rather than metres as this seems to have a dramatic effect on how well `spatstat` runs. It also makes it easier to interpret results meaningfully.
 
 ```{r}
 nztm <- '+proj=tmerc +lat_0=0 +lon_0=173 +k=0.9996 +x_0=1600 +y_0=10000 +ellps=GRS80 +units=km'
@@ -65,16 +65,19 @@ tm_shape(ak) +
 
 OK. So much for the spatial data. `spatstat` works in its own little world and performs PPA on `ppp` objects, which have two components, a set of (*x*, *y*) points, and a study area or 'window'.
 
-This is quite a fiddly business, which never seems to get any easier (every time I do it, I have to look it up in help). We need some conversion functions `as_Spatial` from the `sf` package, and some more in the \`maptools' package. So load that
+This is quite a fiddly business, which never seems to get any easier (every time I do it, I have to look it up in help). We need some conversion functions `as_Spatial` from the `sf` package, to convert from `sf` objects to `sp` objects and then some more in the `maptools` package to get from those to `spatstat` `ppp` objects. We will also use a (short) `dplyr` pipeline to do the conversion. So first load `maptools` and `dplyr`:
 
 ```{r}
 library(maptools)
+library(dplyr)
 ```
 
-If it doesn't load, then make sure it is installed and try again. Now we use `as.ppp` to make a point pattern from the geometry of the `tb` data set.
+If `maptools` doesn't load, then make sure it is installed and try again. Now we use `as.ppp` to make a point pattern from the geometry of the `tb` data set.
 
 ```{r}
-tb.pp <- as.ppp(as_Spatial(tb$geometry))
+tb.pp <- tb$geometry %>% # the geometry is all we need
+  as("Spatial") %>%      # this converts to sp geometry
+  as.ppp()               # this is a maptools function to convert to spatstat ppp
 ```
 
 and plot it to take a look:
@@ -83,10 +86,13 @@ and plot it to take a look:
 plot(tb.pp)
 ```
 
-That's better than nothing, but ideally we use the land area for the study area. Again, we use a conversion function from `maptools`.
+That's better than nothing, but ideally we want to use the land area for the study area. Again, we use a conversion function from `maptools`.
 
 ```{r}
-tb.pp$window <- as.owin(as_Spatial(st_union(ak)))
+tb.pp$window <- ak %>%
+  st_union() %>%       # combine all the polygons into a single shape
+  as("Spatial") %>%    # convert to sp
+  as.owin()            # convert to spatstat owin
 ```
 
 Now let's take a look:
