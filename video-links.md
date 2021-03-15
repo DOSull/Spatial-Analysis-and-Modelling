@@ -55,7 +55,7 @@ These were also made for Geog 315, but again are equally applicable to this clas
 
 #### Density methods
 + [Quadrats overview](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-02.mp4)
-+ [Quadrtats gadget demo](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-03.mp4)
++ [Quadrats gadget demo](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-03.mp4)
 + [Pros and cons of quadrats and challenges of density](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-04.mp4)
 + [Kernel density estimation](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-05.mp4)
 
