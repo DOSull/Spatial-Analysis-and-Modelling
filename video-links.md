@@ -48,3 +48,29 @@ These were also made for Geog 315, but again are equally applicable to this clas
 
 ### Practical materials on spatial processes
 + [Overview of the lab materials](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-11.mp4)
+
+## Week 4 Point pattern analysis
+### Lecture on point pattern analysis
++ [Introduction](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-01.mp4)
+
+#### Density methods
++ [Quadrats overview](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-02.mp4)
++ [Quadrtats gadget demo](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-03.mp4)
++ [Pros and cons of quadrats and challenges of density](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-04.mp4)
++ [Kernel density estimation](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-05.mp4)
+
+#### Distance methods
++ [Nearest neighbour distance functions](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-06.mp4)
++ [All distances functions](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-07.mp4)
+
+#### Statistical evaluation
++ [Simple methods - quadrats and mean nearest neighbour](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-08.mp4)
++ [Simulation envelopes for distance functions](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-09.mp4)
++ [Taking potshots at statistics](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-10.mp4)
++ [Arm waving about likelihood](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-11.mp4)
+
+### Overview of lab on point pattern analysis
++ [Introduction](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-12.mp4)
+
+### Crazy hands on quadrats exercise
++ [Lots of mumbling](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-hands-on.mp4)
