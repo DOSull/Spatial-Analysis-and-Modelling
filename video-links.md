@@ -71,6 +71,7 @@ These were also made for Geog 315, but again are equally applicable to this clas
 
 ### Overview of lab on point pattern analysis
 + [Introduction](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-12.mp4)
++ See also these [short video clips on the practical material](https://southosullivan.com/gisc422/videos/point-pattern-lab/) from last year (2020)
 
 ### Crazy hands on quadrats exercise
 + [Lots of mumbling](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-hands-on.mp4)

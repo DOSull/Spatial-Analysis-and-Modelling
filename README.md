@@ -40,12 +40,12 @@ Lectures are in Cotton 110 at 9AM on Mondays and will be followed immediately by
 ## Lab and lecture timetable
 Here's the trimester schedule we will aim to follow. **Bolded labs** have an associated assignment that must be submitted and contributes the indicated percentage of the course credit. General instructions for the labs are [here](labs/README.md).  Relevant materials (lecture slides, lab scripts and datasets) are linked below, when available.
 
-Week# | Date | Lecture | Lab | Notes | Video
+Week# | Date | Lecture | Lab | Notes | [Videos](video-links.md)
 :-: | :-: | :-- | :-- | :-- | :--
 1 | 22 Feb | Course overview | [*R* and *RStudio* computing environment and Markdown documents](labs/intro-to-R-and-friends/README.md) | | [Practical](video-links.md#introducing-r-and-friends)
 2 | 1 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/) | [Making maps in *R*](labs/making-maps-in-r/README.md) | | [Lecture](video-links.md#lecture-on-spatial-is-special)<br />[Practical](video-links.md#practical-materials-on-making-maps-in-r)
 3 | 8 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/introducing-spatstat/README.md) | | [Lecture](video-links.md#lecture-on-the-idea-of-a-spatial-process)<br />[Practical](video-links.md#practical-materials-on-spatial-processes)
-4 | 15 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/point-pattern-analysis/README.md) (15%) | Due 19 April | [Lecture](video-links.md#lecture-on-point-pattern-analysis)<br />[Practical](video-links.md#overview-of-lab-on-point-pattern-analysis); see also [2020 videos](https://southosullivan.com/gisc422/videos/point-pattern-lab/)
+4 | 15 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/point-pattern-analysis/README.md) (15%) | Due 19 April | [Lecture](video-links.md#lecture-on-point-pattern-analysis)<br />[Practical](video-links.md#overview-of-lab-on-point-pattern-analysis)
 5 | 22 Mar | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/spatial-autocorrelation/README.md) (15%) | Due 3 May
 6 | 29 Mar | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/interpolation/README.md) |
 | | **SEMESTER BREAK** | **NO TEACHING**
