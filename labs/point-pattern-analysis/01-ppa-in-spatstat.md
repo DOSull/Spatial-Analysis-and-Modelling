@@ -139,7 +139,7 @@ mnnd.j <- mean(nnd.j)
 mnnd.r <- mean(nnd.r)
 ```
 
-No direct way to test these is provided in `spatstat`, so you need to calculate your own expected value for the result, using the result given in the reading that the expected mean nearest neighbor distance for a point pattern is <img src="https://render.githubusercontent.com/render/math?math=1/(2\sqrt\lambda)"> where <img src="https://render.githubusercontent.com/render/math?math=\lambda"> is the density or intensity of the pattern.
+No direct way to test these is provided in `spatstat`, so you need to calculate your own expected value for the result, using the result given in the reading that the expected mean nearest neighbor distance for a point pattern is <img src="https://render.githubusercontent.com/render/math?math=\frac{1}{2\sqrt\lambda}"> where <img src="https://render.githubusercontent.com/render/math?math=\lambda"> is the density or intensity of the pattern.
 
 This is easy enough, for example:
 
