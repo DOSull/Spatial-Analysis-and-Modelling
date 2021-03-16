@@ -8,6 +8,7 @@ These were made for the class Geog 315, but are equally applicable to this cours
 + [Making a map](http://southosullivan.com/geog315/video/week-02-lab/geog315-week02-03-r-intro-make-a-map.mp4)
 + [Installing packages](http://southosullivan.com/geog315/video/week-02-lab/geog315-week02-04-r-intro-installing-packages.mp4)
 
+***
 ## Week 2 Making maps in *R*
 ### Lecture on 'spatial is special'
 + [Introduction](https://southosullivan.com/gisc422/videos/spatial-is-special/gisc422-spatial-is-special-01-intro.mp4)
@@ -33,6 +34,7 @@ These were also made for Geog 315, but again are equally applicable to this clas
 + [Mutating data](http://southosullivan.com/geog315/video/week-03-lab/geog315-week03-03-making-maps-mutate.mp4) (3:09 min)
 + [Pipelines](http://southosullivan.com/geog315/video/week-03-lab/geog315-week03-04-making-maps-tidy-pipelines.mp4) (10:17 min)
 
+***
 ## Week 3 Spatial processes
 ### Lecture on 'the idea of a spatial process'
 + [Introduction](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-01.mp4)
@@ -49,6 +51,7 @@ These were also made for Geog 315, but again are equally applicable to this clas
 ### Practical materials on spatial processes
 + [Overview of the lab materials](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-11.mp4)
 
+***
 ## Week 4 Point pattern analysis
 ### Lecture on point pattern analysis
 + [Introduction](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-01.mp4)
