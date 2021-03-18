@@ -115,7 +115,7 @@ plot(nb_d2500, coordinates(akp), cex = 0.35, lwd = 0.5, col = 'red', add = T)
 You can probably see here why I say that the `spdep` functions are a bit obscure to work with.  Anyway, let's return to doing the analysis based on simple adjacency, as recorded in the `nb` object we made before.
 
 ## Back to spatial autocorrelation... for real this time
-Something to pay attention to from here forward is that many of the Moran's index methods run into problems if an area has no neighbours. To tell functions to ignore this problem (which exists in our dataset) we set the option `zero.policy = TRUE` (or `T` for short) in many of the function calls in the remained of these instructions.
+Something to pay attention to from here forward is that many of the Moran's index methods run into problems if an area has no neighbours. To tell functions to ignore this problem (which exists in our dataset) we set the option `zero.policy = TRUE` (or `T` for short) in many of the function calls in the rest of these instructions.
 
 Another quirk of the `spdep` package is that it requires the neighbourhood information in a particular format to work, and this is *not* the format that the various neighbourhood construction methods produce. To get the right format we must convert the neighbourhood information to a `listw` object
 
@@ -184,7 +184,7 @@ You should first work through the instructional materials, also exploring the ca
 
 You don't need to understand all the intricacies of various bits of code, but you should assure yourself that you know how to make maps of any particular variable, how to build the neigbourhood object required for Moran's I analysis, how to find the Moran's statistic for a specified variable, and how to produce local Moran's cluster and significance maps (which may be easier in *GeoDa*).
 
-Once you feel that you have got a handle on things, take a look at the questions below and put together a short report including results and maps produced either in *R* or in *GeoDa* that answer the questions. Your report should be in PDF format, and the file name should include your own name to assist in marking. Upload your completed report to the dropbox provided on blackboard by **18 May**. Your report shouldn't need more than about 500 words, but will need a few maps and/or other charts.
+Once you feel that you have got a handle on things, take a look at the questions below and put together a short report including results and maps produced either in *R* or in *GeoDa* that answer the questions. Your report should be in PDF format, and the file name should include your own name to assist in marking. Upload your completed report to the dropbox provided on blackboard by **3 May**. Your report shouldn't need more than about 500 words, but will need a few maps and/or other charts.
 
 ### Q1. Determine the Moran’s I statistic for each of the four population groups. Which is *least* clustered based on these results? Suggest a simple reason why this might be the case. (40%)
 
