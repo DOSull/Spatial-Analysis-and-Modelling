@@ -78,3 +78,21 @@ These were also made for Geog 315, but again are equally applicable to this clas
 
 ### Crazy hands on quadrats exercise
 + [Lots of mumbling](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-hands-on.mp4)
+
+***
+## Week 5 Spatial autocorrelation
+### Lecture on spatial autocorrelation
+#### Lecture
++ [Overview](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-01.mp4)
++ [Nearness and relatedness](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-02.mp4)
++ [The scatterplot](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-03.mp4)
++ [Moran's index and statistical evaluation](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-06.mp4)
++ [Local indicators (LISA)](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-07.mp4)
++ [Other odds and ends (scale and neighbourhood)](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-08.mp4)
+
+#### Show and tell
++ [Spatial autocorrelation gadget](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-04.mp4)
++ [GeoDa](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-05.mp4)
+
+### Overview of lab on spatial autocorrelation
+[This is from 2020](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/) but covers things pretty well.
