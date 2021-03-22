@@ -37,7 +37,7 @@ moran_cluster_map <- function(layer, variable, w, sig = 0.01) {
   m <- tm_shape(layer) +
     tm_layout(title = "Moran cluster map", legend.position = c(.45,.75)) +
     tm_fill(col = 'q', breaks = 0:5 + 0.5, palette = c('red', 'blue', 'pink', 'lightblue', 'white'),
-            labels = c('High - High', 'Low - Low', 'High - Low', 'Low - Ligh', 'Non-significant'),
+            labels = c('High - High', 'Low - Low', 'High - Low', 'Low - High', 'Non-significant'),
             title = paste("Moran quadrant, p<", sig, " level", sep = "")) +
     tm_borders(lwd = 0.5)
   return (m)
