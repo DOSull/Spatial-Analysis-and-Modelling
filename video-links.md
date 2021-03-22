@@ -95,4 +95,4 @@ These were also made for Geog 315, but again are equally applicable to this clas
 + [GeoDa](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-05.mp4)
 
 ### Overview of lab on spatial autocorrelation
-[This is from 2020](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/) but covers things pretty well.
+[This is from 2020](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/gisc422-spatial-autocorrelation-01-lab-overview.mp4) but covers things pretty well.
