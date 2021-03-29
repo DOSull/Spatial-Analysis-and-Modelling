@@ -25,19 +25,6 @@ controls_polys <- controls %>%
 plot(controls_polys)
 ```
 
-### Inverse distance weighted interpolation in `spatstat`
-Our old friend `spatstat` has an `idw` function. Understandably, it expects data in its own `ppp` format. Here's a recipe:
-
-```{r message = FALSE}
-library(maptools) # need this for the conversion
-library(spatstat)
-controls.pp <- as(as(controls, "Spatial"), "ppp")
-idw_ss <- spatstat::idw(controls.pp, power = 2) # use package name to avoid clash with gstat
-plot(idw_ss)
-```
-
-I leave it as an exercise for the reader to make that thing into a projected raster dataset...
-
 ### Geostatistics
 `sgeostat` has been around forever and does a small part of the kriging puzzle, particularly variogram estimation. It's `spacecloud` and `spacebox` plots are particularly good for getting a feel for variogram estimation. For example:
 
@@ -56,6 +43,7 @@ I'm sure there are others, but two packages that do splines are briefly discusse
 #### `MBA`
 ```{r}
 library(MBA)
+library(raster)
 spline.mba <- mba.surf(controls_xyz,
                        no.X = 61, no.Y = 87, # much jiggery-pokery required
                        n = 87/61, m = 1,
