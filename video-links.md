@@ -96,3 +96,13 @@ These were also made for Geog 315, but again are equally applicable to this clas
 
 ### Overview of lab on spatial autocorrelation
 [This is from 2020](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/gisc422-spatial-autocorrelation-01-lab-overview.mp4) but covers things pretty well.
+
+***
+## Week 6 Simple interpolation methods
+### Lecture on simple interpolation methods
+These are from 2020, but are *much* better than the confusion caused this year by trying to zoom from two computers at once!
++ [Introduction](https://southosullivan.com/gisc422/videos/interpolation/gisc-422-interpolation-01-intro.mp4)
++ [Near neighbours](https://southosullivan.com/gisc422/videos/interpolation/gisc-422-interpolation-02-near-neighbours.mp4)
++ [Simple spatial means](https://southosullivan.com/gisc422/videos/interpolation/gisc-422-interpolation-03-simple-spatial-means.mp4)
++ [Spatially weighted means](https://southosullivan.com/gisc422/videos/interpolation/gisc-422-interpolation-04-spatially-weighted-means.mp4)
++ [Splines and conclusion](https://southosullivan.com/gisc422/videos/interpolation/gisc-422-interpolation-05-splines-and-end.mp4)

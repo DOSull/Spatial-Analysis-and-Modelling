@@ -47,7 +47,7 @@ Week# | Date | Lecture | Lab | Notes | [Videos](video-links.md)
 3 | 8 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/introducing-spatstat/README.md) | | [Lecture](video-links.md#lecture-on-the-idea-of-a-spatial-process)<br />[Practical](video-links.md#practical-materials-on-spatial-processes)
 4 | 15 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/point-pattern-analysis/README.md) (15%) | Due 19 April | [Lecture](video-links.md#lecture-on-point-pattern-analysis)<br />[Practical](video-links.md#overview-of-lab-on-point-pattern-analysis)
 5 | 22 Mar | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/spatial-autocorrelation/README.md) (15%) | Due 3 May | [Lecture](video-links.md#lecture-on-spatial-autocorrelation)<br />[Practical](video-links.md#overview-of-lab-on-spatial-autocorrelation)
-6 | 29 Mar | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/interpolation/README.md) |
+6 | 29 Mar | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/interpolation/README.md) | | [Lecture](video-links#lecture-on-simple-interpolation-methods)
 | | **SEMESTER BREAK** | **NO TEACHING**
 7 | 19 Apr | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/interpolation/README.md) (15%) | Due 10 May
 8 | 26 Apr | **NO CLASS** | ANZAC Day |
