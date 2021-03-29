@@ -46,7 +46,7 @@ st_crs(tb)
 By now you should recognise these as 'unprojected' lat-lon, which is no good to us. We should instead use the New Zealand Transverse Mercator. We get the proj4 string for this from an appropriate source, such as [epsg.io/2193](https://epsg.io/2193), and use it to transform the two layers. I have modified the projection to make the units km (the `units` setting) rather than metres as this seems to have a dramatic effect on how well `spatstat` runs. It also makes it easier to interpret results meaningfully.
 
 ```{r}
-nztm <- '+proj=tmerc +lat_0=0 +lon_0=173 +k=0.9996 +x_0=1600 +y_0=10000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=km'
+nztm <- '+proj=tmerc +lat_0=0 +lon_0=173 +k=0.9996 +x_0=1600 +y_0=10000 +datum=WGS84 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=km'
 
 ak <- st_transform(ak, nztm)
 tb <- st_transform(tb, nztm)
