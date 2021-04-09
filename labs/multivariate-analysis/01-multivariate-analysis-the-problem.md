@@ -11,10 +11,11 @@ library(MASS) # multivariate methods
 library(scatterplot3d) # 3D plots
 library(tidyr)
 library(ggplot2) # nice plots - we will learn more about this later in the session
+library(RColorBrewer) # nice colour palettes for the default mapping
 ```
 
 ## Data
-As a vehicle for this exploration we use a demographic dataset for San Francisco, assembled by [Luc Guillemot](http://lucguillemot.com/) and demonstrated on this [web page](http://lucguillemot.com/bayareageodemo/). These data have been tidied up quite nicely and thus provide a good exploration for this analysis. The materials including the data for this week's session are in [this zip file](multivariate-analysis.zip?raw = true).
+As a vehicle for this exploration we use a demographic dataset for San Francisco, assembled by [Luc Guillemot](http://lucguillemot.com/) and demonstrated on this [web page](http://lucguillemot.github.io/bayareageodemo/). These data have been tidied up quite nicely and thus provide a good exploration for this analysis. The materials including the data for this week's session are in [this zip file](multivariate-analysis.zip?raw = true).
 ```{r}
 sfd <- st_read('sf_demo.geojson')
 ```
@@ -23,7 +24,9 @@ In the usual way, **have a bit of an explore**, using `View`, `plot`, `summary` 
 
 Here's another option, which makes a boxplot of all the variables in the dataset. Don't worry too much about how I made this, focus for now on the complexity of the data.
 ```{r}
-boxplot(as.list(st_drop_geometry(sfd)), horizontal = T, par(las = 1, mar = c(3,10,2,1)))
+boxplot(as.list(st_drop_geometry(sfd)),  # drop the geometry otherwise the boxplot function complains
+        horizontal = T,                  # plot boxes horizontally
+        par(las = 1, mar = c(3,10,2,1))) # plot margins, and label orientation
 ```
 
 It's a bit fiddly to make, because I had to change the figure margins using `par(mar = ...)`to accommodate the variables names, and `par(las = 1)` to orient the labels the right way round.
@@ -42,7 +45,9 @@ tm_shape(sfd) +
 
 Remember that you can use `tmap_mode('view')` if you'd like a web map for orientation. You should explore some of the other variables, until you get an overall sense of the dataset. You can also, of course simply plot the whole thing with
 ```{r}
-plot(sfd)
+plot(sfd, 
+     pal = brewer.pal(9, "Reds"), # the default palette is difficult to parse
+     lwd = 0.15)                  # finer lines make the maps easier to read
 ```
 
 # Multivariate approaches
@@ -66,19 +71,42 @@ sfd <- drop_na(sfd)
 sfd.d <- st_drop_geometry(sfd)
 ```
 
-I did it in this order that the two datasets, with and without the geometry retain the same set of rows in the same order. This will be useful if we need to put them back together again later. Where possible, I will use `sfd` but if a function can't cope with a dataset that has geographical objects associated, then I will use `sfd.d` instead. A useful overview of a dataset is sometimes obtained with the `plot` command. Let's try that
+Note that I drop the NAs and the geometry in this order so that the two datasets, with and without the geometry retain the same set of rows in the same order. This is useful if we need to put them back together again later. Where possible, I will use `sfd` (with the geometry) but if a function can't cope with a dataset that has geographical objects associated, then I will use `sfd.d` instead. 
+
+A useful overview of a dataset is sometimes obtained with the `plot` command. Let's try that
 ```{r}
 plot(sfd.d)
 ```
 
-R has attempted to make scatter plots of every possible pair of variables in the dataset. It may take a while, but it will generally be successful in making such a plot, it's just very difficult to read it! Another option is a parallel coordinate plot
+R has attempted to make scatter plots of every possible pair of variables in the dataset. It can take a while, but it will generally be successful in making such a plot. However, it's can be very difficult to read it! Other options (such as the boxplot above) are possible, or another is a parallel coordinate plot. 
 ```{r}
 parcoord(sfd.d)
 ```
 
-The complexity of plots like this has led to the development of interactive scientific visualization tools that make it possibly to interact with a plot such as that above, and which may assist in gain insights. The latest tool in this area is the D3 toolkit, See for example [this example](https://bl.ocks.org/jasondavies/1341281), which also has good spatial tools. These are examples of *exploratory data analysis* which we have already seen in spatial form in *GeoDa*.
+Here each row in the data table is plotted as a 'string' connecting the values of that row on each attribute, where the attributes are a series of vertical axes. 
 
-However, for now we are going to proceed in a different way either by trying to *reduce the dimensions* of the problem, or by *classifying the observations*.
+It's not particularly easy to make sense of this as a static plot, unfortunately. We can improve things a bit by using colour, but unfortunately that is itself complicated and involves a new package called `GGally`. Here's the code, so you can see it, but don't worry too much about how this works:
+```{r}
+library(GGally)
+pcp <- ggparcoord(sfd, columns = 1:24, groupColumn = "density", scale = "globalminmax", alphaLines = 0.5) + 
+  scale_colour_distiller(palette = "Spectral") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5))
+pcp
+```
+
+Colouring the lines makes it a little bit easier to see the relationships among variables, although it is still not easy!
+
+The complexity of plots like these has led to the development of interactive scientific visualization tools that make it possible to interact with a plot such as that above, and which may assist in gaining insights. One quick way to do this in R is using the `plotly` package's ability to make an interactive version of any `ggplot` object such as `pcp` above:
+```{r}
+library(plotly)
+ggplotly(pcp, tooltip = c("density", "variable", "value"))
+```
+
+This is still not great, and really we need to consider advanced toolkits for interactive scientific visualization. See for example [this example](https://bl.ocks.org/jasondavies/1341281), which also has good spatial tools. These are examples of *exploratory data analysis* which we have already seen in spatial form in *GeoDa*.
+
+However, those methods would make for a completely different course! 
+
+For now we are going to proceed in a different way either by trying to *reduce the dimensions* of the problem, or by *classifying the observations*.
 
 ## Data dimensions
 Roughly speaking, we can consider each variable in a dataset to be a *dimension* of the data. This can be interpreted fairly literally, in the sense that each *numeric* variable allows the data to be plotted along an axis. Let's see that with the first three variables in this dataset. For now I will use the basic *R* plot functions to do this, since we haven't learned yet about `ggplot`.
@@ -97,9 +125,10 @@ ggplot(sfd) +
   geom_point(aes(x = density,
                  y = medianYearBuilt,
                  colour = PConeUnit,
-                 size = PCownerOccUnits), alpha = 0.5)
+                 size = PCownerOccUnits), alpha = 0.5) +
+  scale_colour_distiller(palette = "Spectral")
 ```
 
-This works up to a point, but there's a lot going on in even that simple plot, and perhaps a better approach is to reduce the number of dimensions in the data.
+This works up to a point, but there's a lot going on in even that simple plot, and perhaps a better approach is to *reduce the number of dimensions in the data*.
 
-We'll look at that in a little bit. But for now, we need to grapple with the *R* `tidyverse` and its associated plotting library `ggplot2` to make handling all the data manipulations a little bit easier. We'll do that in the [next document](02-the-tidyverse.md).
+We'll look at that in a little bit. But for now, we need to grapple with the *R* `tidyverse` and its associated plotting library `ggplot2` to make handling all the data manipulations a little bit easier. We've already [seen this back in week 2](../making-maps-in-r/02-data-wrangling-in-r.md) but revisit it in the [next document](02-the-tidyverse.md).
