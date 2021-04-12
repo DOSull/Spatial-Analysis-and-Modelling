@@ -11,12 +11,11 @@ sfd <- drop_na(sfd)
 sfd.d <- st_drop_geometry(sfd)
 ```
 # Introducing the `tidyverse`
-When it comes to dealing with complicated datasets, it is really helpful to have a more systematic way of dealing with such datasets. Base *R* provides this OK but gets rather messy very quickly. An alternative approach is provided by the [`tidyverse`](https://www.tidyverse.org/)
- a large collection of packages for handling data in a 'tidy' way, and with an associated powerful set of plotting libraries. This document can only look at these very quickly, but will hopefully begin to give you a flavour of what is possible, and encourage you to explore further if you need to.
- 
-Like *R* itself the `tidyverse` is largely inspired by the work of another New Zealander, [Hadley Wickham](http://hadley.nz/)... Aotearoa represent!
+It is really helpful to have a more systematic way of dealing with such large, complicated and messy datasets. Base *R* does OK at this, but can get messy very quickly. 
 
-We can't really get into the philosophy of it all here. Instead we focus on some key functionality provided by functions in the `dplyr` package. We will also look quickly at processing pipelines using the `>%>` or 'pipe' operator. We'll round things off with a quick look at `ggplot2`. 
+An alternative approach is provided by the [`tidyverse`](https://www.tidyverse.org/) a large collection of packages for handling data in a 'tidy' way, and with an associated powerful set of plotting libraries (`ggplot2`). Here we can only look at these very quickly, but can hopefully begin to give you a flavour of what is possible, and encourage you to explore further as needed.
+ 
+We focus on some key functionality provided by functions in the `dplyr` package. We will also look quickly at processing pipelines using the `%>%` or 'pipe' operator. We'll round things off with a quick look at `ggplot2`.
 
 ## `select` 
 A common requirement in data analysis is selecting only the data attributes you want, and getting rid of all the other junk. The `sfd` dataset has a lot going on. A nice tidy tool for looking at data is `as_tibble()`
@@ -51,14 +50,19 @@ select(sfd, -(1:10))
 
 Note that here I need to put `1:10` in parentheses so it knows to remove all the columns 1 to 10, and doesn't start by trying to remove a (non-existent) column number -1.
 
+There are also helper functions like `starts_with()`, `ends_with()` and `contains()` to let you do selections based on variable names (this can be particularly useful with big datasets from sources like the census). For example:
+```{r}
+select(sfd, contains("race"))
+```
+
 ### Selecting rows
-We look at filtering based on data in the next section. If you just want rows, then use `slice()`
+We look at filtering based on data in the next section. If you just want specific known rows, use `slice()`
 ```{r}
 slice(sfd, 2:10, 15:25)
 ```
 
 ## `filter`
-Another common data tidying operation is selection based on the attributes of the data. This is called `filter`ing in the `tidyverse`. We provide a filter specification, usually data based to perform such operations
+Another common data tidying operation is filtering based on attributes of the data. We provide a filter specification, usually data-based to perform such operations
 ```{r}
 filter(sfd, density > 0.3)
 ```
