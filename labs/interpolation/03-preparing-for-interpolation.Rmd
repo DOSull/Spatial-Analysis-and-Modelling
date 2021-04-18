@@ -80,7 +80,8 @@ sites_xyz <- sites_sf %>%
   mutate(Z = 0)
 
 sites_raster <- sites_xyz %>%
-  rasterFromXYZ(crs = st_crs(controls))
+  rasterFromXYZ()
+crs(sites_raster) <- st_crs(controls)$proj4string
 ```
 
 Again, it's a good idea to write these all out to files so we don't have to keep remaking them

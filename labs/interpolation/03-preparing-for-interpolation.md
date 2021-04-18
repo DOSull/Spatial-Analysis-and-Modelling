@@ -14,15 +14,10 @@ names(volcano) <- "height"
 ```
 
 ## Spatial extent of the study area
-It's useful to have a spatial extent polygon. For the example dataset, we make it from the raster layer (**remember you wouldn't normally be able to do this!**)
+It's useful to have a spatial extent polygon. For the example dataset, here's one I prepared earlier (**remember you wouldn't normally be able to do this!**).
 
 ```{r}
-interp_ext <- extent(volcano) %>%
-  st_bbox() %>%
-  st_as_sfc() %>%
-  st_sf() %>%
-  st_set_crs(st_crs(volcano))
-st_write(interp_ext, "data/interp-ext.gpkg", delete_dsn = TRUE)
+interp_ext <- st_read("data/interp-ext.gpkg")
 ```
 
 *Normally*, we would make the extent from the control points, or from some pre-existing desired study area extent polygon. The code to make it from a set of control points is shown below (this is for reference, don't run it, but you may need it later when you tackle the assignment).
@@ -39,7 +34,7 @@ interp_ext <- controls %>%
 ## Control points
 For the demonstration data, we already know the result.
 
-Normally, we would have a set of control points in some spatial format and would simply read them with `sf::st_read`. Here, we will make set of random control points to work with in the other steps of these instructions when we are using the Maungawhau data. We start from the interpolation extent we made before, use `st_sample` to get a specified random number of points in the extent, then convert it to an `sf` dataset. Finally we use the `raster::extract` function to extract values from the raster dataset and assign their values to a height attribute of the `sf` dataset.
+Normally, we would have a set of control points in some spatial format and would simply read them with `sf::st_read`. Here, we will make set of random control points to work with in the other steps of these instructions when we are using the Maungawhau data. We start from the interpolation extent, and use `st_sample` to get a specified random number of points in the extent, then convert it to an `sf` dataset. Finally we use the `raster::extract` function to extract values from the raster dataset and assign their values to a height attribute of the `sf` dataset.
 
 ```{r}
 controls <- interp_ext %>%
@@ -85,7 +80,8 @@ sites_xyz <- sites_sf %>%
   mutate(Z = 0)
 
 sites_raster <- sites_xyz %>%
-  rasterFromXYZ(crs = crs(volcano))
+  rasterFromXYZ()
+crs(sites_raster) <- st_crs(controls)$proj4string
 ```
 
 Again, it's a good idea to write these all out to files so we don't have to keep remaking them
