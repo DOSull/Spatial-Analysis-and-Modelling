@@ -14,6 +14,7 @@ We are using a simple example of the elevation of Maungawhau (Mt Eden) in Auckla
 
 ```{r}
 volcano <- raster("data/maungawhau.tif")
+projection(volcano) <- "+init=EPSG:2193"
 ```
 
 Confusingly, when you read in a raster dataset it names the associated numerical data using the filename, so we rename that to `height` which is more appropriate for our purposes.

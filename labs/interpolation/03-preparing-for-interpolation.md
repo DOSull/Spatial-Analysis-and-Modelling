@@ -9,6 +9,7 @@ library(raster)
 library(dplyr)
 
 volcano <- raster("data/maungawhau.tif")
+projection(volcano) <- "+init=EPSG:2193"
 names(volcano) <- "height"
 ```
 
@@ -19,8 +20,9 @@ It's useful to have a spatial extent polygon. For the example dataset, we make i
 interp_ext <- extent(volcano) %>%
   st_bbox() %>%
   st_as_sfc() %>%
-  st_sf(crs = crs(volcano))
-st_write(interp_ext, "data/interp-ext.gpkg", delete_layer = TRUE)
+  st_sf() %>%
+  st_set_crs(st_crs(volcano))
+st_write(interp_ext, "data/interp-ext.gpkg", delete_dsn = TRUE)
 ```
 
 *Normally*, we would make the extent from the control points, or from some pre-existing desired study area extent polygon. The code to make it from a set of control points is shown below (this is for reference, don't run it, but you may need it later when you tackle the assignment).
@@ -31,7 +33,7 @@ interp_ext <- controls %>%
   st_union() %>%
   st_bbox() %>%
   st_as_sfc() %>%
-  st_sf()
+  st_sf(crs = st_crs(controls))
 ```
 
 ## Control points
@@ -42,7 +44,8 @@ Normally, we would have a set of control points in some spatial format and would
 ```{r}
 controls <- interp_ext %>%
   st_sample(size = 250) %>%
-  st_sf(crs = crs(volcano)) %>%
+  st_sf() %>%
+  st_set_crs(st_crs(volcano)) %>%
   mutate(height = raster::extract(volcano, .))
 ```
 
@@ -51,13 +54,12 @@ Every time you run the above you will get a different random set of the specifie
 For simplicity, I am going to write these control points out to a file, which can be loaded into later instructions documents.
 
 ```{r}
-st_write(controls, "data/controls.gpkg", delete_layer = TRUE)
+st_write(controls, "data/controls.gpkg", delete_dsn = TRUE)
 ```
 
 Some interpolation tools don't want an `sf` dataset, but a simple dataframe with `x`, `y` and `z` attributes, so let's also make one of those:
 
-```{r message = FALSE}
-# we may also need a simple xyz version of these
+```{r}
 st_read("data/controls.gpkg") %>%
   cbind(st_coordinates(.)) %>%          # this adds the coordinates of the points as X and Y columns
   st_drop_geometry() %>%                # throw away the geometry, so it's just a dataframe
@@ -74,7 +76,8 @@ Unlike the previous step which may not be necessary when you are provided with c
 ```{r}
 sites_sf <- interp_ext %>% # start with the extent
   st_make_grid(cellsize = 10, what = "centers") %>%
-  st_sf()
+  st_sf() %>%
+  st_set_crs(st_crs(volcano))
 
 sites_xyz <- sites_sf %>%
   cbind(st_coordinates(.)) %>%

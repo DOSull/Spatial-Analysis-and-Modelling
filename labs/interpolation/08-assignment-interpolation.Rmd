@@ -12,8 +12,8 @@ library(tmap)
 We will work with some old weather data for Pennsylvania on 1 April 1993. It is surprisingly hard to find well behaved data for interpolation, and these work. I tried some local Wellington weather data, but they were (maybe unsurprisingly), not very well-behaved...
 
 ```{r}
-pa.counties <- st_read('data/pa.gpkg')
-pa.weather <- st_read('data/paw19930401.gpkg')
+pa.counties <- st_read('data/pa-counties.gpkg')
+pa.weather <- st_read('data/pa-weather-1993-04-01.gpkg')
 ```
 
 ## Inspect the data
@@ -46,6 +46,12 @@ There are a number of choices to make, and consider in your write up:
 
 Many of these are difficult to make well-informed choices about, so it is OK to explain what you did and discuss the effects of doing things differently in accounting for your choices. If you get stuck (I did writing these materials) be sure to call for help on the slack channel.
 
+**Some advice**
+As noted in the overview, some of the interfaces among the various packages used for interpolation can be finicky and it is easy to get frustrated (believe me, I have become frustrated when assembling these materials...). Your best option is to spend some time with the _RMarkdown_ versions of the material getting a feel for how things work. Then, I recommend you make a completely empty new file and start to assemble the materials you need, reusing code from the tutorial materials. A few things to look out for here:
++ The scales of the Pennsylvania data and the Maungawhau data are completely different. A cell size of 10m makes sense for the volcano, it won't for Pennsylvania. This may also affect any `maxdist` settings and also `cutoff` and `width` settings when estimating a variogram.
++ In my experiments, `gstat` doesn't do very well kriging these data. If you'd like to perform kriging, I **very much recommend** using the `fields` package which is introduced in the materials for spline-based interpolation. For whatever reason, it just does a much better job.
++ More than ever, ask questions if you get stuck!
+
 Submit a PDF report to the dropbox provided in Blackboard by **10 May**.
 
-By now, I thoroughly recommend that you put your report together using the **Knit** functionality in *RStudio*. Please don't just submit a lightly modified version of the files I have provided&mdash;and *definitely* remove the tutorial materials!
+I thoroughly recommend that you put your report together using the **Knit** functionality in *RStudio*. Please don't just submit a lightly modified version of the files I have provided&mdash;and *definitely* remove any tutorial materials! The explanatory linking text should be your own words, not mine!

@@ -26,27 +26,27 @@ As with all the `gstat` methods we use the `gstat::gstat` function to make a sta
 fit_IDW <- gstat(                 # makes a model 
   formula = height ~ 1,           # The column `height` is what we are interested in
   data = as(controls, "Spatial"), # using sf but converting to sp, which is required
-  set = list(idp = 2)
+  set = list(idp = 2),
+  # nmax = 12, maxdist = 100        # you can experiment with these options later...
 )
 ```
 
-The `idp` setting here is the inverse-distance power used in the calculation. Once you understand what is going on in general, you should experiment with this to see how the outcome datasets change.
+The `idp` setting here is the inverse-distance power used in the calculation. Once you understand what is going on in general, you should experiment with this, and also with `nmax` (the maximum number of control points to include in any estimate) and `maxdist` (the maximum distance to any control point to use in an estimate) to see how the results change.
 
-Having made the model (called `fit_IDW`) we pass it to the `predict` function to obtain interpolated values at the locations specified by `sites` and then finally convert this to a raster for visualization.
+Having made the model (called `fit_IDW`) we pass it to the `predict` function to obtain interpolated values (called `var1.pred`) at the locations specified by `sites` and then finally convert this to a raster for visualization.
 
 ```{r}
 interp_pts_IDW <- predict(fit_IDW, sites)
 interp_IDW <- rasterize(as(interp_pts_IDW, "Spatial"), sites_raster, "var1.pred")
-names(interp_IDW) <- "height"
+names(interp_IDW) <- "height" # rename the variable to something more friendly
 ```
 
 And then we can view the outcome in the usual ways. 
 ```{r}
 interp_IDW
 ```
-Notice that the name of the variable here is `var1.pred` (i.e., predicted value of variable 1). We can change that to something we like better if we wish using `names(interp_IDW) <- "height"` or whatever, if we feel the need.
 
-We can map the result
+And we can map the result
 
 ```{r}
 tm_shape(interp_IDW) + 
@@ -59,13 +59,13 @@ persp(interp_IDW, scale = FALSE, expand = 2, theta = 35, phi = 30, lwd = 0.5)
 ```
 
 ### Nearest neighbour
-The basic model above can be parameterised differently to make a simple nearest neighbour (i.e. proximity polygon) interpolation:
+The basic model above can be parameterised differently, setting `nmax` to 1 to make a simple nearest neighbour (i.e. proximity polygon) interpolation:
 
 ```{r}
 fit_NN <- gstat( # makes a model 
   formula = height ~ 1,
   data = as(controls, "Spatial"), 
-  nmax = 1, 
+  nmax = 1, # by setting nmax to 1 we force it to 1, and get nearest neighbour
 )
 
 # and interpolate like before

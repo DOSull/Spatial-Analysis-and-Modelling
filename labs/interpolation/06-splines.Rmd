@@ -1,8 +1,8 @@
 #### GISC 422 T1 2021
 # Spline interpolation
-This is where `gstat` runs out of steam, and where I suggest you take a look at possibilities in QGIS where the GRASS and SAGA toolboxes both have tools for various kinds of spline interpolation.
+This is where `gstat` runs out of steam, and where I suggest you take a look at possibilities in QGIS where the GRASS and SAGA toolboxes, or in ArcGIS where the Spatial Analyst and Geostatistical Analyst have tools for various kinds of interpolation.
 
-There is an option in *R* for this too (in fact, there are many), but spline interpolation falls under the rubric of general interpolation techniques that are generally not geographical and so thee interfaces to spatial data are primitive in the packages supporting spline interpolation.
+There is an option in *R* for this too (in fact, there are many), but spline interpolation falls under the rubric of general interpolation techniques that are generally not geographical and so the interfaces to spatial data are primitive in the packages supporting spline interpolation.
 
 One example is the `fields` package, which provides a fairly painless way to run a spline interpolation (it also does kriging and a lot of other things besides, but we've already done that... so we'll not go there again.)
 
@@ -35,12 +35,11 @@ splined <- interpolate(sites_raster, spline)
 And we can take a look in the usual ways
 
 ```{r}
-splined
 persp(splined, scale = FALSE, expand = 2, theta = 35, phi = 30, lwd = 0.5)
 ```
+
 ### Kriging in `fields`
 Kriging is also available, although we are mainly looking at `fields` for the spline interpolation. Here's what it looks like if you are interested. It's quite slow as the tool is doing a lot of things at once and attempting to optimise fits and so on.
-
 ```{r}
 spatial_model <- spatialProcess(controls_xyz[, c("x", "y")], controls_xyz$z, m = 2)
 ```
@@ -51,10 +50,9 @@ Interpolate it to a raster
 kriged <- interpolate(sites_raster, spatial_model)
 ```
 
-And inspect. The result is a lot nicer that `gstat`'s effort...
+And inspect. The result can end up being a lot nicer that `gstat`'s effort...
 
 ```{r}
-kriged
 persp(kriged, scale = FALSE, expand = 2, theta = 35, phi = 30, lwd = 0.5)
 ```
 You can also get details of the model used
