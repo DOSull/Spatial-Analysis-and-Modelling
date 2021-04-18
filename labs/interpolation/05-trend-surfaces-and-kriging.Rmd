@@ -12,7 +12,6 @@ library(dplyr)
 library(gstat)
 
 volcano <- raster("data/maungawhau.tif")
-projection(volcano) <- "+init=EPSG:2193"
 names(volcano) <- "data/height"
 
 controls <- st_read("data/controls.gpkg")

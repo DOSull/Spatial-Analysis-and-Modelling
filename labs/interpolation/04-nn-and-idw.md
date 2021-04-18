@@ -13,7 +13,7 @@ volcano <- raster("data/maungawhau.tif")
 names(volcano) <- "data/height"
 
 controls <- st_read("data/controls.gpkg")
-sites <- st_read("data/sites-sf.gpkg")
+sites_sf <- st_read("data/sites-sf.gpkg")
 sites_raster <- raster("data/sites-raster.tif")
 ```
 
@@ -36,7 +36,7 @@ The `idp` setting here is the inverse-distance power used in the calculation. On
 Having made the model (called `fit_IDW`) we pass it to the `predict` function to obtain interpolated values (called `var1.pred`) at the locations specified by `sites` and then finally convert this to a raster for visualization.
 
 ```{r}
-interp_pts_IDW <- predict(fit_IDW, sites)
+interp_pts_IDW <- predict(fit_IDW, sites_sf)
 interp_IDW <- rasterize(as(interp_pts_IDW, "Spatial"), sites_raster, "var1.pred")
 names(interp_IDW) <- "height" # rename the variable to something more friendly
 ```
@@ -69,7 +69,7 @@ fit_NN <- gstat( # makes a model
 )
 
 # and interpolate like before
-interp_pts_NN <- predict(fit_NN, sites)
+interp_pts_NN <- predict(fit_NN, sites_sf)
 interp_NN <- rasterize(as(interp_pts_NN, "Spatial"), sites_raster, "var1.pred")
 names(interp_NN) <- "height"
 

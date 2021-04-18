@@ -9,7 +9,6 @@ library(raster)
 library(dplyr)
 
 volcano <- raster("data/maungawhau.tif")
-projection(volcano) <- "+init=EPSG:2193"
 names(volcano) <- "height"
 ```
 
@@ -28,7 +27,8 @@ interp_ext <- controls %>%
   st_union() %>%
   st_bbox() %>%
   st_as_sfc() %>%
-  st_sf(crs = st_crs(controls))
+  st_sf() %>%
+  st_set_crs(st_crs(controls))
 ```
 
 ## Control points
@@ -40,7 +40,7 @@ Normally, we would have a set of control points in some spatial format and would
 controls <- interp_ext %>%
   st_sample(size = 250) %>%
   st_sf() %>%
-  st_set_crs(st_crs(volcano)) %>%
+  st_set_crs(st_crs(interp_ext)) %>%
   mutate(height = raster::extract(volcano, .))
 ```
 
@@ -72,7 +72,7 @@ Unlike the previous step which may not be necessary when you are provided with c
 sites_sf <- interp_ext %>% # start with the extent
   st_make_grid(cellsize = 10, what = "centers") %>%
   st_sf() %>%
-  st_set_crs(st_crs(volcano))
+  st_set_crs(st_crs(interp_ext))
 
 sites_xyz <- sites_sf %>%
   cbind(st_coordinates(.)) %>%
@@ -81,7 +81,7 @@ sites_xyz <- sites_sf %>%
 
 sites_raster <- sites_xyz %>%
   rasterFromXYZ()
-crs(sites_raster) <- st_crs(controls)$proj4string
+crs(sites_raster) <- st_crs(controls)$wkt
 ```
 
 Again, it's a good idea to write these all out to files so we don't have to keep remaking them

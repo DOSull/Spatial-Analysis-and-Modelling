@@ -15,7 +15,7 @@ volcano <- raster("data/maungawhau.tif")
 names(volcano) <- "data/height"
 
 controls <- st_read("data/controls.gpkg")
-sites <- st_read("data/sites-sf.gpkg")
+sites_sf <- st_read("data/sites-sf.gpkg")
 sites_raster <- raster("data/sites-raster.tif")
 ```
 
@@ -37,7 +37,7 @@ fit_TS <- gstat(
 The form of the trend surface function is specified by the `degree` parameter and tells you the maximum power to which the coordinates may be raised in the polynomial. For example with `degree = 2`, the polynomial is $z=b_0 + b_1x + b_2y + b_3xy + b_4x^2 + b_5y^2$.
 
 ```{r}
-interp_pts_TS <- predict(fit_TS, sites)
+interp_pts_TS <- predict(fit_TS, sites_sf)
 interp_TS <- rasterize(as(interp_pts_TS, "Spatial"), sites_raster)
 
 persp(interp_TS$var1.pred, scale = FALSE, expand = 2, theta = 35, phi = 30, lwd = 0.5)
@@ -99,7 +99,7 @@ fit_K <- gstat(
 I have found that it is important to set a fairly low `nmax` with these data. I believe that this is because the control points are randomly located and sometimes may have dramatically different values from the interpolation location. But... really I am unsure about this, and we'll consider this in more detail in the next section.
 
 ```{r}
-interp_pts_K <- predict(fit_K, sites)
+interp_pts_K <- predict(fit_K, sites_sf)
 interp_K <- rasterize(as(interp_pts_K, "Spatial"), sites_raster)
 
 persp(interp_K$var1.pred, scale = FALSE, expand = 2, theta = 35, phi = 30, lwd = 0.5)
@@ -112,12 +112,9 @@ tm_shape(interp_K$var1.var) +
   tm_raster(pal = "Reds", style = "cont") +
   tm_legend(outside = TRUE) +
   tm_shape(controls) + 
-  tm_dots(col = "black") +
-  tm_scale_bar()
+  tm_dots(col = "black")
 ```
 
 Kriging is complicated and this exercise is intended only to give you a flavour of that, so we will move on. 
-
-However, it is worth also looking at a couple of ['digressions' on kriging in this notebook](05B-trend-surfaces-and-kriging.md) if you are keen to know more about kriging in particular.
 
 Back to [NN and IDW](04-nn-and-idw.md) | On to [splines](06-splines.md)
