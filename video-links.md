@@ -106,3 +106,15 @@ These are from 2020, but are *much* better than the confusion caused this year b
 + [Simple spatial means](https://southosullivan.com/gisc422/videos/interpolation/gisc-422-interpolation-03-simple-spatial-means.mp4)
 + [Spatially weighted means](https://southosullivan.com/gisc422/videos/interpolation/gisc-422-interpolation-04-spatially-weighted-means.mp4)
 + [Splines and conclusion](https://southosullivan.com/gisc422/videos/interpolation/gisc-422-interpolation-05-splines-and-end.mp4)
+
+***
+## Week 7 Geostatistics
+### Lecture on geostatistical methods
+Once again these are from 2020, but are better quality than we get from zoom recording the face to face lecture.
++ [Introduction](https://southosullivan.com/gisc422/videos/geostatistics/gisc-422-geostatistics-01-intro.mp4)
++ [Trend surface analysis](https://southosullivan.com/gisc422/videos/geostatistics/gisc-422-geostatistics-02-trend-surface-analysis.mp4)
++ [Variography](https://southosullivan.com/gisc422/videos/geostatistics/gisc-422-geostatistics-03-variography-analysis.mp4)
++ [The maths of kriging](https://southosullivan.com/gisc422/videos/geostatistics/gisc-422-geostatistics-04-kriging-maths.mp4)
++ [Outcomes from kriging](https://southosullivan.com/gisc422/videos/geostatistics/gisc-422-geostatistics-05-kriging-outcomes.mp4)
++ [Interpolation evaluation](https://southosullivan.com/gisc422/videos/geostatistics/gisc-422-geostatistics-06-evaluation.mp4)
++ [TINs and KDE](https://southosullivan.com/gisc422/videos/geostatistics/gisc-422-geostatistics-07-tins-and-kde.mp4)
