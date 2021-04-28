@@ -78,7 +78,7 @@ tm_shape(sfd) +
 
 It's good to see that there are clear similarities between this output and the k-means one (at least there were first time I ran the analysis!)
 
-As with k-means, there are more details around all of this. Different approaches to calculating distances can be chosen (see `?dist`) and various options for the exact algorith for merging clusters are available by setting the `method` option in the `hclust` function. The function help is the place to look for more information. Other clustering methods are also available. A recently popular one has been the DBSCAN family of methods([here is an R package](https://github.com/mhahsler/dbscan)). 
+As with k-means, there are more details around all of this. Different approaches to calculating distances can be chosen (see `?dist`) and various options for the exact algorith for merging clusters are available by setting the `method` option in the `hclust` function. The function help is the place to look for more information. Other clustering methods are also available. A recently popular one has been the DBSCAN family of methods([here is an R package](https://github.com/mhahsler/dbscan)).
 
 Once clusters have been assigned, we can do further analysis comparing characteristics of different clusters. For example
 
@@ -106,4 +106,4 @@ Although geodemographics ia a very visible example of cluster-based classificati
 
 Classification and clustering is an enormous topic area with numerous different methods available, many of them now falling under the rubric of machine-learning.
 
-OK... on to [the assignment](05-statistical-models.md).
+OK... on to [the assignment](05-assignment-multivariate-analysis.md).
