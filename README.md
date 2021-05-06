@@ -51,7 +51,7 @@ Week# | Date | Lecture | Lab | Notes | [Videos](video-links.md)
 | | **SEMESTER BREAK** | **NO TEACHING**
 7 | 19 Apr | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/interpolation/README.md) (15%) | Due 10 May | [Lecture](video-links.md#lecture-on-geostatistical-methods)
 8 | 26 Apr | **NO CLASS** | ANZAC Day |
-9 | 3 May | Multivariate methods | [**Geodemographics**](labs/multivariate-analysis/README.md) (15%)| Due 24 May
+9 | 3 May | Multivariate methods | [**Geodemographics**](labs/multivariate-analysis/README.md) (15%)| Due 24 May | [Lecture](video-links.md#week-8-multivariate-analysis)
 10 | 10 May | Overlay, regression models and related methods | TBD |
 11 | 17 May | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | TBD |
 12 | 24 May | [Network analysis](https://southosullivan.com/gisc422/network-analysis/) | [Tools for network analysis](labs/network-analysis/README.md)
