@@ -104,4 +104,4 @@ Although geodemographics ia a very visible example of cluster-based classificati
 
 Classification and clustering is an enormous topic area with numerous different methods available, many of them now falling under the rubric of machine-learning.
 
-OK... on to [statistical modelling](05-assignment-multivariate-analysis.md).
+OK... on to [the assignment](05-assignment-multivariate-analysis.md).

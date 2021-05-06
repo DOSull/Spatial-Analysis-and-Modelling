@@ -118,3 +118,25 @@ Once again these are from 2020, but are better quality than we get from zoom rec
 + [Outcomes from kriging](https://southosullivan.com/gisc422/videos/geostatistics/gisc-422-geostatistics-05-kriging-outcomes.mp4)
 + [Interpolation evaluation](https://southosullivan.com/gisc422/videos/geostatistics/gisc-422-geostatistics-06-evaluation.mp4)
 + [TINs and KDE](https://southosullivan.com/gisc422/videos/geostatistics/gisc-422-geostatistics-07-tins-and-kde.mp4)
+
+***
+## Week 8 Multivariate analysis
+New for 2021 - some wild digressions mean these are a bit choppy, but all the core material is there.
+### Context
++ [Introduction](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-01.mp4) (4:43)
++ [The challenge of the San Francisco dataset and looking ahead to clustering](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-02.mp4) (3:37)
++ [Some basic plots](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-03.mp4) (2:26)
++ [Maps and multivariate data](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-04.mp4) (3:51)
+### Visualization and high dimensional data
++ [Some scientific viusalisation approaches](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-05.mp4) (10:07)
++ [Data complexity and graphical dimensions](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-06.mp4) (2:31)
++ [High dimensional data](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-07.mp4) (3:43)
++ [The `tidyverse` revisited](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-08.mp4) (9:55)
+### Principle components analysis (PCA)
++ [PCA in theory](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-09.mp4) (4:02)
++ [PCA in practice](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-10.mp4) (9:47)
+### Clustering analysis
++ [Clustering in theory](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-11.mp4) (7:06)
++ [K-means](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-12.mp4) (9:47)
++ [Hierarchical clustering](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-12.mp4) (5:03)
++ [Geodemographics](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-13.mp4) (6:05)
