@@ -46,7 +46,7 @@ vpd	| Mean October vapor pressure deficit at 9 AM |	kPa
 We can map any particular layer of interest as follows:
 ```{r}
 tmap_mode("view")
-tm_shape(layers$dem) + 
+tm_shape(layers$dem) +
   tm_raster(palette = "Oranges", style = "cont", alpha = 0.8)
 ```
 
@@ -59,11 +59,11 @@ or if you like a bit more cartographic polish use `tmap` (but do this in plot mo
 ```{r warning = FALSE, message = FALSE}
 tmap_mode('plot')  # best to do this in plot mode
 tm_shape(layers) +
-  tm_raster(title = names(layers)) + 
+  tm_raster(title = names(layers)) +
   tm_facets(free.scales = TRUE) # this allows a different scale for each layer
 ```
 
-(Note that we shoudln't have to supply the `title = ...` setting, but there seems to be a bug](https://github.com/mtennekes/tmap/issues/166) and this seems to work around it.)
+(Note that we shoudln't have to supply the `title = ...` setting, but [there seems to be a bug](https://github.com/mtennekes/tmap/issues/166) and this seems to work around it.)
 
 ## Plant presence-absence data
 I obtained presence-absence data for the mysterious 'nz35' species from the [`disdat` package]() with some more details but not plant identities, unfortunately in [this paper](https://dx.doi.org/10.17161/bi.v15i2.13384).
@@ -79,9 +79,9 @@ In this dataset the attribute `nz35` is 1 where the plant has been observed and 
 Map these on any chosen environment layer like this
 ```{r}
 tmap_mode("view")
-tm_shape(layers$dem) + 
+tm_shape(layers$dem) +
   tm_raster(palette = "Oranges", style = "cont", alpha = 0.8) +
-  tm_shape(plants) + 
+  tm_shape(plants) +
   tm_dots(col = "nz35", palette = "Set1", style = "cat")
 ```
 
@@ -92,7 +92,7 @@ If we are interested in the distribution of this species (whether because it is 
 We might for example based on inspection, or expert knowledge, or on some other basis choose cutoff values in each environmental layer and make binary maps for each. For example
 ```{r}
 dem_bin <- layers$dem < 800
-tm_shape(dem_bin) + 
+tm_shape(dem_bin) +
   tm_raster(palette = "Greys")
 ```
 
@@ -110,7 +110,7 @@ plants.d <- plants.d %>%
 
 We can then do things like
 ```{r}
-ggplot(plants.d) + 
+ggplot(plants.d) +
   geom_boxplot(aes(x = nz35, y = dem, group = nz35))
 ```
 
@@ -119,8 +119,8 @@ If we wanted the 'full picture' in this way, we can also do that
 plants.d.long <- plants.d %>%
   pivot_longer(-nz35)
 
-ggplot(plants.d.long) + 
-  geom_point(aes(x = nz35, y = value)) + 
+ggplot(plants.d.long) +
+  geom_point(aes(x = nz35, y = value)) +
   facet_wrap(~ name, scales = "free")
 ```
 
@@ -150,7 +150,7 @@ predicted_presence <- predict(layers, logistic_model, type = "response")
 
 And we can map this result in the usual way
 ```{r}
-tm_shape(predicted_presence) + 
+tm_shape(predicted_presence) +
   tm_raster(palette = "YlOrRd")
 ```
 
@@ -171,16 +171,16 @@ step(logistic_model)
 
 There are good reasons not to do this, but just to see what we end up with the resulting model is
 ```{r}
-logistic_model <- glm(formula = nz35 ~ deficit + dem + mat + rain + sseas + tseas, 
+logistic_model <- glm(formula = nz35 ~ deficit + dem + mat + rain + sseas + tseas,
     family = "binomial", data = plants.d)
 predicted_presence <- predict(layers, logistic_model, type = "response")
 ```
 
 And map as before
 ```{r}
-tm_shape(predicted_presence) + 
+tm_shape(predicted_presence) +
   tm_raster(palette = "Greys") +
-  tm_shape(plants) + 
+  tm_shape(plants) +
   tm_dots(col = "nz35", palette = "Set1")
 ```
 
