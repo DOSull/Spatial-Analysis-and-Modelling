@@ -59,9 +59,11 @@ or if you like a bit more cartographic polish use `tmap` (but do this in plot mo
 ```{r warning = FALSE, message = FALSE}
 tmap_mode('plot')  # best to do this in plot mode
 tm_shape(layers) +
-  tm_raster(title = names(layers)) + # shouldn't need title setting, but [there may be a bug](https://github.com/mtennekes/tmap/issues/166) and this seems to work around it
+  tm_raster(title = names(layers)) + 
   tm_facets(free.scales = TRUE) # this allows a different scale for each layer
 ```
+
+(Note that we shoudln't have to supply the `title = ...` setting, but there seems to be a bug](https://github.com/mtennekes/tmap/issues/166) and this seems to work around it.)
 
 ## Plant presence-absence data
 I obtained presence-absence data for the mysterious 'nz35' species from the [`disdat` package]() with some more details but not plant identities, unfortunately in [this paper](https://dx.doi.org/10.17161/bi.v15i2.13384).
