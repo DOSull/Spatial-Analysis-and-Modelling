@@ -42,19 +42,19 @@ Here's the trimester schedule we will aim to follow. **Bolded labs** have an ass
 
 Week# | Date | Lecture | Lab | Notes | [Videos](video-links.md)
 :-: | :-: | :-- | :-- | :-- | :--
-1 | 22 Feb | Course overview | [*R* and *RStudio* computing environment and Markdown documents](labs/intro-to-R-and-friends/README.md) | | [Practical](video-links.md#introducing-r-and-friends)
-2 | 1 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/) | [Making maps in *R*](labs/making-maps-in-r/README.md) | | [Lecture](video-links.md#lecture-on-spatial-is-special)<br />[Practical](video-links.md#practical-materials-on-making-maps-in-r)
-3 | 8 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/introducing-spatstat/README.md) | | [Lecture](video-links.md#lecture-on-the-idea-of-a-spatial-process)<br />[Practical](video-links.md#practical-materials-on-spatial-processes)
-4 | 15 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/point-pattern-analysis/README.md) (15%) | Due 19 April | [Lecture](video-links.md#lecture-on-point-pattern-analysis)<br />[Practical](video-links.md#overview-of-lab-on-point-pattern-analysis)
-5 | 22 Mar | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/spatial-autocorrelation/README.md) (15%) | Due 3 May | [Lecture](video-links.md#lecture-on-spatial-autocorrelation)<br />[Practical](video-links.md#overview-of-lab-on-spatial-autocorrelation)
-6 | 29 Mar | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/interpolation/README.md) | | [Lecture](video-links.md#lecture-on-simple-interpolation-methods)
+1 | 22 Feb | Course overview | [*R* and *RStudio* computing environment and Markdown documents](labs/intro-to-R-and-friends/) | | [Practical](video-links.md#introducing-r-and-friends)
+2 | 1 Mar | [Why &lsquo;spatial is special&rsquo;](https://southosullivan.com/gisc422/spatial-is-special/) | [Making maps in *R*](labs/making-maps-in-r/) | | [Lecture](video-links.md#lecture-on-spatial-is-special)<br />[Practical](video-links.md#practical-materials-on-making-maps-in-r)
+3 | 8 Mar | [Spatial processes](https://southosullivan.com/gisc422/spatial-processes/) | [Introducing `spatstat`](labs/introducing-spatstat/) | | [Lecture](video-links.md#lecture-on-the-idea-of-a-spatial-process)<br />[Practical](video-links.md#practical-materials-on-spatial-processes)
+4 | 15 Mar | [Point pattern analysis](https://southosullivan.com/gisc422/point-pattern-analysis/) | [**Point pattern analysis**](labs/point-pattern-analysis/) (15%) | Due 19 April | [Lecture](video-links.md#lecture-on-point-pattern-analysis)<br />[Practical](video-links.md#overview-of-lab-on-point-pattern-analysis)
+5 | 22 Mar | [Measuring spatial autocorrelation](https://southosullivan.com/gisc422/spatial-autocorrelation/) | [**Moran's *I***](labs/spatial-autocorrelation/) (15%) | Due 3 May | [Lecture](video-links.md#lecture-on-spatial-autocorrelation)<br />[Practical](video-links.md#overview-of-lab-on-spatial-autocorrelation)
+6 | 29 Mar | [Spatial interpolation](https://southosullivan.com/gisc422/interpolation/) | ['Simple' interpolation in R](labs/interpolation/) | | [Lecture](video-links.md#lecture-on-simple-interpolation-methods)
 | | **SEMESTER BREAK** | **NO TEACHING**
-7 | 19 Apr | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/interpolation/README.md) (15%) | Due 10 May | [Lecture](video-links.md#lecture-on-geostatistical-methods)
+7 | 19 Apr | [Geostatistics](https://southosullivan.com/gisc422/geostatistics/) | [**Interpolation**](labs/interpolation/) (15%) | Due 10 May | [Lecture](video-links.md#lecture-on-geostatistical-methods)
 8 | 26 Apr | **NO CLASS** | ANZAC Day |
-9 | 3 May | Multivariate methods | [**Geodemographics**](labs/multivariate-analysis/README.md) (15%)| Due 24 May | [Lecture](video-links.md#week-9-multivariate-analysis)
-10 | 10 May | Overlay, regression models and related methods | [Lab content](labs/statistical-models/README.md) |
+9 | 3 May | Multivariate methods | [**Geodemographics**](labs/multivariate-analysis/) (15%)| Due 24 May | [Lecture](video-links.md#week-9-multivariate-analysis)
+10 | 10 May | Overlay, regression models and related methods | [Lab content](labs/statistical-models/) |
 11 | 17 May | [Cluster detection](https://southosullivan.com/gisc422/cluster-detection/) | TBD |
-12 | 24 May | [Network analysis](https://southosullivan.com/gisc422/network-analysis/) | [Tools for network analysis](labs/network-analysis/README.md)
+12 | 24 May | [Network analysis](https://southosullivan.com/gisc422/network-analysis/) | [Tools for network analysis](labs/network-analysis/)
 
 ## Lectures
 Lectures will generally consist of around an hour of presented material, followed by time for Q&A and discussion based on the materials and any related reading students have completed ahead of class.
