@@ -137,6 +137,6 @@ New for 2021 - some wild digressions mean these are a bit choppy, but all the co
 + [PCA in practice](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-10.mp4) (9:47)
 ### Clustering analysis
 + [Clustering in theory](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-11.mp4) (7:06)
-+ [K-means](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-12.mp4) (9:47)
-+ [Hierarchical clustering](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-12.mp4) (5:03)
-+ [Geodemographics](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-13.mp4) (6:05)
++ [K-means](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-12.mp4) (7:11)
++ This one is from the 2020 vault, as I somehow lost 2021's video [Hierarchical clustering](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-13.mp4) (6:16)
++ [Geodemographics](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-14.mp4) (6:05)
