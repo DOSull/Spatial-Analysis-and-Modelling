@@ -60,6 +60,7 @@ or if you like a bit more cartographic polish use `tmap` (but do this in plot mo
 tmap_mode('plot')  # best to do this in plot mode
 tm_shape(layers) +
   tm_raster(title = names(layers)) +
+  tm_layout(legend.position = c("RIGHT", "BOTTOM")) +
   tm_facets(free.scales = TRUE) # this allows a different scale for each layer
 ```
 
