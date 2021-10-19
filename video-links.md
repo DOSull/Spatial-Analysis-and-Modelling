@@ -37,47 +37,47 @@ These were also made for Geog 315, but again are equally applicable to this clas
 ***
 ## Week 3 Spatial processes
 ### Lecture on 'the idea of a spatial process'
-+ [Introduction](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-01.mp4)
-+ [Spatial dependence](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-02.mp4)
-+ [Starbucks...](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-03.mp4)
-+ [First order trends](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-04.mp4)
-+ [Second order effects](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-05.mp4)
-+ [But in the real world they are jumbled up](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-06.mp4)
-+ [Pattern as sample from a population](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-07.mp4)
-+ [The phonebook process](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-08.mp4)
-+ [A null process: the Poisson point process](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-09.mp4)
-+ [A bunch of other processes](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-10.mp4)
++ [Introduction](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-01.m4v)
++ [Spatial dependence](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-02.m4v)
++ [Starbucks...](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-03.m4v)
++ [First order trends](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-04.m4v)
++ [Second order effects](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-05.m4v)
++ [But in the real world they are jumbled up](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-06.m4v)
++ [Pattern as sample from a population](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-07.m4v)
++ [The phonebook process](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-08.m4v)
++ [A null process: the Poisson point process](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-09.m4v)
++ [A bunch of other processes](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-10.m4v)
 
 ### Practical materials on spatial processes
-+ [Overview of the lab materials](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-11.mp4)
++ [Overview of the lab materials](https://southosullivan.com/gisc422/videos/spatial-processes/GISC-422-03-2021-11.m4v)
 
 ***
 ## Week 4 Point pattern analysis
 ### Lecture on point pattern analysis
-+ [Introduction](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-01.mp4)
++ [Introduction](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-01.m4v)
 
 #### Density methods
-+ [Quadrats overview](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-02.mp4)
-+ [Quadrats gadget demo](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-03.mp4)
-+ [Pros and cons of quadrats and challenges of density](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-04.mp4)
-+ [Kernel density estimation](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-05.mp4)
++ [Quadrats overview](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-02.m4v)
++ [Quadrats gadget demo](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-03.m4v)
++ [Pros and cons of quadrats and challenges of density](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-04.m4v)
++ [Kernel density estimation](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-05.m4v)
 
 #### Distance methods
-+ [Nearest neighbour distance functions](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-06.mp4)
-+ [All distances functions](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-07.mp4)
++ [Nearest neighbour distance functions](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-06.m4v)
++ [All distances functions](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-07.m4v)
 
 #### Statistical evaluation
-+ [Simple methods - quadrats and mean nearest neighbour](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-08.mp4)
-+ [Simulation envelopes for distance functions](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-09.mp4)
-+ [Taking potshots at statistics](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-10.mp4)
-+ [Arm waving about likelihood](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-11.mp4)
++ [Simple methods - quadrats and mean nearest neighbour](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-08.m4v)
++ [Simulation envelopes for distance functions](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-09.m4v)
++ [Taking potshots at statistics](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-10.m4v)
++ [Arm waving about likelihood](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-11.m4v)
 
 ### Overview of lab on point pattern analysis
-+ [Introduction](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-12.mp4)
++ [Introduction](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-12.m4v)
 + See also these [short video clips on the practical material](https://southosullivan.com/gisc422/videos/point-pattern-lab/) from last year (2020)
 
 ### Crazy hands on quadrats exercise
-+ [Lots of mumbling](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-hands-on.mp4)
++ [Lots of mumbling](https://southosullivan.com/gisc422/videos/point-pattern-analysis/GISC-422-04-2021-hands-on.m4v)
 
 ***
 ## Week 5 Spatial autocorrelation
@@ -123,20 +123,23 @@ Once again these are from 2020, but are better quality than we get from zoom rec
 ## Week 9 Multivariate analysis
 New for 2021 - some wild digressions mean these are a bit choppy, but all the core material is there.
 ### Context
-+ [Introduction](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-01.mp4) (4:43)
-+ [The challenge of the San Francisco dataset and looking ahead to clustering](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-02.mp4) (3:37)
-+ [Some basic plots](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-03.mp4) (2:26)
-+ [Maps and multivariate data](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-04.mp4) (3:51)
++ [Introduction](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-01.m4v) (4:43)
++ [The challenge of the San Francisco dataset and looking ahead to clustering](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-02.m4v) (3:37)
++ [Some basic plots](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-03.m4v) (2:26)
++ [Maps and multivariate data](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-04.m4v) (3:51)
+
 ### Visualization and high dimensional data
-+ [Some scientific viusalisation approaches](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-05.mp4) (10:07)
-+ [Data complexity and graphical dimensions](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-06.mp4) (2:31)
-+ [High dimensional data](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-07.mp4) (3:43)
-+ [The `tidyverse` revisited](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-08.mp4) (9:55)
++ [Some scientific viusalisation approaches](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-05.m4v) (10:07)
++ [Data complexity and graphical dimensions](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-06.m4v) (2:31)
++ [High dimensional data](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-07.m4v) (3:43)
++ [The `tidyverse` revisited](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-08.m4v) (9:55)
+
 ### Principle components analysis (PCA)
-+ [PCA in theory](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-09.mp4) (4:02)
-+ [PCA in practice](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-10.mp4) (9:47)
++ [PCA in theory](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-09.m4v) (4:02)
++ [PCA in practice](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-10.m4v) (9:47)
+
 ### Clustering analysis
-+ [Clustering in theory](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-11.mp4) (7:06)
-+ [K-means](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-12.mp4) (7:11)
-+ This one is from the 2020 vault, as I somehow lost 2021's video [Hierarchical clustering](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-13.mp4) (6:16)
-+ [Geodemographics](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-14.mp4) (6:05)
++ [Clustering in theory](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-11.m4v) (7:06)
++ [K-means](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-12.m4v) (7:11)
++ This one is from the 2020 vault, as I somehow lost 2021's video [Hierarchical clustering](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-13.m4v) (6:16)
++ [Geodemographics](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-14.m4v) (6:05)
