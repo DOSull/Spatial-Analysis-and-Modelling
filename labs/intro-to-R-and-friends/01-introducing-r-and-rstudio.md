@@ -1,4 +1,4 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 # Introducing *R* and *RStudio*
 This lab will introduce you to the statistical analysis and programming environment *R*, running in *RStudio* (which makes it a bit easier to deal with). *R* has become one of the standard tools for statistical analysis particularly in the academic research community, but [increasingly also in commercial and other work settings](https://statfr.blogspot.com/2018/08/r-generation-story-of-statistical.html). It is well suited to this environment for a number of reasons, particularly
 

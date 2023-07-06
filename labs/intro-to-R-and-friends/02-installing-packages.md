@@ -1,4 +1,4 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 # Installing packages in *RStudio*
 One of the major advantages of *R* is its extensibility via *literally thousands* of additional packages tailored to specific applications. There is an extensive ecosystem of packages specifically for spatial applications. There is also a large array of packages collectively known as 'the tidyverse' that we will be using, which make data management and manipulation a little bit easier than in base *R*.
 

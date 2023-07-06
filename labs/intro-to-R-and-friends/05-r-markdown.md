@@ -1,4 +1,4 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 # _R Markdown_
 One further element of the _R_ and _RStudio_ ecosystem that we will touch on briefly this week, and will see more of through the semester is _R Markdown_.
 
@@ -33,7 +33,7 @@ In effect, you are running an *R* session in pieces, inside a document that expl
 That's pretty smart (I think it is anyway). But there's more.
 
 ## Viewing the document as formatted output
-**UPDATE: this only works in RStudio version 1.4 and higher, and the lab machines are only at 1.3.** First, you can also view the document in a nicely formatted display mode. To do this find the drop-down list next to the little 'gear wheel' icon at the top of the file viewing tab. Select the **Use Visual Editor** option. After a pause, you should see the file display change to a nicely formatted output combining formatted explanatory text, and code chunks.
+First, you can also view the document in a nicely formatted display mode. To do this find the drop-down list next to the little 'gear wheel' icon at the top of the file viewing tab. Select the **Use Visual Editor** option. After a pause, you should see the file display change to a nicely formatted output combining formatted explanatory text, and code chunks.
 
 In this view you will also find controls to allow you to edit markdown in the same way you might write a word processed document. This is all fairly intuitive, so I'll let you figure that all out for yourself. It's helpful as you explore to switch back to the non-Visual editing mode to see how changes you make alter the markdown materials.
 

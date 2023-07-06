@@ -1,4 +1,4 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 # Introducing _R_ and friends&mdash;overview
 This week we have a few things to do, which are explained in detail in the documents linked below. Before you start, download the materials in [this file](https://raw.githubusercontent.com/DOSull/GISC-422/master/labs/intro-to-R-and-friends/intro-to-R-and-friends.zip?raw=true) and unzip them to a local folder.
 
