@@ -1,4 +1,4 @@
-#### GISC 422 T2 2021
+#### GISC 422 T2 2023
 
 # Making maps in *R*
 

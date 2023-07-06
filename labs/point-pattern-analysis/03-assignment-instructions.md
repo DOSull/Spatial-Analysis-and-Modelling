@@ -1,10 +1,10 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 # **Assignment 1: A point pattern analysis of the Auckland TB data**
 Now you have a point pattern dataset to work with (`tb.pp`), you can perform point pattern analysis with it. You may need to [go back to the previous set of instructions](02-ppa-with-real-data.md) to get to this point.
 
 ## Assignment deliverables
 
-The submission deadline is **19 April at 8:30AM**. A dropbox will be provided on Blackboard. Preferably do the analysis in an R Markdown file and output things to a PDF (you probably will have to go via Word to accomplish this)
+The submission deadline is **4 September**. Preferably do the analysis in an R Markdown file and output things to a PDF (you might have to go via Word to accomplish this)
 
 You can assemble materials in a word processor (export images from *RStudio* to PNG format) and produce a PDF report as an alternative, but I recommend the R Markdown approach.
 

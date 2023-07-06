@@ -1,4 +1,4 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 # Point pattern analysis with real data
 
 ```{r}
