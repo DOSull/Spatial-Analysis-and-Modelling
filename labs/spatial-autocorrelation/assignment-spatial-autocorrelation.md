@@ -1,8 +1,8 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 # **Assignment 2** Spatial autocorrelation in R and/or GeoDa
 This assignment walks you through applying spatial autocorrelation measures, specifically Moran's index of spatial autocorrelation in both its local and global forms.
 
-These instructions show how these analyses can be performed in *R*, although many of you may prefer to complete the assignment using *GeoDa* which is installed on the lab machines and also free to download and install from [this website](http://geodacenter.github.io/download.html). Operation of *GeoDa* is relatively self-explanatory whereas performing these analyses in *R* using the `spdep` package is not, so you are on your own in *GeoDa*, but should find these instructions a useful overview of the methods helpful for either platform. If you work in *R* you'll find making the final report easier since you can use *R Markdown*.
+These instructions show how these analyses can be performed in *R*, although many of you may prefer to complete the assignment using *GeoDa* which is freely downloadable and installable on any computer from [this website](http://geodacenter.github.io/download.html). Operation of *GeoDa* is relatively self-explanatory whereas performing these analyses in *R* using the `spdep` package is not, so you are on your own in *GeoDa*, but should find these instructions a useful overview of the methods helpful for either platform. If you work in *R* you'll find making the final report easier since you can use *R Markdown*.
 
 ## Required packages
 We need a bunch of these, so load them all now.
@@ -14,11 +14,15 @@ library(tmap)
 library(dplyr) # for manipulating datasets
 ```
 
-And also, the package that provides the spatial autocorrelation methods we need
+And also, the package that provides the spatial autocorrelation methods we need along with some helper packages
 
 ```{r}
 library(spdep)
+library(sp)
+library(maptools)
 ```
+
+There is a newer package [`sfdep`](https://sfdep.josiahparry.com/index.html) based on `spdep` which operates on `sf` data rather than older _R_-spatial formats but it still requires you to drop back to using `spdep` on occasion, so these instructions are still geared towards use of `spdep`.
 
 ## The data
 OK... now we are ready to load the data for this lab. This is a super-set of the data we previously used for the point pattern analysis lab, which includes the TB data for the old Auckland City, but extended to a wider region, and also with the additional inclusion of contemporary ethnicity data from the 2006 Census.
@@ -42,39 +46,27 @@ plot(select(ak, 6:9), lwd = 0.35)
 Remember that we can also make maps of specific attributes as follows
 
 ```{r}
-map <- tm_shape(ak) +
+tm_shape(ak) +
   tm_fill(col = "EUR_P_06", palette = 'Blues') + # add colour fill
-  tm_borders(col = 'gray', lwd = 0.5) # add borders to the polygons
-map
-```
-
-Remember also that if we want an interactive web map, we can change the `tmap` mode to `"view"`
-
-```{r}
-tmap_mode("view")
-map
-```
-
-For now, we probably don't need interactive web maps, so change back to `"plot"` mode and make sure everything is still good to go
-
-```{r}
-tmap_mode("plot")
-map
+  tm_borders(col = 'gray', lwd = 0.5) + # add borders to the polygons
+  tm_legend(position = c("left", "top"))
 ```
 
 ## Back to spatial autocorrelation
-The functions discussed in this section and the remainder of these instructions are provided by the `spdep` package. This is an older package, which can work with `sf` objects but with some difficulty, so it is easier to make a `sp` package compatible `SpatialPolygonsDataFrame` object from our data for some of the operations to follow. We'll call this `akp` and will use the original `ak` object where it is more convenient, but work with `akp` when needed.
+The functions discussed in this section and the remainder of these instructions are provided by the `spdep` package. This is an older package, which can work with `sf` objects but with some difficulty, so it is easier to make a `sp` package compatible `SpatialPolygonsDataFrame` object from our data for some of the operations that follow. We'll call this `aksp` and will use the original `ak` object where it is more convenient, but work with `aksp` when needed.
 
 ```{r}
-akp <- as_Spatial(ak)
+aksp <- ak %>%
+  as("Spatial")
 ```
 
-Since `akp` and `ak` are derived from the same underlying data and retain the same *order* of entries in their data tables, we shouldn't run into any problems.
+Since `aksp` and `ak` are derived from the same underlying data and retain the same *order* of entries in their data tables, we shouldn't run into any problems.
 
 The main reason for making this object is that the key functions of `spdep` require the construction of *neighbourhoods* for each polygon in the dataset, on which the autocorrelation calculations will be based. The most basic neighbourhood construction is based on adjacency and is generated using the `poly2nb()` function. This is how it works
 
 ```{r}
-nb <- poly2nb(akp, row.names = ak$AU_NAME, queen = TRUE)
+nb <- aksp %>% 
+  poly2nb(row.names = ak$AU_NAME, queen = TRUE)
 ```
 
 We can inspect what we just did, with the `summary()` function
@@ -88,28 +80,34 @@ We can see here that we made a neighbourhood object that has 1612 adjacency link
 To get a better idea what is going on we can map these
 
 ```{r}
-plot(akp, col = "lightgrey", lwd = 0.5, border = 'white')
-plot(nb, coordinates(akp), col = 'red', lwd = 0.5, cex = 0.35, add = T)
+plot(aksp, col = "lightgrey", lwd = 0.5, border = 'white')
+
+# make a set of centroid coordinate points for convenience
+ak_pts <- sp::coordinates(aksp)
+
+plot(nb, ak_pts, col = 'red', lwd = 0.5, cex = 0.35, add = T)
 ```
 
 At this point, you should experiment with the `poly2nb` function (what happens if you set `queen = FALSE`?).
 
 ### Other neighborhood construction methods
-It is possible to construct neighbourhoods on other bases, such as for example, the k nearest neighbours approach. This is unfortunately where the `spdep` package shows its age, because doing so is fiddly. Here is how it works, just as an example, that you are welcome to explore further.
+It is possible to construct neighbourhoods on other bases, such as for example, the _k_ nearest neighbours approach. This is unfortunately where the `spdep` package shows its age, because doing so is fiddly. Here is how it works, just as an example, that you are welcome to explore further.
 
 ```{r}
-ak_k5 <- knearneigh(coordinates(akp), k = 5)
-nb_k5 <- knn2nb(ak_k5)
-plot(akp, col = "lightgrey", lwd = 0.5, border = 'white')
-plot(nb_k5, coordinates(akp), cex = 0.35, lwd = 0.5, col = 'red', add = T)
+nb_k5 <- ak_pts %>% 
+  knearneigh(k = 5) %>%
+  knn2nb()
+plot(aksp, col = "lightgrey", lwd = 0.5, border = 'white')
+plot(nb_k5, ak_pts, cex = 0.35, lwd = 0.5, col = 'red', add = T)
 ```
 
 Or another alternative is to use a distance criterion
 
 ```{r}
-nb_d2500 <- dnearneigh(coordinates(akp), d1 = 100, d2 = 2500)
-plot(akp, col = "lightgrey", lwd = 0.5, border = 'white')
-plot(nb_d2500, coordinates(akp), cex = 0.35, lwd = 0.5, col = 'red', add = T)
+nb_d2500 <- ak_pts %>% 
+  dnearneigh(d1 = 0, d2 = 2500)
+plot(aksp, col = "lightgrey", lwd = 0.5, border = 'white')
+plot(nb_d2500, ak_pts, cex = 0.35, lwd = 0.5, col = 'red', add = T)
 ```
 
 You can probably see here why I say that the `spdep` functions are a bit obscure to work with.  Anyway, let's return to doing the analysis based on simple adjacency, as recorded in the `nb` object we made before.
@@ -120,7 +118,8 @@ Something to pay attention to from here forward is that many of the Moran's inde
 Another quirk of the `spdep` package is that it requires the neighbourhood information in a particular format to work, and this is *not* the format that the various neighbourhood construction methods produce. To get the right format we must convert the neighbourhood information to a `listw` object
 
 ```{r}
-wl <- nb2listw(nb, style = "W", zero.policy = T)
+wl <- nb %>%
+  nb2listw(style = "W", zero.policy = TRUE)
 summary(wl, zero.policy = T)
 ```
 
@@ -130,7 +129,8 @@ As you can see (and reassuringly!) this object has exactly the same characterist
 After all that, the moment of truth is very simple. We can calculate the value of Moran's index. The permutation approach discussed in lectures is the most appropriate way to put some kind of statistical limits on the result for interpretive purposes. This is invoked by `moran.mc()`
 
 ```{r}
-moransI <- moran.mc(ak$ASI_P_06, wl, nsim = 999, zero.policy = T)
+moransI <- ak$ASI_P_06 %>%
+  moran.mc(wl, nsim = 999, zero.policy = TRUE)
 moransI
 ```
 
@@ -152,7 +152,8 @@ What do you think the gray circle represents in the plot?
 Finally, we can also calculate the local version of Moran's *I*.
 
 ```{r}
-localm <- localmoran(ak$ASI_P_06, wl, zero.policy = T)
+localm <- ak$ASI_P_06 %>%
+  localmoran(wl, zero.policy = TRUE)
 head(localm)
 ```
 

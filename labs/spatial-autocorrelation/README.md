@@ -1,3 +1,3 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 # Spatial autocorrelation overview
 This week simply download [this zip file](spatial-autocorrelation.zip?raw=true) and unpack it a local folder, then follow the [instructions here](assignment-spatial-autocorrelation.md).
