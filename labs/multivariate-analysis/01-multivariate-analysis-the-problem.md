@@ -1,4 +1,4 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 # Multivariate data
 In this document, we look at the general problem of dealing with highly multivariate data, which in later documents we will tackle using tools from the [*R* `tidyverse`](02-the-r-tidyverse.md), and techniques broadly categorised as [dimensional reduction](03-dimensional-reduction.md), [classification](04-classification-and-clustering.md), and (next week) statistical modelling.
 

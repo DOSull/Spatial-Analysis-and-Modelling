@@ -1,5 +1,6 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 First just make sure we have all the data and libraries we need set up.
+
 ```{r message = FALSE}
 library(sf)
 library(tmap)
@@ -10,6 +11,7 @@ sfd <- st_read('sf_demo.geojson')
 sfd <- drop_na(sfd)
 sfd.d <- st_drop_geometry(sfd)
 ```
+
 ## Clustering
 Whereas dimensional reduction methods focus on the variables in a dataset, clustering methods focus on the observations and the differences and similarities between them. The idea of clustering analysis is to break the dataset into clusters or groups of observations that are similar to one another and different from others in the data.
 
@@ -31,6 +33,7 @@ Here's an [illustration of this working](https://kkevsterrr.github.io/K-Means/) 
 It's important to realise that k-means clustering is non-deterministic, as the choice of intial cluster centres is often random, and can affect the final assignment arrived at.
 
 So here is how we accomplish this in R.
+
 ```{r}
 km <- kmeans(sfd.d, 7)
 sfd$km7 <- as.factor(km$cluster)
@@ -38,7 +41,7 @@ sfd$km7 <- as.factor(km$cluster)
 tmap_mode('view')
 tm_shape(sfd) +
   tm_polygons(col = 'km7') +
-  tm_legend(legend.outside = TRUE)
+  tm_legend(legend.outside = T)
 ```
 
 The `kmeans` function does the work, and requires that we decide in advance how many clusters we want (I picked 7 just because... well... SEVEN). We can retrieve the resulting cluster assignments from the output `km` as `km$cluster` which we convert to a `factor`. The numerical cluster number is meaningless, so the cluster number is properly speaking a factor, and designating as such will allow `tmap` and other packages to handle it intelligently. We can then add it to the spatial data and  map it like any other variable.
@@ -60,6 +63,7 @@ The algorithm in this case looks something like
 This approach is 'agglomerative' because we start with individual observations. It is possible to proceed in the other direction repeatedly subdividing the dataset into subsets until we get to individual cases, or perhaps until some measure of the cluster quality tells us we can't improve the solution any further. This method is very often used with network data when cluster detection is known as *community detection* (more on that next week).
 
 In *R*, the necessary functions are provided by the `hclust` function
+
 ```{R}
 hc <- hclust(dist(sfd.d))
 plot(hc)
@@ -70,17 +74,17 @@ Blimey! What the heck is that thing? As the title says it is a *cluster dendrogr
 As you can see, even for this relatively small dataset of only 189 observations, the dendrogram is not easy to read. Again, interactive visualization methods can be used to help with this. However another option is to 'cut the dendrogam' specifying either the height value to do it at, or the number of clusters desired. In this case, it looks like 6 is not a bad option, so...
 
 ```{r}
-sfd$hc5 <- as.factor(cutree(hc, k = 5))
+sfd$hc5 <- cutree(hc, k = 5)
 tm_shape(sfd) +
-  tm_polygons(col = 'hc5') +
+  tm_polygons(col = 'hc5', palette = 'Set2', style = "cat") +
   tm_legend(legend.outside = TRUE)
 ```
 
 It's good to see that there are clear similarities between this output and the k-means one (at least there were first time I ran the analysis!)
 
-As with k-means, there are more details around all of this. Different approaches to calculating distances can be chosen (see `?dist`) and various options for the exact algorith for merging clusters are available by setting the `method` option in the `hclust` function. The function help is the place to look for more information. Other clustering methods are also available. A recently popular one has been the DBSCAN family of methods([here is an R package](https://github.com/mhahsler/dbscan)).
+As with k-means, there are more details around all of this. Different approaches to calculating distances can be chosen (see `?dist`) and various options for the exact algorith for merging clusters are available by setting the `method` option in the `hclust` function. The function help is the place to look for more information.
 
-Once clusters have been assigned, we can do further analysis comparing characteristics of different clusters. For example
+Once clusters have been assigned, we can do further analysis comparing characteristics of different clusters. FOr example
 
 ```{r}
 boxplot(sfd$Punemployed ~ sfd$hc5, xlab = 'Cluster', ylab = 'Unemployment')
@@ -89,9 +93,7 @@ boxplot(sfd$Punemployed ~ sfd$hc5, xlab = 'Cluster', ylab = 'Unemployment')
 Or we can aggregate the clusters into single areas and assign them values based on the underlying data of all the member units:
 
 ```{r}
-sfd.c <- sfd %>%
-  group_by(hc5) %>%              # group_by is how you do a 'dissolve' with sf data
-  summarise_if(is.numeric, mean) # this is how you apply a function to combine results
+sfd.c <- aggregate(sfd, by = list(sfd$hc5), mean)
 plot(sfd.c, pal = RColorBrewer::brewer.pal(7, "Reds"))
 ```
 
@@ -106,4 +108,4 @@ Although geodemographics ia a very visible example of cluster-based classificati
 
 Classification and clustering is an enormous topic area with numerous different methods available, many of them now falling under the rubric of machine-learning.
 
-OK... on to [the assignment](05-assignment-multivariate-analysis.md).
+OK... on to [statistical modelling](05-statistical-models.md).

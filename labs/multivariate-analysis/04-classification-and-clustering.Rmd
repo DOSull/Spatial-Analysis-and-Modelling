@@ -1,5 +1,6 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 First just make sure we have all the data and libraries we need set up.
+
 ```{r message = FALSE}
 library(sf)
 library(tmap)
@@ -10,6 +11,7 @@ sfd <- st_read('sf_demo.geojson')
 sfd <- drop_na(sfd)
 sfd.d <- st_drop_geometry(sfd)
 ```
+
 ## Clustering
 Whereas dimensional reduction methods focus on the variables in a dataset, clustering methods focus on the observations and the differences and similarities between them. The idea of clustering analysis is to break the dataset into clusters or groups of observations that are similar to one another and different from others in the data.
 
@@ -31,6 +33,7 @@ Here's an [illustration of this working](https://kkevsterrr.github.io/K-Means/) 
 It's important to realise that k-means clustering is non-deterministic, as the choice of intial cluster centres is often random, and can affect the final assignment arrived at.
 
 So here is how we accomplish this in R.
+
 ```{r}
 km <- kmeans(sfd.d, 7)
 sfd$km7 <- as.factor(km$cluster)
@@ -60,6 +63,7 @@ The algorithm in this case looks something like
 This approach is 'agglomerative' because we start with individual observations. It is possible to proceed in the other direction repeatedly subdividing the dataset into subsets until we get to individual cases, or perhaps until some measure of the cluster quality tells us we can't improve the solution any further. This method is very often used with network data when cluster detection is known as *community detection* (more on that next week).
 
 In *R*, the necessary functions are provided by the `hclust` function
+
 ```{R}
 hc <- hclust(dist(sfd.d))
 plot(hc)
@@ -104,4 +108,4 @@ Although geodemographics ia a very visible example of cluster-based classificati
 
 Classification and clustering is an enormous topic area with numerous different methods available, many of them now falling under the rubric of machine-learning.
 
-OK... on to [the assignment](05-assignment-multivariate-analysis.md).
+OK... on to [statistical modelling](05-statistical-models.md).
