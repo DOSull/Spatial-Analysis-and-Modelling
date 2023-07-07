@@ -1,4 +1,4 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 # Assignment 3: Interpolation in R
 Now you've seen how to do interpolation many different ways, here is the assignment.
 

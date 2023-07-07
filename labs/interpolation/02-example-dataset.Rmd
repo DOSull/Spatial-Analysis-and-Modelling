@@ -1,11 +1,11 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 # Basics of working with raster data
 First load some libraries
 
 ```{r}
 library(sf)
 library(tmap)
-library(raster)
+library(terra)
 ```
 The new(ish) to us kid on the block here is `raster` for handling gridded raster datasets. One thing to be very aware of is that `raster` masks the `select` function from `dplyr` so you have to specify `dplyr::select` when using the `select` to tidy up datasets during data preparation.
 
@@ -13,7 +13,7 @@ The new(ish) to us kid on the block here is `raster` for handling gridded raster
 We are using a simple example of the elevation of Maungawhau (Mt Eden) in Auckland to demonstrate the interpolation methods. There is a version of this dataset available as standard in *R* but I made raster version of it for us to work with. So load this with the raster package:
 
 ```{r}
-volcano <- raster("data/maungawhau.tif")
+volcano <- rast("data/maungawhau.tif")
 ```
 
 Confusingly, when you read in a raster dataset it names the associated numerical data using the filename, so we rename that to `height` which is more appropriate for our purposes.

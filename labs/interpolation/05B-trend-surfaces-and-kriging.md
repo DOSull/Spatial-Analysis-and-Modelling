@@ -1,4 +1,4 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 
 # Two digressions on trend surfaces and kriging
 
@@ -7,19 +7,19 @@ Run this first to make sure all the data and packages you need are loaded. If an
 ```{r message = FALSE}
 library(sf)
 library(tmap)
-library(raster)
+library(terra)
 library(dplyr)
 library(gstat)
 
 ## The warnings are a bit out of hand on this page so
 options("rgdal_show_exportToProj4_warnings"="none")
 
-volcano <- raster("data/maungawhau.tif")
-names(volcano) <- "data/height"
+volcano <- rast("data/maungawhau.tif")
+names(volcano) <- "height"
 
 controls <- st_read("data/controls.gpkg")
 sites_sf <- st_read("data/sites-sf.gpkg")
-sites_raster <- raster("data/sites-raster.tif")
+sites_raster <- rast("data/sites-raster.tif")
 ```
 
 ## Some thoughts on kriging in `gstat`
@@ -40,8 +40,13 @@ Some of the challenges encountered in the main instructions are mitigated with b
 controls_ssi <- st_read("data/interp-ext.gpkg") %>%
   st_sample(size = 250, type = "SSI", r = 30, n = 250) %>%
   st_sf() %>%
-  st_set_crs(st_crs(controls)) %>%
-  mutate(height = raster::extract(volcano, .))
+  st_set_crs(st_crs(controls))
+
+heights_ssi <- controls_ssi %>%
+  extract(x = volcano)
+
+controls_ssi <- controls_ssi %>%
+  mutate(height = heights_ssi$height)
 ```
 
 Now put them on a web map and note how much more evenly spaced the `controls_ssi` points are.
@@ -54,7 +59,7 @@ tm_shape(controls) + tm_dots(col = "black") + tm_shape(controls_ssi) + tm_dots(c
 # make a new variogram
 v_ssi <- variogram(
   height ~ 1,
-  data = as(controls, "Spatial"),
+  data = as(controls_ssi, "Spatial"),
   cutoff = 500,
   width = 25,
 )
@@ -69,7 +74,8 @@ fit_K_ssi <- gstat(
 )
 # interpolate!
 interp_pts_K_ssi <- predict(fit_K_ssi, sites_sf)
-interp_K_ssi <- rasterize(as(interp_pts_K_ssi, "Spatial"), sites_raster)
+interp_K_ssi <- rasterize(as(interp_pts_K_ssi, "SpatVector"), 
+                          sites_raster, field = c("var1.pred", "var1.var"))$var1.pred
 
 persp(interp_K_ssi$var1.pred, scale = FALSE, expand = 2, theta = 35, phi = 30, lwd = 0.5)
 ```
@@ -87,21 +93,27 @@ But we saw before that with a localised trend surface you can already get a pret
 fit_TS <- gstat(
   formula = height ~ 1,
   data = as(controls, "Spatial"),
-  nmax = 24,,
+  nmax = 24,
   degree = 3,
 )
 interp_pts_TS <- predict(fit_TS, sites_sf)
-interp_TS <- rasterize(as(interp_pts_TS, "Spatial"), sites_raster)$var1.pred
+interp_TS <- rasterize(as(interp_pts_TS, "SpatVector"), sites_raster, field = c("var1.pred", "var1.var"))$var1.pred
 
 persp(interp_TS, scale = FALSE, expand = 2, theta = 35, phi = 30, lwd = 0.5)
 ```
 
 Now we proceed to krige on the residuals from this surface.
+
 ```{r}
 # get the ts values and include in controls also making a residual
+ts_estimates <- extract(interp_TS, as(controls, "SpatVector")) %>%
+  as_tibble() %>%
+  select(var1.pred) %>%
+  rename(ts = var1.pred)
+
 controls_resid <- controls %>%
-  mutate(ts = extract(interp_TS, .),
-         resid = height - ts)
+  bind_cols(ts_estimates) %>%
+  mutate(resid = height - ts)
 
 # now proceeed with kriging on the residual values
 v_resid <- variogram(
@@ -121,8 +133,8 @@ fit_K_resid <- gstat(
 )
 # interpolate!
 interp_pts_K_resid <- predict(fit_K_resid, sites_sf)
-interp_K_resid <- rasterize(as(interp_pts_K_resid, "Spatial"), sites_raster)$var1.pred
-interp_K_final <- interp_TS + interp_K_resid
+interp_K_resid <- rasterize(as(interp_pts_K_resid, "SpatVector"), sites_raster, field = c("var1.pred", "var1.var"))
+interp_K_final <- interp_TS + interp_K_resid$var1.pred
 
 persp(interp_K_final, scale = FALSE, expand = 2, theta = 35, phi = 30, lwd = 0.5)
 ```

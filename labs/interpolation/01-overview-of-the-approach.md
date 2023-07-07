@@ -1,4 +1,4 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 
 # The overall approach to interpolation
 The *R* ecosystem's approach to spatial interpolation seems pretty complicated at first. It's not exactly simple, although the overall concept is straightforward enough and some of the apparent complexity has more to do with making different data types interact with one another successfully.

@@ -1,4 +1,4 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 
 # Other stuff
 Spatial interpolation is widely used in many domains and consequently there are many packages that do some part of it.
@@ -43,13 +43,13 @@ I'm sure there are others, but two packages that do splines are briefly discusse
 #### `MBA`
 ```{r}
 library(MBA)
-library(raster)
+library(terra)
 spline.mba <- mba.surf(controls_xyz,
                        no.X = 61, no.Y = 87, # much jiggery-pokery required
                        n = 87/61, m = 1,
                        extend = T, sp = T)
-r <- raster(spline.mba$xyz.est)
-crs(r) <- st_crs(controls)
+r <- rast(spline.mba$xyz.est)
+
 persp(r, scale = FALSE, expand = 2, theta = 35, phi = 30, lwd = 0.5)
 ```
 
@@ -60,8 +60,10 @@ spline.akima <- interp(controls_xyz$x, controls_xyz$y, controls_xyz$z,
                        nx = 61, ny = 87,
                        extrap = T, linear = F)
 
-r.spline.akima <- raster(spline.akima)
-crs(r.spline.akima) <- st_crs(controls)
+r.spline.akima <- cbind(
+  expand.grid(X = spline.akima$x, Y = spline.akima$y), Z = c(spline.akima$z)) %>%
+  rast(type = "xyz")
+crs(r.spline.akima) <- st_crs(controls)$wkt
 
 p <- persp(r.spline.akima, scale = FALSE, expand = 2, theta = 35, phi = 30, lwd = 0.5)
 ```

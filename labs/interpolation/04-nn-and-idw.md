@@ -1,20 +1,20 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 # Near neighbour and inverse-distance weighted interpolation
 Run this first to make sure all the data and packages you need are loaded. If any data are missing you probably didn't make them in one of the previous instruction pages.
 
 ```{r}
 library(sf)
 library(tmap)
-library(raster)
+library(terra)
 library(dplyr)
 library(gstat)
 
-volcano <- raster("data/maungawhau.tif")
+volcano <- rast("data/maungawhau.tif")
 names(volcano) <- "data/height"
 
 controls <- st_read("data/controls.gpkg")
 sites_sf <- st_read("data/sites-sf.gpkg")
-sites_raster <- raster("data/sites-raster.tif")
+sites_raster <- rast("data/sites-raster.tif")
 ```
 
 ## Inverse-distance weighted interpolation
@@ -23,9 +23,9 @@ These two methods are very similar, and IDW is actually *more general* so we'll 
 As with all the `gstat` methods we use the `gstat::gstat` function to make a statistical model, and then apply it using the `raster::interpolate` function.
 
 ```{r}
-fit_IDW <- gstat(                 # makes a model 
-  formula = height ~ 1,           # The column `height` is what we are interested in
-  data = as(controls, "Spatial"), # using sf but converting to sp, which is required
+fit_IDW <- gstat(                   # makes a model 
+  formula = height ~ 1,             # The column `height` is what we are interested in
+  data = as(controls, "Spatial"),   # using sf but converting to sp, which is required
   set = list(idp = 2),
   # nmax = 12, maxdist = 100        # you can experiment with these options later...
 )
@@ -37,7 +37,7 @@ Having made the model (called `fit_IDW`) we pass it to the `predict` function to
 
 ```{r}
 interp_pts_IDW <- predict(fit_IDW, sites_sf)
-interp_IDW <- rasterize(as(interp_pts_IDW, "Spatial"), sites_raster, "var1.pred")
+interp_IDW <- rasterize(as(interp_pts_IDW, "SpatVector"), sites_raster, "var1.pred")
 names(interp_IDW) <- "height" # rename the variable to something more friendly
 ```
 
@@ -70,7 +70,7 @@ fit_NN <- gstat( # makes a model
 
 # and interpolate like before
 interp_pts_NN <- predict(fit_NN, sites_sf)
-interp_NN <- rasterize(as(interp_pts_NN, "Spatial"), sites_raster, "var1.pred")
+interp_NN <- rasterize(as(interp_pts_NN, "SpatVector"), sites_raster, "var1.pred")
 names(interp_NN) <- "height"
 
 # and display it

@@ -1,4 +1,4 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 
 # Trend surfaces and kriging
 
@@ -7,16 +7,16 @@ Run this first to make sure all the data and packages you need are loaded. If an
 ```{r}
 library(sf)
 library(tmap)
-library(raster)
+library(terra)
 library(dplyr)
 library(gstat)
 
-volcano <- raster("data/maungawhau.tif")
+volcano <- rast("data/maungawhau.tif")
 names(volcano) <- "data/height"
 
 controls <- st_read("data/controls.gpkg")
 sites_sf <- st_read("data/sites-sf.gpkg")
-sites_raster <- raster("data/sites-raster.tif")
+sites_raster <- rast("data/sites-raster.tif")
 ```
 
 There are many different styles of kriging. We'll work here with universal kriging which models variation in the data with two components a *trend surface* and a *variogram* which models how control points vary with distance from one another. So... to perform kriging we have to consider each of these elements in turn.
@@ -38,7 +38,7 @@ The form of the trend surface function is specified by the `degree` parameter an
 
 ```{r}
 interp_pts_TS <- predict(fit_TS, sites_sf)
-interp_TS <- rasterize(as(interp_pts_TS, "Spatial"), sites_raster)
+interp_TS <- rasterize(as(interp_pts_TS, "SpatVector"), sites_raster, field = c("var1.pred", "var1.var"))
 
 persp(interp_TS$var1.pred, scale = FALSE, expand = 2, theta = 35, phi = 30, lwd = 0.5)
 ```
@@ -100,7 +100,7 @@ I have found that it is important to set a fairly low `nmax` with these data. I 
 
 ```{r}
 interp_pts_K <- predict(fit_K, sites_sf)
-interp_K <- rasterize(as(interp_pts_K, "Spatial"), sites_raster)
+interp_K <- rasterize(as(interp_pts_K, "SpatVector"), sites_raster, field = c("var1.pred", "var1.var"))
 
 persp(interp_K$var1.pred, scale = FALSE, expand = 2, theta = 35, phi = 30, lwd = 0.5)
 ```
