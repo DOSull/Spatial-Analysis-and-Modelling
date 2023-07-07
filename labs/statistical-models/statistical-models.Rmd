@@ -1,5 +1,6 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 # Statistical models
+
 ```{r message = FALSE}
 library(raster)
 library(sf)
@@ -20,6 +21,7 @@ In class I will speak briefly to these before diving into the material below.
 
 ## Environment layers
 There are a bunch of raster data sets in a folder called `layers`. We can read them all into a raster `stack` by listing the directory as follows
+
 ```{r message = FALSE, warning = FALSE}
 layer_sources <- file.path("layers", dir(path = "layers"))
 layers <- stack(layer_sources)
@@ -44,6 +46,7 @@ tseas	| Temperature seasonality |	degrees C
 vpd	| Mean October vapor pressure deficit at 9 AM |	kPa
 
 We can map any particular layer of interest as follows:
+
 ```{r}
 tmap_mode("view")
 tm_shape(layers$dem) +
@@ -51,11 +54,13 @@ tm_shape(layers$dem) +
 ```
 
 An entire stack of layers like this can be mapped in one go with a simple `plot` command:
+
 ```{r}
 plot(layers)
 ```
 
 or if you like a bit more cartographic polish use `tmap` (but do this in plot mode, and it might be slow anyway...):
+
 ```{r warning = FALSE, message = FALSE}
 tmap_mode('plot')  # best to do this in plot mode
 tm_shape(layers) +
@@ -68,6 +73,7 @@ tm_shape(layers) +
 
 ## Plant presence-absence data
 I obtained presence-absence data for the mysterious 'nz35' species from the [`disdat` package]() with some more details but not plant identities, unfortunately in [this paper](https://dx.doi.org/10.17161/bi.v15i2.13384).
+
 ```{r}
 plants <- st_read("nz35-pa.gpkg")
 plants.d <- plants %>%
@@ -78,6 +84,7 @@ plants.d <- plants %>%
 In this dataset the attribute `nz35` is 1 where the plant has been observed and 0 where it has not (or where synthetic absence data has been generated).
 
 Map these on any chosen environment layer like this
+
 ```{r}
 tmap_mode("view")
 tm_shape(layers$dem) +
@@ -91,6 +98,7 @@ tm_shape(layers$dem) +
 If we are interested in the distribution of this species (whether because it is invasive, or because it is endangered!) then this is a classic GIS setting for doing some kind of overlay analysis.
 
 We might for example based on inspection, or expert knowledge, or on some other basis choose cutoff values in each environmental layer and make binary maps for each. For example
+
 ```{r}
 dem_bin <- layers$dem < 800
 tm_shape(dem_bin) +
@@ -110,12 +118,14 @@ plants.d <- plants.d %>%
 ```
 
 We can then do things like
+
 ```{r}
 ggplot(plants.d) +
   geom_boxplot(aes(x = nz35, y = dem, group = nz35))
 ```
 
 If we wanted the 'full picture' in this way, we can also do that
+
 ```{r}
 plants.d.long <- plants.d %>%
   pivot_longer(-nz35)
@@ -150,6 +160,7 @@ predicted_presence <- predict(layers, logistic_model, type = "response")
 ```
 
 And we can map this result in the usual way
+
 ```{r}
 tm_shape(predicted_presence) +
   tm_raster(palette = "YlOrRd")
@@ -158,6 +169,7 @@ tm_shape(predicted_presence) +
 Fitting models and chooseing which of the many possible ones we could is a complex process, based on expertise, on the data and on measures of model quality, In the summary above the results suggest that `mas` is more important to the result, than `dem`. Building on this, we might drop `dem` and try again adding in some other factor, or several other factors.
 
 We could also use automated approaches. A base R function for this is `step` which given a base model will try dropping variables to find a best model:
+
 ```{r}
 step(logistic_model)
 ```
@@ -165,12 +177,14 @@ step(logistic_model)
 This approach uses a measure of model quality (AIC, Akaike's Information Criterion *smaller is better*) and in the above example, when the stepping process tries dropping either variable AIC gets worse (AIC gets higher), so it suggests that working with those two variables only, the best model is one that includes both.
 
 This makes it tempting to go all in:
+
 ```{r}
 logistic_model <- glm(nz35 ~ age + deficit + dem + mas + mat + r2pet + rain + slope + sseas + tseas + vpd, data = plants.d, family = "binomial")
 step(logistic_model)
 ```
 
 There are good reasons not to do this, but just to see what we end up with the resulting model is
+
 ```{r}
 logistic_model <- glm(formula = nz35 ~ deficit + dem + mat + rain + sseas + tseas,
     family = "binomial", data = plants.d)
@@ -178,6 +192,7 @@ predicted_presence <- predict(layers, logistic_model, type = "response")
 ```
 
 And map as before
+
 ```{r}
 tm_shape(predicted_presence) +
   tm_raster(palette = "Greys") +
@@ -186,6 +201,7 @@ tm_shape(predicted_presence) +
 ```
 
 Measures of how good a model this is in its ability to predict accurately depend on how well, as we change the decision threshold (i.e. what probability value of the predicted result we use to predict 'presence') we do in predicting true positives and false positives. This can be summarised using an 'area under the curve' statistic available in the `pROC` package:
+
 ```{r message = FALSE}
 library(pROC)
 x <- roc(plants.d$nz35, fitted(logistic_model))
