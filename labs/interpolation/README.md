@@ -1,4 +1,4 @@
-#### GISC 422 T1 2021
+#### GISC 422 T2 2023
 # Interpolation overview
 I am not going to lie... spatial interpolation, whatever tool you use, is complicated and messy. Not the least of the problems is that you are going back and forth between point data (the control points) and field data (the interpolated surface output).
 
