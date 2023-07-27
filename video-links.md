@@ -97,19 +97,19 @@ These were also made for Geog 315, but again are equally applicable to this clas
 ## Week 5 Spatial autocorrelation
 ### Lecture on spatial autocorrelation
 #### Lecture
-+ [Overview](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-01.mp4)
-+ [Nearness and relatedness](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-02.mp4)
-+ [The scatterplot](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-03.mp4)
-+ [Moran's index and statistical evaluation](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-06.mp4)
-+ [Local indicators (LISA)](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-07.mp4)
-+ [Other odds and ends (scale and neighbourhood)](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-08.mp4)
++ [Overview](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-01.m4v)
++ [Nearness and relatedness](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-02.m4v)
++ [The scatterplot](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-03.m4v)
++ [Moran's index and statistical evaluation](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-06.m4v)
++ [Local indicators (LISA)](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-07.m4v)
++ [Other odds and ends (scale and neighbourhood)](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-08.m4v)
 
 #### Show and tell
-+ [Spatial autocorrelation gadget](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-04.mp4)
-+ [GeoDa](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-05.mp4)
++ [Spatial autocorrelation gadget](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-04.m4v)
++ [GeoDa](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/GISC422-05-2021-05.m4v)
 
 ### Overview of lab on spatial autocorrelation
-[This is from 2020](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/gisc422-spatial-autocorrelation-01-lab-overview.mp4) but covers things pretty well.
+[This is from 2020](https://southosullivan.com/gisc422/videos/spatial-autocorrelation/gisc422-spatial-autocorrelation-01-lab-overview.m4v) but covers things pretty well.
 
 ***
 ## Week 6 Simple interpolation methods
