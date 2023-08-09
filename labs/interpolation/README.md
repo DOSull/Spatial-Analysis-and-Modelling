@@ -25,6 +25,3 @@ The steps along the way are described in the instructions below. You'll get the 
 And then of course...
 
 + [The assignment](08-assignment-interpolation.md)
-
-## Videos
-Coming soon...
