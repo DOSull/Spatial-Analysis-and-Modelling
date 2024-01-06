@@ -74,7 +74,7 @@ or
 select(rds, -(3:4))
 ```
 
-Note that here I need to put `1:2` in parentheses so it knows to remove all the columns 1 to 10, and doesn't start by trying to remove a (non-existent) column number -1.
+Note that here I need to put `3:4` in parentheses so it knows to remove all the columns 1 to 10, and doesn't start by trying to remove a (non-existent) column number -3.
 
 ### Selecting rows
 We look at filtering based on data in the next section. If you just want rows, then use `slice()`
