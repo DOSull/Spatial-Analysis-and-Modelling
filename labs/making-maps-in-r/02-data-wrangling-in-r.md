@@ -20,7 +20,7 @@ The [`tidyverse`](https://www.tidyverse.org/) is a large collection of packages 
 
 Like *R* itself the `tidyverse` is largely inspired by the work of another New Zealander, [Hadley Wickham](http://hadley.nz/)... Aotearoa represent!
 
-We can't really get into the philosophy of it all here. Instead we focus on some key functionality provided by functions in the `dplyr` package. We will also look at processing pipelines using the `>%>` or 'pipe' operator.
+We can't really get into the philosophy of it all here. Instead we focus on some key functionality provided by functions in the `dplyr` package. We will also look at processing pipelines using the `%>%` or 'pipe' operator.
 
 So... load these libraries
 
