@@ -1,4 +1,3 @@
-#### GISC 422 T1 2021
 
 # Consolidated index of video content
 ## Week 1 Introducing R and friends
@@ -134,7 +133,7 @@ Once again these are from 2020, but are better quality than we get from zoom rec
 + [TINs and KDE](https://southosullivan.com/gisc422/videos/geostatistics/gisc-422-geostatistics-07-tins-and-kde.mp4)
 
 ***
-## Week 9 Multivariate analysis
+## Week 8 Multivariate analysis
 New for 2021 - some wild digressions mean these are a bit choppy, but all the core material is there.
 ### Context
 + [Introduction](https://southosullivan.com/gisc422/videos/multivariate-analysis/GISC-422-09-01.m4v) (4:43)

@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 # Near neighbour and inverse-distance weighted interpolation
 Run this first to make sure all the data and packages you need are loaded. If any data are missing you probably didn't make them in one of the previous instruction pages.
 

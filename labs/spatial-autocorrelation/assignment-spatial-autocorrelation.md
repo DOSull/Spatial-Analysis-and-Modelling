@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 # **Assignment 2** Spatial autocorrelation in R and/or GeoDa
 This assignment walks you through applying spatial autocorrelation measures, specifically Moran's index of spatial autocorrelation in both its local and global forms.
 

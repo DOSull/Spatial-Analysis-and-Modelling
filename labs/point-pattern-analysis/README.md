@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 # Point pattern analysis overview
 This week simply download [this zip file](point-pattern-analysis.zip?raw=true) and unpack it a local folder, then follow the instructions in the files below. Unlike previous weeks, *the last of these is an assignment!*
 

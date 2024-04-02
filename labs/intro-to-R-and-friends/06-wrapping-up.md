@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 # Wrapping up
 The aim of this session had been to get a feel for things. Don't panic if you don't completely understand everything that is happening. The important thing is to realize
 + You make things happen by typing commands in the console

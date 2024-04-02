@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 # Network analysis
 In this session we explore some of the tools offered by the `igraph` package in R for network analysis. These treat networks from a network science perspective, rather than from a more transportation-oriented perspective.
 

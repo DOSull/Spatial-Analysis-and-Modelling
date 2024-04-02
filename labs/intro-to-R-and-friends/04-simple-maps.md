@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 # Making simple maps
 To mentally prepare you for what's coming, the next few paragraphs walk you through making a map of some data, using the `sf` and `tmap` packages. I think it is helpful to do this just to get a feeling for what is going on before we dive into details in the coming weeks.
 

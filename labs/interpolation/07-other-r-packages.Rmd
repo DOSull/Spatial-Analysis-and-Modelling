@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 
 # Other stuff
 Spatial interpolation is widely used in many domains and consequently there are many packages that do some part of it.

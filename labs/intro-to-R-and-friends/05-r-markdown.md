@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 # _R Markdown_
 One further element of the _R_ and _RStudio_ ecosystem that we will touch on briefly this week, and will see more of through the semester is _R Markdown_.
 

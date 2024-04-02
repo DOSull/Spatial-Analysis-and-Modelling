@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 # Spline interpolation
 This is where `gstat` runs out of steam, and where I suggest you take a look at possibilities in QGIS where the GRASS and SAGA toolboxes, or in ArcGIS where the Spatial Analyst and Geostatistical Analyst have tools for various kinds of interpolation.
 
@@ -58,6 +57,7 @@ And inspect. The result can end up being a lot nicer that `gstat`'s effort...
 ```{r}
 persp(kriged, scale = FALSE, expand = 2, theta = 35, phi = 30, lwd = 0.5)
 ```
+
 You can also get details of the model used
 
 ```{r}

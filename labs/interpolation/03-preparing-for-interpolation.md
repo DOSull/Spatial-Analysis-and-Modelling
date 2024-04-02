@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 
 # Preparing for interpolation
 Run this first to make sure all the data and packages you need are loaded:

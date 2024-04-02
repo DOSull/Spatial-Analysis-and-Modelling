@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 # Assignment 4 Geodemographics in Wellington
 I have assembled some [demographic data for Wellington](welly.gpkg) from the 2018 census at the Statistical Area 1 level (the data were obtained [here](https://datafinder.stats.govt.nz/layer/104612-2018-census-individual-part-1-total-new-zealand-by-statistical-area-1/)). Descriptions of the variables are in [this table](sa1-2018-census-individual-part-1-total-nz-lookup-table.csv). 
 

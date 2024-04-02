@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 # **Point pattern analysis in `spatstat`**
 As we've seen, there are many ways to describe, measure and analyze a point pattern. In this section, we will go through how these are performed in `spatstat`, before, in the lab assignment itself looking at the dataset you will analyze for this assignment.
 

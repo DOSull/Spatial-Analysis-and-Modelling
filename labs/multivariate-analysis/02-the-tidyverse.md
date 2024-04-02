@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 First just make sure we have all the data and libraries we need set up.
 ```{r message = FALSE}
 library(sf)

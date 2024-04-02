@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 # Making maps in *R* overview
 This week simply download [this zip file](making-maps-in-r.zip?raw=true) and unpack it a local folder, then follow the instructions on these pages:
 + [Making maps in *R*](01-making-maps-in-r.md).

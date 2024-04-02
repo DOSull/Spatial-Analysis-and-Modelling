@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 # Statistical models
 Some slides from another class to look at this week
 

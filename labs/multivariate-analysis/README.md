@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 # Multivariate analysis overview
 This week we're looking at several things. You'll find all the necessary materials in this [zip file](multivariate-analysis.zip?raw=true).
 

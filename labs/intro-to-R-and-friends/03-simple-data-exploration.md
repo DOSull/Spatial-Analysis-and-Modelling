@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 # Simple visualization and mapping
 ## Preliminaries
 If you haven't worked through the other two sets of instructions for this week [go back there and do this now](README.md).

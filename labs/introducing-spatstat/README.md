@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 
 # Introducing `spatstat` and experimenting with (spatial) point processes
 

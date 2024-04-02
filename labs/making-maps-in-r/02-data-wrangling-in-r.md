@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 # A first look at data wrangling in *R*
 Data wrangling is not something you will really learn in this course, but unavoidably we will doing some of it along the way. More so when we come to look at large messy multivariate datasets later in the course.
 

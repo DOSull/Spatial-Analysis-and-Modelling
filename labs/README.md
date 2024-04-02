@@ -1,4 +1,3 @@
-#### GISC 422 T1 2020
 # General instructions for labs
 Each week there will be a practical component. Not every week is assessed, but you will learn a lot more if you work on the materials every week.
 

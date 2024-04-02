@@ -1,4 +1,3 @@
-#### GISC 422 T2 2023
 # Statistical models
 
 ```{r message = FALSE}
